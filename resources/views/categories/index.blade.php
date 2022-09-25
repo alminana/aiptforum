@@ -83,7 +83,7 @@
                             </tr>
                             </thead>
                             <tbody>
-							@foreach($posts as $post)
+							@forelse($posts as $post)
 							<tr>
                                 <td>
 								    <div class="d-flex align-items-center">
@@ -110,7 +110,9 @@
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
                             </tr>
-							@endforeach
+                            @empty
+								<p class='lead'>There are no Application to show.</p>
+							@endforelse
                             </tbody>
                         </table>
                     </div>

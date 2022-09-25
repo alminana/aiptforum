@@ -83,7 +83,7 @@
                             </tr>
                             </thead>
                             <tbody>
-							@foreach($posts as $post)
+							@forelse($posts as $post)
 							<tr>
                                 <td>
 								    <div class="d-flex align-items-center">
@@ -96,7 +96,7 @@
 									</div>
 								</td>
                                 <td style="font-size:11px;"><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
-                                <!-- <td><img style='width: 80%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail"></td>  -->
+                                <td><img style='width: 80%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='product-img-2' alt="Post Thumbnail"></td> 
                                 <!-- <td><img src="{{ asset('admin_dashboard_assets/images/products/01.png') }}" class="product-img-2" alt="product img"></td> -->
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
@@ -110,7 +110,9 @@
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
                             </tr>
-							@endforeach
+							@empty
+								<p class='lead'>There are no Application to show.</p>
+							@endforelse
                             </tbody>
                         </table>
                     </div>

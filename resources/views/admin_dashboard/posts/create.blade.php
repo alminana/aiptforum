@@ -506,16 +506,7 @@
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Post Content</label>
                                             <textarea name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="12">{{ old("body") }}
-                                            <p><b>Filing Date</b></p>
-                                            <p>MM/DD/YYYY</p>
-                                            <p><b>Registration No.</b></p>
-                                            <p>input registration no.</p>
-                                            <p><b>Registration Date</b></p>
-                                            <p>MM/DD/YYYY</p>
-                                            <p><b>Renewal Date</b></p>
-                                            <p>MM/DD/YYYY</p>
-                                            <p><b>Post Content</b></p>
-                                            <p>Enter your Content</p>
+                                           
                                             </textarea>
                                         
                                             @error('body')
