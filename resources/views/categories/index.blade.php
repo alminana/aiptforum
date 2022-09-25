@@ -66,19 +66,19 @@
                         <table class="table align-middle mb-0">
                             <thead class="table-light">
                             <tr>
-                                <th>#</th>
-                                <th>Refference</th>
-								<th>Application</th>
-                                <th>Filing no:</th>
-                                <th>Filing date</th>
-                                <th>Class</th>  
-                                <th>Registration</th>
-                                <th>Registration date</th> 
-                                <th>Renewal</th> 
-								<th>Status</th>
-                                <th>Client</th>
-								<th>Country</th>
-								<th>Category</th>
+                                <th style="font-size:11px;">#</th>
+                                <th style="font-size:11px;">Refference</th>
+								<th style="font-size:11px;">Application</th>
+                                <th style="font-size:11px;">Filing no:</th>
+                                <th style="font-size:11px;">Filing date</th>
+                                <th style="font-size:11px;">Class</th>  
+                                <th style="font-size:11px;">Registration</th>
+                                <th style="font-size:11px;">Registration date</th> 
+                                <th style="font-size:11px;">Renewal</th> 
+								<th style="font-size:11px;">Status</th>
+                                <th style="font-size:11px;">Client</th>
+								<th style="font-size:11px;">Country</th>
+								<th style="font-size:11px;">Category</th>
 								
                             </tr>
                             </thead>
@@ -95,20 +95,20 @@
 										</div> -->
 									</div>
 								</td>
-                                <td ><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
                                 <!-- <td><img style='width: 80%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail"></td>  -->
                                 <!-- <td><img src="{{ asset('admin_dashboard_assets/images/products/01.png') }}" class="product-img-2" alt="product img"></td> -->
-                                <td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
-								<td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-								<td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
-                                <td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
-                                <td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-                                <td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td>
-                                <td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
-								<td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
-								<td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
-								<td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
-                                <td ><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
                             </tr>
 							@endforeach
                             </tbody>
