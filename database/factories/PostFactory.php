@@ -25,13 +25,18 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
+            'aiptref' => $this->faker->numerify('aipt-####'),
             'title' => $this->faker->sentence(),
-            'slug' => $this->faker->unique()->slug(),
-            'excerpt' => $this->faker->sentence(),
+            'slug' => $this->faker->numerify('#####'),
+            'excerpt' => $this->faker->company(),
+            'filingno' => $this->faker->numerify('#####'),
             'class' => $this->faker->numerify('class-####'),
+            'registrationno' => $this->faker->numerify('####'),
+            'registrationdate' => $this->faker->date(),
+            'renewal' => $this->faker->date(),
             'body' => $this->faker->paragraph(),
             'aiptref' => $this->faker->numerify('aipt-####'),
-            'country' => $this->faker->paragraph(),
+            'country' => $this->faker->country(),
             'status' => $this->faker->paragraph(),
             'user_id' => User::factory(),
             'category_id' => Category::all()->random()->id,

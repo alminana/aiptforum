@@ -22,16 +22,16 @@ class ImageFactory extends Factory
     public function definition()
     {
         $fake_images = [
-            '1.jpg',
-            '2.jpg',
-            '3.jpeg',
-            '4.jpg',
-            '5.jpg',
-            '6.jpg',
+            '1.png',
+            '2.png',
+            '3.png',
+            '4.png',
+            '5.png',
+            '6.png',
             '7.png',
-            '8.jpg',
-            '9.jpg',
-            '10.jpg',
+            '8.png',
+            '9.png',
+            '10.png',
         ];
 
         return [
