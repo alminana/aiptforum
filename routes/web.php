@@ -48,6 +48,7 @@ Route::post('/posts/{post:slug}',[PostsController::class, 'addComment'])->name('
 
 Route::get('/posts/word-export/{id}', [PostsController::class, 'wordExport'])->name('posts.wordExport');
 
+
 Route::get('/about', AboutController::class)->name('about');
 
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
