@@ -25,6 +25,8 @@ use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
@@ -49,8 +51,10 @@ Route::post('/posts/{post:slug}',[PostsController::class, 'addComment'])->name('
 Route::get('/posts/word-export/{id}', [PostsController::class, 'wordExport'])->name('posts.wordExport');
 
 
-Route::get('/about', AboutController::class)->name('about');
 
+Route::get('/about', AboutController::class)->name('about');
+Route::get('/services', ServicesController::class)->name('service');
+Route::get('/news', NewsController::class)->name('news');
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 

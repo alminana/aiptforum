@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
 use PhpOffice\PhpWord\TemplateProcessor;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class PostsController extends Controller
 {
 
@@ -35,25 +37,44 @@ class PostsController extends Controller
         $comment = Comment::findOrFail($id);
         $templateProcessor = new TemplateProcessor('word-template/Document.docx');
         $templateProcessor->setValue('id', $post->id);
+        $templateProcessor->setValue('image', $post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '');
         $templateProcessor->setValue('aiptref', $post->aiptref);
         $templateProcessor->setValue('title', $post->title);
         $templateProcessor->setValue('slug', $post->slug);
         $templateProcessor->setValue('filingdate', $post->filingdate);
+        $templateProcessor->setValue('registrationno', $post->registrationno);
+        $templateProcessor->setValue('registrationdate', $post->registrationdate);
         $templateProcessor->setValue('status', $post->status);
         $templateProcessor->setValue('excerpt', $post->excerpt);
         $templateProcessor->setValue('country', $post->country);
         $templateProcessor->setValue('class', $post->class);
         $templateProcessor->setValue('body', $post->body);
         $templateProcessor->setValue('renewal', $post->renewal);
-        $templateProcessor->setValue('the_comment', $comment->the_comment);
 
+        $templateProcessor->setValue('the_comment', $post->the_comment);
         $templateProcessor->setValue('post_id', $comment->user->name);
         $templateProcessor->setValue('created_at', $comment->created_at);
+       
         $fileName = $post->title;
         $templateProcessor->saveAs($fileName . '.docx');
         return response()->download($fileName . '.docx')->deleteFileAfterSend(true);
     }
 
+    public function generatePDF() {
+        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
+        $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
+        $categories = Category::withCount('post')->orderBy('posts_count', 'desc')->take(10)->get();
+        $tags = Tag::latest()->take(50)->get();
+        $post = POST::latest()->take(50)->get();
+        $pdfContent = PDF::loadView('post',$post->toArray())->output();
+        return response()->streamDownload(
+            fn () => print($pdfContent),
+            "filename.pdf",
+
+        );
+      }
+  
+  
 
     public function addComment(Post $post)
     {

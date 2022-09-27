@@ -255,7 +255,6 @@
 	setTimeout(() => {
 		$(".global-message").fadeOut();
 	}, 5000);
-
 	function undisableTxt() {
      document.getElementById("myText").disabled = false;
 }

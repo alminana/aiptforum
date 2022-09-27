@@ -1,6 +1,6 @@
-@extends('main_layouts.master')
+@extends('aiapait_layouts.master')
 
-@section('title', 'MyBlog | Contact')
+@section('title', 'AIPTFORUM | Home')
 
 @section('content')
 
