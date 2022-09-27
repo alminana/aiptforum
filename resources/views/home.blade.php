@@ -101,7 +101,7 @@
 						<div class="icon-block text-center mb-4 mb-lg-0">
 							<img src="{{asset('aiapait/images\service/service1.png')}}"/>
 							<h5>Trademark Overview</h5>
-							<a  href="service.html"> Read More </a>
+							<a  href="{{route('service')}}"> Read More </a>
 						</div>
 					</div>
 
@@ -109,7 +109,7 @@
 						<div class="icon-block text-center mt-4 mb-4 mb-lg-0">
 							<img src="{{asset('aiapait/images\service/service2.png')}}"/>
 							<h5>Trademark Registration</h5>
-							<a href="service.html"> Read More </a>
+							<a href="{{route('service')}}"> Read More </a>
 						</div>
 					</div>
 
@@ -117,7 +117,7 @@
 						<div class="icon-block text-center">
 							<img src="{{asset('aiapait/images\service/service3.png')}}"/>
 							<h5>Trademark Infringment</h5>
-							<a href="service.html"> Read More </a>
+							<a href="{{route('service')}}"> Read More </a>
 						</div>
 					</div>
 
@@ -125,7 +125,7 @@
 						<div class="icon-block text-center mt-4 mb-4 mb-lg-0">
 							<img src="{{asset('aiapait/images\service/service4.png')}}"/>
 							<h5>Trademark Watch</h5>
-							<a href="service.html"> Read More </a>
+							<a href="{{route('service')}}"> Read More </a>
 						</div>
 					</div>
 
@@ -134,7 +134,7 @@
 						<div class="icon-block text-center mt-4">
 							<img src="{{asset('aiapait/images\service/service5.png')}}"/>
 							<h5>Trademark Selection</h5>
-							<a href="service.html"> Read More </a>
+							<a href="{{route('service')}}"> Read More </a>
 						</div>
 					</div>
 				</div>

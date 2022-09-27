@@ -33,7 +33,7 @@
 
 <body>
         <!-- Navbar -->
-        @include("aiapait_layouts.layouts.nav")
+        @include("aiapaitar_layouts.layouts.nav")
         <!-- Slider header Start -->
         <!-- @include("aiapait_layouts.layouts.header") -->
 
@@ -42,9 +42,8 @@
 
 
 		<!--contact start-->
-	    	@include("aiapait_layouts.layouts.contact")
         <!-- footer Start -->
-        @include("aiapait_layouts.layouts.footer")
+        @include("aiapaitar_layouts.layouts.footer")
 
    
 

@@ -24,6 +24,13 @@ use App\Http\Controllers\AdminControllers\AdminUsersController;
 use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
 
+// arabic
+use App\Http\Controllers\homearController;
+use App\Http\Controllers\aboutarController;
+use App\Http\Controllers\ServicearController;
+use App\Http\Controllers\NewsarController;
+use App\Http\Controllers\ContactarController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\NewsController;
@@ -58,6 +65,12 @@ Route::get('/news', NewsController::class)->name('news');
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+// arabic
+Route::get('homear', homearController::class)->name('homear');
+Route::get('aboutar', aboutarController::class)->name('aboutar');
+Route::get('servicear', ServicearController::class)->name('servicear');
+Route::get('newsar', NewsController::class)->name('newsar');
+Route::get('contactar', ContactarController::class)->name('contactar');
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');

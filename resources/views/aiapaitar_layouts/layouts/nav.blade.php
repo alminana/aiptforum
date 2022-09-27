@@ -18,12 +18,12 @@
 				<li class="nav-item"><a class="nav-link btn btn-solid-border" href="news.html">News</a></li>
 			   <li class="nav-item"><a class="nav-link btn btn-solid-border" href="contact.html">Contact</a></li>
 			   <li class="nav-item"><a class="nav-link btn btn-solid-border d-none d-lg-block" href="index(ar).html">Arabic <i class="fa fa-angle-right ml-2"></i></a></li> -->
-			   <a href="/" class="nav-link btn btn-main">Home</a>
-			   <a href="{{route('about')}}"  class=" btn btn-main">About</a>
-			   <a href="{{route('service')}}" id="service" class="btn btn-main">Services</a>
-			   <a href="{{route('news')}}"  class="btn btn-main">News</a>
-			   <a href="{{ route('contact.create') }}"  class="btn btn-main">Contact</a>
-			   <a href="{{route('homear')}}"  class="btn btn-main">Arabic</i></a>
+			   <a href="{{route('homear')}}" class="nav-link btn btn-main">Home</a>
+			   <a href="{{route('aboutar')}}"  class=" btn btn-main">About</a>
+			   <a href="{{route('servicear')}}" id="service" class="btn btn-main">Services</a>
+			   <a href="{{route('newsar')}}"  class="btn btn-main">News</a>
+			   <a href="{{ route('contactar') }}"  class="btn btn-main">Contact</a>
+			   <a href="{{route('home')}}"  class="btn btn-main">English</i></a>
 			   @guest
 			   <a href="{{route('login')}}"  class="btn btn-main">Login</a>
                     @endguest

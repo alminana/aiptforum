@@ -53,7 +53,7 @@
 										</div>
 										<div class="tab-pane fade" id="profile-vertical" role="tabpanel" aria-labelledby="profile-vertical-tab">
 											<h3>Trademark Registration</h3>
-											<p style="text-align: justify;">At <img src="images\bg\aipait.png" style="height: 20px;" alt="" srcset=""> we provide full trademark registration services all over the world with special emphasize in Saudi Arabia and the other GCC countries at very competitive rates. Trademark registration is determined in Saudi Arabia by the trademark law of 2002. It takes between 7-9 months from filing to issuing a certificate of registration in Saudi Arabia. Once a trademark is registered, it will be protected in Saudi Arabia for 10 years and it will subject to renewal for similar period(s) every ten years. International Classification of Goods and Service are followed in Saudi Arabia and multi-class application is not available. Saudi Arabia has been a signatory country to the Paris Convention for the Protection of Industrial Property since 2003 and its trademark law is generally in compliance with the Paris Convention. GCC Countries are considering a uniform Gulf trademark law which will enable trademark owners to protect their trademarks in all the six GCC countries through a single application.</p>
+											<p style="text-align: justify;">At <img src="{{asset('aiapait/images\bg\aipait.png')}}" style="height: 20px;" alt="" srcset=""> we provide full trademark registration services all over the world with special emphasize in Saudi Arabia and the other GCC countries at very competitive rates. Trademark registration is determined in Saudi Arabia by the trademark law of 2002. It takes between 7-9 months from filing to issuing a certificate of registration in Saudi Arabia. Once a trademark is registered, it will be protected in Saudi Arabia for 10 years and it will subject to renewal for similar period(s) every ten years. International Classification of Goods and Service are followed in Saudi Arabia and multi-class application is not available. Saudi Arabia has been a signatory country to the Paris Convention for the Protection of Industrial Property since 2003 and its trademark law is generally in compliance with the Paris Convention. GCC Countries are considering a uniform Gulf trademark law which will enable trademark owners to protect their trademarks in all the six GCC countries through a single application.</p>
 										</div>
 										<div class="tab-pane fade" id="contact-vertical" role="tabpanel" aria-labelledby="contact-vertical-tab">
 											<h3>Trademark Infringment</h3>
@@ -61,7 +61,7 @@
 										</div>
 										<div class="tab-pane fade" id="profile-vertical4" role="tabpanel" aria-labelledby="profile-vertical-tab3">
 											<h3>Trademark Watch</h3>
-											<p style="text-align: justify;">In order to fully protect the IP rights of our client, <img src="images\bg\aipait.png" style="height: 20px;" alt="" srcset=""> offers trademark watch as one of its services. Every month, <img src="images\bg\aipait.png" style="height: 20px;" alt="" srcset=""> reviews new trademark filing to ensure no new published marks infringes our clients' mark. As soon as we find a pending application which infringes our clients' marks, we instantly notify our clients. Our staff can readily determine whether our client's mark and the new filing are confusingly similar. After notifying our clients, the firm's professionals can secure and protect their rights by filing an opposition against the registration of the mark.</p>
+											<p style="text-align: justify;">In order to fully protect the IP rights of our client, <img src="{{asset('aiapait/images/logo.png')}}a" style="height: 20px;" alt="" srcset=""> offers trademark watch as one of its services. Every month, <img src="{{asset('aiapait/images\bg\aipait.png')}}" style="height: 20px;" alt="" srcset=""> reviews new trademark filing to ensure no new published marks infringes our clients' mark. As soon as we find a pending application which infringes our clients' marks, we instantly notify our clients. Our staff can readily determine whether our client's mark and the new filing are confusingly similar. After notifying our clients, the firm's professionals can secure and protect their rights by filing an opposition against the registration of the mark.</p>
 										</div>
 										<div class="tab-pane fade" id="contact-vertical5" role="tabpanel" aria-labelledby="contact-vertical-tab">
 											<h3>Trademark Selection</h3>
@@ -78,7 +78,7 @@
 			<div class="col-lg-4 col-md-6 ">
 				<div class="about-item mb-5 mb-lg-5">
 					<div class="icon">
-						<img src="images\about/consultency.png"/>
+						<img src="{{asset('aiapait/images\about/consultency.png')}}"/>
 					</div>
 
 					<div class="content">
@@ -93,7 +93,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="about-item mb-5 mb-lg-5">
 					<div class="icon">
-						<img src="images\about/support-logo.png"/>
+						<img src="{{asset('aiapait/images\about/support-logo.png')}}"/>
 					</div>
 					<div class="content">
 						<h4 class="mt-3 mb-3">Trademark Registration</h4>
@@ -106,7 +106,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="about-item">
 					<div class="icon">
-						<img src="images\about/consultency.png"/>
+						<img src="{{asset('aiapait/images\about/consultency.png')}}"/>
 					</div>
 					<div class="content">
 						<h4 class="mt-3 mb-3">Trademark Infringement & Enforcement</h4>
