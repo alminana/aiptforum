@@ -32,6 +32,13 @@
                         <div class="menu-title">Visit Site</div>
                     </a>
                 </li>
+                <hr>
+                <li>
+                    <a target='_blank' href="{{ route('admin.index') }}">
+                    <div class="parent-icon"><i class='bx bx-pointer'></i></div>
+                        <div class="menu-title">Admin Only</div>
+                    </a>
+                </li>
             </ul>
             <!--end navigation-->
         </div>
