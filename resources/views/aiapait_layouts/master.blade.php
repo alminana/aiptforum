@@ -4,7 +4,7 @@
 <html lang="zxx">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Aipt,patent,aiptpatent,aiptlaw">
+  <meta name="description" content="patent,aiptpatent,aiapait">
   <meta name="author" content="">
 
   <title>aiAPaiT</title>

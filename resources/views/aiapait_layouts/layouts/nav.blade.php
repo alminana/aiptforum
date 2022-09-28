@@ -28,6 +28,8 @@
 			   <a href="{{route('login')}}"  class="btn btn-main">Login</a>
                     @endguest
                 @auth
+				<a class="btn btn-main" href="/dashboard">Dashboard
+				</a>
 				<a class="btn btn-main" onclick="event.preventDefault();
                     document.getElementById('nav-logout-form').submit()" 
                     href="#">Logout</a>

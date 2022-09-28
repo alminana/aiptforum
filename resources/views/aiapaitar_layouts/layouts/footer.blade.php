@@ -59,8 +59,8 @@
 						&copy; Copyright Reserved to <span class="text-color">aiapait</span><a href="" target="_blank"></a>
 					</div>
 					<div class="copyright" style="align-text:left;">
-						Develop by <span class="text-color">EA-ITSolution</span><a href="" target="_blank"></a>
-					</div>
+					Developed by <span class="text-color"></span><a href="www.EA-ITSolution.com" target="_blank">EA-ITSolution</a>
+				</div>
 				</div>
 			</div>
 		</div>

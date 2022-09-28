@@ -61,7 +61,8 @@
 		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
 		<!--End Back To Top Button-->
 		<footer class="page-footer">
-			<p class="mb-0">Copyright © 2021. All right reserved.</p>
+			<p class="mb-0">Copyright © 2022. All right reserved.</p>
+            <p class="mb-0">Developed by. EA-ITSolution</p>
 		</footer>
 	</div>
 	<!--end wrapper-->
@@ -71,7 +72,7 @@
         </div>
         <div class="switcher-body">
             <div class="d-flex align-items-center">
-                <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
+                <h5 class="mb-0 text-uppercase">AIAPAIT Customize</h5>
                 <button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
             </div>
             <hr/>
