@@ -14,15 +14,17 @@ class AdminCategoriesController extends Controller
         'slug' => 'required|unique:categories,slug'
     ];
 
-    public function index()
+    public function index(Category $category)
     {
+        
         return view('admin_dashboard.categories.index', [
             'categories' => Category::with('user')->orderBy('id', 'DESC')->paginate(50)
-        ]);
+        ],compact('category'));
     }
 
     public function create()
     {
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         return view('admin_dashboard.categories.create');
     }
     

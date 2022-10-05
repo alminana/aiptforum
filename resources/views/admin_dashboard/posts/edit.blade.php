@@ -78,6 +78,33 @@
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
+                                            <!-- Registration no -->
+                                            <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Registration no.</label>
+                                            <input type="text" value='{{ old("registrationno", $post->registrationno) }}' class="form-control" required name='registrationno' id="inputProductTitle">
+
+                                            @error('registrationno')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <!-- Registration date. -->
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Rgistration Date.</label>
+                                            <input type="date" value='{{ old("registrationdate", $post->registrationdate) }}' class="form-control" required name='registrationdate' id="inputProductTitle">
+
+                                            @error('registrationdate')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <!-- Renewal -->
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Renewal</label>
+                                            <input type="date" value='{{ old("renewal", $post->renewal) }}' class="form-control" required name='renewal' id="inputProductTitle">
+
+                                            @error('renewal')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Client</label>
                                             <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt", $post->excerpt) }}</textarea>

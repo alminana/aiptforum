@@ -28,6 +28,7 @@ class CreatePostsTable extends Migration
             $table->text('country');
             $table->text('aiptref');
             $table->text('status');
+            
             $table->foreignId('user_id');
             $table->foreignId('category_id');
 
