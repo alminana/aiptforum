@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Category;
+use App\Models\User;
 use DB;
 class DashboardController extends Controller
 {
@@ -17,6 +18,7 @@ class DashboardController extends Controller
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $tags = Tag::latest()->take(50)->get();
         $posts = Post::withCount('comments')->get();  
+        $user = User::latest()->take(50)->get();  
         
         if ($request->has('search')) {
             $posts = Post::where('body', 'like', "%{$request->search}%")
@@ -41,6 +43,7 @@ class DashboardController extends Controller
             'categories' => Category::withCount('posts')->paginate(100),
             'tags' => $tags,
             'comments' => $comments,
-        ], compact('posts','comments'));
+            'user' => $user,
+        ], compact('posts','comments','user'));
     }
 }

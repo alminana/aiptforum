@@ -12,7 +12,8 @@
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.5",
         "mailchimp/marketing": "^3.0",
-        "phpoffice/phpword": "dev-master"
+        "phpoffice/phpword": "dev-master",
+        "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",

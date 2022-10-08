@@ -534,12 +534,7 @@
                                         </div>
 
                                         <button class='btn btn-primary' type='submit'>Update Post</button>
-                                        <a 
-                                        class='btn btn-danger'
-                                        onclick="event.preventDefault();document.getElementById('delete_post_{{ $post->id }}').submit()"
-                                        href="#">Delete Post</a>
-                                        
-                                        
+                             
                                     </div>
                                 </div>
                                 
@@ -548,11 +543,7 @@
                         
                     </form>
 
-                    <form method='post' id='delete_post_{{ $post->id }}' action="{{ route('admin.posts.destroy', $post) }}">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-
+              
                 </div>
             </div>
         </div>

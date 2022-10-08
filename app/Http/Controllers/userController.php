@@ -24,9 +24,10 @@ class userController extends Controller
         'role_id' => 'required|numeric'
     ];
 
-    public function index(Request $request)
+    public function edit(User $user)
     {
-        return view('profiles.index');
+        $user = User::find($id);
+        return view('profiles.edit',compact('user'));
     }
 
     public function destroy(Request $request)

@@ -171,6 +171,9 @@
 	<!--app JS-->
 	<script src="{{ asset('admin_dashboard_assets/js/app.js') }}"></script>
 	@yield("script")
+
+    @include('sweetalert::alert')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

@@ -48,7 +48,7 @@ use App\Http\Controllers\userController;
 // });
 
 Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logout');
-Route::get('/profile_view', [AdminUsersController::class, 'index'])->name('profiles.index');
+Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 

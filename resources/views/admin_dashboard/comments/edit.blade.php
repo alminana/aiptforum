@@ -74,11 +74,11 @@
 
                                         <button class='btn btn-primary' type='submit'>Update Comment</button>
 
-                                        <a 
+                                        <!-- <a 
                                         class='btn btn-danger'
                                         onclick="event.preventDefault(); document.getElementById('comment_delete_form_{{ $comment->id }}').submit()"
                                         href="#">Delete Comment</a>
-                                        
+                                         -->
                                     </div>
                                 </div>
                                 

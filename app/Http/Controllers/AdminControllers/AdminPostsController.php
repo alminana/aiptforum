@@ -9,7 +9,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class AdminPostsController extends Controller
 {
     private $rules = [
@@ -31,6 +31,7 @@ class AdminPostsController extends Controller
 
     public function index(Request $request)
     {
+        
         $recent_posts = Post::latest()->take(5)->get();
 
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
@@ -160,8 +161,11 @@ class AdminPostsController extends Controller
 
     public function destroy(Post $post)
     {
+      
+
         $post->tags()->delete();
         $post->delete();
+        Alert::success('Successfully Delete','Delete');
         return redirect()->route('admin.posts.index')->with('success', 'Post has been Deleted.');
     }
 }

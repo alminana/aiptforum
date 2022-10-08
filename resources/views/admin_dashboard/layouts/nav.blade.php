@@ -2,7 +2,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
-                    <img src="{{ asset('admin_dashboard_assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
+                    <!-- <img src="{{ asset('admin_dashboard_assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon"> -->
                 </div>
                 <div>
                     <h4 class="logo-text">AIPTFORUM</h4>
@@ -51,12 +51,12 @@
                     </ul>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="{{ route('admin.tags.index') }}">
                     <div class="parent-icon"><i class='bx bx-purchase-tag'></i></div>
                         <div class="menu-title">Tags</div>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
@@ -109,19 +109,19 @@
                 </li>    
 
 
-                <li>
+                <!-- <li>
                     <a href="{{ route('admin.contacts') }}">
                     <div class="parent-icon"><i class='bx bx-mail-send'></i></div>
                         <div class="menu-title">Contacts</div>
                     </a>
-                </li>
+                </li> -->
 
-                <li>
+                <!-- <li>
                     <a href="{{ route('admin.setting.edit') }}">
                     <div class="parent-icon"><i class='bx bx-info-square'></i></div>
                         <div class="menu-title">Setting</div>
                     </a>
-                </li>
+                </li> -->
 
                 <hr>
                 

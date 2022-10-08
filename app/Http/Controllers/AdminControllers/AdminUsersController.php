@@ -9,7 +9,10 @@ use Illuminate\Validation\Rule;
 
 use App\Models\Role;
 use App\Models\User;
-
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\Tag;
+use App\Models\Comment;
 class AdminUsersController extends Controller
 {
     private $rules = [
@@ -20,11 +23,25 @@ class AdminUsersController extends Controller
         'role_id' => 'required|numeric'
     ];
 
-    public function index()
+    public function index(User $user, Request $request)
     {
+        $recent_posts = Post::latest()->take(5)->get();
+
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+
+        $tags= Tag::all();
+        $posts = Post::all();
+        $users= User::all();
+        
+        if ($request->has('search')) {
+            $users = User::where('name', 'like', "%{$request->search}%")
+            ->orWhere('id', 'like', "%{$request->search}%")
+            ->orWhere('email', 'like', "%{$request->search}%")
+            ->paginate(10);
+        }
         return view('admin_dashboard.users.index', [
             'users' => User::with('role')->paginate('50')
-        ]);
+        ],compact('users'));
     }
 
     public function create()

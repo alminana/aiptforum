@@ -63,8 +63,8 @@
                     </div>
                     <div class="table-responsive">
 					
-                        <table class="table align-middle mb-0">
-                            <thead class="table-light">
+                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <thead>
                             <tr>
                                 <th style="font-size:11px;">#</th>
                                 <th style="font-size:11px;">Refference</th>
