@@ -24,12 +24,16 @@ use App\Http\Controllers\AdminControllers\AdminUsersController;
 use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
 
+use App\Http\Controllers\AdminControllers\AdminClientController;
+
 // arabic
 use App\Http\Controllers\homearController;
 use App\Http\Controllers\aboutarController;
 use App\Http\Controllers\ServicearController;
 use App\Http\Controllers\NewsarController;
 use App\Http\Controllers\ContactarController;
+
+
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
@@ -59,6 +63,7 @@ Route::get('/posts/word-export/{id}', [PostsController::class, 'wordExport'])->n
 
 
 
+
 Route::get('/about', AboutController::class)->name('about');
 Route::get('/services', ServicesController::class)->name('service');
 Route::get('/news', NewsController::class)->name('news');
@@ -79,6 +84,7 @@ Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show'
 
 Route::post('newsletter', [NewsletterController::class, 'store'])->name('newsletter_store');
 
+Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 
 
 require __DIR__.'/auth.php';
@@ -89,6 +95,8 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
 
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::post('upload_tinymce_image', [TinyMCEController::class, 'upload_tinymce_image'])->name('upload_tinymce_image');
+
+    Route::resource('clients', AdminClientController::class);
 
     Route::resource('posts', AdminPostsController::class);
     Route::resource('categories', AdminCategoriesController::class);

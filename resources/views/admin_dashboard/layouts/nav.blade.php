@@ -34,7 +34,21 @@
                         
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-user'></i>
+                        </div>
+                        <div class="menu-title">Client</div>
+                    </a>
 
+                    <ul>
+                        <li> <a href="{{ route('admin.clients.index') }}"><i class="bx bx-right-arrow-alt"></i>All Client</a>
+                        </li>
+                        <li> <a href="{{route('admin.clients.create')}}"><i class="bx bx-right-arrow-alt"></i>Add New Client</a>
+                        </li>
+                        
+                    </ul>
+                </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-menu'></i>
