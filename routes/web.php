@@ -25,6 +25,7 @@ use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
 
 use App\Http\Controllers\AdminControllers\AdminClientController;
+use App\Http\Controllers\AdminControllers\AdminMethodController;
 
 // arabic
 use App\Http\Controllers\homearController;
@@ -51,6 +52,7 @@ use App\Http\Controllers\userController;
 //     return view('auth.login');
 // });
 
+
 Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logout');
 Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
 
@@ -59,7 +61,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post:slug}',[PostsController::class, 'addComment'])->name('posts.add_comment');
 
-Route::get('/posts/word-export/{id}', [PostsController::class, 'wordExport'])->name('posts.wordExport');
+Route::get('/pdf/{post:id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
+
+
 
 
 
@@ -97,6 +101,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
     Route::post('upload_tinymce_image', [TinyMCEController::class, 'upload_tinymce_image'])->name('upload_tinymce_image');
 
     Route::resource('clients', AdminClientController::class);
+    Route::resource('method', AdminMethodController::class);
 
     Route::resource('posts', AdminPostsController::class);
     Route::resource('categories', AdminCategoriesController::class);

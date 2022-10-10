@@ -107,26 +107,196 @@
                                             @enderror
                                         </div>
                                         <!-- Client -->
-                                        <div class="mb-3">
+                                        <!-- <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Client</label>
                                             <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt") }}</textarea>
                                         
                                             @error('excerpt')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
-                                        </div>
+                                        </div> -->
                                         <!-- status -->
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Client</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+                                                            <select required name='excerpt' class="single-select">
+                                                                @foreach($clients as $key => $client)
+                                                                <option value="{{ $client->name }}">{{ $client->name }}</option>
+                                                                @endforeach
+                                                            </select>
+
+                                                            @error('name')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Status</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='status' value='{{ old("status") }}' class="single-select">
+                                                            <select required class="form-control" name='status' class="single-select">
+                                                                @foreach($method as $key => $method)
+                                                                <option value="{{ $method->method }}">{{ $method->method }}</option>
+                                                                @endforeach
+                                                            </select>
+
+                                                            @error('method')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="mb-3">
+                                            <label for="inputProductDescription" class="form-label">Status</label>
+                                            <textarea required class="form-control" name='status' id="inputProductDescription" rows="3">{{ old("excerpt") }}</textarea>
+                                        
+                                            @error('status')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div> -->
+                                        <!-- <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Status</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+                                                            <input required name='status' value='{{ old("status") }}' class="single-select">
                                                                 <option value="Filing">Filing</option>
                                                                 <option value="Publication">Publication</option>
-                                                                <option value="Grant">Grant</option>
-                                                            </select>
+                                                                <option value="Recording of Assignment">Recording of Assignment</option>
+                                                                <option value="Execution of the Decision in the IP Authority">Execution of the Decision in the IP Authority</option>
+                                                                <option value="Legalization of POA up to Yemeni consulate in Saudi Arabia">Legalization of POA up to Yemeni consulate in Saudi Arabia</option>
+                                                                <option value="Response to Examiner">Response to Examiner</option>
+                                                                <option value="Late Filing of Documents">Late Filing of Documents</option>
+                                                                <option value="search">search</option>
+                                                                <option value="Under remittance">Under remittance</option>
+                                                                <option value="Certified Arabic Translation">Certified Arabic Translation</option>
+                                                                <option value="copyright">copyright</option>
+                                                                <option value="Filing time extension">Filing time extension</option>
+                                                                <option value="EP Validation">EP Validation</option>
+                                                                <option value="2 months extension petition to  Reply to formal Examination">2 months extension petition to  Reply to formal Examination</option>
+                                                                <option value="Late Submission">Late Submission</option>
+                                                                <option value="12th year annuity">12th year annuity</option>
+                                                                <option value="Petition to Restore with SAIP">Petition to Restore with SAIP</option>
+                                                                <option value="2 months extension petition to  Reply the 1st Substantive Examination"></option>
+                                                                <option value="PPH Submission">PPH Submission</option>
+                                                                <option value="Voluntary Cancellation">Voluntary Cancellation</option>
+                                                                <option value="Filing Appeal before the Appellate Court">Filing Appeal before the Appellate Court</option>
+                                                                <option value="Revoking of POA">Revoking of POA</option>
+                                                                <option value="Pre-Examination">Pre-Examination</option>
+                                                                <option value="Reply to appeal to Commercial Court">Reply to appeal to Commercial Court</option>
+                                                                <option value="Renewal with Obtaining copy of CR">Renewal with Obtaining copy of CR</option>
+                                                                <option value="Appeal to Commercial Court">Appeal to Commercial Court</option>
+                                                                <option value="Filing Appeal for Reconsideration">Filing Appeal for Reconsideration</option>
+                                                                <option value="Late Filing of Deed of Assignment">Late Filing of Deed of Assignment</option>
+                                                                <option value="Filing with 1st, 2nd, & 3rd year annuity">Filing with 1st, 2nd, & 3rd year annuity</option>
+                                                                <option value="Filing with 1st and 2nd year annuity">Filing with 1st and 2nd year annuity</option>
+                                                                <option value="Reply to 3rd substantive examination">Reply to 3rd substantive examination</option>
+                                                                <option value="Training workshop in Sudan">Training workshop in Sudan</option>
+                                                                <option value="Obtaining Substitute Grant Certificate (Arabic)">Obtaining Substitute Grant Certificate (Arabic)</option>
+                                                                <option value="Filing Customs Surveillance of the trademark application">Filing Customs Surveillance of the trademark application</option>
+                                                                <option value="Legalization of POA up to Bahraini Consulate in Saudi Arabia">Legalization of POA up to Bahraini Consulate in Saudi Arabia</option>
+                                                                <option value="Legalization of POA up to Saudi MOFA">Legalization of POA up to Saudi MOFA</option>
+                                                                <option value="Request for Extension on filing appeal">Request for Extension on filing appeal</option>
+                                                                <option value="Filing an Appeal">Filing an Appeal</option>
+                                                                <option value="Courier">Courier</option>
+                                                                <option value="Submission of Priority Documents">Submission of Priority Documents</option>
+                                                                <option value="additional">additional</option>
+                                                                <option value="11th year annuity">11th year annuity</option>
+                                                                <option value="14 year annuity">14 year annuity</option>
+                                                                <option value="Correct Arabic Translation of the Specification of specification, abstract,claims and drawings">Correct Arabic Translation of the Specification of specification, abstract,claims and drawings</option>
+                                                                <option value="Sworn translation">Sworn translation</option>
+                                                                <option value="15th year annuity">15th year annuity</option>
+                                                                <option value="Certified Stamp of Arabic Specification">Certified Stamp of Arabic Specification</option>
+                                                                <option value="6th year Annuity">6th year Annuity</option>
+                                                                <option value="7th and 8th year annuity">7th and 8th year annuity</option>
+                                                                <option value="Amendment of a Registered TM">Amendment of a Registered TM</option>
+                                                                <option value="Filing an opposition before the Administrative Court against the registration ">Filing an opposition before the Administrative Court against the registration </option>
+                                                                <option value="Review of the Confidentiality Agreement">Review of the Confidentiality Agreement</option>
+                                                                <option value="10th year Annuity">10th year Annuity</option>
+                                                                <option value="9th year Annuity">9th year Annuity</option>
+                                                                <option value="4th,5th,6th,Late Penalty fees for annual fee and Restoration Fees">4th,5th,6th,Late Penalty fees for annual fee and Restoration Fees</option>
+                                                                <option value="Recordal of License">Recordal of License</option>
+                                                                <option value="orrect Arabic Translation of the Specification of specification, abstract,claims and drawings">orrect Arabic Translation of the Specification of specification, abstract,claims and drawings</option>
+                                                                <option value="3rd and 4th  year annuity">3rd and 4th  year annuity</option>
+                                                                <option value="Legalization of DOA up to Saudi MOFA">Legalization of DOA up to Saudi MOFA</option>
+                                                                <option value="Legalization of DOA up to Jordanian Consulate ">Legalization of DOA up to Jordanian Consulate </option>
+                                                                <option value="Legalization of Documents">Legalization of Documents</option>
+                                                                <option value="10 year annuity">10 year annuity</option>
+                                                                <option value="Local legalization of POA">Local legalization of POA</option>
+                                                                <option value="Filing an opposition before the SAIP’s Grievance committee against the Rejection report of a Patent Application">Filing an opposition before the SAIP’s Grievance committee against the Rejection report of a Patent Application</option>
+                                                                <option value="Preparing and filing the list of goods ">Preparing and filing the list of goods </option>
+                                                                <option value="Amendment of patent grant">Amendment of patent grant</option>
+                                                                <option value="Certification of Assignment Document">Certification of Assignment Document</option>
+                                                                <option value="Appeal to the Administrative Court">Appeal to the Administrative Court</option>
+                                                                <option value="Recordal of Merger and Change of Name">Recordal of Merger and Change of Name</option>
+                                                                <option value="Claims exceeding Ten  claims ">Claims exceeding Ten  claims </option>
+                                                                <option value=Legalization of the POA up to Lebanese Consulate "">Legalization of the POA up to Lebanese Consulate </option>
+                                                                <option value="Legalization of the POA to the Chinese Commercial Center in UAE">Legalization of the POA to the Chinese Commercial Center in UAE</option>
+                                                                <option value="Legalization of the POA to the Foreign Affairs in UAE">Legalization of the POA to the Foreign Affairs in UAE</option>
+                                                                <option value="3rd year annuity and substantive examination ">3rd year annuity and substantive examination </option>
+                                                                <option value="Amendment of  specification  ">Amendment of  specification  </option>
+                                                                <option value="Trademark Renewal and Change of Address">Trademark Renewal and Change of Address</option>
+                                                                <option value="Discount">Discount</option>
+                                                                <option value="2nd, 3rd & 4th annuity">2nd, 3rd & 4th annuity</option>
+                                                                <option value="Filing a second party plaintiff appeal">Filing a second party plaintiff appeal</option>
+                                                                <option value="filed a complaints before Ministry of Supply and Internal Trade in Egypt regarding the infringing ">filed a complaints before Ministry of Supply and Internal Trade in Egypt regarding the infringing </option>
+                                                                <option value="filed a complaints before Ministry of Supply and Internal Trade in Egypt regarding the infringing ">filed a complaints before Ministry of Supply and Internal Trade in Egypt regarding the infringing </option>
+                                                                <option value="Legal Opinion">Legal Opinion</option>
+                                                                <option value="Filing a complaint">Filing a complaint</option>
+                                                                <option value="publication">publication</option>
+                                                                <option value="Examination of application">Examination of application</option>
+                                                                <option value="Legalization of document in Baghdad">Legalization of document in Baghdad</option>
+                                                                <option value="Cancellation of License">Cancellation of License</option>
+                                                                <option value="Prosecution Fees">Prosecution Fees</option>
+                                                                <option value="Preparing and filing an Appeal against the Registrar’s decision ">Preparing and filing an Appeal against the Registrar’s decision </option>
+                                                                <option value="Change of Agent & Taking Over Representation">Change of Agent & Taking Over Representation</option>
+                                                                <option value="POA legalization from Taiwan embassy in Bahrain">POA legalization from Taiwan embassy in Bahrain</option>
+                                                                <option value="POA legalization from Bahrain Ministry of Foreign Affairs in Bahrain">POA legalization from Bahrain Ministry of Foreign Affairs in Bahrain</option>
+                                                                <option value="7th year annuity with 3 months penalty">7th year annuity with 3 months penalty</option>
+                                                                <option value="Restoration Fees">Restoration Fees</option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+                                                                <option value=""></option>
+
+                                                            />
 
                                                             @error('status')
                                                                 <p class='text-danger'>{{ $message }}</p>
@@ -136,7 +306,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- Country -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Country</label>

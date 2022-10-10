@@ -42,7 +42,7 @@
 								<li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
 								</li>
 								<li class="breadcrumb-item active" aria-current="page">All Details</li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="{{ url('posts/word-export/' . $post->id) }}">Export Word</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="{{ url('pdf/{post:id}') }}">Export PDF</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -258,6 +258,19 @@
 	function undisableTxt() {
      document.getElementById("myText").disabled = false;
 }
+
+	function printlayer(Layer)
+	{
+		var generator=window.open(",'name,");
+		var layertext = document.getElementById(layer);
+		generator.document.write(layetext.innerHTML.replace("Print me"));
+
+		generator.document.close();
+		generator.print();
+		genrator.close();
+	}
 </script>
 
 @endsection
+<!-- https://youtu.be/6Hnokd4OlPk -->
+

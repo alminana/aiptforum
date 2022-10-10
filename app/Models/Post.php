@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Image;
+use App\Models\Client;
 
 class Post extends Model
 {
@@ -30,6 +31,11 @@ class Post extends Model
                            'user_id', 
                            'category_id', 
                            'approved'];
+
+    public function method()
+    {
+        return $this->belongsToMany(Method::class);
+    }
 
     public function author()
     {
@@ -60,6 +66,11 @@ class Post extends Model
     public function scopeApproved($query)
     {
         return $query->where('approved', 1);
+    }
+
+    public function client()
+    {
+        return $this->belongsToMany(Client::class);
     }
 }
 

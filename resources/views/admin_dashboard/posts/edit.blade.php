@@ -105,15 +105,36 @@
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <div class="mb-3">
+                                        <!-- <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Client</label>
                                             <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt", $post->excerpt) }}</textarea>
                                         
                                             @error('excerpt')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
-                                        </div>
+                                        </div> -->
 
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Client</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+                                                            <select required name='excerpt' class="single-select">
+                                                                @foreach($clients as $key => $client)
+                                                                <option value="{{ $client->name }}">{{ $client->name }}</option>
+                                                                @endforeach
+                                                            </select>
+
+                                                            @error('name')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">status</label>
                                             <div class="card">

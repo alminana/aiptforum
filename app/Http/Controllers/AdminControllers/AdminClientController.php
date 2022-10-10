@@ -14,7 +14,7 @@ class AdminClientController extends Controller
    
     public function index(Request $request)
     {  
-        $clients = Client::latest()->take(5)->get();
+        $clients = Client::latest()->take(100)->get();
 
         if ($request->has('search')) {
             $clients = Client::where('name', 'like', "%{$request->search}%")
@@ -26,14 +26,14 @@ class AdminClientController extends Controller
 
     public function create()
     {
-        $clients = Client::latest()->take(5)->get();        
+        $clients = Client::latest()->take(100)->get();        
         return view('admin_dashboard.client.create');
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate($this->rules);
-        $clients = Client::latest()->take(10)->get();
+        $clients = Client::latest()->take(100)->get();
         Client::create($validated);
         return redirect()->route('admin.clients.index')->with('success', 'Client has been Created.');
     }
@@ -43,6 +43,15 @@ class AdminClientController extends Controller
         return view('admin_dashboard.client.edit', [
             'client' => $client
         ]);
+    }
+
+    public function update(Request $request, Client $client)
+    {
+        $validated = $request->validate($this->rules);
+        
+        $client->update($validated);
+        
+        return redirect()->route('admin.clients.index', $client)->with('success', 'Client has been updated');
     }
 
     public function destroy(Client $client)

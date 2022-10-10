@@ -51,6 +51,21 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-user'></i>
+                        </div>
+                        <div class="menu-title">Method</div>
+                    </a>
+
+                    <ul>
+                        <li> <a href="{{ route('admin.method.index') }}"><i class="bx bx-right-arrow-alt"></i>All Method</a>
+                        </li>
+                        <li> <a href="{{ route('admin.method.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Method</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-menu'></i>
                         </div>
                         <div class="menu-title">Categories</div>

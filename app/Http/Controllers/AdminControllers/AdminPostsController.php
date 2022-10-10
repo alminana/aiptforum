@@ -9,12 +9,14 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
+use App\Models\Client;
+use App\Models\Method;
 use RealRashid\SweetAlert\Facades\Alert;
 class AdminPostsController extends Controller
 {
     private $rules = [
-        'title' => 'required|max:200',
-        'slug' => 'required|max:200',
+        'title' => 'required',
+        'slug' => 'required',
         'filingdate'=> 'required',
         'registrationno'=> 'required',
         'registrationdate'=>'required',
@@ -32,12 +34,14 @@ class AdminPostsController extends Controller
     public function index(Request $request)
     {
         
-        $recent_posts = Post::latest()->take(5)->get();
+        $recent_posts = Post::latest()->take(10)->get();
 
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
 
         $tags= Tag::all();
-        $posts = Post::all();
+        $posts = Post::latest()->take(10)->get();
+        $client = Client::latest()->take(10)->get();
+        $method = Method::latest()->take(10)->get();
         
         if ($request->has('search')) {
             $posts = Post::where('body', 'like', "%{$request->search}%")
@@ -52,17 +56,26 @@ class AdminPostsController extends Controller
             ->orWhere('created_at', 'like', "%{$request->search}%")
             ->paginate(10);
         }
-        return view('admin_dashboard.posts.index',compact('posts','tags'));
+        return view('admin_dashboard.posts.index',compact('posts','tags','client','method'));
 
+        // return view('admin_dashboard.posts.index', [
+        //     'tags'=> Tag::all(),
+        //     'client'=> Client::all(),
+        //     'posts'=> Post::all(),
+        // ],compact('posts','tags','client'));
     }
 
     public function create()
     {
         $tags = Tag::latest()->take(50)->get();
+        $clients = Client::all();
+        $method = Method::all();
         return view('admin_dashboard.posts.create', [
             'tags'=> Tag::all(),
+            'clients'=> Client::all(),
+            'method'=> Method::all(),
             'categories' => Category::pluck('name', 'id')
-        ]);
+        ],compact('clients','method'));
     }
     
     public function store(Request $request)
@@ -70,7 +83,7 @@ class AdminPostsController extends Controller
         $validated = $request->validate($this->rules);
         $validated['user_id'] = auth()->id();
         $post = Post::create($validated);
-
+        $method = Method::all();
         if($request->has('thumbnail'))
         {
             $thumbnail = $request->file('thumbnail');
@@ -112,11 +125,13 @@ class AdminPostsController extends Controller
         //     if($key !== count($post->tags) - 1)
         //         $tags .= ', ';
         // }
-        
+        $clients = Client::all();
+        $method = Method::all();
         return view('admin_dashboard.posts.edit', [
             'post' => $post,
-            'categories' => Category::pluck('name', 'id')
-        ]);
+            'categories' => Category::pluck('name', 'id'),
+            'clients'=>$clients,
+        ],compact('clients'));
     }
     
     public function update(Request $request, Post $post)
@@ -161,8 +176,7 @@ class AdminPostsController extends Controller
 
     public function destroy(Post $post)
     {
-      
-
+        $method = Method::all();    
         $post->tags()->delete();
         $post->delete();
         Alert::success('Successfully Delete','Delete');
