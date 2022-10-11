@@ -14,12 +14,19 @@ class AdminCategoriesController extends Controller
         'slug' => 'required|unique:categories,slug'
     ];
 
-    public function index(Category $category)
+    public function index(Category $category, Request $request)
     {
-        
-        return view('admin_dashboard.categories.index', [
-            'categories' => Category::with('user')->orderBy('id', 'DESC')->paginate(50)
-        ],compact('category'));
+
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        if ($request->has('search')) {
+            $categories = Category::where('name', 'like', "%{$request->search}%")
+            ->orWhere('id', 'like', "%{$request->search}%")
+            ->orWhere('slug', 'like', "%{$request->search}%")
+            ->orWhere('user_id', 'like', "%{$request->search}%")
+            ->paginate(10);
+        }
+        return view('admin_dashboard.categories.index',compact('categories','category'));
+
     }
 
     public function create()

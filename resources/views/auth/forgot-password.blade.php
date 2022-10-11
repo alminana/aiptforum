@@ -30,8 +30,7 @@
                         <div class="text-center mt-4">
                             <div class="mb-3">
                                 <a href="index.html" class="auth-logo">
-                                    <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt="">
+                                <img src="{{asset('logo/logo.png')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">
                                 </a>
                             </div>
                         </div>
@@ -47,7 +46,7 @@
             @csrf
 
     <div class="alert alert-info alert-dismissible fade show" role="alert">
-     Forgot your password?<strong> No problem.</strong> Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+     Forgot your password?<strong> No problem.</strong> Just let us know your email address and i make a request to your administrator to send a link that will allow you to choose a new one.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 

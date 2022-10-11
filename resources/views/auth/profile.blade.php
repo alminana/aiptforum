@@ -1,5 +1,10 @@
-<x-guest-layout>
-    <x-auth-card>
+@extends('main_layouts.master')
+
+@section('title', ' Category | AIPTFORUM')
+
+@section('content')
+
+<x-auth-card>
         <x-slot name="logo">
             <a href="/">
             <img src="{{asset('logo/logo.png')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">
@@ -45,4 +50,5 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+
+@endsection

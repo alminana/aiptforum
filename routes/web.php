@@ -26,6 +26,7 @@ use App\Http\Controllers\AdminControllers\AdminSettingController;
 
 use App\Http\Controllers\AdminControllers\AdminClientController;
 use App\Http\Controllers\AdminControllers\AdminMethodController;
+use App\Http\Controllers\AdminControllers\AdminProfileController;
 
 // arabic
 use App\Http\Controllers\homearController;
@@ -52,6 +53,8 @@ use App\Http\Controllers\userController;
 //     return view('auth.login');
 // });
 
+Route::resource('profile', AdminProfileController::class);
+
 
 Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logout');
 Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
@@ -63,7 +66,7 @@ Route::post('/posts/{post:slug}',[PostsController::class, 'addComment'])->name('
 
 Route::get('/pdf/{post:id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
 
-
+Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 
 
 

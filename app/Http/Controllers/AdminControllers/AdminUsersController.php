@@ -23,25 +23,30 @@ class AdminUsersController extends Controller
         'role_id' => 'required|numeric'
     ];
 
-    public function index(User $user, Request $request)
+    public function index( Request $request)
     {
-        $recent_posts = Post::latest()->take(5)->get();
+        $recent_posts = Post::latest()->take(100)->get();
 
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
 
-        $tags= Tag::all();
-        $posts = Post::all();
-        $users= User::all();
+        $tags= Tag::latest()->take(100)->get();
+        $posts = Post::latest()->take(100)->get();
+        $users= User::latest()->take(100)->get();
         
         if ($request->has('search')) {
             $users = User::where('name', 'like', "%{$request->search}%")
             ->orWhere('id', 'like', "%{$request->search}%")
             ->orWhere('email', 'like', "%{$request->search}%")
+            ->orWhere('role_id', 'like', "%{$request->search}%")
             ->paginate(10);
         }
-        return view('admin_dashboard.users.index', [
-            'users' => User::with('role')->paginate('50')
-        ],compact('users'));
+        if ($request->has('search'))
+        {
+            $roles = Role::where('name', 'like', "%{$request->search}%")
+            ->orWhere('id', 'like', "%{$request->search}%")
+            ->paginate(10);
+        }
+        return view('admin_dashboard.users.index',compact('users'));
     }
 
     public function create()

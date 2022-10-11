@@ -33,7 +33,7 @@
           
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Add New Post</h5>
+                    <h5 class="card-title">Add Application</h5>
                     <hr/>
 
                     <form action="{{ route('admin.posts.store') }}" method='post' enctype='multipart/form-data'>
