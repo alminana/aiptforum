@@ -45,8 +45,6 @@
                                 </form>
                                 </div>
                                 <div class="ms-auto"><a href="" class="btn btn-primary ">Excel</a></div>
-                                <div class="ms-auto"><a href="" class="btn btn-primary ">View</a></div> 
-                                <div class="ms-auto"><a href="" class="btn btn-primary ">PDF</a></div>
                                 <div class="ms-auto"><a href="{{ route('categories.index') }}" class="btn btn-primary ">Clear</a></div>
                             </div>
                             <!-- <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
@@ -117,7 +115,7 @@
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
                                 <td>
 									<div class="d-flex order-actions">
-										<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-printer'></i></a>
+										<a href="{{ route('pdf.generatepdf', $post->id) }}" class=""><i class='bx bxs-printer'></i></a>
                                     </div>
 								</td>
 

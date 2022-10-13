@@ -11,44 +11,24 @@
 	<div class="page-wrapper">
 			<div class="page-content">
 				<!--breadcrumb-->
-				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Detials</div>
-					<div class="ps-3">
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
-								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Details</li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="{{ url('print/pdf-export/{id}' . $post->id) }}">Export PDF</a></li>
-							</ol>
-						</nav>
-					</div>
-				</div>
 				<!--end breadcrumb-->
-			  
+				<div class="container">
+  <h2 style="align-text:center;">Application Details</h2>
+  <table>
+	<thead>
+		<tr>{!! $post->body !!}</tr>
+	</thead>
+  </table>
+</div>
+<hr>
 				<div class="container">
 				<form action="{{ route('admin.posts.update', $post) }}" method='post' enctype='multipart/form-data'>
 						<div class="row">
 							<div class="col-md-7">
 								<div class="card">
-									<div class="card-body">
-									<img style='width: 100%' src="{{ asset('logo/logo.jpg') }}" class='img-responsive' alt="Post Thumbnail">
-									</div>
-									<div class="classes-img" style="background-image: url({{ asset($post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '')  }});">
-										</div>
+								
 								</div>
 							<div class="row row-pb-lg">
-								<div class="col-md-12 animate-box">
-										<div class="classes class-single">
-											<div class="desc desc2">
-											<label for="inputProductTitle" class="form-label"><b>Other Details</b></label>
-												<div>
-												{!! $post->body !!}
-												</div>	
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 							<div class="col-md-5">
 								<div class>
@@ -190,9 +170,7 @@
 
 								  
 							</div>
-						</div>
-						
-						
+						</div>		
 			</div>
 		</div>
 	</div>
