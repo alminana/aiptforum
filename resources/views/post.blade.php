@@ -42,7 +42,7 @@
 								<li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
 								</li>
 								<li class="breadcrumb-item active" aria-current="page">All Details</li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="{{ url('pdf/{post:id}') }}">Export PDF</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('pdf.generatepdf', $post->id) }}">Export PDF</a></li>
 							</ol>
 						</nav>
 					</div>

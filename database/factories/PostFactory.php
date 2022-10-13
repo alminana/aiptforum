@@ -27,6 +27,7 @@ class PostFactory extends Factory
         return [
             'aiptref' => $this->faker->numerify('aipt-####'),
             'title' => $this->faker->sentence(),
+            'clientref' => $this->faker->numerify('aipt-####'),
             'slug' => $this->faker->numerify('#####'),
             'excerpt' => $this->faker->company(),
             'class' => $this->faker->numerify('class-####'),

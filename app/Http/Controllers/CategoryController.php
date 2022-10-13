@@ -5,18 +5,35 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
-use App\Models\Tag;
 use App\Models\Category;
 use DB;
 
 class CategoryController extends Controller
 {
+    public function viewPDF()
+    {
+        $posts =Post::all();
+        $pdf = PDF::loadView('pdf.postlist', array('posts'=> $posts))->setPaper('a4', 'portrait');
+        return $pdf->stream();
+    }
+
+    public function downloadPDF()
+    {
+        $posts =Post::all();
+        $pdf = PDF::loadView('pdf.postlist', array('posts'=> $posts))->setPaper('a4', 'portrait');
+        return $pdf->stream();
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(PostDataExport::class);
+    }
+
     public function index(Request $request)
     {
         $comments = DB::table('comments')->latest('id')->first();
-        $recentPosts = Post::latest('created_at','desc')->take(5)->get();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $tags = Tag::latest()->take(50)->get();
         $posts = Post::withCount('comments')->get();
 
         if ($request->has('search')) {
@@ -24,6 +41,7 @@ class CategoryController extends Controller
             ->orWhere('id', 'like', "%{$request->search}%")
             ->orWhere('title', 'like', "%{$request->search}%")
             ->orWhere('filingdate', 'like', "%{$request->search}%")
+            ->orWhere('clientref', 'like', "%{$request->search}%")
             ->orWhere('registrationno', 'like', "%{$request->search}%")
             ->orWhere('registrationdate', 'like', "%{$request->search}%")
             ->orWhere('renewal', 'like', "%{$request->search}%")
@@ -40,7 +58,6 @@ class CategoryController extends Controller
             'posts' => $posts,
             'recentPosts' => $recentPosts,
             'categories' => Category::withCount('posts')->paginate(100),
-            'tags' => $tags,
             'comments' => $comments,
         ], compact('posts','comments'));
     }
@@ -85,7 +102,6 @@ class CategoryController extends Controller
         $comments = DB::table('comments')->latest('id')->first();
         $recentPosts = Post::latest('created_at','desc')->take(5)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $tags = Tag::latest()->take(50)->get();
         $posts = Post::withCount('comments')->get();
 
         if ($request->has('search')) {

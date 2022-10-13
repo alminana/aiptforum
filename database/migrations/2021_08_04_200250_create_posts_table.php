@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('clientref');
             $table->string('filingdate')->default('0000-00-00');
             $table->string('registrationno');
             $table->string('registrationdate')->default('0000-00-00');

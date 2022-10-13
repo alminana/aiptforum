@@ -58,31 +58,17 @@ Route::resource('profile', AdminProfileController::class);
 
 Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logout');
 Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post:slug}',[PostsController::class, 'addComment'])->name('posts.add_comment');
-
-Route::get('/pdf/{post:id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
-
+Route::get('/pdf/{id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
 Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 
+// export excel for Application
+Route::post('/posts/view-pdf',[PostsController::class, 'viewPDF'])->name('view-pdf');
+Route::post('/posts/download-pdf',[PostsController::class, 'downloadPdf'])->name('download-pdf');
+Route::post('/posts/export-excel',[PostsController::class, 'exportExcel'])->name('posts.download-excel');
 
-
-
-Route::get('/about', AboutController::class)->name('about');
-Route::get('/services', ServicesController::class)->name('service');
-Route::get('/news', NewsController::class)->name('news');
-Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-
-// arabic
-Route::get('homear', homearController::class)->name('homear');
-Route::get('aboutar', aboutarController::class)->name('aboutar');
-Route::get('servicear', ServicearController::class)->name('servicear');
-Route::get('newsar', NewsController::class)->name('newsar');
-Route::get('contactar', ContactarController::class)->name('contactar');
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');

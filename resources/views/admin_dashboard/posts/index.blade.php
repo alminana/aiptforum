@@ -39,12 +39,13 @@
 										<th>AIPTREF</th>
 										<th>Image</th>
 										<th>Application</th>
+										<th>Client Refference</th>
                                         <th>Filing no:</th>
 										<th>Status</th>
                                         <th>Client</th>
 										<th>Country</th>
                                         <th>Class</th>
-										<th>Category</th>
+										<th>Project</th>
 										<!-- <th>Created at</th> -->
 										<th>Actions</th>
 									</tr>
@@ -67,6 +68,7 @@
 										<img style='width: 40%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 									    </td>
 										<td>{{ $post->title }} </td>
+										<td>{{$post->clientref}}</td>
 										<td>{{$post->slug}}</td>
 										<td>{{ $post->status}}</td>
 										<td>{{ $post->excerpt }}</td>

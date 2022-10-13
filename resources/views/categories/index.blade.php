@@ -44,6 +44,9 @@
                                 <input type="search" name="search" class="form-control ps-5 " style="padding: 10px 550px;" placeholder="Search Application"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
                                 </form>
                                 </div>
+                                <div class="ms-auto"><a href="" class="btn btn-primary ">Excel</a></div>
+                                <div class="ms-auto"><a href="" class="btn btn-primary ">View</a></div> 
+                                <div class="ms-auto"><a href="" class="btn btn-primary ">PDF</a></div>
                                 <div class="ms-auto"><a href="{{ route('categories.index') }}" class="btn btn-primary ">Clear</a></div>
                             </div>
                             <!-- <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
@@ -70,6 +73,7 @@
                                 <th style="font-size:11px;">Refference</th>
                                 <th style="font-size:11px;">Image</th>
 								<th style="font-size:11px;">Application</th>
+                                <th style="font-size:11px">Client Refference</th>
                                 <th style="font-size:11px;">Filing no:</th>
                                 <th style="font-size:11px;">Filing date</th>
                                 <th style="font-size:11px;">Class</th>  
@@ -79,8 +83,8 @@
 								<th style="font-size:11px;">Status</th>
                                 <th style="font-size:11px;">Client</th>
 								<th style="font-size:11px;">Country</th>
-								<th style="font-size:11px;">Category</th>
-								
+								<th style="font-size:11px;">Project</th>
+								<th style="font-size:11px;">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -100,16 +104,23 @@
                                 <td><a href="{{ route('posts.show', $post) }}"><img style='width: 80%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='product-img-2' alt="Post Thumbnail"></a></td> 
                                 <!-- <td><img src="{{ asset('admin_dashboard_assets/images/products/01.png') }}" class="product-img-2" alt="product img"></td> -->
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
+								<td class="bg-primary" style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
+                                <td class="bg-primary"style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
+                                <td class="bg-success" style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
+                                <td class="bg-success"style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td>
+                                <td class="bg-danger" style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
+                                <td>
+									<div class="d-flex order-actions">
+										<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-printer'></i></a>
+                                    </div>
+								</td>
+
                             </tr>
                             @empty
 								<p class='lead'>There are no Application to show.</p>

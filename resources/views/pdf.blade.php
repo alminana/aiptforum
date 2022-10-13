@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Document</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 							<div class="col-md-7">
 								<div class="card">
 									<div class="card-body">
-									<img style='width: 100%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+									<img style='width: 100%' src="{{ asset('logo/logo.jpg') }}" class='img-responsive' alt="Post Thumbnail">
 									</div>
 									<div class="classes-img" style="background-image: url({{ asset($post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '')  }});">
 										</div>

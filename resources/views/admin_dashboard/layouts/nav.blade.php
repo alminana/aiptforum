@@ -23,13 +23,13 @@
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
                         </div>
-                        <div class="menu-title">Posts</div>
+                        <div class="menu-title">Application</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.posts.index') }}"><i class="bx bx-right-arrow-alt"></i>All Posts</a>
+                        <li> <a href="{{ route('admin.posts.index') }}"><i class="bx bx-right-arrow-alt"></i>All Applications</a>
                         </li>
-                        <li> <a href="{{ route('admin.posts.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Post</a>
+                        <li> <a href="{{ route('admin.posts.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Application</a>
                         </li>
                         
                     </ul>

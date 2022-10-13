@@ -12,11 +12,14 @@ use App\Models\Comment;
 use App\Models\Client;
 use App\Models\Method;
 use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 class AdminPostsController extends Controller
 {
     private $rules = [
         'title' => 'required',
         'slug' => 'required',
+        'clientref'=> 'required',
         'filingdate'=> 'required',
         'registrationno'=> 'required',
         'registrationdate'=>'required',
@@ -30,6 +33,25 @@ class AdminPostsController extends Controller
         'thumbnail' => 'required|file|mimes:jpg,png,webp,svg,jpeg',
         'body' => 'required',
     ];
+
+    // public function viewPDF()
+    // {
+    //     $posts =Post::all();
+    //     $pdf = PDF::loadView('pdf.postlist', array('posts'=> $posts))->setPaper('a4', 'portrait');
+    //     return $pdf->stream();
+    // }
+
+    // public function downloadPDF()
+    // {
+    //     $posts =Post::all();
+    //     $pdf = PDF::loadView('pdf.postlist', array('posts'=> $posts))->setPaper('a4', 'portrait');
+    //     return $pdf->stream();
+    // }
+
+    // public function exportExcel()
+    // {
+    //     return Excel::download(PostDataExport::class);
+    // }
 
     public function index(Request $request)
     {
@@ -47,6 +69,7 @@ class AdminPostsController extends Controller
             $posts = Post::where('body', 'like', "%{$request->search}%")
             ->orWhere('id', 'like', "%{$request->search}%")
             ->orWhere('title', 'like', "%{$request->search}%")
+            ->orWhere('clientref', 'like', "%{$request->search}%")
             ->orWhere('slug', 'like', "%{$request->search}%")
             ->orWhere('excerpt', 'like', "%{$request->search}%")
             ->orWhere('class', 'like', "%{$request->search}%")
@@ -182,4 +205,6 @@ class AdminPostsController extends Controller
         Alert::success('Successfully Delete','Delete');
         return redirect()->route('admin.posts.index')->with('success', 'Post has been Deleted.');
     }
+
+
 }

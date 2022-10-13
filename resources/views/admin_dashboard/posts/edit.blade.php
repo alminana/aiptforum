@@ -69,6 +69,15 @@
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        <!-- Client Refference-->
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Client Reference</label>
+                                            <input type="text" value='{{ old("clientref", $post->slug) }}' name='clientref' required class="form-control" id="inputProductclientref">
+
+                                            @error('clientref')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                         <!-- Filing date. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing Date.</label>
