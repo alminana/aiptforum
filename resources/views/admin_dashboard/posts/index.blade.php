@@ -39,6 +39,7 @@
 										<th>AIPTREF</th>
 										<th>Image</th>
 										<th>Application</th>
+										<th>Agent</th>
 										<th>Client Refference</th>
                                         <th>Filing no:</th>
 										<th>Status</th>
@@ -68,6 +69,7 @@
 										<img style='width: 40%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 									    </td>
 										<td>{{ $post->title }} </td>
+										<td>{{$post->agent}}</td>
 										<td>{{$post->clientref}}</td>
 										<td>{{$post->slug}}</td>
 										<td>{{ $post->status}}</td>

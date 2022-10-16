@@ -62,8 +62,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post:slug}',[PostsController::class, 'addComment'])->name('posts.add_comment');
 Route::get('/pdf/{id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
-Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 
+Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 // export excel for Application
 Route::post('/posts/view-pdf',[PostsController::class, 'viewPDF'])->name('view-pdf');
 Route::post('/posts/download-pdf',[PostsController::class, 'downloadPdf'])->name('download-pdf');

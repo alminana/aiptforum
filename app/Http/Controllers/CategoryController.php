@@ -10,6 +10,18 @@ use DB;
 
 class CategoryController extends Controller
 {
+    public function downloadPdf(Post $post) {
+        
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        // return view('pdf', );
+        
+        $pdf = Pdf::loadView('pdf', [
+            'post' => $post,
+        ]);
+
+        return $pdf->download('download.pdf');
+    }
+
     public function viewPDF()
     {
         $posts =Post::all();
@@ -17,12 +29,6 @@ class CategoryController extends Controller
         return $pdf->stream();
     }
 
-    public function downloadPDF()
-    {
-        $posts =Post::all();
-        $pdf = PDF::loadView('pdf.postlist', array('posts'=> $posts))->setPaper('a4', 'portrait');
-        return $pdf->stream();
-    }
 
     public function exportExcel()
     {
@@ -126,7 +132,6 @@ class CategoryController extends Controller
             'posts' => $category->posts()->paginate(10),
             // 'recent_posts' => $recent_posts,
             'categories' => $categories,
-            'tags' => $tags
         ]);
     }
 

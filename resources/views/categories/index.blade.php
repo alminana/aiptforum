@@ -1,91 +1,56 @@
 @extends('main_layouts.master')
 
 @section('title', ' Category | AIPTFORUM')
+@section("style")
+	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+	@endsection
 
-@section('content')
-
-<div class="page-wrapper">
-        <div class="page-content">
-		
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-			@forelse($categories as $category)
-                <div class="col">
-                    <div class="card radius-10 border-start border-0 border-3 border-info">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <p class="mb-0 text-secondary"><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></p>
-                                    <h1 class="my-1 text-info"><a href="{{ route('categories.show', $category) }}">{{ $category->posts_count }}</a></h1>
-                                    <!-- <p class="mb-0 font-13">{{ $category->user->name }}</p> -->
-                                </div>
-                                <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				@empty
-                    <p class='lead'>There are no categories to show.</p>
-                @endforelse
-            </div><!--end row-->
-
-
-
-            <div class="card radius-10">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <h6 class="mb-9">All Application </h6>
-                        </div>
-                        <div class="dropdown ms-auto">
-                            <div class="d-lg-flex align-items-center mb-4 gap-3">
-                                <div class="position-relative">
-                                <form method="GET" action="{{ route('categories.index', $category) }}">
-                                <input type="search" name="search" class="form-control ps-5 " style="padding: 10px 550px;" placeholder="Search Application"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
-                                </form>
-                                </div>
-                                <div class="ms-auto"><a href="" class="btn btn-primary ">Excel</a></div>
-                                <div class="ms-auto"><a href="{{ route('categories.index') }}" class="btn btn-primary ">Clear</a></div>
-                            </div>
-                            <!-- <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                </li>
-                                <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                </li>
-                            </ul> -->
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-					
-                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
-                            <tr>
-                                <th style="font-size:11px;">#</th>
-                                <th style="font-size:11px;">Refference</th>
-                                <th style="font-size:11px;">Image</th>
-								<th style="font-size:11px;">Application</th>
-                                <th style="font-size:11px">Client Refference</th>
-                                <th style="font-size:11px;">Filing no:</th>
-                                <th style="font-size:11px;">Filing date</th>
-                                <th style="font-size:11px;">Class</th>  
-                                <th style="font-size:11px;">Registration</th>
-                                <th style="font-size:11px;">Registration date</th> 
-                                <th style="font-size:11px;">Renewal</th> 
-								<th style="font-size:11px;">Status</th>
-                                <th style="font-size:11px;">Client</th>
-								<th style="font-size:11px;">Country</th>
-								<th style="font-size:11px;">Project</th>
-								<th style="font-size:11px;">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+@section('content')     
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<!--breadcrumb-->
+				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+					<div class="breadcrumb-title pe-3">All Application</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+								<li class="breadcrumb-item"><a href="{{ route('categories.index') }}"><i class="bx bx-home-alt"></i></a>
+								</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<!--end breadcrumb-->
+			  
+				<div class="card">
+					<div class="card-body">
+                    <div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="example2" class="table table-striped table-bordered">
+								<thead>
+									<tr>
+									<th style="font-size:11px;">#</th>
+                                    <th style="font-size:11px;">Refference</th>
+                                    <th style="font-size:11px;">Image</th>
+                                    <th style="font-size:11px;">Agent</th>
+                                    <th style="font-size:11px;">Application</th>
+                                    <th style="font-size:11px">Client Refference</th>
+                                    <th style="font-size:11px;">Filing no:</th>
+                                    <th style="font-size:11px;">Filing date</th>
+                                    <th style="font-size:11px;">Class</th>  
+                                    <th style="font-size:11px;">Registration</th>
+                                    <th style="font-size:11px;">Registration date</th> 
+                                    <th style="font-size:11px;">Renewal</th> 
+                                    <th style="font-size:11px;">Status</th>
+                                    <th style="font-size:11px;">Client</th>
+                                    <th style="font-size:11px;">Country</th>
+                                    <th style="font-size:11px;">Project</th>
+                                    <th style="font-size:11px;">Action</th>
+									</tr>
+								</thead>
+								<tbody>
 							@forelse($posts as $post)
 							<tr>
                                 <td>
@@ -101,6 +66,7 @@
                                 <td style="font-size:11px;"><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
                                 <td><a href="{{ route('posts.show', $post) }}"><img style='width: 80%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='product-img-2' alt="Post Thumbnail"></a></td> 
                                 <!-- <td><img src="{{ asset('admin_dashboard_assets/images/products/01.png') }}" class="product-img-2" alt="product img"></td> -->
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->agent}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
 								<td class="bg-primary" style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
@@ -114,7 +80,7 @@
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
                                 <td>
-									<div class="d-flex order-actions">
+                                <div class="d-flex order-actions">
 										<a href="{{ route('pdf.generatepdf', $post->id) }}" class=""><i class='bx bxs-printer'></i></a>
                                     </div>
 								</td>
@@ -124,11 +90,39 @@
 								<p class='lead'>There are no Application to show.</p>
 							@endforelse
                             </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-          
-        </div>
-    </div>
-@endsection
+							</table>
+						</div>
+					</div>
+				</div>
+                        
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+		<!--end page wrapper -->
+		@endsection
+	
+
+    @section("script")
+
+    <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			var table = $('#example2').DataTable( {
+				lengthChange: false,
+				buttons: ['excel','pdf','print']
+			} );
+		 
+			table.buttons().container()
+				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
+		
+            setTimeout(() => {
+                $(".general-message").fadeOut();
+            }, 5000);
+        
+        });
+	</script>
+    @endsection

@@ -2,7 +2,11 @@
 
 @section('title', 'AIPTFORUM | Home')
 
-@section('content')
+@section("style")
+	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+	@endsection
+
+@section('content') 
 
 @section("style")
 
@@ -249,28 +253,27 @@
 		</div>
 @endsection
 
-@section('custom_js')
+@section("script")
 
+<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 <script>
-	setTimeout(() => {
-		$(".global-message").fadeOut();
-	}, 5000);
-	function undisableTxt() {
-     document.getElementById("myText").disabled = false;
-}
-
-	function printlayer(Layer)
-	{
-		var generator=window.open(",'name,");
-		var layertext = document.getElementById(layer);
-		generator.document.write(layetext.innerHTML.replace("Print me"));
-
-		generator.document.close();
-		generator.print();
-		genrator.close();
-	}
+	$(document).ready(function() {
+		var table = $('#example2').DataTable( {
+			lengthChange: false,
+			buttons: ['excel','pdf','print']
+		} );
+	 
+		table.buttons().container()
+			.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
+	
+		setTimeout(() => {
+			$(".general-message").fadeOut();
+		}, 5000);
+	
+	});
 </script>
-
 @endsection
-<!-- https://youtu.be/6Hnokd4OlPk -->
+
+
 

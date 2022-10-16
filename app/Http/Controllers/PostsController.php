@@ -66,6 +66,7 @@ class PostsController extends Controller
         $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $tags = Tag::latest()->take(50)->get();
+        $posts = Post::latest()->get();
         // return view('pdf', );
         
         $pdf = Pdf::loadView('pdf', [

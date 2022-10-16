@@ -70,6 +70,27 @@
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Agent</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+                                                            <select required name='agent' class="single-select">
+                                                                @foreach($clients as $key => $client)
+                                                                <option value="{{ $client->name }}">{{ $client->name }}</option>
+                                                                @endforeach
+                                                            </select>
+
+                                                            @error('agent')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!-- Filing no. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing no.</label>
@@ -99,7 +120,7 @@
                                         </div>
                                         <!-- Registration date. -->
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Rgistration Date.</label>
+                                            <label for="inputProductTitle" class="form-label">Registration Date.</label>
                                             <input type="date" value='{{ old("registrationdate") }}' class="form-control" required name='registrationdate' id="inputProductTitle">
 
                                             @error('registrationdate')

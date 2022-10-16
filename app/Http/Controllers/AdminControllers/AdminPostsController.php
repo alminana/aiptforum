@@ -19,6 +19,7 @@ class AdminPostsController extends Controller
     private $rules = [
         'title' => 'required',
         'slug' => 'required',
+        'agent' =>'required',
         'clientref'=> 'required',
         'filingdate'=> 'required',
         'registrationno'=> 'required',

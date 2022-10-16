@@ -60,7 +60,27 @@
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Agent</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+                                                            <select required name='agent' class="single-select">
+                                                                @foreach($clients as $key => $client)
+                                                                <option value="{{ $client->name }}">{{ $client->name }}</option>
+                                                                @endforeach
+                                                            </select>
 
+                                                            @error('agent')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing no.</label>
                                             <input type="text" value='{{ old("slug", $post->slug) }}' class="form-control" required name='slug' id="inputProductTitle">
@@ -135,7 +155,7 @@
                                                                 @endforeach
                                                             </select>
 
-                                                            @error('name')
+                                                            @error('excerpt')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
 
