@@ -84,10 +84,7 @@
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
                                 <td>
-                                <div class="d-flex order-actions">
-										<a href="{{ route('pdf.generatepdf', $post->id) }}" class=""><i class='bx bxs-printer'></i></a>
-                                    </div>
-								</td>
+                               
 
                             </tr>
                             @empty
