@@ -30,7 +30,7 @@
                 <li>
                     <a target='_blank' href="{{ route('home') }}">
                     <div class="parent-icon"><i class='bx bx-pointer'></i></div>
-                        <div class="menu-title">Visit Site</div>
+                        <div class="menu-title">Lock</div>
                     </a>
                 </li>
                 <hr>

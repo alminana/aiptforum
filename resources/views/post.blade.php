@@ -1,225 +1,122 @@
-@extends('main_layouts.master')
+<html>
+<head>
+<title></title>
+<link rel="icon" href="{{ asset('admin_dashboard_assets/images/favicon-32x32.png') }}" type="image/png" />
+	<!--plugins-->
 
-@section('title', 'AIPTFORUM | Home')
-
-@section("style")
-	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
-	@endsection
-
-@section('content') 
-
-@section("style")
-
-<link href="{{ asset('admin_dashboard_assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('admin_dashboard_assets/plugins/select2/css/select2-bootstrap4.css') }}" rel="stylesheet" />
-
-<link href="{{ asset('admin_dashboard_assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.0/tinymce.min.js" integrity="sha512-XNYSOn0laKYg55QGFv1r3sIlQWCAyNKjCa+XXF5uliZH+8ohn327Ewr2bpEnssV9Zw3pB3pmVvPQNrnCTRZtCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-@endsection
-
-@section('custom_css')
-
-	<style>
-		body{
-			top:50px;
-		}
-		.class-single .desc img {
-			width: 100%;
-		}
-	</style>
-
-@endsection
-
-@section('content')
+	<link href="{{ asset('admin_dashboard_assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+	<link href="{{ asset('admin_dashboard_assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
+	<link href="{{ asset('admin_dashboard_assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+	<!-- loader-->
+	<link href="{{ asset('admin_dashboard_assets/css/pace.min.css') }}" rel="stylesheet" />
+	<script src="{{ asset('admin_dashboard_assets/js/pace.min.js') }}"></script>
+	<!-- Bootstrap CSS -->
+	<link href="{{ asset('admin_dashboard_assets/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link href="{{ asset('admin_dashboard_assets/css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('admin_dashboard_assets/css/icons.css') }}" rel="stylesheet">
 
 
-<div class="page-wrapper">
-			<div class="page-content">
-				<!--breadcrumb-->
-				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Detials</div>
-					<div class="ps-3">
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
-								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Details</li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('pdf.generatepdf', $post->id) }}">Export PDF</a></li>
-							</ol>
-						</nav>
-					</div>
-				</div>
-				<!--end breadcrumb-->
-			  
-				<div class="container">
-				    <form action="{{ route('admin.posts.update', $post) }}" method='post' enctype='multipart/form-data'>
-						<div class="row">
-							<div class="col-md-7">
-								<div class="card">
-									<div class="card-body">
-									<img style='width: 100%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
-									</div>
-									<div class="classes-img" style="background-image: url({{ asset($post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '')  }});">
-										</div>
-								</div>
-							<div class="row row-pb-lg">
-								<div class="col-md-12 animate-box">
-										<div class="classes class-single">
-											<div class="desc desc2">
-											<label for="inputProductTitle" class="form-label"><b>Other Details</b></label>
-												<div>
-												{!! $post->body !!}
-												</div>	
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-5">
-								<div class>
-								<div class="card">
-									<div class="card-body">
-									<div class="col-lg-12">
-                                    <div class="">
-									<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Referrence :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("aiptref", $post->aiptref) }}</label>
-                                            <!-- <input type="text" value='{{ old("aiptref", $post->aiptref) }}' name='title' required class="form-control" id="myText"> -->
+    <!-- Theme Style CSS -->
+    <link rel="stylesheet" href="{{ asset('admin_dashboard_assets/css/dark-theme.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin_dashboard_assets/css/semi-dark.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin_dashboard_assets/css/header-colors.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin_dashboard_assets/css/my_style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('blog_template/css/style.css') }}">
 
-                                            @error('aiptref')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Application Name :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("title", $post->title) }}</label>
-                                            <!-- <input type="text" value='{{ old("title", $post->title) }}' name='title' required class="form-control" id="myText"> -->
+    <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}">
+<style type="text/css">
 
-                                            @error('title')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
+body { font-family: Arial; font-size: 17.0px }
+.pos { position: absolute; z-index: 0; left: 0px; top: 0px }
 
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Filing No. :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("slug", $post->slug) }}</label>
-                                            <!-- <input type="text" value='{{ old("slug", $post->slug) }}' class="form-control" required name='slug' id="inputProductTitle"> -->
+</style>
+</head>
+<body>
+<div class="container">
+        <div class="row">
+                <div class="col-12">
 
-                                            @error('slug')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Filing Date :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("filingdate", $post->filingdate) }}</label>
-                                            <!-- <input type="text" value='{{ old("cladss", $post->class) }}' class="form-control" required name='class' id="inputProductTitle"> -->
+                        <!-- Main content -->
+                        <div class="invoice p-3 mb-3">
+                          <!-- title row -->
+                          <div class="row">
+                            <div class="col-12">
+                              <h4>
+                                <i class="fa fa-globe"></i> AIPTLAW Docketing System
+                                <small class="float-right">Date: 2/10/2022</small>
+                              </h4>
+                            </div>
+                            <!-- /.col -->
+                          </div>
+						  <form action="{{ route('admin.posts.update', $post) }}" method='post' enctype='multipart/form-data'>
+                          <!-- info row -->
+						  <div class="row">
+                            <div class="col-12 ">
+                              <table class="">
+                                <thead>
+                                <tr>
+                                  <th>Application Details</th>
+	                              <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+								
+                                <tr>
+                                  <td >
+								  <strong>Referrence : {{ old("aiptref", $post->aiptref) }}</strong><br>
+                                Application Name : {{ old("title", $post->title) }}<br>
+                                Filing No. : {{ old("slug", $post->slug) }}<br>
+                                Filing Date : {{ old("filingdate", $post->filingdate) }}<br>
+                                Class :{{ old("cladss", $post->class) }}<br/>
+								Client Name : {{ old("excerpt", $post->excerpt) }} <br/>
+								Type :{{ $post->category->name }}<br/>
+								Status : {{ old("status", $post->status) }}</br/>
+								Registration : {{ old("registrationno", $post->registrationno) }}<br/>
+								Registration Date: {{ old("registrationdate", $post->registrationdate) }}<br/>
+								Renewal date :{{ old("renewal", $post->renewal) }}<br/>
+								   </td>
+                                  <td>
+								  <img style='width: 40%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+								  </td>
+                                </tr>
+							
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                       
+                          <!-- /.row -->
 
-                                            @error('class')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Class :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("cladss", $post->class) }}</label>
-                                            <!-- <input type="text" value='{{ old("cladss", $post->class) }}' class="form-control" required name='class' id="inputProductTitle"> -->
-
-                                            @error('class')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Client Name :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("excerpt", $post->excerpt) }}</label>
-                                            <!-- <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt", $post->excerpt) }}</textarea> -->
-                                        
-                                            @error('excerpt')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-
-										<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Project :</label>
-											<label for="inputProductTitle" class="form-label">{{ $post->category->name }}</label>
-                                            <!-- <input type="text" value='{{ $post->category->name }}' class="form-control" required name='category' id="inputProductTitle"> -->
-
-                                            @error('category')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Status :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("status", $post->status) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Registration :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("registrationno", $post->registrationno) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Registration date :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("registrationdate", $post->registrationdate) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Renewal date :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("renewal", $post->renewal) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-								</div>
-								</div>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-				<hr>
-				        <div class="row row-pb-lg animate-box">
-
-							<div class="col-md-12">
-								<h2 class="colorlib-heading-2">{{ count($post->comments) }} Activity logs</h2>
-
+                          <!-- Table row -->
+                          <div class="row">
+                            <div class="col-12 table-responsive">
+                              <table class="table table-striped">
+							  <h5 class="colorlib-heading-2">{{ count($post->comments) }} Activity logs</h5>
+                                <thead>
+                                <tr>
+                                  <th>User</th>
+                                  <th>Comment</th>
+                                  <th>Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
 								@foreach($post->comments as $comment)
-								<div id="comment_{{ $comment->id }}" class="review">
-							   		<div 
-							   		class="user-img" 
-							   		style="background-image: url({{ $comment->user->image ? asset('storage/' . $comment->user->image->path. '') : 'https://images.assetsdelivery.com/compings_v2/salamatik/salamatik1801/salamatik180100019.jpg'  }});"></div>
-							   		<div class="desc">
-							   			<h4>
-							   				<span class="text-left">{{ $comment->user->name }}</span>
-							   				<span class="text-right">{{ $comment->created_at->diffForHumans() }}</span>
-											<span class="text-right">{{ $comment->created_at}}</span>
-							   			</h4>
-							   			<p>{{ $comment->the_comment }}</p>
-							   			<p class="star">
-						   					<span class="text-left"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-							   			</p>
-							   		</div>
-							   	</div>
-							   	@endforeach
-
-								  
-							</div>
-						</div>
-						
-						<div class="row animate-box">
+                                <tr>
+                                  <td style="font-size:10px;">{{ $comment->user->name }}</td>
+                                  <td style="font-size:10px;">{{ $comment->the_comment }}</td>
+                                  <td style="font-size:10px;">{{ $comment->created_at }}</td>
+                                </tr>
+								@endforeach
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <!-- /.row -->
+						  </form>
+						  <div class="row animate-box">
 							<div class="col-md-12">
 
 								<x-blog.message :status="'success'"/>
@@ -239,6 +136,9 @@
 									</div>
 									<div class="form-group">
 										<input type="submit" value="Post Comment" class="btn btn-primary">
+										<button type="button" class="btn btn-info float-right" style="margin-right: 5px;">
+										<i class="fa fa-download"></i> <a href="javascript:window.print()">Print</a>
+									</button>									
 									</div>
 								</form>
 
@@ -249,31 +149,10 @@
 								@endguest	
 							</div>
 						</div>
-			</div>
-		</div>
-@endsection
-
-@section("script")
-
-<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
-<script>
-	$(document).ready(function() {
-		var table = $('#example2').DataTable( {
-			lengthChange: false,
-			buttons: ['excel','pdf','print']
-		} );
-	 
-		table.buttons().container()
-			.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
-	
-		setTimeout(() => {
-			$(".general-message").fadeOut();
-		}, 5000);
-	
-	});
-</script>
-@endsection
-
-
-
+                        </div>
+                        <!-- /.invoice -->
+                      </div>
+        </div>
+    </div>
+</body>
+</html>

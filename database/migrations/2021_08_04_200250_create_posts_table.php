@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('agent');
+            $table->string('annuitydue');
+            $table->string('annuitydeadline')->default('0000-00-00');
             $table->string('clientref');
             $table->string('filingdate')->default('0000-00-00');
             $table->string('registrationno');

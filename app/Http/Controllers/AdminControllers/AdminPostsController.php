@@ -33,7 +33,27 @@ class AdminPostsController extends Controller
         'country' => 'required',
         'thumbnail' => 'required|file|mimes:jpg,png,webp,svg,jpeg',
         'body' => 'required',
+        'annuitydue' => 'required',
+        'annuitydeadline' => 'required'
     ];
+    public function generatepdf(Post $post) {
+        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
+        $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $tags = Tag::latest()->take(50)->get();
+        $posts = Post::latest()->get();
+        // return view('pdf', );
+        
+        $pdf = Pdf::loadView('pdf', [
+            'comments' => $comments,
+            'post' => $post,
+            'recent_posts' => $recent_posts,
+            'categories' => $categories,
+            'tags' => $tags
+        ]);
+
+        return $pdf->download('download.pdf',compact('posts'));
+    }
 
     // public function viewPDF()
     // {
@@ -71,6 +91,8 @@ class AdminPostsController extends Controller
             ->orWhere('id', 'like', "%{$request->search}%")
             ->orWhere('title', 'like', "%{$request->search}%")
             ->orWhere('clientref', 'like', "%{$request->search}%")
+            ->orWhere('annuitydue', 'like', "%{$request->search}%")
+            ->orWhere('annuitydeadline', 'like', "%{$request->search}%")
             ->orWhere('slug', 'like', "%{$request->search}%")
             ->orWhere('excerpt', 'like', "%{$request->search}%")
             ->orWhere('class', 'like', "%{$request->search}%")

@@ -35,6 +35,8 @@
                                     <th style="font-size:11px;">Refference</th>
                                     <th style="font-size:11px;">Image</th>
                                     <th style="font-size:11px;">Agent</th>
+									<th style="font-size:11px;">Annuity Due</th>
+									<th style="font-size:11px;">Annuity Deadline</th>
                                     <th style="font-size:11px;">Application</th>
                                     <th style="font-size:11px">Client Refference</th>
                                     <th style="font-size:11px;">Filing no:</th>
@@ -63,12 +65,14 @@
 										</div> -->
 									</div>
 								</td>
-                                <td style="font-size:11px;"><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
                                 <td><a href="{{ route('posts.show', $post) }}"><img style='width: 80%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='product-img-2' alt="Post Thumbnail"></a></td> 
                                 <!-- <td><img src="{{ asset('admin_dashboard_assets/images/products/01.png') }}" class="product-img-2" alt="product img"></td> -->
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->agent}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->annuitydue}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->annuitydeadline}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">agent</a></td>
 								<td class="bg-primary" style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
                                 <td class="bg-primary"style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
@@ -113,7 +117,7 @@
 		$(document).ready(function() {
 			var table = $('#example2').DataTable( {
 				lengthChange: false,
-				buttons: ['excel','pdf','print']
+				buttons: ['excel','copy']
 			} );
 		 
 			table.buttons().container()

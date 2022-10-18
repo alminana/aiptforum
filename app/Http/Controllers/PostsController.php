@@ -67,7 +67,7 @@ class PostsController extends Controller
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $tags = Tag::latest()->take(50)->get();
         $posts = Post::latest()->get();
-        // return view('pdf', );
+       
         
         $pdf = Pdf::loadView('pdf', [
             'comments' => $comments,
@@ -94,5 +94,6 @@ class PostsController extends Controller
         return redirect('/posts/' . $post->slug . '#comment_' . $comment->id)->with('success', 'Comment has been added.');
     }
 
+   
     
 }

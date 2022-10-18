@@ -22,6 +22,7 @@
 	<link href="{{ asset('admin_dashboard_assets/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('admin_dashboard_assets/css/icons.css') }}" rel="stylesheet">
 
+
     <!-- Theme Style CSS -->
     <link rel="stylesheet" href="{{ asset('admin_dashboard_assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin_dashboard_assets/css/semi-dark.css') }}" />
@@ -170,6 +171,7 @@
 	<script src="{{ asset('admin_dashboard_assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
 	<script src="{{ asset('admin_dashboard_assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
 	<!--app JS-->
+    <link href="{{ asset('admin_dashboard_assets/js/print.js') }}" rel="stylesheet">
 	<script src="{{ asset('admin_dashboard_assets/js/app.js') }}"></script>
     <script>
         function myFunction() {

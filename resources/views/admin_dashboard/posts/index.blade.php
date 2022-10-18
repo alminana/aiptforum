@@ -40,6 +40,8 @@
 										<th>Image</th>
 										<th>Application</th>
 										<th>Agent</th>
+										<th>Annuity due</th>
+										<th>Annuity Deadline</th>
 										<th>Client Refference</th>
                                         <th>Filing no:</th>
 										<th>Status</th>
@@ -70,6 +72,8 @@
 									    </td>
 										<td>{{ $post->title }} </td>
 										<td>{{$post->agent}}</td>
+										<td>{{$post->annuitydue}}</td>
+										<td>{{$post->annuitydeadline}}</td>
 										<td>{{$post->clientref}}</td>
 										<td>{{$post->slug}}</td>
 										<td>{{ $post->status}}</td>
