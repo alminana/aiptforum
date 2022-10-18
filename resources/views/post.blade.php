@@ -43,8 +43,8 @@ body { font-family: Arial; font-size: 17.0px }
                           <div class="row">
                             <div class="col-12">
                               <h4>
-                                <i class="fa fa-globe"></i> AIPTLAW Docketing System
-                                <small class="float-right">Date: 2/10/2022</small>
+                                <i class="fa fa-globe"></i> AIPT Docketing System
+                                
                               </h4>
                             </div>
                             <!-- /.col -->
@@ -52,7 +52,7 @@ body { font-family: Arial; font-size: 17.0px }
 						  <form action="{{ route('admin.posts.update', $post) }}" method='post' enctype='multipart/form-data'>
                           <!-- info row -->
 						  <div class="row">
-                            <div class="col-12 ">
+                            <div class="col-12">
                               <table class="">
                                 <thead>
                                 <tr>
@@ -77,8 +77,10 @@ body { font-family: Arial; font-size: 17.0px }
                                 Renewal date :{{ old("renewal", $post->renewal) }}<br/>
 								              </td>
                                   <td>
-								  <img style='width: 40%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
-								  </td>
+                                    <div>
+								                    <img style='width: 40%' class="center" src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+                                    </div>
+								                  </td>
                                 </tr>
 							
                                 </tbody>
@@ -156,3 +158,12 @@ body { font-family: Arial; font-size: 17.0px }
     </div>
 </body>
 </html>
+
+<style>
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
