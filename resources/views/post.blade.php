@@ -64,18 +64,18 @@ body { font-family: Arial; font-size: 17.0px }
 								
                                 <tr>
                                   <td >
-								  <strong>Referrence : {{ old("aiptref", $post->aiptref) }}</strong><br>
+								                Referrence : {{ old("aiptref", $post->aiptref) }}<br>
                                 Application Name : {{ old("title", $post->title) }}<br>
                                 Filing No. : {{ old("slug", $post->slug) }}<br>
                                 Filing Date : {{ old("filingdate", $post->filingdate) }}<br>
                                 Class :{{ old("cladss", $post->class) }}<br/>
-								Client Name : {{ old("excerpt", $post->excerpt) }} <br/>
-								Type :{{ $post->category->name }}<br/>
-								Status : {{ old("status", $post->status) }}</br/>
-								Registration : {{ old("registrationno", $post->registrationno) }}<br/>
-								Registration Date: {{ old("registrationdate", $post->registrationdate) }}<br/>
-								Renewal date :{{ old("renewal", $post->renewal) }}<br/>
-								   </td>
+                                Client Name : {{ old("excerpt", $post->excerpt) }} <br/>
+                                Type :{{ $post->category->name }}<br/>
+                                Status : {{ old("status", $post->status) }}</br/>
+                                Registration : {{ old("registrationno", $post->registrationno) }}<br/>
+                                Registration Date: {{ old("registrationdate", $post->registrationdate) }}<br/>
+                                Renewal date :{{ old("renewal", $post->renewal) }}<br/>
+								              </td>
                                   <td>
 								  <img style='width: 40%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 								  </td>

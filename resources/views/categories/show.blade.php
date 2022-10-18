@@ -49,7 +49,7 @@
                                     <th style="font-size:11px;">Client</th>
                                     <th style="font-size:11px;">Country</th>
                                     <th style="font-size:11px;">Project</th>
-                                    <th style="font-size:11px;">Action</th>
+                                   
 									</tr>
 								</thead>
 								<tbody>
