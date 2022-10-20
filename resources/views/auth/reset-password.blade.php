@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-            <img src="{{asset('logo/logo.png')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">
+            <img src="{{asset('logo/logo.JPG')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">
             </a>
         </x-slot>
 

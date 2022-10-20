@@ -36,7 +36,7 @@ use App\Http\Controllers\NewsarController;
 use App\Http\Controllers\ContactarController;
 
 
-
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\NewsController;
@@ -53,8 +53,8 @@ use App\Http\Controllers\userController;
 //     return view('auth.login');
 // });
 
-Route::resource('profile', AdminProfileController::class);
-
+Route::get('profile', [AdminUsersController::class, 'profileindex'])->name('profiles.profileindex');
+Route::post('profile/{id}', [AdminUsersController::class, 'update'])->name('profiles.update');
 
 Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logout');
 Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
@@ -79,6 +79,7 @@ Route::post('newsletter', [NewsletterController::class, 'store'])->name('newslet
 
 Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 
+Route::get('/notify',[NotificationController::class, 'index'])->name('notification.index');
 
 require __DIR__.'/auth.php';
 
@@ -99,6 +100,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
 
     Route::resource('roles', AdminRolesController::class)->except('show');
     Route::resource('users', AdminUsersController::class);
+    
 
     Route::get('contacts', [AdminContactsController::class, 'index'])->name('contacts');
     Route::delete('contacts/{contact}', [AdminContactsController::class, 'destroy'])->name('contacts.destroy');

@@ -5,7 +5,7 @@
 	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 	@endsection
 
-@section('content')     
+@section('content')  
 		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="page-content">
@@ -24,53 +24,43 @@
 				<!--end breadcrumb-->
 			  
 				<div class="card">
-					<div class="card-body">
-                    <div class="card">
+
+                  
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-									<th style="font-size:11px;">#</th>
-                                    <th style="font-size:11px;">Refference</th>
-                                    <th style="font-size:11px;">Image</th>
-                                    <th style="font-size:11px;">Agent</th>
-									<th style="font-size:11px;">Annuity Due</th>
-									<th style="font-size:11px;">Annuity Deadline</th>
-                                    <th style="font-size:11px;">Application</th>
-                                    <th style="font-size:11px">Client Refference</th>
-                                    <th style="font-size:11px;">Filing no:</th>
-                                    <th style="font-size:11px;">Filing date</th>
-                                    <th style="font-size:11px;">Class</th>  
-                                    <th style="font-size:11px;">Registration</th>
-                                    <th style="font-size:11px;">Registration date</th> 
-                                    <th style="font-size:11px;">Renewal</th> 
-                                    <th style="font-size:11px;">Status</th>
-                                    <th style="font-size:11px;">Client</th>
-                                    <th style="font-size:11px;">Country</th>
-                                    <th style="font-size:11px;">Project</th>
-                                   
+										<th style="font-size:11px;">Reference</th>
+										<th style="font-size:11px;">Image</th>
+										<th style="font-size:11px;">Agent</th>
+										<th style="font-size:11px;">Annuity Due</th>
+										<th style="font-size:11px;">Annuity Deadline</th>
+										<th style="font-size:11px;">Renewal</th>
+										<th style="font-size:11px;">Application</th>
+										<th style="font-size:11px;">Client Refference</th>
+										<th style="font-size:11px;">Filing no:</th>
+                                   		<th style="font-size:11px;">Filing date</th>
+										<th style="font-size:11px;">Class</th>  
+										<th style="font-size:11px;">Registration</th>
+										<th style="font-size:11px;">Registration date</th> 
+										<th style="font-size:11px;">Renewal</th> 
+										<th style="font-size:11px;">Status</th>
+										<th style="font-size:11px;">Client</th>
+										<th style="font-size:11px;">Country</th>
+
 									</tr>
 								</thead>
 								<tbody>
-							@forelse($posts as $post)
+								@forelse($posts as $post)
 							<tr>
-                                <td>
-								    <div class="d-flex align-items-center">
-										<div>
-											<input class="form-check-input me-3" type="checkbox" value="" aria-label="...">
-										</div>
-										<!-- <div class="ms-2">
-											<h6 class="mb-0 font-14">{{ $post->id }}</h6>
-										</div> -->
-									</div>
-								</td>
-								<td style="font-size:11px;"><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+							
+							<td style="font-size:11px;"><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
                                 <td><a href="{{ route('posts.show', $post) }}"><img style='width: 80%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='product-img-2' alt="Post Thumbnail"></a></td> 
-                                <!-- <td><img src="{{ asset('admin_dashboard_assets/images/products/01.png') }}" class="product-img-2" alt="product img"></td> -->
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->agent}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->annuitydue}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->annuitydeadline}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
 								<td class="bg-primary" style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
@@ -81,19 +71,17 @@
                                 <td class="bg-danger" style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
-                                <td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>                                
                                
 
                             </tr>
                             @empty
 								<p class='lead'>There are no Application to show.</p>
 							@endforelse
-                            </tbody>
+								</tbody>
 							</table>
-						</div>
-					</div>
+						
+				
 				</div>
                         
 					</div>

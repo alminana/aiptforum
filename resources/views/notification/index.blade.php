@@ -75,7 +75,7 @@
 
                             </tr>
                             @empty
-								<p class='lead'>There are no Application to show.</p>
+								<p class='lead'>There are no Upcoming Renewal.</p>
 							@endforelse
 								</tbody>
 							</table>

@@ -29,7 +29,7 @@
           
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Add New User</h5>
+                    <h5 class="card-title">Edit User</h5>
                     <hr/>
 
                     <form action="{{ route('admin.users.update', $user) }}" method='post' enctype='multipart/form-data'>

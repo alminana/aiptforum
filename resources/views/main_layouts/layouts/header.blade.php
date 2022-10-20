@@ -191,19 +191,21 @@
 
                     @php
                     $id = Auth::user()->id;
-                    $adminData = App\Models\User::find($id);
+                    $users = App\Models\User::find($id);
                     @endphp
 
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div><h5>Welcome!!</h5></div>
+                        <div>    
+                            <img style="height:50px;" src="{{ $users->image ? asset('storage/' . $users->image->path) : asset('storage/placeholders/user_placeholder.jpg') }}" alt="">
+                        </div>
                             <div class="user-info ps-3">
-                                <p class="user-name mb-0">{{ $adminData->name }}</p>
-                                <p class="designattion mb-0">{{ $adminData->email }}</p>
+                                <p class="user-name mb-0">{{ $users->name }}</p>
+                                <p class="designattion mb-0">{{ $users->email }}</p>
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{{route('profile.index',$adminData->name )}}"><i class="bx bx-user"></i><span>Profile</span></a>
+                            <li><a class="dropdown-item" href="{{route('profiles.profileindex',$users->name )}}"><i class="bx bx-user"></i><span>Profile</span></a>
                             </li>
                             
                             <li>

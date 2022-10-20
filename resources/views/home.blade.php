@@ -60,11 +60,11 @@
           <div class="col-md-4 offset-md-1">
             <div class="detail-box">
 				<div >
-				<img src="{{asset('logo/logo.png')}}" style="weight:50px;height:50px;" alt="logo icon">
+				<!-- <img src="{{asset('logo/logo.JPG')}}" style="weight:50px;height:50px;" alt="logo icon"> -->
 				<br>
 				</div>
               <h1>
-                <span>AIPAIT</span> <br>
+                <span>AIPT</span> <br>
                 Docketing<br>
                 System
               </h1>

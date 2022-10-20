@@ -138,9 +138,12 @@ body { font-family: Arial; font-size: 17.0px }
 									</div>
 									<div class="form-group">
 										<input type="submit" value="Post Comment" class="btn btn-primary">
-										<button type="button" class="btn btn-info float-right" style="margin-right: 5px;">
-										<i class="fa fa-download"></i> <a href="javascript:window.print()">Print</a>
-									</button>									
+										<button type="button" value="Print" class="btn btn-info float-right" style="margin-right: 5px;">
+										 <a href="javascript:window.print()">Print</a>
+                    </button>	
+                    <button type="button" value="Back" class="btn btn-success float-right" style="margin-right: 5px;">
+										 <a href="{{route('categories.index')}}">Back</a>
+									  </button>									
 									</div>
 								</form>
 

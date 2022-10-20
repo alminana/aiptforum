@@ -49,6 +49,40 @@ class AdminUsersController extends Controller
         return view('admin_dashboard.users.index',compact('users'));
     }
 
+    public function profileindex(User $user,Category $category, Request $request)
+    {
+        $recent_posts = Post::latest()->take(100)->get();
+
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+
+        $tags= Tag::latest()->take(100)->get();
+        $posts = Post::latest()->take(100)->get();
+        $users= User::latest()->take(100)->get();
+        $roles = Role::latest()->take(100)->get();
+        if ($request->has('search')) {
+            $users = User::where('name', 'like', "%{$request->search}%")
+            ->orWhere('id', 'like', "%{$request->search}%")
+            ->orWhere('email', 'like', "%{$request->search}%")
+            ->orWhere('role_id', 'like', "%{$request->search}%")
+            ->paginate(10);
+        }
+        if ($request->has('search'))
+        {
+            $roles = Role::where('name', 'like', "%{$request->search}%")
+            ->orWhere('id', 'like', "%{$request->search}%")
+            ->paginate(10);
+        }
+        return view('profiles.index',compact('users','roles') ,[
+            'category' => $category,
+            'posts' => $category->posts()->paginate(10),
+            'recent_posts' => $recent_posts,
+            'categories' => $categories,
+            'tags' => $tags,
+            'user' => $user,
+            'roles' => Role::pluck('name', 'id')
+        ]);
+
+    }
     public function create()
     {
         return view('admin_dashboard.users.create', [
@@ -96,13 +130,15 @@ class AdminUsersController extends Controller
         ]);
     }
     
-    public function update(Request $request, User $user)
+    public function update(User $user,Category $category, Request $request)
     {
         $this->rules['password'] = 'nullable|min:3|max:20';
         $this->rules['email'] = ['required', 'email', Rule::unique('users')->ignore($user)];
-
+        $roles = Role::latest()->take(100)->get();
         $validated = $request->validate($this->rules);
-        
+        $recent_posts = Post::latest()->take(100)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $tags= Tag::latest()->take(100)->get();
         if($validated['password'] === null)
             unset($validated['password']);
         else 
@@ -124,7 +160,16 @@ class AdminUsersController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.users.edit', $user)->with('success', 'User has been updated.');
+        return view('profiles.index',compact('user','roles') ,[
+            'category' => $category,
+            'posts' => $category->posts()->paginate(10),
+            'recent_posts' => $recent_posts,
+            'categories' => $categories,
+            'tags' => $tags,
+            'user' => $user,
+            'roles' => Role::pluck('name', 'id')
+        ])->with('success', 'User has been updated.');
+
     }
     
     public function destroy(User $user)
@@ -139,4 +184,7 @@ class AdminUsersController extends Controller
         $user->delete();
         return redirect()->route('admin.users.index')->with('success', 'User has been deleted.');
     }
+
+
+
 }
