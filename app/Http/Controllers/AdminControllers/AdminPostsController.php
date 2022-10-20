@@ -17,24 +17,28 @@ use PDF;
 class AdminPostsController extends Controller
 {
     private $rules = [
-        'title' => 'required',
-        'slug' => 'required',
-        'agent' =>'required',
-        'clientref'=> 'required',
-        'filingdate'=> 'required',
-        'registrationno'=> 'required',
-        'registrationdate'=>'required',
-        'renewal' => 'required',
-        'excerpt' => 'required|max:1000',
-        'category_id' => 'required|numeric',
-        'class' => 'required',
         'aiptref' => 'required',
+        'clientref'=> 'required',
+        'title' => 'required',
+        'agent' =>'required',
+        // 'slug' => 'required',
+        // 'filingdate'=> 'required',
+        // 'pubdate' => 'required',
+        // 'appealdate' => 'required',
+        // 'opposedate' => 'required',
+        'registrationno'=> 'required',
+        // 'registrationdate'=>'required',
+        // 'renewal' => 'required',
+        'excerpt' => 'required|max:1000',
         'status' => 'required',
         'country' => 'required',
+        'class' => 'required',
+        'category_id' => 'required|numeric',
+        'annuitydue' => 'required',
+        // 'annuitydeadline' => 'required',
         'thumbnail' => 'required|file|mimes:jpg,png,webp,svg,jpeg',
         'body' => 'required',
-        'annuitydue' => 'required',
-        'annuitydeadline' => 'required'
+       
     ];
     public function generatepdf(Post $post) {
         $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
@@ -172,12 +176,13 @@ class AdminPostsController extends Controller
         //         $tags .= ', ';
         // }
         $clients = Client::all();
-        $method = Method::all();
+        $method = Method::latest()->take(10)->get();
         return view('admin_dashboard.posts.edit', [
             'post' => $post,
             'categories' => Category::pluck('name', 'id'),
             'clients'=>$clients,
-        ],compact('clients'));
+            'method' > $method
+        ],compact('clients','method'));
     }
     
     public function update(Request $request, Post $post)
@@ -185,7 +190,7 @@ class AdminPostsController extends Controller
         $this->rules['thumbnail'] = 'nullable|file|mimes:jpg,png,webp,svg,jpeg';
         $validated = $request->validate($this->rules);
         $validated['approved'] = $request->input('approved') !== null;
-
+        $method = Method::latest()->take(10)->get();
         $post->update($validated);
 
         if($request->has('thumbnail'))

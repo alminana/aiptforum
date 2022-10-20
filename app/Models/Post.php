@@ -16,25 +16,28 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title' , 
-                           'slug', 
-                           'clientref',
-                           'annuitydue',
-                           'annuitydeadline',
-                           'agent',
-                           'excerpt',   
-                           'filingdate',
-                           'registrationdate',
-                           'registrationno',
-                           'renewal',
-                           'body',
-                           'class',
-                           'aiptref',
-                           'country',
-                           'status',
-                           'user_id', 
-                           'category_id', 
-                           'approved'];
+    protected $fillable = [ 'aiptref',
+                            'clientref',
+                            'title',
+                            'agent',
+                            'slug',
+                            'filingdate',
+                            'pubdate',
+                            'appealdate',
+                            'opposedate',
+                            'registrationno',
+                            'registrationdate',
+                            'renewal',
+                            'excerpt' ,
+                            'status',
+                            'country',
+                            'class',
+                            'category_id',
+                            'annuitydue',
+                            'annuitydeadline',
+                            'body',
+                            'user_id',
+                            'approved'];
 
     public function method()
     {

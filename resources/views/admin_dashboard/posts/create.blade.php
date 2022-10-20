@@ -70,54 +70,7 @@
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
-                                         <!-- annuity due -->
-                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Annuity Due</label>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="rounded">
-                                                        <div class="mb-3">
-                                                            <select required name='annuitydue' value='{{ old("annuitydue") }}' class="single-select">
-                                                                <option value="not included">Not Included</option>    
-                                                                <option value="1st Annuity">1st Annuity</option>
-                                                                <option value="2nd Annuity">2nd Annuity</option>
-                                                                <option value="3th Annuity">3rd Annuity</option>
-                                                                <option value="4th Annuity">4th Annuity</option>
-                                                                <option value="5th Annuity">5th Annuity</option>
-                                                                <option value="6th Annuity">6th Annuity</option>
-                                                                <option value="7th Annuity">7th Annuity</option>
-                                                                <option value="8th Annuity">8th Annuity</option>
-                                                                <option value="9th Annuity">9th Annuity</option>
-                                                                <option value="10th Annuity">10th Annuity</option>
-                                                                <option value="11th Annuity">11th Annuity</option>
-                                                                <option value="12th Annuity">12th Annuity</option>
-                                                                <option value="13th Annuity">13th Annuity</option>
-                                                                <option value="14th Annuity">14th Annuity</option>
-                                                                <option value="15th Annuity">15th Annuity</option>
-                                                                <option value="16th Annuity">16th Annuity</option>
-                                                                <option value="17th Annuity">17th Annuity</option>
-                                                                <option value="18th Annuity">18th Annuity</option>
-                                                                <option value="19th Annuity">19th Annuity</option>
-                                                                <option value="20th Annuity">20th Annuity</option>
-                                                            </select>
-                                                            @error('annuitydue')
-                                                                <p class='text-danger'>{{ $message }}</p>
-                                                            @enderror
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                         <!-- annuity duedate. -->
-                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Annuity Deadline.</label>
-                                            <input type="date" value='{{ old("annuitydeadline") }}' class="form-control" required name='annuitydeadline' id="inputProductTitle">
-
-                                            @error('annuitydeadline')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
+                                         
                                         <!-- Agent -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Agent</label>
@@ -143,7 +96,7 @@
                                         <!-- Filing no. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing no.</label>
-                                            <input type="text" value='{{ old("slug") }}' class="form-control" required name='slug' id="inputProductTitle">
+                                            <input type="text" value='000000' class="form-control"  name='slug' id="inputProductTitle">
 
                                             @error('slug')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -152,9 +105,36 @@
                                         <!-- Filing date. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing Date.</label>
-                                            <input type="date" value='{{ old("filingdate") }}' class="form-control" required name='filingdate' id="inputProductTitle">
+                                            <input type="date" value='00-00-0000' class="form-control"  name='filingdate' id="inputProductTitle">
 
                                             @error('filingdate')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                            <!-- Publication date. -->
+                                            <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Publication Date.</label>
+                                            <input type="date" value='00-00-0000' class="form-control"  name='pubdate' id="inputProductTitle">
+
+                                            @error('pubdate')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <!-- Appeal date. -->
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Appeal Date.</label>
+                                            <input type="date" value='00-00-0000' class="form-control"  name='appealdate' id="inputProductTitle">
+
+                                            @error('appealdate')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <!-- opposedate date. -->
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Oppose Date.</label>
+                                            <input type="date" value='00-00-0000' class="form-control" name='opposedate' id="inputProductTitle">
+
+                                            @error('opposedate')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -170,7 +150,7 @@
                                         <!-- Registration date. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration Date.</label>
-                                            <input type="date" value='{{ old("registrationdate") }}' class="form-control" required name='registrationdate' id="inputProductTitle">
+                                            <input type="date" value='00-00-0000' class="form-control" name='registrationdate' id="inputProductTitle">
 
                                             @error('registrationdate')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -179,21 +159,13 @@
                                         <!-- Renewal -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Renewal</label>
-                                            <input type="date" value='{{ old("renewal") }}' class="form-control" required name='renewal' id="inputProductTitle">
+                                            <input type="date" value='00-00-0000' class="form-control"  name='renewal' id="inputProductTitle">
 
                                             @error('renewal')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <!-- Client -->
-                                        <!-- <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Client</label>
-                                            <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt") }}</textarea>
-                                        
-                                            @error('excerpt')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div> -->
+                                       
                                         <!-- status -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Client</label>
@@ -237,155 +209,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Status</label>
-                                            <textarea required class="form-control" name='status' id="inputProductDescription" rows="3">{{ old("excerpt") }}</textarea>
-                                        
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div> -->
-                                        <!-- <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Status</label>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="rounded">
-                                                        <div class="mb-3">
-                                                            <input required name='status' value='{{ old("status") }}' class="single-select">
-                                                                <option value="Filing">Filing</option>
-                                                                <option value="Publication">Publication</option>
-                                                                <option value="Recording of Assignment">Recording of Assignment</option>
-                                                                <option value="Execution of the Decision in the IP Authority">Execution of the Decision in the IP Authority</option>
-                                                                <option value="Legalization of POA up to Yemeni consulate in Saudi Arabia">Legalization of POA up to Yemeni consulate in Saudi Arabia</option>
-                                                                <option value="Response to Examiner">Response to Examiner</option>
-                                                                <option value="Late Filing of Documents">Late Filing of Documents</option>
-                                                                <option value="search">search</option>
-                                                                <option value="Under remittance">Under remittance</option>
-                                                                <option value="Certified Arabic Translation">Certified Arabic Translation</option>
-                                                                <option value="copyright">copyright</option>
-                                                                <option value="Filing time extension">Filing time extension</option>
-                                                                <option value="EP Validation">EP Validation</option>
-                                                                <option value="2 months extension petition to  Reply to formal Examination">2 months extension petition to  Reply to formal Examination</option>
-                                                                <option value="Late Submission">Late Submission</option>
-                                                                <option value="12th year annuity">12th year annuity</option>
-                                                                <option value="Petition to Restore with SAIP">Petition to Restore with SAIP</option>
-                                                                <option value="2 months extension petition to  Reply the 1st Substantive Examination"></option>
-                                                                <option value="PPH Submission">PPH Submission</option>
-                                                                <option value="Voluntary Cancellation">Voluntary Cancellation</option>
-                                                                <option value="Filing Appeal before the Appellate Court">Filing Appeal before the Appellate Court</option>
-                                                                <option value="Revoking of POA">Revoking of POA</option>
-                                                                <option value="Pre-Examination">Pre-Examination</option>
-                                                                <option value="Reply to appeal to Commercial Court">Reply to appeal to Commercial Court</option>
-                                                                <option value="Renewal with Obtaining copy of CR">Renewal with Obtaining copy of CR</option>
-                                                                <option value="Appeal to Commercial Court">Appeal to Commercial Court</option>
-                                                                <option value="Filing Appeal for Reconsideration">Filing Appeal for Reconsideration</option>
-                                                                <option value="Late Filing of Deed of Assignment">Late Filing of Deed of Assignment</option>
-                                                                <option value="Filing with 1st, 2nd, & 3rd year annuity">Filing with 1st, 2nd, & 3rd year annuity</option>
-                                                                <option value="Filing with 1st and 2nd year annuity">Filing with 1st and 2nd year annuity</option>
-                                                                <option value="Reply to 3rd substantive examination">Reply to 3rd substantive examination</option>
-                                                                <option value="Training workshop in Sudan">Training workshop in Sudan</option>
-                                                                <option value="Obtaining Substitute Grant Certificate (Arabic)">Obtaining Substitute Grant Certificate (Arabic)</option>
-                                                                <option value="Filing Customs Surveillance of the trademark application">Filing Customs Surveillance of the trademark application</option>
-                                                                <option value="Legalization of POA up to Bahraini Consulate in Saudi Arabia">Legalization of POA up to Bahraini Consulate in Saudi Arabia</option>
-                                                                <option value="Legalization of POA up to Saudi MOFA">Legalization of POA up to Saudi MOFA</option>
-                                                                <option value="Request for Extension on filing appeal">Request for Extension on filing appeal</option>
-                                                                <option value="Filing an Appeal">Filing an Appeal</option>
-                                                                <option value="Courier">Courier</option>
-                                                                <option value="Submission of Priority Documents">Submission of Priority Documents</option>
-                                                                <option value="additional">additional</option>
-                                                                <option value="11th year annuity">11th year annuity</option>
-                                                                <option value="14 year annuity">14 year annuity</option>
-                                                                <option value="Correct Arabic Translation of the Specification of specification, abstract,claims and drawings">Correct Arabic Translation of the Specification of specification, abstract,claims and drawings</option>
-                                                                <option value="Sworn translation">Sworn translation</option>
-                                                                <option value="15th year annuity">15th year annuity</option>
-                                                                <option value="Certified Stamp of Arabic Specification">Certified Stamp of Arabic Specification</option>
-                                                                <option value="6th year Annuity">6th year Annuity</option>
-                                                                <option value="7th and 8th year annuity">7th and 8th year annuity</option>
-                                                                <option value="Amendment of a Registered TM">Amendment of a Registered TM</option>
-                                                                <option value="Filing an opposition before the Administrative Court against the registration ">Filing an opposition before the Administrative Court against the registration </option>
-                                                                <option value="Review of the Confidentiality Agreement">Review of the Confidentiality Agreement</option>
-                                                                <option value="10th year Annuity">10th year Annuity</option>
-                                                                <option value="9th year Annuity">9th year Annuity</option>
-                                                                <option value="4th,5th,6th,Late Penalty fees for annual fee and Restoration Fees">4th,5th,6th,Late Penalty fees for annual fee and Restoration Fees</option>
-                                                                <option value="Recordal of License">Recordal of License</option>
-                                                                <option value="orrect Arabic Translation of the Specification of specification, abstract,claims and drawings">orrect Arabic Translation of the Specification of specification, abstract,claims and drawings</option>
-                                                                <option value="3rd and 4th  year annuity">3rd and 4th  year annuity</option>
-                                                                <option value="Legalization of DOA up to Saudi MOFA">Legalization of DOA up to Saudi MOFA</option>
-                                                                <option value="Legalization of DOA up to Jordanian Consulate ">Legalization of DOA up to Jordanian Consulate </option>
-                                                                <option value="Legalization of Documents">Legalization of Documents</option>
-                                                                <option value="10 year annuity">10 year annuity</option>
-                                                                <option value="Local legalization of POA">Local legalization of POA</option>
-                                                                <option value="Filing an opposition before the SAIP’s Grievance committee against the Rejection report of a Patent Application">Filing an opposition before the SAIP’s Grievance committee against the Rejection report of a Patent Application</option>
-                                                                <option value="Preparing and filing the list of goods ">Preparing and filing the list of goods </option>
-                                                                <option value="Amendment of patent grant">Amendment of patent grant</option>
-                                                                <option value="Certification of Assignment Document">Certification of Assignment Document</option>
-                                                                <option value="Appeal to the Administrative Court">Appeal to the Administrative Court</option>
-                                                                <option value="Recordal of Merger and Change of Name">Recordal of Merger and Change of Name</option>
-                                                                <option value="Claims exceeding Ten  claims ">Claims exceeding Ten  claims </option>
-                                                                <option value=Legalization of the POA up to Lebanese Consulate "">Legalization of the POA up to Lebanese Consulate </option>
-                                                                <option value="Legalization of the POA to the Chinese Commercial Center in UAE">Legalization of the POA to the Chinese Commercial Center in UAE</option>
-                                                                <option value="Legalization of the POA to the Foreign Affairs in UAE">Legalization of the POA to the Foreign Affairs in UAE</option>
-                                                                <option value="3rd year annuity and substantive examination ">3rd year annuity and substantive examination </option>
-                                                                <option value="Amendment of  specification  ">Amendment of  specification  </option>
-                                                                <option value="Trademark Renewal and Change of Address">Trademark Renewal and Change of Address</option>
-                                                                <option value="Discount">Discount</option>
-                                                                <option value="2nd, 3rd & 4th annuity">2nd, 3rd & 4th annuity</option>
-                                                                <option value="Filing a second party plaintiff appeal">Filing a second party plaintiff appeal</option>
-                                                                <option value="filed a complaints before Ministry of Supply and Internal Trade in Egypt regarding the infringing ">filed a complaints before Ministry of Supply and Internal Trade in Egypt regarding the infringing </option>
-                                                                <option value="filed a complaints before Ministry of Supply and Internal Trade in Egypt regarding the infringing ">filed a complaints before Ministry of Supply and Internal Trade in Egypt regarding the infringing </option>
-                                                                <option value="Legal Opinion">Legal Opinion</option>
-                                                                <option value="Filing a complaint">Filing a complaint</option>
-                                                                <option value="publication">publication</option>
-                                                                <option value="Examination of application">Examination of application</option>
-                                                                <option value="Legalization of document in Baghdad">Legalization of document in Baghdad</option>
-                                                                <option value="Cancellation of License">Cancellation of License</option>
-                                                                <option value="Prosecution Fees">Prosecution Fees</option>
-                                                                <option value="Preparing and filing an Appeal against the Registrar’s decision ">Preparing and filing an Appeal against the Registrar’s decision </option>
-                                                                <option value="Change of Agent & Taking Over Representation">Change of Agent & Taking Over Representation</option>
-                                                                <option value="POA legalization from Taiwan embassy in Bahrain">POA legalization from Taiwan embassy in Bahrain</option>
-                                                                <option value="POA legalization from Bahrain Ministry of Foreign Affairs in Bahrain">POA legalization from Bahrain Ministry of Foreign Affairs in Bahrain</option>
-                                                                <option value="7th year annuity with 3 months penalty">7th year annuity with 3 months penalty</option>
-                                                                <option value="Restoration Fees">Restoration Fees</option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-                                                                <option value=""></option>
-
-                                                            />
-
-                                                            @error('status')
-                                                                <p class='text-danger'>{{ $message }}</p>
-                                                            @enderror
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
+                                       
                                         <!-- Country -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Country</label>
@@ -652,72 +476,16 @@
                                         </div>
                                         <!-- class -->
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Class</label>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="rounded">
-                                                        <div class="mb-3">
-                                                            <select required name='class' value='{{ old("class") }}' class="single-select">
-                                                                <option value="not included">Not Included</option>    
-                                                                <option value="Class 1">Class 1</option>
-                                                                <option value="Class 2">Class 2</option>
-                                                                <option value="Class 3">Class 3</option>
-                                                                <option value="Class 4">Class 4</option>
-                                                                <option value="Class 5">Class 5</option>
-                                                                <option value="Class 6">Class 6</option>
-                                                                <option value="Class 7">Class 7</option>
-                                                                <option value="Class 8">Class 8</option>
-                                                                <option value="Class 9">Class 9</option>
-                                                                <option value="Class 10">Class 10</option>
-                                                                <option value="Class 11">Class 11</option>
-                                                                <option value="Class 12">Class 12</option>
-                                                                <option value="Class 13">Class 13</option>
-                                                                <option value="Class 14">Class 14</option>
-                                                                <option value="Class 15">Class 15</option>
-                                                                <option value="Class 16">Class 16</option>
-                                                                <option value="Class 17">Class 17</option>
-                                                                <option value="Class 18">Class 18</option>
-                                                                <option value="Class 19">Class 19</option>
-                                                                <option value="Class 20">Class 20</option>
-                                                                <option value="Class 21">Class 21</option>
-                                                                <option value="Class 21">Class 22</option>
-                                                                <option value="Class 23">Class 23</option>
-                                                                <option value="Class 24">Class 24</option>
-                                                                <option value="Class 25">Class 25</option>
-                                                                <option value="Class 26">Class 26</option>
-                                                                <option value="Class 27">Class 27</option>
-                                                                <option value="Class 28">Class 28</option>
-                                                                <option value="Class 29">Class 29</option>
-                                                                <option value="Class 30">Class 30</option>
-                                                                <option value="Class 31">Class 31</option>
-                                                                <option value="Class 32">Class 32</option>
-                                                                <option value="Class 33">Class 33</option>
-                                                                <option value="Class 34">Class 34</option>
-                                                                <option value="Class 35">Class 35</option>
-                                                                <option value="Class 36">Class 36</option>
-                                                                <option value="Class 37">Class 37</option>
-                                                                <option value="Class 38">Class 38</option>
-                                                                <option value="Class 39">Class 39</option>
-                                                                <option value="Class 40">Class 40</option>
-                                                                <option value="Class 41">Class 41</option>
-                                                                <option value="Class 42">Class 42</option>
-                                                                <option value="Class 43">Class 43</option>
-                                                                <option value="Class 44">Class 44</option>
-                                                                <option value="Class ">Class 45</option>
-                                                            </select>
-
-                                                            @error('category_id')
-                                                                <p class='text-danger'>{{ $message }}</p>
-                                                            @enderror
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <label for="inputProductDescription" class="form-label">Class</label>
+                                            <input type="text" value='{{ old("class") }}' name='class' required class="form-control" id="inputclass">                                        
+                                            
+                                            @error('class')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>  
 
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Post Category</label>
+                                            <label for="inputProductTitle" class="form-label">Type</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
@@ -737,7 +505,54 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- annuity due -->
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Annuity Due</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+                                                            <select required name='annuitydue' value='{{ old("annuitydue") }}' class="single-select">
+                                                                <option value="not included">Not Included</option>    
+                                                                <option value="1st Annuity">1st Annuity</option>
+                                                                <option value="2nd Annuity">2nd Annuity</option>
+                                                                <option value="3th Annuity">3rd Annuity</option>
+                                                                <option value="4th Annuity">4th Annuity</option>
+                                                                <option value="5th Annuity">5th Annuity</option>
+                                                                <option value="6th Annuity">6th Annuity</option>
+                                                                <option value="7th Annuity">7th Annuity</option>
+                                                                <option value="8th Annuity">8th Annuity</option>
+                                                                <option value="9th Annuity">9th Annuity</option>
+                                                                <option value="10th Annuity">10th Annuity</option>
+                                                                <option value="11th Annuity">11th Annuity</option>
+                                                                <option value="12th Annuity">12th Annuity</option>
+                                                                <option value="13th Annuity">13th Annuity</option>
+                                                                <option value="14th Annuity">14th Annuity</option>
+                                                                <option value="15th Annuity">15th Annuity</option>
+                                                                <option value="16th Annuity">16th Annuity</option>
+                                                                <option value="17th Annuity">17th Annuity</option>
+                                                                <option value="18th Annuity">18th Annuity</option>
+                                                                <option value="19th Annuity">19th Annuity</option>
+                                                                <option value="20th Annuity">20th Annuity</option>
+                                                            </select>
+                                                            @error('annuitydue')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <!-- annuity duedate. -->
+                                         <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Annuity Deadline.</label>
+                                            <input type="date" value='00-00-0000' class="form-control"  name='annuitydeadline' id="inputProductTitle">
+
+                                            @error('annuitydeadline')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                         <div class="mb-3">
                                             <div class="card">
                                                 <div class="card-body">

@@ -74,11 +74,14 @@ body { font-family: Arial; font-size: 17.0px }
                                 Status : {{ old("status", $post->status) }}</br/>
                                 Registration : {{ old("registrationno", $post->registrationno) }}<br/>
                                 Registration Date: {{ old("registrationdate", $post->registrationdate) }}<br/>
-                                Renewal date :{{ old("renewal", $post->renewal) }}<br/>
+                                Renewal Date :{{ old("renewal", $post->renewal) }}<br/>
+                                Publication Date :{{ old("pubdate", $post->pubdate) }}<br/>
+                                Appeal Date :{{ old("appealdate", $post->appealdate) }}<br/>
+                                Opposed Date :{{ old("opposedate", $post->opposedate) }}<br/>
 								              </td>
                                   <td>
                                     <div>
-								                    <img style='width: 40%' class="center" src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+								                    <img style='width: 100%' class="center" src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
                                     </div>
 								                  </td>
                                 </tr>
@@ -86,6 +89,7 @@ body { font-family: Arial; font-size: 17.0px }
                                 </tbody>
                               </table>
                             </div>
+
                             <!-- /.col -->
                           </div>
                        

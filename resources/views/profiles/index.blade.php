@@ -78,8 +78,7 @@
                                             <div class='col-md-8'>
                                                 <div class="mb-3">
                                                     <label for="input_image" class="form-label">Image</label>
-                                                    <input name='image' type='file' class="form-control" id="input_image">
-                                                
+                                                    <input name='image' type='file' class="form-control" id="input_image">                                                
                                                     @error('image')
                                                         <p class='text-danger'>{{ $message }}</p>
                                                     @enderror

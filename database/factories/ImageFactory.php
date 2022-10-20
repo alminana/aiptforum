@@ -22,10 +22,10 @@ class ImageFactory extends Factory
     public function definition()
     {
         $fake_images = [
-            '1.png',
-            '2.png',
-            '3.png',
-            '4.png',
+            '1.jpg',
+            '2.PNG',
+            '3.JPG',
+            '4.JPEG',
             '5.png',
             '6.png',
             '7.png',

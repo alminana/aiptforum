@@ -1,5 +1,6 @@
 @extends("admin_dashboard.layouts.app")
 @section("style")
+    <link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('admin_dashboard_assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
@@ -35,81 +36,109 @@
 
 
 
-            <div class="card radius-10">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <h6 class="mb-9">Recent Application </h6>
-                        </div>
-                        <div class="dropdown ms-auto">
-                            <div class="d-lg-flex align-items-center mb-4 gap-3">
-                                <div class="position-relative">
-                                <form method="GET" action="{{ route('admin.index', $category) }}">
-                                <input type="search" name="search" class="form-control ps-5 " style="padding: 10px 550px;" placeholder="Search Application"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
-                                </form>
-                                </div>
-                                <div class="ms-auto"><a href="{{ route('admin.index') }}" class="btn btn-primary ">Clear</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-					
-                        <table class="table align-middle mb-0">
-                            <thead class="table-light">
-                            <tr>
-                                <th style="font-size:11px;">#</th>
-                                <th style="font-size:11px;">Refference</th>
-                                <th style="font-size:11px;">Image</th>
-								<th style="font-size:11px;">Application</th>
-                                <th style="font-size:11px;">Filing no:</th>
-                                <th style="font-size:11px;">Filing date</th>
-                                <th style="font-size:11px;">Class</th>  
-                                <th style="font-size:11px;">Registration</th>
-                                <th style="font-size:11px;">Registration date</th> 
-                                <th style="font-size:11px;">Renewal</th> 
-								<th style="font-size:11px;">Status</th>
-                                <th style="font-size:11px;">Client</th>
-								<th style="font-size:11px;">Country</th>
-								<th style="font-size:11px;">Category</th>
-								
-                            </tr>
-                            </thead>
-                            <tbody>
-							@forelse($posts as $post)
+            <div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="example2" class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th style="font-size:11px;">AIPTREF</th>
+										<th style="font-size:11px;">Client Reference</th>
+										<th style="font-size:11px;">Agent</th>
+										<th style="font-size:11px;">Image</th>
+										<th style="font-size:11px;">Application</th>
+										<th style="font-size:11px;">Filing no:</th>
+                                   		<th style="font-size:11px;">Filing date</th>
+										<th style="font-size:11px;">Publication Date</th>
+										<th style="font-size:11px;">Appeal Date</th>
+										<th style="font-size:11px;">Oppose Date</th>
+										<th style="font-size:11px;">Registration</th>
+										<th style="font-size:11px;">Registration date</th> 
+										<th style="font-size:11px;">Renewal</th> 
+										<th style="font-size:11px;">Client</th> 
+										<th style="font-size:11px;">Status</th>
+										<th style="font-size:11px;">Country</th>
+										<th style="font-size:11px;">Class</th>
+										<th style="font-size:11px;">Type</th>
+										<th style="font-size:11px;">Annuity Due</th>
+										<th style="font-size:11px;">Annuity Deadline</th>
+										<th style="font-size:11px;">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								@forelse($posts as $post)
 							<tr>
-                                <td>
-								    <div class="d-flex align-items-center">
-										<div>
-											<input class="form-check-input me-3" type="checkbox" value="" aria-label="...">
-										</div>
-										<!-- <div class="ms-2">
-											<h6 class="mb-0 font-14">{{ $post->id }}</h6>
-										</div> -->
-									</div>
+							
+								<td >{{$post->aiptref}}</td>
+								<td>{{$post->clientref}}</td>
+								<td>{{ $post->agent }}</td>
+								<td>
+								<img style='width: 40%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 								</td>
-                                <td style="font-size:11px;"><a style="color:black;"  href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
-                                <td><a href="{{ route('posts.show', $post) }}"><img style='width: 80%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='product-img-2' alt="Post Thumbnail"></a></td> 
-                                <!-- <td><img src="{{ asset('admin_dashboard_assets/images/products/01.png') }}" class="product-img-2" alt="product img"></td> -->
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{ $post->category->name }}</a></td>
+								<td>{{$post->title}}</td>
+								<td>{{$post->slug}}</td>
+								<td>{{$post->filingdate}}</td>
+								<td>{{$post->pubdate}}</td>
+								<td>{{$post->appealdate}}</td>
+								<td>{{$post->opposedate}}</td>
+								<td>{{$post->registrationno}}</td>
+								<td>{{$post->registrationdate}}</td>
+								<td>{{$post->renewal}}</td>
+								<td>{{$post->excerpt}}</td>
+								<td>{{$post->status}}</td>
+								<td>{{$post->country}}</td>
+								<td>{{$post->class}}</td>
+								<td>{{$post->category->name}}</td>
+								<td>{{$post->annuitydue}}</td>
+								<td>{{$post->annuitydeadline}}</td>
+								<td>
+											<div class="d-flex order-actions">
+												<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
+												<!-- <a href="#"  onclick="event.preventDefault(); document.getElementById('delete_form_{{ $post->id }}').submit();" class="ms-3"><i class='bx bxs-trash'></i></a> -->
+											
+                                                <form method='post' action="{{ route('admin.posts.destroy', $post) }}" id='delete_form_{{ $post->id }}'>
+												@csrf 
+												@method('DELETE')
+												<!-- Button trigger modal -->
+												<a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="ms-3"><i class='bx bxs-trash'></i></a>
+												<!-- Modal -->
+												<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog">
+													<div class="modal-content">
+													<div class="modal-header">
+														<h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete this data</h1>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<div class="modal-fullscreen-xxl-down">
+													<label for="inputProductTitle" style="text-align:center" class="form-label">
+														AIPT REFFERENCE : 
+														{{$post->aiptref}}
+													</label>
+													
+													<br/>
+													
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+														<button type="button" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $post->id }}').submit();" class="btn btn-primary">Delete</button>
+													</div>
+													</div>
+												</div>
+												</div>
+												</form> 
+											
+                                            </div>
+										</td>
+
                             </tr>
                             @empty
 								<p class='lead'>There are no Application to show.</p>
 							@endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+								</tbody>
+							</table>
+						
+				
+				</div>
           
         </div>
     </div>
@@ -128,5 +157,24 @@
             <!-- Required datatable js -->
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="{{ asset('backend/assets/js/code.js') }}"></script>    
+    <script src="{{ asset('backend/assets/js/code.js') }}"></script>   
+    </script>
+	  <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			var table = $('#example2').DataTable( {
+				lengthChange: false,
+				buttons: ['excel','copy']
+			} );
+		 
+			table.buttons().container()
+				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
+		
+            setTimeout(() => {
+                $(".general-message").fadeOut();
+            }, 5000);
+        
+        });
+	</script> 
 @endsection
