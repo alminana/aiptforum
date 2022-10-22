@@ -79,7 +79,8 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->annuitydue}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->annuitydeadline}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">
+								
+								<td>			
 											<div class="d-flex order-actions">
 												<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
 												<!-- <a href="#"  onclick="event.preventDefault(); document.getElementById('delete_form_{{ $post->id }}').submit();" class="ms-3"><i class='bx bxs-trash'></i></a> -->
@@ -116,7 +117,7 @@
 												</form> 
 											
                                             </div>
-										</td>
+								</td>
 
                             </tr>
                             @empty

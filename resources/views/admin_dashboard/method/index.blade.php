@@ -1,18 +1,21 @@
 @extends("admin_dashboard.layouts.app")
-		
+@section("style")
+	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+	@endsection
 		@section("wrapper")
 		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Method</div>
+					<div class="breadcrumb-title pe-3">Client</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="{{ route('admin.method.index') }}"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Method</li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.method.create') }}">Add New</a></li>
+
 							</ol>
 						</nav>
 					</div>
@@ -21,26 +24,16 @@
 			  
 				<div class="card">
 					<div class="card-body">
-						<div class="d-lg-flex align-items-center mb-4 gap-3">
-							<div class="position-relative">
-							<form method="GET" action="{{ route('admin.method.index') }}">
-								<input type="search" name="search" class="form-control ps-5 radius-640 " style="padding: 10px 600px;" placeholder="Search Order"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
-                            </form>
-							</div>
-							<div class="ms-auto"><a href="{{ route('admin.method.index') }}" class="btn btn-primary ">Clear</a></div>
-						  <div class="ms-auto"><a href="{{ route('admin.method.create') }}" class="btn btn-primary ">Add</a></div>
-						</div>
 						<div class="table-responsive">
-						<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
-
-									<tr>
+							<table id="example2" class="table table-striped table-bordered">
+								<thead>
+								<tr>
 										<th>#</th>
 										<th>Method</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
-								<tbody>
+						<tbody>
 								  @forelse($methods as $method)
 									<tr>
 									<td>
@@ -89,8 +82,8 @@
 									@endforelse
 								</tbody>
 							</table>
-						</div>
-					</div>
+						
+				
 				</div>
 
 
@@ -144,7 +137,33 @@
   });
 
     </script>
+	  <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			var table = $('#example2').DataTable( {
+				lengthChange: false,
+				buttons: ['excel','copy']
+			} );
+		 
+			table.buttons().container()
+				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
+		
+            setTimeout(() => {
+                $(".general-message").fadeOut();
+            }, 5000);
+        
+        });
+	</script>
     @endsection
+
+
+
+
+
+
+
+
 
 
 

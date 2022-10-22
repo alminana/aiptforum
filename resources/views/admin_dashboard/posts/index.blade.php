@@ -78,7 +78,6 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->annuitydue}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->annuitydeadline}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">
 
 								<td>
 											<div class="d-flex order-actions">

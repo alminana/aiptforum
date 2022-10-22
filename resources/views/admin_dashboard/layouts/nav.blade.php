@@ -151,7 +151,12 @@
                         <div class="menu-title">Setting</div>
                     </a>
                 </li> -->
-
+                <!-- <li>
+                    <a href="{{ route('admin.import.index') }}">
+                    <div class="parent-icon"><i class='bx bx-info-square'></i></div>
+                        <div class="menu-title">Import</div>
+                    </a>
+                </li> -->
                 <hr>
                 
                 <li>

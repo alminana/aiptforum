@@ -27,7 +27,7 @@ use App\Http\Controllers\AdminControllers\AdminSettingController;
 use App\Http\Controllers\AdminControllers\AdminClientController;
 use App\Http\Controllers\AdminControllers\AdminMethodController;
 use App\Http\Controllers\AdminControllers\AdminProfileController;
-
+use App\Http\Controllers\AdminControllers\AdminImportController;
 // arabic
 use App\Http\Controllers\homearController;
 use App\Http\Controllers\aboutarController;
@@ -107,4 +107,6 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
 
     Route::get('about', [AdminSettingController::class, 'edit'])->name('setting.edit');
     Route::post('about', [AdminSettingController::class, 'update'])->name('setting.update');
+
+    Route::post('import', [AdminImportController::class, 'importdata'])->name('import.index');
 });

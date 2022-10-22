@@ -1,5 +1,7 @@
 @extends("admin_dashboard.layouts.app")
-		
+@section("style")
+	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+	@endsection
 		@section("wrapper")
 		<!--start page wrapper -->
 		<div class="page-wrapper">
@@ -10,9 +12,10 @@
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
+								<li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Users</li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.users.create') }}">Add New</a></li>
+
 							</ol>
 						</nav>
 					</div>
@@ -20,21 +23,11 @@
 				<!--end breadcrumb-->
 			  
 				<div class="card">
-				<div class="card-body">
-						<div class="d-lg-flex align-items-center mb-4 gap-3">
-							<div class="position-relative">
-							<form method="GET" action="{{ route('admin.users.index') }}">
-								<input type="search" name="search" class="form-control ps-5 radius-640 " style="padding: 10px 600px;" placeholder="Search Order"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
-                            </form>
-							</div>
-							<div class="ms-auto"><a href="{{ route('admin.users.index') }}" class="btn btn-primary ">Clear</a></div>
-						  <div class="ms-auto"><a href="{{ route('admin.users.create') }}" class="btn btn-primary ">Add</a></div>
-						</div>
+					<div class="card-body">
 						<div class="table-responsive">
-						<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
-
-									<tr>
+							<table id="example2" class="table table-striped table-bordered">
+								<thead>
+								    <tr>
 										<th>User#</th>
 										<th>Image</th>
 										<th>Name</th>
@@ -112,13 +105,8 @@
 									@endforelse
 								</tbody>
 							</table>
-						</div>
-
-                        <div class='mt-4'>
-                        
-                        </div>
-                        
-					</div>
+						
+				
 				</div>
 
 
@@ -139,5 +127,74 @@
 
         });
 
+
+		
+		$(function(){
+    $(document).on('click','#delete',function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+
+  
+                  Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Delete This Data?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = link
+                      Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                      )
+                    }
+                  }) 
+
+
+    });
+
+  });
+
     </script>
+	  <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			var table = $('#example2').DataTable( {
+				lengthChange: false,
+				buttons: ['excel','copy']
+			} );
+		 
+			table.buttons().container()
+				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
+		
+            setTimeout(() => {
+                $(".general-message").fadeOut();
+            }, 5000);
+        
+        });
+	</script>
     @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

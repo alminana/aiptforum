@@ -9,7 +9,8 @@ use Illuminate\Validation\Rule;
 class AdminClientController extends Controller
 {
     private $rules = [
-        'name' => 'required'
+        'name' => 'required',
+        'country' => 'required',
     ];
    
     public function index(Request $request)
