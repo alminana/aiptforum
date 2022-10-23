@@ -42,7 +42,7 @@
                                         @enderror
                                     </div>
                                      <!-- Country -->
-                                     <div class="mb-3">
+                                        <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Country</label>
                                             <div class="card">
                                                 <div class="card-body">
@@ -296,6 +296,27 @@
                                                             </select>
 
                                                             @error('country')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- type -->
+                                        <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Type</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+                                                            <select required name='type' class="form-control" value='{{ old("type") }}' class="single-select">                                                            
+                                                            <option value="Direct">Direct</option>
+                                                            <option value="Agent">Agent</option>
+                                                            </select>
+
+                                                            @error('type')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
 

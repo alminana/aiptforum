@@ -11,6 +11,7 @@ class AdminClientController extends Controller
     private $rules = [
         'name' => 'required',
         'country' => 'required',
+        'type' => 'required',
     ];
    
     public function index(Request $request)

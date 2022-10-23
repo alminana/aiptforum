@@ -12,7 +12,7 @@ class Client extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','country'];
+    protected $fillable = ['name','country','type'];
      
     public function posts()
     {
