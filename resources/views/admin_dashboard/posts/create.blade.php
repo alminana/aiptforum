@@ -55,7 +55,7 @@
                                         <!-- Client Refference-->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Client Reference</label>
-                                            <input type="text" value='{{ old("clientref") }}' name='clientref' required class="form-control" id="inputProductclientref">
+                                            <input type="text" value='{{ old("clientref") }}' name='clientref'  class="form-control" id="inputProductclientref">
 
                                             @error('clientref')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -141,7 +141,7 @@
                                         <!-- Registration no -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration no.</label>
-                                            <input type="text" value='{{ old("registrationno") }}' class="form-control" required name='registrationno' id="inputProductTitle">
+                                            <input type="text" value='{{ old("registrationno") }}' class="form-control"  name='registrationno' id="inputProductTitle">
 
                                             @error('registrationno')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -477,7 +477,7 @@
                                         <!-- class -->
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Class</label>
-                                            <input type="text" value='{{ old("class") }}' name='class' required class="form-control" id="inputclass">                                        
+                                            <input type="text" value='{{ old("class") }}' name='class'  class="form-control" id="inputclass">                                        
                                             
                                             @error('class')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -557,7 +557,7 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <label for="inputProductDescription" class="form-label">Post Thumbnail</label>
-                                                    <input id='thumbnail' required name='thumbnail' id="file" type="file">
+                                                    <input id='thumbnail'  name='thumbnail' id="file" type="file">
 
                                                     @error('thumbnail')
                                                         <p class='text-danger'>{{ $message }}</p>
