@@ -13,7 +13,7 @@ class AdminMethodController extends Controller
     ];
     public function index(Request $request)
     {  
-        $methods = Method::latest()->take(5)->get();
+        $methods = Method::latest()->take(1000)->get();
         if ($request->has('search')) {
             $methods = Method::where('method', 'like', "%{$request->search}%")
             ->paginate(10);
@@ -23,14 +23,14 @@ class AdminMethodController extends Controller
 
     public function create()
     {
-        $methods = Method::latest()->take(5)->get();
+        $methods = Method::latest()->take(1000)->get();
         return view('admin_dashboard.method.create');
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate($this->rules);
-        $methods = Method::latest()->take(10)->get();
+        $methods = Method::latest()->take(1000)->get();
         Method::create($validated);
         return redirect()->route('admin.method.index')->with('success', 'Method has been Created.');
 

@@ -86,9 +86,9 @@ class AdminPostsController extends Controller
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
 
         $tags= Tag::all();
-        $posts = Post::latest()->take(10)->get();
-        $client = Client::latest()->take(10)->get();
-        $method = Method::latest()->take(10)->get();
+        $posts = Post::latest()->take(1000)->get();
+        $client = Client::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
         
         if ($request->has('search')) {
             $posts = Post::where('body', 'like', "%{$request->search}%")
@@ -176,7 +176,7 @@ class AdminPostsController extends Controller
         //         $tags .= ', ';
         // }
         $clients = Client::all();
-        $method = Method::latest()->take(10)->get();
+        $method = Method::latest()->take(1000)->get();
         return view('admin_dashboard.posts.edit', [
             'post' => $post,
             'categories' => Category::pluck('name', 'id'),

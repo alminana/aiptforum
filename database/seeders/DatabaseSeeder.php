@@ -59,9 +59,9 @@ class DatabaseSeeder extends Seeder
         \App\Models\Category::factory(3)->create();
         \App\Models\Category::factory(1)->create(['name' => 'Uncategorized']);
         
-        $posts = \App\Models\Post::factory(2)->create();
+        $posts = \App\Models\Post::factory(100)->create();
         
-        \App\Models\Comment::factory(2)->create();
+        \App\Models\Comment::factory(100)->create();
 
         \App\Models\Tag::factory(2)->create();
         

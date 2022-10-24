@@ -109,4 +109,6 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
     Route::post('about', [AdminSettingController::class, 'update'])->name('setting.update');
 
     Route::post('import', [AdminImportController::class, 'importdata'])->name('import.index');
+
+    Route::get('/users/status/{status_code}', [AdminUsersController::class, 'updateStatus'])->name('index.updateStatus');
 });

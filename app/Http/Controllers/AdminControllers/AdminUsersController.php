@@ -25,20 +25,20 @@ class AdminUsersController extends Controller
 
     public function index( Request $request)
     {
-        $recent_posts = Post::latest()->take(100)->get();
+        $recent_posts = Post::latest()->take(1000)->get();
 
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
 
-        $tags= Tag::latest()->take(100)->get();
-        $posts = Post::latest()->take(100)->get();
-        $users= User::latest()->take(100)->get();
+        $tags= Tag::latest()->take(1000)->get();
+        $posts = Post::latest()->take(1000)->get();
+        $users= User::latest()->take(1000)->get();
         
         if ($request->has('search')) {
             $users = User::where('name', 'like', "%{$request->search}%")
             ->orWhere('id', 'like', "%{$request->search}%")
             ->orWhere('email', 'like', "%{$request->search}%")
             ->orWhere('role_id', 'like', "%{$request->search}%")
-            ->paginate(10);
+            ->paginate(1000);
         }
         if ($request->has('search'))
         {
@@ -55,10 +55,10 @@ class AdminUsersController extends Controller
 
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
 
-        $tags= Tag::latest()->take(100)->get();
-        $posts = Post::latest()->take(100)->get();
-        $users= User::latest()->take(100)->get();
-        $roles = Role::latest()->take(100)->get();
+        $tags= Tag::latest()->take(1000)->get();
+        $posts = Post::latest()->take(1000)->get();
+        $users= User::latest()->take(1000)->get();
+        $roles = Role::latest()->take(1000)->get();
         if ($request->has('search')) {
             $users = User::where('name', 'like', "%{$request->search}%")
             ->orWhere('id', 'like', "%{$request->search}%")
@@ -134,11 +134,11 @@ class AdminUsersController extends Controller
     {
         $this->rules['password'] = 'nullable|min:3|max:20';
         $this->rules['email'] = ['required', 'email', Rule::unique('users')->ignore($user)];
-        $roles = Role::latest()->take(100)->get();
+        $roles = Role::latest()->take(1000)->get();
         $validated = $request->validate($this->rules);
-        $recent_posts = Post::latest()->take(100)->get();
+        $recent_posts = Post::latest()->take(1000)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $tags= Tag::latest()->take(100)->get();
+        $tags= Tag::latest()->take(1000)->get();
         if($validated['password'] === null)
             unset($validated['password']);
         else 
@@ -162,7 +162,7 @@ class AdminUsersController extends Controller
 
         return view('profiles.index',compact('user','roles') ,[
             'category' => $category,
-            'posts' => $category->posts()->paginate(10),
+            'posts' => $category->posts()->paginate(1000),
             'recent_posts' => $recent_posts,
             'categories' => $categories,
             'tags' => $tags,
@@ -185,6 +185,25 @@ class AdminUsersController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'User has been deleted.');
     }
 
+   /** 
+    *  @param Integer 
+    *  @param Integer
+    *  @return Success
+    * */
+   public function updateStatus ($user_id, $status_code){
+        try {
+            $update_user  = User::whereId()->update([
+                'status' => $status_code
+            ]);
 
+            if($update_user){
+                return redirect()->route('admin.users.index')->with('success', 'User Status Updated');
+            }
+
+            return redirect()->route('admin.users.index')->with('error', 'Fail lto update user status');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+   }
 
 }

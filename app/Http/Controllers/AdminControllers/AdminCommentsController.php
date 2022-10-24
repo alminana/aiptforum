@@ -20,12 +20,12 @@ class AdminCommentsController extends Controller
     {
 
 
-        $recent_posts = Post::latest()->take(5)->get();
+        $recent_posts = Post::latest()->take(1000)->get();
 
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
 
         $tags = Tag::latest()->take(50)->get();
-        $comments = Comment::latest()->take(5)->get();
+        $comments = Comment::latest()->take(1000)->get();
         
         if ($request->has('search')) {
             $comments = Comment::where('the_comment', 'like', "%{$request->search}%")->paginate(10);

@@ -63,7 +63,9 @@
                                         <td>{{ $user->created_at->diffForHumans() }}</td>
                                         <td>
 											<div class="d-flex order-actions">
+  											    
 												<a href="{{ route('admin.users.edit', $user) }}" class=""><i class='bx bxs-edit'></i></a>
+												<a href="{{ route('admin.users.edit', $user) }}" class=""><i class='bx bxs-lock'></i></a>
 												<!-- <a href="#" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $user->id }}').submit();" class="ms-3"><i class='bx bxs-trash'></i></a>
 											
                                                 <form method='post' action="{{ route('admin.users.destroy', $user) }}" id='delete_form_{{ $user->id }}'>@csrf @method('DELETE')</form> -->
