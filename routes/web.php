@@ -63,6 +63,8 @@ Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.
 Route::post('/posts/{post:slug}',[PostsController::class, 'addComment'])->name('posts.add_comment');
 Route::get('/pdf/{id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
 
+Route::get('/print/{post:slug}', [PostsController::class, 'printthis'])->name('print.printthis');
+
 Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 // export excel for Application
 Route::post('/posts/view-pdf',[PostsController::class, 'viewPDF'])->name('view-pdf');
@@ -79,8 +81,7 @@ Route::post('newsletter', [NewsletterController::class, 'store'])->name('newslet
 
 Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 
-Route::get('/notify',[NotificationController::class, 'index'])->name('notification.index');
-
+Route::post('/filter',[CategoryController::class, 'getData'])->name('category.getData');
 require __DIR__.'/auth.php';
 
 // Admin Dashboard Routes

@@ -23,18 +23,17 @@ class Post extends Model
                             'slug',
                             'filingdate',
                             'pubdate',
-                            'appealdate',
-                            'opposedate',
+                          
                             'registrationno',
                             'registrationdate',
                             'renewal',
                             'excerpt' ,
                             'status',
+                            'proceduredate',
                             'country',
                             'class',
                             'category_id',
-                            'annuitydue',
-                            'annuitydeadline',
+                            
                             'body',
                             'user_id',
                             'approved'];

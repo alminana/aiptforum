@@ -121,24 +121,7 @@
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <!-- Appeal date. -->
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Appeal Date.</label>
-                                            <input type="date" value='{{old("appealdate",$post->appealdate)}}' class="form-control"  name='appealdate' id="inputProductTitle">
-
-                                            @error('appealdate')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <!-- opposedate date. -->
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Oppose Date.</label>
-                                            <input type="date" value='{{old("opposedate",$post->opposedate)}}' class="form-control" name='opposedate' id="inputProductTitle">
-
-                                            @error('opposedate')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
+                                     
                                         <!-- Registration no -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration no.</label>
@@ -189,15 +172,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Status</label>
+                                         <!-- procedure -->
+                                         <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Procedure</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
                                                             <select required class="form-control" name='status' class="single-select">
                                                                 @foreach($method as $key => $method)
-                                                                <option value="{{ $method->method,$post->status }}">{{ $method->method }}</option>
+                                                                <option value="{{ $method->method }}">{{ $method->method }}</option>
                                                                 @endforeach
                                                             </select>
 
@@ -205,6 +189,14 @@
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
 
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="inputProductTitle" class="form-label">Procedure Date</label>
+                                                            <input type="date" value='00-00-0000' class="form-control"  name='proceduredate' id="inputProductTitle">
+
+                                                            @error('proceduredate')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -506,54 +498,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- annuity due -->
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Annuity Due</label>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="rounded">
-                                                        <div class="mb-3">
-                                                            <select required name='annuitydue' value='{{ old("annuitydue",$post->annuitydue) }}' class="single-select">
-                                                                <option value="not included">Not Included</option>    
-                                                                <option value="1st Annuity">1st Annuity</option>
-                                                                <option value="2nd Annuity">2nd Annuity</option>
-                                                                <option value="3th Annuity">3rd Annuity</option>
-                                                                <option value="4th Annuity">4th Annuity</option>
-                                                                <option value="5th Annuity">5th Annuity</option>
-                                                                <option value="6th Annuity">6th Annuity</option>
-                                                                <option value="7th Annuity">7th Annuity</option>
-                                                                <option value="8th Annuity">8th Annuity</option>
-                                                                <option value="9th Annuity">9th Annuity</option>
-                                                                <option value="10th Annuity">10th Annuity</option>
-                                                                <option value="11th Annuity">11th Annuity</option>
-                                                                <option value="12th Annuity">12th Annuity</option>
-                                                                <option value="13th Annuity">13th Annuity</option>
-                                                                <option value="14th Annuity">14th Annuity</option>
-                                                                <option value="15th Annuity">15th Annuity</option>
-                                                                <option value="16th Annuity">16th Annuity</option>
-                                                                <option value="17th Annuity">17th Annuity</option>
-                                                                <option value="18th Annuity">18th Annuity</option>
-                                                                <option value="19th Annuity">19th Annuity</option>
-                                                                <option value="20th Annuity">20th Annuity</option>
-                                                            </select>
-                                                            @error('annuitydue')
-                                                                <p class='text-danger'>{{ $message }}</p>
-                                                            @enderror
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                         <!-- annuity duedate. -->
-                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Annuity Deadline.</label>
-                                            <input type="date" value='{{old("annuitydeadline",$post->annuitydeadline)}}' class="form-control"  name='annuitydeadline' id="inputProductTitle">
-
-                                            @error('annuitydeadline')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
                                         <div class="mb-3">
                                             <div class="card">
                                                 <div class="card-body">
@@ -569,7 +513,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Post Content</label>
+                                            <label for="inputProductDescription" class="form-label">Application Status</label>
                                             <textarea name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="12">{{ old("body",$post->body) }}
                                            
                                             </textarea>

@@ -26,14 +26,16 @@
                         <p>No Categories found</p>
                         @endforelse
                 </li>
-               
+                <hr>
+                
+                <hr>
                 <li>
                     <a target='_blank' href="{{ route('home') }}">
                     <div class="parent-icon"><i class='bx bx-lock'></i></div>
                         <div class="menu-title">Lock</div>
                     </a>
                 </li>
-                <hr>
+                
                 <li>
                     <a target='_blank' href="{{ route('admin.index') }}">
                     <div class="parent-icon"><i class='bx bx-pointer'></i></div>

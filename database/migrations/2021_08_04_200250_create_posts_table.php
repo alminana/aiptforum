@@ -18,23 +18,23 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->default('00000');
             $table->string('agent');
-            $table->string('annuitydue');
-            $table->string('annuitydeadline')->default('0000-00-00');
-            $table->string('clientref')->default('client-aipt784');
-            $table->string('filingdate')->default('0000-00-00');
-            $table->string('pubdate')->default('0000-00-00');
-            $table->string('appealdate')->default('0000-00-00');
-            $table->string('opposedate')->default('0000-00-00');
-            $table->string('registrationno')->default('0000');
-            $table->string('registrationdate')->default('0000-00-00');
-            $table->string('renewal')->default('0000-00-00');
+
+            $table->string('clientref')->default('n/a');
+            $table->string('filingdate')->default('00-00-0000');
+            $table->string('pubdate')->default('00-00-0000');
+
+            $table->string('registrationno')->default('n/a');
+            $table->string('registrationdate')->default('00-00-0000');
+            $table->string('renewal')->default('00-00-0000');
             $table->string('excerpt');
-            $table->text('class')->default('not Included');
+            $table->string('class')->default('00-00-0000');
             $table->text('body');
             $table->text('country');
             $table->text('aiptref');
+
             $table->text('status');
-            
+            $table->date('proceduredate')->nullable();
+
             $table->foreignId('user_id');
             $table->foreignId('category_id');
 

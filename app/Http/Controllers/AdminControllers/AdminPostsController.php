@@ -14,31 +14,31 @@ use App\Models\Method;
 use RealRashid\SweetAlert\Facades\Alert;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+use DB;
+use Carbon\Carbon;
 class AdminPostsController extends Controller
 {
     private $rules = [
-        'aiptref' => 'required',
-        // 'clientref'=> 'required',
-        'title' => 'required',
-        'agent' =>'required',
-        // 'slug' => 'required',
-        // 'filingdate'=> 'required',
-        // 'pubdate' => 'required',
-        // 'appealdate' => 'required',
-        // 'opposedate' => 'required',
-        // 'registrationno'=> 'required',
-        // 'registrationdate'=>'required',
-        // 'renewal' => 'required',
-        'excerpt' => 'required|max:1000',
-        'status' => 'required',
-        'country' => 'required',
-        // 'class' => 'required',
-        'category_id' => 'required|numeric',
-        'annuitydue' => 'required',
-        // 'annuitydeadline' => 'required',
-        'thumbnail' => 'required|file|mimes:jpg,png,webp,svg,jpeg',
-        'body' => 'required',
-       
+        'aiptref',
+                            'clientref'=> 'required',
+                            'title'=> 'required',
+                            'agent'=> 'required',
+                            'slug'=> 'required',
+                            'filingdate'=> 'required',
+                            'pubdate'=> 'required',
+                          
+                            'registrationno'=> 'required',
+                            'registrationdate'=> 'required',
+                            'renewal'=> 'required',
+                            'excerpt' => 'required|max:1000',
+                            'status'=> 'required',
+                            'proceduredate'=> 'required',
+                            'country'=> 'required',
+                            'class'=> 'required',
+                            'category_id' => 'required|numeric',
+                            'proceduredate' => 'required',
+                            'thumbnail' => 'required|file|mimes:jpg,png,webp,svg,jpeg',
+                            'body' => 'required',
     ];
     public function generatepdf(Post $post) {
         $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
@@ -58,25 +58,6 @@ class AdminPostsController extends Controller
 
         return $pdf->download('download.pdf',compact('posts'));
     }
-
-    // public function viewPDF()
-    // {
-    //     $posts =Post::all();
-    //     $pdf = PDF::loadView('pdf.postlist', array('posts'=> $posts))->setPaper('a4', 'portrait');
-    //     return $pdf->stream();
-    // }
-
-    // public function downloadPDF()
-    // {
-    //     $posts =Post::all();
-    //     $pdf = PDF::loadView('pdf.postlist', array('posts'=> $posts))->setPaper('a4', 'portrait');
-    //     return $pdf->stream();
-    // }
-
-    // public function exportExcel()
-    // {
-    //     return Excel::download(PostDataExport::class);
-    // }
 
     public function index(Request $request)
     {
@@ -148,16 +129,6 @@ class AdminPostsController extends Controller
             ]);
         }
 
-        // $tags = explode(',', $request->input('tags'));
-        // $tags_ids = [];
-        // foreach($tags as $tag){
-        //     $tag_ob = Tag::create(['name' => trim($tag)]);
-        //     $tags_ids[] = $tag_ob->id;
-        // }
-        
-        // if(count($tags_ids) > 0)
-        //     $post->tags()->sync( $tags_ids );
-
         return redirect()->route('admin.posts.create')->with('success', 'Post has been created.');
     }
 
@@ -168,13 +139,6 @@ class AdminPostsController extends Controller
     
     public function edit(Post $post)
     {
-        // $tags = '';
-        // foreach($post->tags as $key => $tag)
-        // {
-        //     $tags .s= $tag->name;
-        //     if($key !== count($post->tags) - 1)
-        //         $tags .= ', ';
-        // }
         $clients = Client::all();
         $method = Method::latest()->take(1000)->get();
         return view('admin_dashboard.posts.edit', [
@@ -235,4 +199,20 @@ class AdminPostsController extends Controller
     }
 
 
+    public function printthis(Post $post ,Request $request){
+        $recent_posts = Post::latest()->take(10)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $tags= Tag::all();
+        $post = Post::latest()->take(1000)->get();
+        $clients = Client::all();
+        $method = Method::latest()->take(1000)->get();
+        return view('print', [
+            'post' => $post,
+            'categories' => Category::pluck('name', 'id'),
+            'clients'=>$clients,
+            'method' > $method
+        ],compact('clients','method','post'));
+    }
+    
+   
 }

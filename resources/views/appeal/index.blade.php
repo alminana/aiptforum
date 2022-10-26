@@ -11,7 +11,7 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">All Application</div>
+					<div class="breadcrumb-title pe-3">Appeal Deadline</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
@@ -22,14 +22,33 @@
 					</div>
 				</div>
 				<!--end breadcrumb-->
-			  
+				<div class="card">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4">
+					<form method="POST" action="">
+						{{ csrf_field() }}
+						<div class="mb-3">
+							<label>First Date:</label>
+							<input type="date" class="form-control" name="fdate">
+						</div>
+						<div class="mb-3">
+							<label>Second Date:</label>
+							<input type="date" class="form-control" name="sdate">
+						</div>
+						<input type="submit" value="Submit" class="btn btn-primary">
+					</form>
+					</div>
+				</div>
+				</div>
+
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
+							
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-									<th style="font-size:11px;">AIPTREF</th>
+										<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Reference</th>
 										<th style="font-size:11px;">Agent</th>
 										<th style="font-size:11px;">Image</th>
@@ -37,27 +56,18 @@
 										<th style="font-size:11px;">Filing no:</th>
                                    		<th style="font-size:11px;">Filing date</th>
 										<th style="font-size:11px;">Publication Date</th>
-									
-										<th style="font-size:11px;">Registration</th>
-										<th style="font-size:11px;">Registration date</th> 
-										<th style="font-size:11px;">Renewal</th> 
+										<th style="font-size:11px;">Appeal Date</th>
 										<th style="font-size:11px;">Client</th> 
-										<th style="font-size:11px;">Procedure</th>
-										<th style="font-size:11px;">Procedure deadline</th>
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
-
-										<th style="font-size:11px;">Status</th>
-
-										<th style="font-size:11px;">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 								@forelse($posts as $post)
 							<tr>
 							
-							<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+							    <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">
@@ -69,30 +79,15 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->pubdate}}</a></td>
 
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->appealdate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
-
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td>
-		
-
-								<td>
-											<div class="d-flex order-actions">
-
-												<a href="{{ route('print.printthis', $post) }}" class=""><i class='bx bxs-printer'></i></a>
-											
-                                            </div>
-										</td>
 
                             </tr>
                             @empty
-								<p class='lead'>There are no Application to show.</p>
+								<p class='lead'>There are no Appeal Deadline to show.</p>
 							@endforelse
 								</tbody>
 							</table>

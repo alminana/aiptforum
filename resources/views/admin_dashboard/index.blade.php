@@ -49,7 +49,7 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-										<th style="font-size:11px;">AIPTREF</th>
+									<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Reference</th>
 										<th style="font-size:11px;">Agent</th>
 										<th style="font-size:11px;">Image</th>
@@ -58,18 +58,10 @@
                                    		<th style="font-size:11px;">Filing date</th>
 										<th style="font-size:11px;">Publication Date</th>
 										<th style="font-size:11px;">Appeal Date</th>
-										<th style="font-size:11px;">Oppose Date</th>
-										<th style="font-size:11px;">Registration</th>
-										<th style="font-size:11px;">Registration date</th> 
-										<th style="font-size:11px;">Renewal</th> 
 										<th style="font-size:11px;">Client</th> 
-										<th style="font-size:11px;">Status</th>
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
-										<th style="font-size:11px;">Annuity Due</th>
-										<th style="font-size:11px;">Annuity Deadline</th>
-										<th style="font-size:11px;">Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -87,18 +79,13 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->pubdate}}</a></td>
+
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->appealdate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->opposedate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->annuitydue}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->annuitydeadline}}</a></td>
+
 
 								<td>
 											<div class="d-flex order-actions">

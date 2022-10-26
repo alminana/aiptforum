@@ -12,14 +12,14 @@ class NotificationController extends Controller
 {
     public function index(Category $category ,  Request $request)
     {
-        $comments = DB::table('comments')->latest('id')->first();
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $anchor = Carbon::today()->subDay(7);
-        $posts = Post::where('created_at', '>=',  $anchor)->get();
-        return view('notification.index', [
-            'posts' => $category->posts()->paginate(10),
-            'categories' => $categories,
+        $recent_posts = Post::latest()->take(5)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count','desc')->take(100)->get();
+    
+        return view('categories.show',[
+            'category'=>$category,
+            'posts' => $category->posts()->paginate(1000),
+            'recent_posts' => $recent_posts,
+            'categories'=>$categories,
         ]);
     }
-
 }
