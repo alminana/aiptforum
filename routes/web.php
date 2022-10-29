@@ -82,6 +82,8 @@ Route::post('newsletter', [NewsletterController::class, 'store'])->name('newslet
 Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 
 Route::post('/filter',[CategoryController::class, 'getData'])->name('category.getData');
+
+Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.deadline');
 require __DIR__.'/auth.php';
 
 // Admin Dashboard Routes

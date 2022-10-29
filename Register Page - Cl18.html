@@ -104,3 +104,102 @@
  </button>	
 
  
+
+
+
+ <script>
+  function func() {
+      var dateValue = document.getElementById("date").value;
+
+      var date = Math.abs((new Date().getTime() / 1000).toFixed(0));
+      var date2 = Math.abs((new Date(dateValue).getTime() / 1000).toFixed(0));
+
+      var diff = date2 - date;
+
+      var days = Math.floor(diff / 86400);
+      var hours = Math.floor(diff / 3600) % 24;
+      var minutes = Math.floor(diff / 60) % 60;
+      var seconds = diff % 60;
+
+      var daysStr = days;
+      if (days < 10) {
+          daysStr = "0" + days;
+      }
+
+      var hoursStr = hours;
+      if (hours < 10) {
+          hoursStr = "0" + hours;
+      }
+
+      var minutesStr = minutes;
+      if (minutes < 10) {
+          minutesStr = "0" + minutes;
+      }
+
+      var secondsStr = seconds;
+      if (seconds < 10) {
+          secondsStr = "0" + seconds;
+      }
+
+      if (days < 0 && hours < 0 && minutes < 0 && seconds < 0) {
+          daysStr = "00";
+          hoursStr = "00";
+          minutesStr = "00";
+          secondsStr = "00";
+
+          console.log("close");
+          if (typeof interval !== "undefined") {
+              clearInterval(interval);
+          }
+      }
+
+      document.getElementById("data").innerHTML = daysStr + " days, " + hoursStr + ":" + minutesStr + ":" + secondsStr;
+  }
+
+  func();
+  var interval = setInterval(func, 1000);
+</script>
+
+https://www.youtube.com/watch?v=hf_uXyYUXqA
+
+function calculateDays(){
+    var d1 = document.getElementById("d1").value;
+    var d2 = document.getElementById("d2").value;
+    const dateOne = new Date(d1);
+    const dateTwo = new Date(d2);
+    const time = Math.abs(dateTwo - dateOne);
+    const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+    document.getElementById("output").innerHTML=days;
+}
+
+
+<li>
+    <p>sample</p>
+    <p>start</p>
+    <input type="date" id="d1">
+    <p>current</p>
+    <input type="date" id="d2" value="">
+    <button onclick="calculateDays()">Get Result</button>
+    <p id="output">result</p>
+</li>
+
+<?php
+									$to_date = time();
+									// $from_date = strtotime("2022-10-1");
+									$from_date = strtotime($post->proceduredate);
+									$day_diff = $to_date - $from_date;
+									  echo floor($day_diff/(60*60*24));
+									?>
+
+                                    $to_date = time();
+									// $from_date = strtotime("2022-10-1");
+									$from_date = strtotime($post->proceduredate);
+									$day_diff = $to_date - $from_date;
+									  echo floor($day_diff/(60*60*24));
+									
+									  if($floor = 7){
+										echo  '<td bgcolor="#CCCCCC"></td>';
+									  }else{
+										echo  '<td bgcolor="#CCCCCC"></td>';
+									  }
+									  

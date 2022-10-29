@@ -27,7 +27,12 @@
                         @endforelse
                 </li>
                 <hr>
-                
+                <li>
+                    <a target='_blank' href="{{ route('deadline.deadline') }}">
+                    <div class="parent-icon"><i class='bx bx-lock'></i></div>
+                        <div class="menu-title">Deadline</div>
+                    </a>
+                </li>
                 <hr>
                 <li>
                     <a target='_blank' href="{{ route('home') }}">

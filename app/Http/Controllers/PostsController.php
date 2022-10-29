@@ -11,7 +11,7 @@ use App\Models\Client;
 use App\Models\Method;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Carbon\Carbon;
 class PostsController extends Controller
 {
 
@@ -114,4 +114,53 @@ class PostsController extends Controller
         ]);
     }
     
+    public function getRemainingDaysAttribute()
+    {
+        if ($this->sub_end_date) {
+            $remaining_days = Carbon::now()->diffInDays(Carbon::parse($this->sub_end_date));
+        } else {
+            $remaining_days = 0;
+        }
+        return $remaining_days;
+    }
+
+    public function deadline(){
+        $now = Carbon::now();
+        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
+        $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $tags = Tag::latest()->take(50)->get();
+        $posts = Post::latest()->get();
+        $method = Method::latest()->get();
+
+        // foreach($posts as $post)
+        // {
+        // if ($post->proceduredate) {
+        //     $remaining_days = Carbon::now()->diffInDays(Carbon::parse($post->proceduredate));
+        // } else {
+        //     $remaining_days = 0;
+        // }
+        // return $remaining_days;
+        // }
+  
+
+        // foreach($posts as $post)
+        // {
+        // $end_date = $post->proceduredate;
+        // $cDate = Carbon::parse($end_date);
+        // $count = $now->diffInDays($cDate );
+        // }
+        // return $count;
+
+        return view('deadline.index', [
+            'comments' => $comments,
+            'posts' => $posts,
+            'recent_posts' => $recent_posts,
+            'categories' => $categories,
+            'tags' => $tags,
+            'method' => $method,
+        ]);
+    }
+
+
 }
