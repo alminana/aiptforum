@@ -12,6 +12,7 @@ use App\Models\Method;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use DB;
 class PostsController extends Controller
 {
 
@@ -63,24 +64,24 @@ class PostsController extends Controller
         return response()->download($fileName . '.docx')->deleteFileAfterSend(true);
     }
 
-    public function generatepdf(Post $post) {
-        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
-        $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $tags = Tag::latest()->take(50)->get();
-        $posts = Post::latest()->get();
+    // public function generatepdf(Post $post) {
+    //     $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
+    //     $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
+    //     $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+    //     $tags = Tag::latest()->take(50)->get();
+    //     $posts = Post::latest()->get();
        
         
-        $pdf = Pdf::loadView('pdf', [
-            'comments' => $comments,
-            'post' => $post,
-            'recent_posts' => $recent_posts,
-            'categories' => $categories,
-            'tags' => $tags
-        ]);
+    //     $pdf = Pdf::loadView('pdf', [
+    //         'comments' => $comments,
+    //         'post' => $post,
+    //         'recent_posts' => $recent_posts,
+    //         'categories' => $categories,
+    //         'tags' => $tags
+    //     ]);
 
-        return $pdf->download('download.pdf');
-    }
+    //     return $pdf->download('download.pdf');
+    // }
   
   
 
@@ -124,36 +125,17 @@ class PostsController extends Controller
         return $remaining_days;
     }
 
-    public function deadline(){
+    public function deadline(Request $request){
         $now = Carbon::now();
-        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
-        $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
+        $comments = Comment::orderBy('id', 'DESC')->take(1000)->get();
+        $recent_posts = Post::orderBy('id', 'DESC')->take(1000)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $tags = Tag::latest()->take(50)->get();
-        $posts = Post::latest()->get();
+        $tags = Tag::latest()->take(1000)->get();
+        $posts = Post::latest()->take(1000)->get();
         $method = Method::latest()->get();
 
-        // foreach($posts as $post)
-        // {
-        // if ($post->proceduredate) {
-        //     $remaining_days = Carbon::now()->diffInDays(Carbon::parse($post->proceduredate));
-        // } else {
-        //     $remaining_days = 0;
-        // }
-        // return $remaining_days;
-        // }
-  
-
-        // foreach($posts as $post)
-        // {
-        // $end_date = $post->proceduredate;
-        // $cDate = Carbon::parse($end_date);
-        // $count = $now->diffInDays($cDate );
-        // }
-        // return $count;
-
         return view('deadline.index', [
-            'comments' => $comments,
+            'comments' => $comments,    
             'posts' => $posts,
             'recent_posts' => $recent_posts,
             'categories' => $categories,
@@ -162,5 +144,23 @@ class PostsController extends Controller
         ]);
     }
 
+    public function getData(Request $request , Post $posts ){
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
 
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Post::whereBetween('created_at',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.getData',compact('allData','start_date','end_date','categories'));
+    }
+   
 }

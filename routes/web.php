@@ -84,6 +84,9 @@ Route::get('/client', [CategoryController::class, 'index'])->name('client.index'
 Route::post('/filter',[CategoryController::class, 'getData'])->name('category.getData');
 
 Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.deadline');
+
+Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
+
 require __DIR__.'/auth.php';
 
 // Admin Dashboard Routes

@@ -13,41 +13,7 @@
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 					<div class="breadcrumb-title pe-3">All Applications</div>
 					<div class="ps-3">
-						<form action="/filter" method="post">
-							@csrf
-							<nav aria-label="breadcrumb">
-								<ol class="breadcrumb mb-0 p-0">
-									
-
-									<li class="">
-										<label for="">Date From:</label>
-										<input type="date" class="form-control" name="datefrom" id="">
-									</li>&nbsp;&nbsp;&nbsp;
-									<li class="">
-										<label for="">Date To:</label>
-										<input type="date" class="form-control" name="dateto" id="">
-									</li>&nbsp;&nbsp;&nbsp;
-									<li class="">
-										<label for="">Procedure</label>
-										<select required class="form-control"  name='status' class="single-select">
-											@foreach($method as $key => $method)
-											<option value="{{ $method->method }}">{{ $method->method }}</option>
-											@endforeach
-										</select>
-
-										@error('method')
-										<p class='text-danger'>{{ $message }}</p>
-										@enderror
-									</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<li class="">
-										
-										<p></p>
-										<span><button type="submit" class="btn btn-primary">Search</button></span>
-									</li>&nbsp;&nbsp;&nbsp;
-								</ol>
-							</nav>
-						</form> 
-					
+				
 					</div>
 
 				</div>

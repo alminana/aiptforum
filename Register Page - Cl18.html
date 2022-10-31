@@ -203,3 +203,17 @@ function calculateDays(){
 										echo  '<td bgcolor="#CCCCCC"></td>';
 									  }
 									  
+                                      $expire = strtotime($post->proceduredate);
+									$today = strtotime("today midnight");
+									$day_diff = $today - $expire;
+									if($today >= $expire){
+										echo '<p style="color: red; text-align: center">
+												The Deadline is Expired
+												</p>';
+										
+									} else {
+										echo floor($day_diff/(60*60*24));
+										echo '<p style="color: yellow; text-align: center">
+												The Deadline is Expired
+												</p>';
+									}

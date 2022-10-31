@@ -11,6 +11,7 @@ use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Client;
+use App\Models\Method;
 
 class Post extends Model
 {

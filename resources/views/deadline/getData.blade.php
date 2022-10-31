@@ -19,11 +19,47 @@
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
 					<div class="card-body">
-					
+					<form method="GET" action="{{route('deadline.getData')}}">
+						{{ csrf_field() }}
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="">From Date</label>
+										<input type="date" name="start_date" id="start_date" class="form-control"> 
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="">To Date</label>
+										<input type="date" name="end_date" id="end_date" class="form-control">
+									</div>
+								</div>
+								
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for=""></label><br>
+										<button type="submit" value="Submit" class="btn btn-primary">Filter</button>
+									</div>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 				<!--end breadcrumb-->
-			  
+			    <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <div class="p-2">
+                                <h3 class="font-size-16"><strong>Daily Report 
+                                    <span class="btn btn-info"> {{ date('d-m-Y',strtotime($start_date)) }} </span> -
+                                    <span class="btn btn-success"> {{ date('d-m-Y',strtotime($end_date)) }} </span>
+                                </strong></h3>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
@@ -47,49 +83,31 @@
 									</tr>
 								</thead>
 								<tbody>
-								@forelse($posts as $post)
+								@forelse($allData as $key => $item)
 							<tr>
 							
-							    <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->title }}</td>
+							    <td style="font-size:11px;"><a style="color:black;" href="">{{$item->aiptref}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="">{{$item->clientref}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href=""></a>{{$item->title }}</td>
 							
-								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">
-									<?php
-									
-									$expire = strtotime($post->proceduredate);
-									$today = strtotime("today midnight");
-									$day_diff = $today - $expire;
-									if($today >= $expire){
-										echo '<p style="color: red; text-align: center">
-													The Deadline has been Expired
-												</p>';
-												
-									} else {
-										
-										echo floor($day_diff/(60*60*24)),'<p style="color: orange; text-align: center">Day(s) Remaining </p>' ;
-									}
-                                       									  
-								?>
+								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="">
+								 
 								
                                 </a>
                             	</td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">
-								<!-- <input type="date" id="d2" value="{{$post->proceduredate}}"> -->
-                                {{date('m/d/Y',strtotime(($post->proceduredate)))}} 
+                                <td style="font-size:11px;"><a style="color:black;"href="">{{$item->status}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="">
+							
+                                {{date('m/d/Y',strtotime(($item->proceduredate)))}} 
                                  </a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"> {{date('m/d/Y',strtotime(($post->created_at)))}} </a></td>
-                                <!-- <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">
-									<input type="date" id="d1" value="{{$post->proceduredate}}">
-s
-                                </a> -->
+								<td style="font-size:11px;"><a style="color:black;"href="">{{$item->category->name}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="">{{$item->slug}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="">{{$item->class}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="">{{$item->excerpt}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="">{{$item->country}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="">{{$item->body}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href=""> {{date('m/d/Y',strtotime(($item->created_at)))}} </a></td>
+                        
                             </td>
                             </tr>
                             @empty
