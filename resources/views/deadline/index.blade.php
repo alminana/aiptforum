@@ -36,47 +36,137 @@
 										<th style="font-size:11px;">Remaining days</th>
                                         <th style="font-size:11px;">Method</th>
 										<th style="font-size:11px;">Deadline</th>
-                                        <th style="font-size:11px;">Type</th>
+                                     
 										<th style="font-size:11px;">Filing no:</th>
                                         <th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Client</th> 
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Status</th>
 										<th style="font-size:11px;">Created_At</th>
-                                        <!-- <th style="font-size:11px;">Today</th> -->
+                                       
 									</tr>
 								</thead>
 								<tbody>
-								@forelse($posts as $post)
+							@foreach($posts as $post)
+								
 							<tr>
 							
-							    <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+							    <!-- <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->title }}</td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->title }}</td> -->
+
+								@php
+									// $procedureDate =  '2022-11-06';
+
+									// $remaining = \Carbon\Carbon::now()->diffInDays($procedureDate);
+
+									// if($remaining <=  7) {
+									// 	dd("red");
+									// }else {
+									// 	dd("not 7 days");
+									// }
+
+
 							
-								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">
-									<?php
+									$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
+									$color = "";
+									if($remaining <= 7) {
+										$color = "color:white;background-color:red;";
+									}
+
+									if($remaining > 7) {
+										$color = "color:black;background-color:yellow;";
+									}
+
+
+					
 									
 									$expire = strtotime($post->proceduredate);
 									$today = strtotime("today midnight");
 									$day_diff = $today - $expire;
-									if($today >= $expire){
-										echo '<p style="color: red; text-align: center">
-													The Deadline has been Expired
-												</p>';
-												
-									} else {
-										
-										echo floor($day_diff/(60*60*24)),'<p style="color: orange; text-align: center">Day(s) Remaining </p>' ;
-									}
-                                       									  
-								?>
+									$total =floor($day_diff/(60*60*24));
+								@endphp
+
+
+									<td style="{{ $color }}">{{  $post->aiptref }}</td>
+									<td style="{{ $color }}">{{ $post->clientref }}</td>
+									<td style="{{ $color }}">{{ $post->title }}</td>
+
+									<td style="{{ $color }}">
+										<p>		
+											{{$remaining . 'days'}}
+											{{-- {{ $post->proceduredate->diffForHumans() }} --}}
+										</p>
+									</td>
+									<td style="{{ $color }}">{{ $post->status }}</td>
+									<td style="{{ $color }}">
+										{{ $post->proceduredate }}
+									</td>
+									
+									<td style="{{ $color }}">{{ $post->slug }}</td>
+									<td style="{{ $color }}">{{ $post->class }}</td>
+									<td style="{{ $color }}">{{ $post->excerpt }}</td>
+									<td style="{{ $color }}">{{ $post->country }}</td>
+									<td style="{{ $color }}">{{ $post->body }}</td>
+									<td style="{{ $color }}">{{ $post->created_at }} </td>
+
+								{{-- @if($remaining <= 30)
+									
 								
-                                </a>
-                            	</td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
+								@elseif($remaining <= 7 )
+
+									<td style='color:white;background-color:red;'>{{ $post->aiptref }}</td>
+									<td style='color:white;background-color:red;'>{{ $post->clientref }}</td>
+									<td style='color:white;background-color:red;'>{{ $post->title }}</td>
+
+									<td style='color:white;background-color:red;'>
+										<p>     
+												7'days Remaining
+										</p>
+									</td>
+									<td style='color:white;background-color:red;'>{{ $post->status }}</td>
+									<td style='color:white;background-color:red;'>
+										{{ $post->proceduredate }}
+									</td>
+									
+									<td style='color:white;background-color:red;'>{{ $post->slug }}</td>
+									<td style='color:white;background-color:red;'>{{ $post->class }}</td>
+									<td style='color:white;background-color:red;'>{{ $post->excerpt }}</td>
+									<td style='color:white;background-color:red;'>{{ $post->country }}</td>
+									<td style='color:white;background-color:red;'>{{ $post->body }}</td>
+									<td style='color:white;background-color:red;'>{{ $post->created_at  }}</td>
+								@else 
+									
+									<td style='color:white;background-color:Green;'>{{ $post->aiptref }}</td>
+									<td style='color:white;background-color:Green;'>{{ $post->clientref }}</td>
+									<td style='color:white;background-color:Green;'>{{ $post->title }}</td>
+
+									<td style='color:white;background-color:Green;'>
+										<p>     
+												Done
+										</p>
+									</td>
+									<td style='color:white;background-color:Green;'>{{ $post->status }}</td>
+									<td style='color:white;background-color:Green;'>
+										{{ $post->proceduredate }}
+									</td>
+									<td style='color:white;background-color:Green;'>{{ $post->slug }}</td>
+									<td style='color:white;background-color:Green;'>{{ $post->class }}</td>
+									<td style='color:white;background-color:Green;'>{{  $post->excerpt }}</td>
+									<td style='color:white;background-color:Green;'>{{ $post->country }}</td>
+									<td style='color:white;background-color:Green;'>{{ $post->body }}</td>
+									<td style='color:white;background-color:Green;'>{{ $post->created_at  }}</td>
+								@endif --}}
+							
+								
+
+							
+								
+                                
+                            	</td> 
+                                <!-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">
-								<!-- <input type="date" id="d2" value="{{$post->proceduredate}}"> -->
+								
                                 {{date('m/d/Y',strtotime(($post->proceduredate)))}} 
                                  </a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
@@ -85,16 +175,13 @@
                                 <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"> {{date('m/d/Y',strtotime(($post->created_at)))}} </a></td>
-                                <!-- <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">
-									<input type="date" id="d1" value="{{$post->proceduredate}}">
-s
-                                </a> -->
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"> {{date('m/d/Y',strtotime(($post->created_at)))}} </a></td> -->
+                                
                             </td>
                             </tr>
-                            @empty
-								<p class='lead'>There are no Application to show.</p>
-							@endforelse
+                            {{-- @empty
+								<p class='lead'>There are no Application to show.</p> --}}
+							@endforeach
 								</tbody>
 							</table>
 						

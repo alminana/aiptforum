@@ -91,7 +91,23 @@
 								<td style="font-size:11px;"><a style="color:black;"href=""></a>{{$item->title }}</td>
 							
 								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="">
-								 
+								<?php
+									
+									$expire = strtotime($item->proceduredate);
+									$today = strtotime("today midnight");
+									$day_diff = $today - $expire;
+									if($today >= $expire){
+										echo '<p style="color: red; text-align: center">
+													 Expired
+												</p>';
+												
+									} else {
+										
+										echo floor($day_diff/(60*60*24)),'<p style="color: orange; text-align: center">Day(s) Remaining </p>' ;
+									}
+                                       									  
+								?>
+								
 								
                                 </a>
                             	</td>

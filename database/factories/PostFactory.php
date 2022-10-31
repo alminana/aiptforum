@@ -41,7 +41,7 @@ class PostFactory extends Factory
             'aiptref' => $this->faker->numerify('aipt-####'),
             'country' => $this->faker->country(),
             'status' => $this->faker->word(),
-            'proceduredate' => $this->faker->date(),
+            'proceduredate' => $this->faker->dateTimeBetween('+1 week', '+1 months'),
             'user_id' => User::factory(),
             'category_id' => Category::all()->random()->id,
         ];

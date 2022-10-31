@@ -217,3 +217,91 @@ function calculateDays(){
 												The Deadline is Expired
 												</p>';
 									}
+
+                                    <?php
+									
+									$expire = strtotime($post->proceduredate);
+									$today = strtotime("today midnight");
+									$day_diff = $today - $expire;
+									if($today >= $expire){
+										echo '<p style="color: red; text-align: center">
+													 Expired
+												</p>';
+												
+									} else {
+										
+										echo floor($day_diff/(60*60*24)),'<p style="color: orange; text-align: center">Day(s) Remaining </p>' ;
+									}
+                                       									  
+								?>
+---------------------------------------------------------------------------------------------
+if($total <= -7 ){
+    echo"
+    <td style='color:black;background-color:red; font-size:12px;'>$post->aiptref</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->clientref</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->title</td>
+
+    <td style='color:black;background-color:red; font-size:12px;'>
+        <p>		
+                7 days Remaining
+        </p>
+    </td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->status</td>
+    <td style='color:black;background-color:red; font-size:12px;'>
+    $post->proceduredate
+     </td>
+    
+    <td style='color:black;background-color:red; font-size:12px;'>$post->slug</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->class</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->excerpt</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->country</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->body</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->created_at </td>
+
+    ";
+            
+} elseif ($total <= 31 ) {
+    echo"
+    <td style='color:black;background-color:red; font-size:12px;'>$post->aiptref</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->clientref</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->title</td>
+
+    <td style='color:black;background-color:red; font-size:12px;'>
+        <p>		
+                30 days Remaining
+        </p>
+    </td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->status</td>
+    <td style='color:black;background-color:red; font-size:12px;'>
+    $post->proceduredate
+     </td>
+    
+    <td style='color:black;background-color:red; font-size:12px;'>$post->slug</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->class</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->excerpt</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->country</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->body</td>
+    <td style='color:black;background-color:red; font-size:12px;'>$post->created_at </td>
+    ";
+} elseif ($total == 0 ) {
+    echo"
+    <td style='color:white;background-color:green; font-size:12px;'>$post->aiptref</td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->clientref</td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->title</td>
+
+    <td style='color:white;background-color:green; font-size:12px;'>
+        <p>		
+                done
+        </p>
+    </td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->status</td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->procedugreenate</td>
+    
+    <td style='color:white;background-color:green; font-size:12px;'>$post->slug</td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->class</td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->excerpt</td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->country</td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->body</td>
+    <td style='color:white;background-color:green; font-size:12px;'>$post->created_at </td>
+    ";	
+}	
