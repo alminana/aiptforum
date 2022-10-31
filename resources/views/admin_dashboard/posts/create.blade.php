@@ -122,7 +122,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration no.</label>
-                                            <input type="text" value='{{ old("registrationno") }}' class="form-control"  name='registrationno' id="inputProductTitle">
+                                            <input type="text" value='00000' class="form-control"  name='registrationno' id="inputProductTitle">
 
                                             @error('registrationno')
                                                 <p class='text-danger'>{{ $message }}</p>

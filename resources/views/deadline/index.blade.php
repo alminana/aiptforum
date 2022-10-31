@@ -70,12 +70,17 @@
 							
 									$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
 									$color = "";
+									$deadline = "Deadline";
+									$upcomming = "Upcomming";
 									if($remaining <= 7) {
 										$color = "color:white;background-color:red;";
+										$deadline = "Deadline";
 									}
 
 									if($remaining > 7) {
+										
 										$color = "color:black;background-color:yellow;";
+										$upcomming = "Upcomming";
 									}
 
 
@@ -92,9 +97,25 @@
 									<td style="{{ $color }}">{{ $post->clientref }}</td>
 									<td style="{{ $color }}">{{ $post->title }}</td>
 
-									<td style="{{ $color }}">
-										<p>		
-											{{$remaining . 'days'}}
+									<td style="{{ $color, $deadline , $upcomming }}">
+										<p>	
+											<?php
+									
+											$expire = strtotime($post->proceduredate);
+											$today = strtotime("today midnight");
+											$day_diff = $today - $expire;
+											if($remaining > 7){
+
+												echo floor($day_diff/(60*60*24)),'<p style="color: yellow;color:black; text-align: center">Upcoming </p>' ;
+
+														
+											} else {
+												
+												echo floor($day_diff/(60*60*24)),'<p style="color: red;color:white; text-align: center">Deadline </p>' ;
+											}
+																				
+										?>
+											{{-- {{$remaining}} --}}
 											{{-- {{ $post->proceduredate->diffForHumans() }} --}}
 										</p>
 									</td>

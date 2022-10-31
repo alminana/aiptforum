@@ -92,19 +92,20 @@
 							
 								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="">
 								<?php
-									
-									$expire = strtotime($item->proceduredate);
-									$today = strtotime("today midnight");
-									$day_diff = $today - $expire;
-									if($today >= $expire){
-										echo '<p style="color: red; text-align: center">
-													 Expired
-												</p>';
+										$remaining = \Carbon\Carbon::now()->diffInDays($item->proceduredate);
+
+										$expire = strtotime($item->proceduredate);
+											$today = strtotime("today midnight");
+											$day_diff = $today - $expire;
+											if($remaining > 7){
+
+												echo floor($day_diff/(60*60*24)),'<p style="color: yellow;color:black; text-align: center">Upcoming </p>' ;
+
+														
+											} else {
 												
-									} else {
-										
-										echo floor($day_diff/(60*60*24)),'<p style="color: orange; text-align: center">Day(s) Remaining </p>' ;
-									}
+												echo floor($day_diff/(60*60*24)),'<p style="color: red;color:black; text-align: center">Deadline </p>' ;
+											}
                                        									  
 								?>
 								

@@ -24,19 +24,19 @@ class AdminPostsController extends Controller
                             'title'=> 'required',
                             'agent'=> 'required',
                             'slug'=> 'required',
-                            'filingdate'=> 'required',
+                            
                             'pubdate'=> 'required',
                           
-                            'registrationno'=> 'required',
+                           
                             'registrationdate'=> 'required',
                             'renewal'=> 'required',
                             'excerpt' => 'required|max:1000',
                             'status'=> 'required',
-                            'proceduredate'=> 'required',
+              
                             'country'=> 'required',
                             'class'=> 'required',
                             'category_id' => 'required|numeric',
-                            'proceduredate' => 'required',
+                            
                             'thumbnail' => 'required|file|mimes:jpg,png,webp,svg,jpeg',
                             'body' => 'required',
     ];
