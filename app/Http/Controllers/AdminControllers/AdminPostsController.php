@@ -19,25 +19,25 @@ use Carbon\Carbon;
 class AdminPostsController extends Controller
 {
     private $rules = [
-        'aiptref',
+                            'aiptref'=>'required',
                             'clientref'=> 'required',
                             'title'=> 'required',
                             'agent'=> 'required',
                             'slug'=> 'required',
                             
-                            'pubdate'=> 'required',
+                            
                           
                            
-                            'registrationdate'=> 'required',
-                            'renewal'=> 'required',
+                        
+                            
                             'excerpt' => 'required|max:1000',
                             'status'=> 'required',
               
                             'country'=> 'required',
-                            'class'=> 'required',
+                           
                             'category_id' => 'required|numeric',
                             
-                            'thumbnail' => 'required|file|mimes:jpg,png,webp,svg,jpeg',
+                            
                             'body' => 'required',
     ];
     public function generatepdf(Post $post) {

@@ -118,7 +118,7 @@
                                         </div>
 										<div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Class :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("cladss", $post->class) }}</label>
+											<label for="inputProductTitle" class="form-label">{{ old("class", $post->class) }}</label>
                                             <!-- <input type="text" value='{{ old("cladss", $post->class) }}' class="form-control" required name='class' id="inputProductTitle"> -->
 
                                             @error('class')
