@@ -28,9 +28,10 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-									    <th style="font-size:11px;">ID</th>
+									    <th style="font-size:11px;">Assigned ID</th>
 										<th style="font-size:11px;">Name</th>
 										<th style="font-size:11px;">Country</th>
+										<th style="font-size:11px">ABBREVIATIONS</th>
 										<th style="font-size:11px;">Type</th>
 										<th style="font-size:11px;">Action</th>
 									</tr>
@@ -39,9 +40,10 @@
 								@forelse($clients as $client)
 							<tr>
 							
-							  <td style="font-size:11px;"><a style="color:black;" >{{$client->id}}</a></td>
+							  <td style="font-size:11px;"><a style="color:black;" >{{$client->assignedID}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;">{{$client->name}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"></a>{{$client->country}}</td>
+								<td style="font-size:11px;"><a style="color:black;"></a>{{$client->abbr}}</td>
 								<td style="font-size:11px;"><a style="color:black;"></a>{{$client->type}}</td>
 								<td>
 											<div class="d-flex order-actions">

@@ -23,7 +23,7 @@ class Post extends Model
                             'agent',
                             'slug',
                             'filingdate',
-                            'pubdate',
+                           
                           
                             'registrationno',
                             'registrationdate',

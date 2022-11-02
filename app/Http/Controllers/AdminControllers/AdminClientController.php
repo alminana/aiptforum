@@ -10,6 +10,8 @@ class AdminClientController extends Controller
 {
     private $rules = [
         'name' => 'required',
+        'abbr' => 'required',
+        'assignedID' => 'required|unique:clients',
         'country' => 'required',
         'type' => 'required',
     ];

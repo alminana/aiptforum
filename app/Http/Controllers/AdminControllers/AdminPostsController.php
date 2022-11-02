@@ -24,11 +24,10 @@ class AdminPostsController extends Controller
                             'title'=> 'required',
                             'agent'=> 'required',
                             'slug'=> 'required',
+                            'proceduredate'=>'required',
                             
-                            
-                          
-                           
-                        
+                            'class'=>'required',
+                            'renewal'=>'required',
                             
                             'excerpt' => 'required|max:1000',
                             'status'=> 'required',

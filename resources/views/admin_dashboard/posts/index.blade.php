@@ -34,11 +34,11 @@
 										<th style="font-size:11px;">Image</th>
 										<th style="font-size:11px;">Application</th>
 										<th style="font-size:11px;">Filing no:</th>
-                                   		<th style="font-size:11px;">Filing date</th>
-										<th style="font-size:11px;">Publication Date</th>
+                                   		{{-- <th style="font-size:11px;">Filing date</th> --}}
+									
 									
 										<th style="font-size:11px;">Registration</th>
-										<th style="font-size:11px;">Registration date</th> 
+										{{-- <th style="font-size:11px;">Registration date</th>  --}}
 										<th style="font-size:11px;">Renewal</th> 
 										<th style="font-size:11px;">Client</th> 
 										<th style="font-size:11px;">Procedure</th>
@@ -65,11 +65,10 @@
 								</td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->pubdate}}</a></td>
+								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td> --}}
 
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td>
+								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationdate}}</a></td> --}}
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
 

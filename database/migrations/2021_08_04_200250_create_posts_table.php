@@ -20,11 +20,11 @@ class CreatePostsTable extends Migration
             $table->string('agent');
 
             $table->string('clientref')->default('n/a');
-            $table->string('filingdate')->default('00-00-0000');
-            $table->string('pubdate')->default('00-00-0000');
+            // $table->string('filingdate')->default('00-00-0000');
+          
 
             $table->string('registrationno')->default('n/a');
-            $table->string('registrationdate')->default('00-00-0000');
+            // $table->string('registrationdate')->default('00-00-0000');
             $table->string('renewal')->default('00-00-0000');
             $table->string('excerpt');
             $table->string('class')->default('00-00-0000');

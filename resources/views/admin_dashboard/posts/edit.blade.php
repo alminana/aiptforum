@@ -104,7 +104,7 @@
                                             @enderror
                                         </div>
                                         <!-- Filing date. -->
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing Date.</label>
                                             <input type="date" value='{{old("filingdate",$post->filingdate)}}' class="form-control"  name='filingdate' id="inputProductTitle">
 
@@ -112,15 +112,7 @@
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
-                                            <!-- Publication date. -->
-                                            <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Publication Date.</label>
-                                            <input type="date" value='{{old("pubdate",$post->pubdate)}}' class="form-control"  name='pubdate' id="inputProductTitle">
-
-                                            @error('pubdate')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
+                                          --}}
                                      
                                         <!-- Registration no -->
                                         <div class="mb-3">
@@ -132,14 +124,14 @@
                                             @enderror
                                         </div>
                                         <!-- Registration date. -->
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration Date.</label>
                                             <input type="date" value='{{old("registrationdate",$post->registrationdate)}}' class="form-control" name='registrationdate' id="inputProductTitle">
 
                                             @error('registrationdate')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                         <!-- Renewal -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Renewal</label>
