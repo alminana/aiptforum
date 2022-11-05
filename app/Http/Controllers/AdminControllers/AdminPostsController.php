@@ -16,6 +16,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 use DB;
 use Carbon\Carbon;
+use App\Models\Image;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 class AdminPostsController extends Controller
 {
     private $rules = [
@@ -114,21 +117,79 @@ class AdminPostsController extends Controller
         $validated['user_id'] = auth()->id();
         $post = Post::create($validated);
         $method = Method::all();
-        if($request->has('thumbnail'))
+
+          if($request->has('thumbnail'))
         {
             $thumbnail = $request->file('thumbnail');
             $filename = $thumbnail->getClientOriginalName();
             $file_extension = $thumbnail->getClientOriginalExtension();
-            $path = $thumbnail->store('images', 'public');
+            // $path = $request->file('thumbnail')->store('images/', 's3');
+
+            $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
+
+            //save image name in database
+           
 
             $post->image()->create([
                 'name' => $filename,
                 'extension' => $file_extension,
-                'path' => $path
+                'path' => $path,
+                'filename' => basename($path),
+                'url' => Storage::disk('s3')->url('$path')
             ]);
+   
         }
-
         return redirect()->route('admin.posts.create')->with('success', 'Post has been created.');
+        // dd($post);
+// -----------------------
+        // if($request->has('thumbnail'))
+        // {
+        //     // $thumbnail = $request->file('thumbnail');
+        //     $filename = $thumbnail->getClientOriginalName();
+        //     $file_extension = $thumbnail->getClientOriginalExtension();
+        //     $path = $request->file('thumbnail')->store('images', 's3');
+
+        //     // Storage::disk('s3')->delete($path. "/".$file_extension );
+
+        //     $post->image()->create([
+        //         'name' => $filename,
+        //         'extension' => $file_extension,
+        //         'path' => $path
+        //     ]);
+
+        //     $url = Storage::disk('s3')->url($path."/".$file_extension);
+        // }
+// ------------------------
+        // $path = $request->file('thumbnail')->store('images', 's3');
+
+        // Storage::disk('s3')->setVisibility($path, 'private');
+
+        //     // c->image()->create([
+        //      $post->image()->create([
+        //     'name' => $filename,
+        //     'extension' => $file_extension,
+        //     'path' => basename($path),
+        //     'url' => Storage::disk('s3')->url($path),
+        // ]);
+
+//  -----------------------------------------------
+      
+        // if($request->has('thumbnail'))
+        // {
+            // $thumbnail = $request->file('thumbnail');
+            // $filename = $thumbnail->getClientOriginalName();
+            // $file_extension = $thumbnail->getClientOriginalExtension();
+            // $path = $thumbnail->store('images', 'public');
+            // $path = $thumbnail->store('images', 'public');
+
+            // $post->image()->create([
+            //     'name' => $filename,
+            //     'extension' => $file_extension,
+            //     'path' => $path
+            // ]);
+        // }
+
+        
     }
 
     public function show($id)
@@ -158,17 +219,30 @@ class AdminPostsController extends Controller
 
         if($request->has('thumbnail'))
         {
-            $thumbnail = $request->file('thumbnail');
+            // $thumbnail = $request->file('thumbnail');
             $filename = $thumbnail->getClientOriginalName();
             $file_extension = $thumbnail->getClientOriginalExtension();
-            $path = $thumbnail->store('images', 'public');
+            $path = $request->file('thumbnail')->store('images', 's3');
 
-            $post->image()->update([
+            $post->image()->create([
                 'name' => $filename,
                 'extension' => $file_extension,
                 'path' => $path
             ]);
         }
+        // if($request->has('thumbnail'))
+        // {
+        //     $thumbnail = $request->file('thumbnail');
+        //     $filename = $thumbnail->getClientOriginalName();
+        //     $file_extension = $thumbnail->getClientOriginalExtension();
+        //     $path = $thumbnail->store('images', 'public');
+
+        //     $post->image()->update([
+        //         'name' => $filename,
+        //         'extension' => $file_extension,
+        //         'path' => $path
+        //     ]);
+        // }
 
         $tags = explode(',', $request->input('tags'));
         $tags_ids = [];

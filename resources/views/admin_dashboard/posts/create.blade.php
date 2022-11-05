@@ -132,7 +132,7 @@
                                         <!-- Renewal -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Renewal</label>
-                                            <input type="date" value='00-00-0000' class="form-control"  name='renewal' id="inputProductTitle">
+                                            <input type="text" value='00-00-0000' class="form-control"  name='renewal' id="inputProductTitle">
 
                                             @error('renewal')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -182,7 +182,6 @@
                                                         <div class="mb-3">
                                                             <label for="inputProductTitle" class="form-label">Procedure Date</label>
                                                             <input type="date" value='00-00-0000' class="form-control"  name='proceduredate' id="inputProductTitle">
-
                                                             @error('proceduredate')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
