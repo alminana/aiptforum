@@ -139,7 +139,7 @@ class AdminPostsController extends Controller
             ]);
    
         }
-        return redirect()->route('admin.posts.create')->with('success', 'Post has been created.');
+        return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');
         // dd($post);
 // -----------------------
         // if($request->has('thumbnail'))
@@ -211,25 +211,33 @@ class AdminPostsController extends Controller
     
     public function update(Request $request, Post $post)
     {
-        $this->rules['thumbnail'] = 'nullable|file|mimes:jpg,png,webp,svg,jpeg';
         $validated = $request->validate($this->rules);
         $validated['approved'] = $request->input('approved') !== null;
-        $method = Method::latest()->take(10)->get();
+        $method = Method::all();
         $post->update($validated);
 
         if($request->has('thumbnail'))
         {
-            // $thumbnail = $request->file('thumbnail');
+            $thumbnail = $request->file('thumbnail');
             $filename = $thumbnail->getClientOriginalName();
             $file_extension = $thumbnail->getClientOriginalExtension();
-            $path = $request->file('thumbnail')->store('images', 's3');
+            // $path = $request->file('thumbnail')->store('images/', 's3');
 
-            $post->image()->create([
+            $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
+
+            //save image name in database
+           
+            $post->image()->update([
                 'name' => $filename,
                 'extension' => $file_extension,
-                'path' => $path
+                'path' => $path,
+                'filename' => basename($path),
+                'url' => Storage::disk('s3')->url('$path')
             ]);
+   
         }
+        return redirect()->route('admin.posts.index', $post)->with('success', 'Post has been updated.');
+
         // if($request->has('thumbnail'))
         // {
         //     $thumbnail = $request->file('thumbnail');
@@ -259,7 +267,7 @@ class AdminPostsController extends Controller
             $post->tags()->syncWithoutDetaching( $tags_ids );
         
 
-        return redirect()->route('admin.posts.edit', $post)->with('success', 'Post has been updated.');
+        
     }
 
     public function destroy(Post $post)

@@ -135,7 +135,7 @@
                                         <!-- Renewal -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Renewal</label>
-                                            <input type="date" value='{{old("renewal",$post->renewal)}}' class="form-control"  name='renewal' id="inputProductTitle">
+                                            <input type="text" value='{{old("renewal",$post->renewal)}}' class="form-control"  name='renewal' id="inputProductTitle">
 
                                             @error('renewal')
                                                 <p class='text-danger'>{{ $message }}</p>

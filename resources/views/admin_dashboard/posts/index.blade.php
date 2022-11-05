@@ -64,7 +64,7 @@
 									
 									<a style="color:black;"href="{{ route('posts.show', $post) }}">
 
-									<img src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" />
+									<img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" />
 							
 									</a>
 								</td>
@@ -202,3 +202,5 @@
         });
 	</script>
     @endsection
+
+	
