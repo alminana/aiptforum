@@ -33,7 +33,7 @@
 										<th style="font-size:11px;">Client Reference</th>
 										<th style="font-size:11px;">Agent</th>
 										<th style="font-size:11px;">Image</th>
-										{{-- <th style="font-size:11px;">Application</th>
+										 <th style="font-size:11px;">Application</th>
 										<th style="font-size:11px;">Filing no:</th>
                                    		
 									
@@ -47,7 +47,7 @@
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
 
-										<th style="font-size:11px;">Status</th> --}}
+										<th style="font-size:11px;">Status</th> 
 
 										<th style="font-size:11px;">Action</th>
 									</tr>

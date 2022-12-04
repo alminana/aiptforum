@@ -584,7 +584,7 @@
                     success( json.location )
                 }
                 formData.append('_token', _token);
-                formData.append('file', blobinfo.blob(), blobinfo.filename());
+                // formData.append('file', blobinfo.blob(), blobinfo.filename());
                 xhr.send( formData );
             }
 

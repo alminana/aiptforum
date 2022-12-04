@@ -14,7 +14,7 @@
 
 		<!--start page wrapper -->
 		<div class="page-wrapper">
-			<div class="page-content">
+			<div class="">
             
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
@@ -34,15 +34,16 @@
 										<th style="font-size:11px;">Client Reference</th>
 										<th style="font-size:11px;">Application</th>
 										<th style="font-size:11px;">Remaining days</th>
-                                        <th style="font-size:11px;">Method</th>
 										<th style="font-size:11px;">Deadline</th>
-                                     
+                                        <th style="font-size:11px;">Method</th>
+										<th style="font-size:11px;">Date</th>
 										<th style="font-size:11px;">Filing no:</th>
+										<th style="font-size:11px;">Registration no:</th>
                                         <th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Client</th> 
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Status</th>
-										<th style="font-size:11px;">Created_At</th>
+										{{-- <th style="font-size:11px;">Created_At</th> --}}
                                        
 									</tr>
 								</thead>
@@ -83,6 +84,12 @@
 										$upcomming = "Upcomming";
 									}
 
+									if($remaining > 30) {
+										
+										$color = "color:black;background-color:yellow;";
+										$safe = "safe";
+									}
+
 
 					
 									
@@ -93,11 +100,11 @@
 								@endphp
 
 
-									<td style="{{ $color }}">{{  $post->aiptref }}</td>
-									<td style="{{ $color }}">{{ $post->clientref }}</td>
-									<td style="{{ $color }}">{{ $post->title }}</td>
+									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->aiptref }}</td>
+									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->clientref }}</td>
+									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->title }}</td>
 
-									<td style="{{ $color, $deadline , $upcomming }}">
+									<td href="{{ route('posts.show', $post) }}" style="{{ $color, $deadline , $upcomming }}">
 										<p>	
 											<?php
 									
@@ -106,12 +113,12 @@
 											$day_diff = $today - $expire;
 											if($remaining > 7){
 
-												echo floor($day_diff/(60*60*24)),'<p style="color: yellow;color:black; text-align: center">Upcoming </p>' ;
+												echo floor($day_diff/(60*60*24)) ;
 
 														
 											} else {
 												
-												echo floor($day_diff/(60*60*24)),'<p style="color: red;color:white; text-align: center">Deadline </p>' ;
+												echo floor($day_diff/(60*60*24)) ;
 											}
 																				
 										?>
@@ -119,17 +126,40 @@
 											{{-- {{ $post->proceduredate->diffForHumans() }} --}}
 										</p>
 									</td>
-									<td style="{{ $color }}">{{ $post->status }}</td>
+									<td href="{{ route('posts.show', $post) }}" style="{{ $color, $deadline , $upcomming }}">
+										<p>	
+											<?php
+									
+											$expire = strtotime($post->proceduredate);
+											$today = strtotime("today midnight");
+											$day_diff = $today - $expire;
+											if($remaining > 7){
+
+												echo 'Upcoming';
+
+														
+											} else {
+												
+												echo 'Deadline';
+											}
+																				
+										?>
+											{{-- {{$remaining}} --}}
+											{{-- {{ $post->proceduredate->diffForHumans() }} --}}
+										</p>
+									</td>
+									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->status }}</td>
 									<td style="{{ $color }}">
 										{{ $post->proceduredate }}
 									</td>
 									
-									<td style="{{ $color }}">{{ $post->slug }}</td>
-									<td style="{{ $color }}">{{ $post->class }}</td>
-									<td style="{{ $color }}">{{ $post->excerpt }}</td>
-									<td style="{{ $color }}">{{ $post->country }}</td>
-									<td style="{{ $color }}">{{ $post->body }}</td>
-									<td style="{{ $color }}">{{ $post->created_at }} </td>
+									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->slug }}</td>
+									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</td>
+									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->class }}</td>
+									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</td>
+									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->country }}</td>
+									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->body }}</td>
+									{{-- <td style="{{ $color }}">{{ $post->created_at }} </td> --}}
 
 								{{-- @if($remaining <= 30)
 									
