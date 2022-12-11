@@ -86,11 +86,11 @@
 								@forelse($allData as $key => $item)
 							<tr>
 							
-							    <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}" >{{$item->aiptref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" >{{$item->clientref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" ></a>{{$item->title }}</td>
+							    <td style="font-size:11px;"><a style="color:black;" href="" >{{$item->aiptref}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="" >{{$item->clientref}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="" ></a>{{$item->title }}</td>
 							
-								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="{{ route('posts.show', $post) }}" >
+								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="" >
 								<?php
 										$remaining = \Carbon\Carbon::now()->diffInDays($item->proceduredate);
 
@@ -109,18 +109,18 @@
 								
                                 </a>
                             	</td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" >{{$item->status}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}" >
+                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->status}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="" >
 							
                                 {{date('m/d/Y',strtotime(($item->proceduredate)))}} 
                                  </a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" >{{$item->category->name}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" >{{$item->slug}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" >{{$item->class}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" >{{$item->excerpt}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" >{{$item->country}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" >{{$item->body}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}" > {{date('m/d/Y',strtotime(($item->created_at)))}} </a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="" >{{$item->category->name}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="" >{{$item->slug}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->class}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->excerpt}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->country}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->body}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="" > {{date('m/d/Y',strtotime(($item->created_at)))}} </a></td>
                         
                             </td>
                             </tr>
