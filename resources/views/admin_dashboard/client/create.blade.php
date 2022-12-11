@@ -361,7 +361,7 @@
                                                         <option value="CD">CD</option>
                                                         <option value="CG">CG</option>
                                                         <option value="CR">CR</option>
-                                                        <option value="AF"></option>
+                                                        <option value="EG">EG</option>
                                                         <option value="AF">AF</option>
                                                         <option value="AF">AF</option>
                                                         <option value="CI">CI</option>
