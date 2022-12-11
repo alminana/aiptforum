@@ -172,7 +172,7 @@
                                                             <option value="Kazakhstan">Kazakhstan</option>
                                                             <option value="Kenya">Kenya</option>
                                                             <option value="Kiribati">Kiribati</option>
-                                                            <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                                                            <option value="South Korea">South Korea</option>
                                                             <option value="Korea, Republic of">Korea, Republic of</option>
                                                             <option value="Kuwait">Kuwait</option>
                                                             <option value="Kyrgyzstan">Kyrgyzstan</option>
