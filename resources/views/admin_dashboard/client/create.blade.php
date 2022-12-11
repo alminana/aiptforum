@@ -367,6 +367,7 @@
                                                         <option value="CI">CI</option>
                                                         <option value="HR">HR</option>
                                                         <option value="CU">CU</option>
+                                                        <option value="VN">VN</option>
                                                         <option value="CY">CY</option>
                                                         <option value="CZ">CZ</option>
                                                         <option value="DK">DK</option>
