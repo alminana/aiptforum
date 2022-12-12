@@ -162,7 +162,7 @@ class AdminUsersController extends Controller
         return redirect()->route('admin.users.edit', $user)->with('success', 'User has been updated.');
     }
     
-    public function destroy(User $user)
+    public function destroy(User $user, Post $post)
     {
         $posts = Post::latest()->get();
 
