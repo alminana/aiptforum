@@ -177,7 +177,6 @@
             setTimeout(() => {
                 $(".general-message").fadeOut();
             }, 5000);
-        
         });
 	</script>
     @endsection

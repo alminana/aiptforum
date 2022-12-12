@@ -162,15 +162,14 @@ class AdminUsersController extends Controller
         return redirect()->route('admin.users.edit', $user)->with('success', 'User has been updated.');
     }
     
-    public function destroy(User $user, Post $post)
+    public function destroy(User $user)
     {
-        $posts = Post::latest()->get();
 
         if($user->id === auth()->id())
             return redirect()->back()->with('error', 'You can not delete your self.');
 
         User::whereHas('role', function($query){
-            $query->where('name', 'admin');
+            $query->where('username', 'admin');
         })->first()->posts()->saveMany( $user->posts );
 
         $user->delete();
