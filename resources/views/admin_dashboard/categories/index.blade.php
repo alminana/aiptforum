@@ -47,7 +47,7 @@
 											</div>
 										</td>
 										<td>{{ $category->name }} </td>
-                                        <td>{{ $category->user->name }}</td>
+                                        <td>{{ $category->user->username }}</td>
                                         
                                         <td>
 											<div class="d-flex order-actions">
