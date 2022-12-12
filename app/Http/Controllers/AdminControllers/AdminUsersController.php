@@ -131,15 +131,13 @@ class AdminUsersController extends Controller
         ]);
     }
     
-    public function update(User $user,Category $category, Request $request)
+    public function update(Request $request, User $user)
     {
         $this->rules['password'] = 'nullable|min:3|max:20';
         $this->rules['email'] = ['required', 'email', Rule::unique('users')->ignore($user)];
-        $roles = Role::latest()->take(1000)->get();
+
         $validated = $request->validate($this->rules);
-        $recent_posts = Post::latest()->take(1000)->get();
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $tags= Tag::latest()->take(1000)->get();
+        
         if($validated['password'] === null)
             unset($validated['password']);
         else 
@@ -154,23 +152,14 @@ class AdminUsersController extends Controller
             $file_extension = $image->getClientOriginalExtension();
             $path = $image->store('images', 'public');
 
-            $user->image()->create([
+            $user->image()->update([
                 'name' => $filename,
                 'extension' => $file_extension,
                 'path' => $path
             ]);
         }
 
-        return view('profiles.index',compact('user','roles') ,[
-            'category' => $category,
-            'posts' => $category->posts()->paginate(1000),
-            'recent_posts' => $recent_posts,
-            'categories' => $categories,
-            'tags' => $tags,
-            'user' => $user,
-            'roles' => Role::pluck('name', 'id')
-        ])->with('success', 'User has been updated.');
-
+        return redirect()->route('admin.users.edit', $user)->with('success', 'User has been updated.');
     }
     
     public function destroy(User $user)
