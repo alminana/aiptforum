@@ -29,7 +29,6 @@
 								<tr>
 									<th>Category#</th>
 									<th>Category Name</th>
-									<th>Creator</th>
 									<th>Actions</th>
 									</tr>
 								</thead>
@@ -47,7 +46,6 @@
 											</div>
 										</td>
 										<td>{{ $category->name }} </td>
-                                        <td>{{ $category->user->username }}</td>
                                         
                                         <td>
 											<div class="d-flex order-actions">
