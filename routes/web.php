@@ -85,6 +85,7 @@ Route::post('/filter',[CategoryController::class, 'getData'])->name('category.ge
 
 Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.deadline');
 
+Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
 
 Route::get('/users/status/{status_code}', [AdminUsersController::class, 'updateStatus'])->name('index.updateStatus');
 
