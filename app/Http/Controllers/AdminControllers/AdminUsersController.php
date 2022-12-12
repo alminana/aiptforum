@@ -169,7 +169,7 @@ class AdminUsersController extends Controller
             return redirect()->back()->with('error', 'You can not delete your self.');
 
         User::whereHas('role', function($query){
-            $query->where('name', 'admin');
+            $query->where('username', 'admin');
         })->first()->posts()->saveMany( $user->posts );
 
         $user->delete();
