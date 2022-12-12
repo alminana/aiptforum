@@ -40,7 +40,9 @@
                             <h6 style="text-align:left">Registration     : {{ old("aiptref", $post->registrationno) }}</h6>  
                             <h6 style="text-align:left">Renewal          : {{ old("aiptref", $post->renewal) }}</h6>  
                             <h6 style="text-align:left">Status           : {{ old("aiptref", $post->status) }}</h6>  
-                            <h6 style="text-align:left">Image :<img style='width: 10%' src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" />
+                            {{-- <h6 style="text-align:left">Image :<img style='width: 10%' src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" /> --}}
+                            <h6 style="text-align:left">
+                                    <img style='width: 10%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
                             </h6>
                         </div>
                         
