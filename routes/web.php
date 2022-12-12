@@ -87,6 +87,7 @@ Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.de
 
 Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
 
+Route::resource('users', AdminUsersController::class);
 require __DIR__.'/auth.php';
 
 // Admin Dashboard Routes
