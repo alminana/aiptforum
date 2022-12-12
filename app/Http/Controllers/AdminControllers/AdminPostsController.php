@@ -28,7 +28,7 @@ class AdminPostsController extends Controller
                             'agent'=> 'required',
                             'slug'=> 'required',
                             'proceduredate'=>'required',
-                            
+                            'registrationno'=>'required',
                             'class'=>'required',
                             'renewal'=>'required',
                             
