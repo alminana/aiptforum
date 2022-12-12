@@ -66,9 +66,9 @@
   											    
 												<a href="{{ route('admin.users.edit', $user) }}" class=""><i class='bx bxs-edit'></i></a>
 												<a href="{{ route('admin.users.edit', $user) }}" class=""><i class='bx bxs-lock'></i></a>
-												<!-- <a href="#" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $user->id }}').submit();" class="ms-3"><i class='bx bxs-trash'></i></a>
+												<a href="#" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $user->id }}').submit();" class="ms-3"><i class='bx bxs-trash'></i></a>
 											
-                                                <form method='post' action="{{ route('admin.users.destroy', $user) }}" id='delete_form_{{ $user->id }}'>@csrf @method('DELETE')</form> -->
+                                               
 												<form method='post' action="{{ route('admin.users.destroy', $user) }}" id='delete_form_{{ $user->id }}'>
 												@csrf 
 												@method('DELETE')
@@ -85,7 +85,7 @@
 													<div class="modal-fullscreen-xxl-down">
 													<label for="inputProductTitle" style="text-align:center" class="form-label">
 														User : 
-														{{ $user->name }} 
+														{{ $user->username }} 
 													</label>
 													
 													<br/>

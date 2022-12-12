@@ -164,6 +164,8 @@ class AdminUsersController extends Controller
     
     public function destroy(User $user)
     {
+        $posts = Post::latest()->get();
+
         if($user->id === auth()->id())
             return redirect()->back()->with('error', 'You can not delete your self.');
 
