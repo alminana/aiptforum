@@ -17,6 +17,7 @@ class AdminUsersController extends Controller
 {
     private $rules = [
         'name' => 'required|min:3',
+        'username' => 'required|min:3',
         'email' => 'required|email|unique:users,email',
         'password' => 'required|min:8|max:20',
         'image' => 'nullable|file|mimes:jpg,png,webp,svg,jpeg|dimensions:max_width=1000,max_height=1000',

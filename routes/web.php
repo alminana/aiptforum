@@ -87,9 +87,7 @@ Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.de
 
 Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
 
-Route::get('/users/status/{status_code}', [AdminUsersController::class, 'updateStatus'])->name('index.updateStatus');
-Route::resource('roles', AdminRolesController::class)->except('show');
-Route::resource('users', AdminUsersController::class);
+Route::resource('profile/{id}', [AdminUsersController::class, 'update'])->name('profiles.update');
 require __DIR__.'/auth.php';
 
 // Admin Dashboard Routes

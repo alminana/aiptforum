@@ -50,6 +50,15 @@
                                         </div>
 
                                         <div class="mb-3">
+                                            <label for="input_name" class="form-label">Username</label>
+                                            <input name='username' type='text' class="form-control" id="input_name" value='{{ old("username") }}'>
+                                        
+                                            @error('username')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-3">
                                             <label for="input_email" class="form-label">Email</label>
                                             <input name='email' type='email' class="form-control" id="input_email" value='{{ old("email") }}'>
                                         

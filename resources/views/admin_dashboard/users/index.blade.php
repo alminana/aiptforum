@@ -52,7 +52,7 @@
 											</div>
 										</td>
 										<td>
-                                            <img width='50' src="{{ $user->image ? asset('storage/' . $user->image->path) : asset('storage/placeholders/user_placeholder.jpg') }}" alt="">    
+                                            <img width='30' src="{{ $user->image ? asset('storage/' . $user->image->path) : asset('storage/placeholders/user_placeholder.jpg') }}" alt="">    
                                         </td>
                                         <td>{{ $user->name }} </td>
                                         <td>{{ $user->email }} </td>
