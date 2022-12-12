@@ -85,9 +85,9 @@ Route::post('/filter',[CategoryController::class, 'getData'])->name('category.ge
 
 Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.deadline');
 
-Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
 
-Route::resource('users', AdminUsersController::class);
+Route::get('/users/status/{status_code}', [AdminUsersController::class, 'updateStatus'])->name('index.updateStatus');
+
 require __DIR__.'/auth.php';
 
 // Admin Dashboard Routes
