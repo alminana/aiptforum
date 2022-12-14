@@ -499,19 +499,25 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <div class="card">
-                                                <div class="card-body">
+
+                                        <div class='row'>
+                                            <div class='col-md-8'>
+                                                <div class="mb-3">
                                                     <label for="inputProductDescription" class="form-label">Post Thumbnail</label>
                                                     <input id='thumbnail' name='thumbnail' id="file" type="file">
 
                                                     @error('thumbnail')
                                                         <p class='text-danger'>{{ $message }}</p>
                                                     @enderror
-
+                                                </div>
+                                            </div>
+                                            <div class='col-md-4'>
+                                                <div class='user-image'>
+                                                    <img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
                                                 </div>
                                             </div>
                                         </div>
+
 
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Application Status</label>
