@@ -31,6 +31,7 @@ class Post extends Model
                             'excerpt' ,
                             'status',
                             'proceduredate',
+                            'requesteddate',
                             'country',
                             'class',
                             'category_id',

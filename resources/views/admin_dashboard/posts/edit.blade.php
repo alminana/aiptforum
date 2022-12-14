@@ -182,8 +182,17 @@
                                                             @enderror
 
                                                         </div>
+
                                                         <div class="mb-3">
-                                                            <label for="inputProductTitle" class="form-label">Procedure Date</label>
+                                                            <label for="inputProductTitle" class="form-label">Requested Date</label>
+                                                            <input type="date" value='00-00-0000' class="form-control"  name='requesteddate' id="inputProductTitle">
+                                                            @error('requesteddate')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="inputProductTitle" class="form-label">Actual Date</label>
                                                             <input type="date" value='00-00-0000' class="form-control"  name='proceduredate' id="inputProductTitle">
 
                                                             @error('proceduredate')

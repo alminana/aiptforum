@@ -36,7 +36,8 @@
 										<th style="font-size:11px;">Remaining days</th>
 										<th style="font-size:11px;">Deadline</th>
                                         <th style="font-size:11px;">Method</th>
-										<th style="font-size:11px;">Date</th>
+										<th style="font-size:11px;">Requested Deadline</th>
+										<th style="font-size:11px;">Actual Deadline</th>
 										<th style="font-size:11px;">Filing no:</th>
 										<th style="font-size:11px;">Registration no:</th>
                                         <th style="font-size:11px;">Class</th>
@@ -149,6 +150,9 @@
 										</p>
 									</td>
 									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->status }}</td>
+									<td style="{{ $color }}">
+										{{ $post->requesteddate }}
+									</td>
 									<td style="{{ $color }}">
 										{{ $post->proceduredate }}
 									</td>

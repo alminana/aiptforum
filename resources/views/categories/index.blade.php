@@ -39,7 +39,8 @@
 										<th style="font-size:11px;">Renewal</th> 
 										<th style="font-size:11px;">Client</th> 
 										<th style="font-size:11px;">Procedure</th>
-										<th style="font-size:11px;">Procedure deadline</th>
+										<th style="font-size:11px;">Requested deadline</th>
+										<th style="font-size:11px;">Actual deadline</th>
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
@@ -77,6 +78,7 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
 
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"> {{date('m/d/Y',strtotime(($post->requesteddate)))}} </a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"> {{date('m/d/Y',strtotime(($post->proceduredate)))}} </a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>

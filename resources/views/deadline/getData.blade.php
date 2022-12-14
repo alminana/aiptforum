@@ -71,7 +71,8 @@
 										<th style="font-size:11px;">Application</th>
 										<th style="font-size:11px;">Remaining days</th>
                                         <th style="font-size:11px;">Method</th>
-										<th style="font-size:11px;">Deadline</th>
+										<th style="font-size:11px;">Requested Deadline</th>
+										<th style="font-size:11px;">Actual Deadline</th>
                                         <th style="font-size:11px;">Type</th>
 										<th style="font-size:11px;">Filing no:</th>
                                         <th style="font-size:11px;">Class</th>
@@ -110,6 +111,11 @@
                                 </a>
                             	</td>
                                 <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->status}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="" >
+							
+									{{date('m/d/Y',strtotime(($item->requesteddate)))}} 
+								</a></td>
+								
 								<td style="font-size:11px;"><a style="color:black;" href="" >
 							
                                 {{date('m/d/Y',strtotime(($item->proceduredate)))}} 

@@ -34,7 +34,7 @@ class CreatePostsTable extends Migration
 
             $table->text('status');
             $table->date('proceduredate')->nullable();
-
+            $table->date('requesteddate')->nullable();
             $table->foreignId('user_id');
             $table->foreignId('category_id');
 

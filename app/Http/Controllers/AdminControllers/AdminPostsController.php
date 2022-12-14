@@ -28,18 +28,14 @@ class AdminPostsController extends Controller
                             'agent'=> 'required',
                             'slug'=> 'required',
                             'proceduredate'=>'required',
+                            'requesteddate'=>'required',
                             'registrationno'=>'required',
                             'class'=>'required',
                             'renewal'=>'required',
-                            
                             'excerpt' => 'required|max:1000',
                             'status'=> 'required',
-              
                             'country'=> 'required',
-                           
                             'category_id' => 'required|numeric',
-                            
-                            
                             'body' => 'required',
     ];
     public function generatepdf(Post $post) {
