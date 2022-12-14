@@ -64,9 +64,7 @@
                                         <td>
 											<div class="d-flex order-actions">
   											    
-												<a href="{{ route('admin.users.edit', $user) }}" class=""><i class='bx bxs-edit'></i></a>
-												<a href="{{ route('admin.users.edit', $user) }}" class=""><i class='bx bxs-lock'></i></a>
-											
+												<a href="{{ route('admin.users.edit', $user) }}" class=""><i class='bx bxs-edit'></i></a>	
                                                
 												<form method='post' action="{{ route('admin.users.destroy', $user) }}" id='delete_form_{{ $user->id }}'>
 												@csrf 
@@ -78,14 +76,13 @@
 												<div class="modal-dialog">
 													<div class="modal-content">
 													<div class="modal-header">
-														<h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete this data</h1>
+														<h1 class="modal-title fs-5" id="exampleModalLabel">Important Reminder</h1>
 														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 													</div>
 													<div class="modal-fullscreen-xxl-down">
 													<label for="inputProductTitle" style="text-align:center" class="form-label">
-														User : 
-														{{ $user->username }} 
-													</label>
+														Deleting this account will cause of loosing a data.<br/> Are you sure you want to delete? 
+													</label>			
 													
 													<br/>
 													
