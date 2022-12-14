@@ -170,7 +170,8 @@ class AdminUsersController extends Controller
 
         User::whereHas('role', function($query){
             $query->where('name', 'admin');
-        })->first()->posts()->saveMany( $user->posts );
+        });
+        // })->first()->posts()->saveMany( $user->posts );
 
         $user->delete();
         return redirect()->route('admin.users.index')->with('success', 'User has been deleted.');
