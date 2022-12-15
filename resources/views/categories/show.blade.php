@@ -29,36 +29,35 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-									<th style="font-size:11px;">AIPTREF</th>
-										<th style="font-size:11px;">Client Reference</th>
-										<th style="font-size:11px;">Agent</th>
-										<th style="font-size:11px;">Image</th>
-										 <th style="font-size:11px;">Application</th>
-										<th style="font-size:11px;">Filing no:</th>
-                                   		
-									
-										<th style="font-size:11px;">Registration</th>
-										
-										<th style="font-size:11px;">Renewal</th> 
+										<th style="font-size:11px;">AIPTREF</th>
+										<th style="font-size:11px;">Client Ref.</th>
 										<th style="font-size:11px;">Client</th> 
-										<th style="font-size:11px;">Procedure</th>
-										<th style="font-size:11px;">Procedure deadline</th>
-										<th style="font-size:11px;">Country</th>
-										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
-
+										<th style="font-size:11px;">Image</th>
+										<th style="font-size:11px;">Application</th>
+										<th style="font-size:11px;">Class</th>
+										<th style="font-size:11px;">Filing no:</th>
+										<th style="font-size:11px;">Registration</th>
+										<th style="font-size:11px;">Renewal</th> 
+										<th style="font-size:11px;">Procedure</th>
+										<th style="font-size:11px;">Requested deadline</th>
+										<th style="font-size:11px;">Actual deadline</th>
+										<th style="font-size:11px;">Country</th>
+										<th style="font-size:11px;">Agent</th>
 										<th style="font-size:11px;">Status</th> 
 
-										<th style="font-size:11px;">Action</th>
+
+										
 									</tr>
 								</thead>
 								<tbody>
 								@forelse($posts as $post)
 							<tr>
-							
-							<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+							 
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
 								<td style="font-size:11px;">
 									<img style='width: 40%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 
@@ -68,30 +67,19 @@
 							
 									</a> --}}
 								</td>
-								 <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-								
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-								
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
 
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
+								
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->requesteddate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td> 
-		
-
-								<td>
-											<div class="d-flex order-actions">
-
-												<a href="{{ route('print.printthis', $post) }}" class=""><i class='bx bxs-printer'></i></a>
-											
-                                            </div>
-										</td>
-
                             </tr>
                             @empty
 								<p class='lead'>There are no Application to show.</p>
