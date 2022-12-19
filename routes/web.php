@@ -59,11 +59,11 @@ Route::post('profile/{id}', [AdminUsersController::class, 'update'])->name('prof
 Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logout');
 Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
+Route::get('/posts/{post:id}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post:slug}',[PostsController::class, 'addComment'])->name('posts.add_comment');
 Route::get('/pdf/{id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
 
-Route::get('/print/{post:slug}', [PostsController::class, 'printthis'])->name('print.printthis');
+Route::get('/print/{post:id}', [PostsController::class, 'printthis'])->name('print.printthis');
 
 Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 // export excel for Application
@@ -72,7 +72,7 @@ Route::post('/posts/download-pdf',[PostsController::class, 'downloadPdf'])->name
 Route::post('/posts/export-excel',[PostsController::class, 'exportExcel'])->name('posts.download-excel');
 
 
-Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('/categories/{category:id}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');
 
 Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show');
