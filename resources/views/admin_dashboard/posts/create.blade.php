@@ -96,7 +96,7 @@
                                         <!-- Filing no. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing no.</label>
-                                            <input type="text" value='n/a' placeholder="Please Input n/a if theres is no Filing no. yet" class="form-control"  name='slug' id="inputProductTitle">
+                                            <input type="text" value='n/a' placeholder="Please Input n/a if there is no Filing no. yet" class="form-control"  name='slug' id="inputProductTitle">
 
                                             @error('slug')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -114,7 +114,7 @@
                                            
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration no.</label>
-                                            <input type="text" value='n/a' placeholder="Please Input n/a if theres is no Registration no. yet  " class="form-control"  name='registrationno' id="inputProductTitle">
+                                            <input type="text" value='n/a' placeholder="Please Input n/a if there is no Registration no. yet  " class="form-control"  name='registrationno' id="inputProductTitle">
 
                                             @error('registrationno')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -132,7 +132,7 @@
                                         <!-- Renewal -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Renewal</label>
-                                            <input type="text" value='n/a' placeholder="Please Input n/a if theres is no renewal no. yet" class="form-control"  name='renewal' id="inputProductTitle">
+                                            <input type="text" value='n/a' placeholder="Please Input n/a if there is no renewal no. yet" class="form-control"  name='renewal' id="inputProductTitle">
 
                                             @error('renewal')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -181,14 +181,14 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="inputProductTitle" class="form-label">Requested Date</label>
-                                                            <input type="date" value='00-00-0000' class="form-control"  name='requesteddate' id="inputProductTitle">
+                                                            <input type="date" value='n/a' class="form-control"  name='requesteddate' id="inputProductTitle">
                                                             @error('requesteddate')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="inputProductTitle" class="form-label">Actual Date</label>
-                                                            <input type="date" value='00-00-0000'  class="form-control"  name='proceduredate' id="inputProductTitle">
+                                                            <input type="date" value='n/a'  class="form-control"  name='proceduredate' id="inputProductTitle">
                                                             @error('proceduredate')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
