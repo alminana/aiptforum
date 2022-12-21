@@ -96,7 +96,7 @@
                                         <!-- Filing no. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing no.</label>
-                                            <input type="text" value='' placeholder="Please Input n/a if theres is no Filing no. yet" class="form-control"  name='slug' id="inputProductTitle">
+                                            <input type="text" value='n/a' placeholder="Please Input n/a if theres is no Filing no. yet" class="form-control"  name='slug' id="inputProductTitle">
 
                                             @error('slug')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -114,7 +114,7 @@
                                            
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration no.</label>
-                                            <input type="text" value='00000' placeholder="Please Input n/a if theres is no Registration no. yet  " class="form-control"  name='registrationno' id="inputProductTitle">
+                                            <input type="text" value='n/a' placeholder="Please Input n/a if theres is no Registration no. yet  " class="form-control"  name='registrationno' id="inputProductTitle">
 
                                             @error('registrationno')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -132,7 +132,7 @@
                                         <!-- Renewal -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Renewal</label>
-                                            <input type="text" value='00-00-0000' placeholder="Please Input n/a if theres is no renewal no. yet" class="form-control"  name='renewal' id="inputProductTitle">
+                                            <input type="text" value='n/a' placeholder="Please Input n/a if theres is no renewal no. yet" class="form-control"  name='renewal' id="inputProductTitle">
 
                                             @error('renewal')
                                                 <p class='text-danger'>{{ $message }}</p>
