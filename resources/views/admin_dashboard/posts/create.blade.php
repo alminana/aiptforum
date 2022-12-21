@@ -46,7 +46,7 @@
                                         <!-- aiptref -->
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">AIPTREF:</label>
-                                            <input type="text" value='{{ old("aiptref") }}' name='aiptref' required class="form-control" id="inputProductTitle">                                        
+                                            <input type="text" value='{{ old("aiptref") }}' placeholder="Please Input AIPT Reference" name='aiptref' required class="form-control" id="inputProductTitle">                                        
                                             
                                             @error('aiptref')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -55,7 +55,7 @@
                                         <!-- Client Refference-->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Client Reference</label>
-                                            <input type="text" value='{{ old("clientref") }}' name='clientref'  class="form-control" id="inputProductclientref">
+                                            <input type="text" value='{{ old("clientref") }}'placeholder="Please Input n/a if theres is no Client References no." name='clientref'  class="form-control" id="inputProductclientref">
 
                                             @error('clientref')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -96,7 +96,7 @@
                                         <!-- Filing no. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing no.</label>
-                                            <input type="text" value='000000' class="form-control"  name='slug' id="inputProductTitle">
+                                            <input type="text" value='' placeholder="Please Input n/a if theres is no Filing no. yet" class="form-control"  name='slug' id="inputProductTitle">
 
                                             @error('slug')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -114,7 +114,7 @@
                                            
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration no.</label>
-                                            <input type="text" value='00000' class="form-control"  name='registrationno' id="inputProductTitle">
+                                            <input type="text" value='00000' placeholder="Please Input n/a if theres is no Registration no. yet  " class="form-control"  name='registrationno' id="inputProductTitle">
 
                                             @error('registrationno')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -132,7 +132,7 @@
                                         <!-- Renewal -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Renewal</label>
-                                            <input type="text" value='00-00-0000' class="form-control"  name='renewal' id="inputProductTitle">
+                                            <input type="text" value='00-00-0000' placeholder="Please Input n/a if theres is no renewal no. yet" class="form-control"  name='renewal' id="inputProductTitle">
 
                                             @error('renewal')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -188,7 +188,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="inputProductTitle" class="form-label">Actual Date</label>
-                                                            <input type="date" value='00-00-0000' class="form-control"  name='proceduredate' id="inputProductTitle">
+                                                            <input type="date" value='00-00-0000'  class="form-control"  name='proceduredate' id="inputProductTitle">
                                                             @error('proceduredate')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
@@ -465,7 +465,7 @@
                                         <!-- class -->
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Class</label>
-                                            <input type="text" value='{{ old("class") }}' name='class'  class="form-control" id="inputclass">                                        
+                                            <input type="text" value='{{ old("class") }}' placeholder="Please Input n/a if the application is Patent or design" name='class'  class="form-control" id="inputclass">                                        
                                             
                                             @error('class')
                                                 <p class='text-danger'>{{ $message }}</p>
