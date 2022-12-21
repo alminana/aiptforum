@@ -44,7 +44,7 @@
 										<th style="font-size:11px;">Actual deadline</th>
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Agent</th>
-										<th style="font-size:11px;">Status</th> 
+										{{-- <th style="font-size:11px;">Status</th>  --}}
 
 
 										
@@ -79,7 +79,7 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td> 
+								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td>  --}}
                             </tr>
                             @empty
 								<p class='lead'>There are no Application to show.</p>

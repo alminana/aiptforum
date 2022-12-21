@@ -48,7 +48,7 @@
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
 
-										<th style="font-size:11px;">Status</th>
+										{{-- <th style="font-size:11px;">Status</th> --}}
 
 										<th style="font-size:11px;">Action</th>
 									</tr>
@@ -85,7 +85,7 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td>
+								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td> --}}
 								<td>
 											<div class="d-flex order-actions">
 												<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
