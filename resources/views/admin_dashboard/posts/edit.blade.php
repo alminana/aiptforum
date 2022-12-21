@@ -485,6 +485,7 @@
                                                     <div class="rounded">
                                                         <div class="mb-3">
                                                             <select required name='category_id' class="single-select">
+                                                                <option value="{{ $key }}">{{ old("category",$post->category) }}</option>
                                                                 @foreach($categories as $key => $category)
                                                                 <option value="{{ $key }}">{{ $category }}</option>
                                                                 @endforeach
