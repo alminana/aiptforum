@@ -74,6 +74,7 @@
 									$color = "";
 									$deadline = "Deadline";
 									$upcomming = "Upcomming";
+									$safe = "safe";
 									if($remaining <= 7) {
 										$color = "color:white;background-color:red;";
 										$deadline = "Deadline";
@@ -85,11 +86,10 @@
 										$upcomming = "Upcomming";
 									}
 
-									if($remaining > 30) {
-										
-										$color = "color:black;background-color:yellow;";
-										$safe = "safe";
-									}
+									
+									
+
+									
 
 
 					

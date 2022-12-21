@@ -40,7 +40,7 @@
 										<th style="font-size:11px;">Actual deadline</th>
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Agent</th>
-										<th style="font-size:11px;">Status</th> 
+										{{-- <th style="font-size:11px;">Status</th>  --}}
 										<th style="font-size:11px;">Action</th>
 									</tr>
 								</thead>
@@ -73,7 +73,7 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td> 
+								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td>  --}}
 								
 								<td>			
 											<div class="d-flex order-actions">
