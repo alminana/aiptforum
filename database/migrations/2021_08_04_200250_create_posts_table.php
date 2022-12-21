@@ -27,7 +27,7 @@ class CreatePostsTable extends Migration
             // $table->string('registrationdate')->default('00-00-0000');
             $table->string('renewal')->default('00-00-0000');
             $table->string('excerpt');
-            $table->string('class')->default('00-00-0000');
+            $table->string('class')->default('class 0');
             $table->text('body');
             $table->text('country');
             $table->text('aiptref');

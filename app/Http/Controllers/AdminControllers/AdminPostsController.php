@@ -27,8 +27,8 @@ class AdminPostsController extends Controller
                             'title'=> 'required',
                             'agent'=> 'required',
                             'slug'=> 'required',
-                            // 'proceduredate'=>'required',
-                            // 'requesteddate'=>'required',
+                            'proceduredate'=>'required',
+                            'requesteddate'=>'required',
                             'registrationno'=>'required',
                             'class'=>'required',
                             'renewal'=>'required',
@@ -223,6 +223,7 @@ class AdminPostsController extends Controller
         $validated['approved'] = $request->input('approved') !== null;
         $method = Method::all();
         $post->update($validated);
+
 
         if($request->has('thumbnail'))
         {
