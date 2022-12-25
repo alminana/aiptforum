@@ -94,7 +94,7 @@ class PostsController extends Controller
         $attributes['user_id'] = auth()->id();
         $comment = $post->comments()->create($attributes);
 
-        return redirect('/posts/' . $post->slug . '#comment_' . $comment->id)->with('success', 'Comment has been added.');
+        return redirect('/posts/' . $post->id . '#comment_' . $comment->id)->with('success', 'Comment has been added.');
     }
 
    
