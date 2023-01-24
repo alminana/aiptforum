@@ -31,7 +31,7 @@ class AdminPostsController extends Controller
                             'requesteddate'=>'required',
                             'registrationno'=>'required',
                             'class'=>'required',
-                            'renewal'=>'required',
+                            // 'renewal'=>'required',
                             'excerpt' => 'required|max:1000',
                             'status'=> 'required',
                             'country'=> 'required',
