@@ -109,11 +109,10 @@
                                             @enderror
                                         </div>
 										<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Filing Date :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("filingdate", $post->filingdate) }}</label>
-                                            <!-- <input type="text" value='{{ old("cladss", $post->class) }}' class="form-control" required name='class' id="inputProductTitle"> -->
-
-                                            @error('class')
+                                            <label for="inputProductDescription" class="form-label">Registration :</label>
+											<label for="inputProductDescription" class="form-label">{{ old("registrationno", $post->registrationno) }}</label>
+											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
+                                            @error('status')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -138,7 +137,7 @@
                                         </div>
 
 										<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Project :</label>
+                                            <label for="inputProductTitle" class="form-label">Type :</label>
 											<label for="inputProductTitle" class="form-label">{{ $post->category->name }}</label>
                                             <!-- <input type="text" value='{{ $post->category->name }}' class="form-control" required name='category' id="inputProductTitle"> -->
 
@@ -155,29 +154,20 @@
                                             @enderror
                                         </div>
 										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Registration :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("registrationno", $post->registrationno) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
-                                            @error('status')
+                                            <label for="inputProductDescription" class="form-label">Status Date :</label>
+											<label for="inputProductDescription" class="form-label">{{ old("proceduredate", $post->proceduredate) }}</label>
+											{{-- <!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         --> --}}
+                                            @error('proceduredate')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
-										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Registration date :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("registrationdate", $post->registrationdate) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
+										{{-- <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Renewal date :</label>
 											<label for="inputProductDescription" class="form-label">{{ old("renewal", $post->renewal) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
                                             @error('status')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
 								</div>

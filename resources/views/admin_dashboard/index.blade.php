@@ -58,7 +58,7 @@
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Filing no:</th>
 										<th style="font-size:11px;">Registration</th>
-										<th style="font-size:11px;">Renewal</th> 
+										{{-- <th style="font-size:11px;">Renewal</th>  --}}
 										<th style="font-size:11px;">Procedure</th>
 										<th style="font-size:11px;">Requested deadline</th>
 										<th style="font-size:11px;">Actual deadline</th>
@@ -91,7 +91,7 @@
 								
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
+								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td> --}}
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->requesteddate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>

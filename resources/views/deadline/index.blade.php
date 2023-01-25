@@ -96,7 +96,7 @@
 									
 									$expire = strtotime($post->proceduredate);
 									$today = strtotime("today midnight");
-									$day_diff = $today - $expire;
+									$day_diff =  $expire - $today ;
 									$total =floor($day_diff/(60*60*24));
 								@endphp
 
