@@ -97,7 +97,7 @@
 
 										$expire = strtotime($item->proceduredate);
 											$today = strtotime("today midnight");
-											$day_diff = $today - $expire;
+											$day_diff =   $expire - $today;
 											if($remaining > 7){
 												echo floor($day_diff/(60*60*24)),'<p style="color: yellow;color:black; text-align: center">Upcoming </p>';	
 											} else {

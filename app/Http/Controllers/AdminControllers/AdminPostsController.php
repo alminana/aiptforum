@@ -214,7 +214,7 @@ class AdminPostsController extends Controller
             'categories' => Category::pluck('name', 'id'),
             'clients'=>$clients,
             'method' > $method
-        ],compact('clients','method'));
+        ],compact('clients','method','post'));
     }
     
     public function update(Request $request, Post $post)

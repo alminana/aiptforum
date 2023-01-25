@@ -33,7 +33,7 @@
 									<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Reference</th>
 										<th style="font-size:11px;">Application</th>
-										<th style="font-size:11px;">Remaining days</th>
+										{{-- <th style="font-size:11px;">Remaining days</th> --}}
 										<th style="font-size:11px;">Deadline</th>
                                         <th style="font-size:11px;">Method</th>
 										<th style="font-size:11px;">Requested Deadline</th>
@@ -75,28 +75,28 @@
 									$deadline = "Deadline";
 									$upcomming = "Upcomming";
 									$safe = "safe";
-									if($remaining <= 7) {
-										$color = "color:white;background-color:red;";
-										$deadline = "Deadline";
+									if($remaining <=  7) {
+										$color = "color:black;background-color:red;";
+										
 									}
 
-									if($remaining > 7) {
+									elseif($remaining <= 30) {
 										
 										$color = "color:black;background-color:yellow;";
-										$upcomming = "Upcomming";
+							
+									}elseif($remaining <= 180) {
+										
+										$color = "color:black;background-color:green;";
+										
+									}elseif($remaining == 0) {
+										
+										$color = "color:black;background-color:white;";
+										
 									}
-
-									
-									
-
-									
-
-
-					
 									
 									$expire = strtotime($post->proceduredate);
 									$today = strtotime("today midnight");
-									$day_diff =  $expire - $today ;
+									$day_diff =   $expire - $today;
 									$total =floor($day_diff/(60*60*24));
 								@endphp
 
@@ -105,28 +105,27 @@
 									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->clientref }}</td>
 									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->title }}</td>
 
-									<td href="{{ route('posts.show', $post) }}" style="{{ $color, $deadline , $upcomming }}">
+									{{-- <td href="{{ route('posts.show', $post) }}" style="{{ $color, $deadline , $upcomming }}">
 										<p>	
 											<?php
 									
 											$expire = strtotime($post->proceduredate);
 											$today = strtotime("today midnight");
-											$day_diff = $today - $expire;
-											if($remaining > 7){
-
-												echo floor($day_diff/(60*60*24)) ;
-
-														
-											} else {
-												
-												echo floor($day_diff/(60*60*24)) ;
+											$day_diff =   $expire - $today;
+											if ($remaining > 30 and  $remaining >= 180) {
+												echo  floor($day_diff/(60*60*24)),"yellow";
+											} elseif ($remaining > 15 and $remaining >= 30) {
+												echo  floor($day_diff/(60*60*24)),"green";
+											} elseif ($remaining == 7 and $remaining <= 7) {
+												echo  floor($day_diff/(60*60*24)),"red";
+											} elseif ($remaining == 0 and $remaining <= 0) {
+												echo  floor($day_diff/(60*60*24)),"white";
 											}
+											
 																				
 										?>
-											{{-- {{$remaining}} --}}
-											{{-- {{ $post->proceduredate->diffForHumans() }} --}}
 										</p>
-									</td>
+									</td> --}}
 									<td href="{{ route('posts.show', $post) }}" style="{{ $color, $deadline , $upcomming }}">
 										<p>	
 											<?php
@@ -134,20 +133,25 @@
 											$expire = strtotime($post->proceduredate);
 											$today = strtotime("today midnight");
 											$day_diff = $today - $expire;
-											if($remaining > 7){
+											if($remaining >= 30){
+												
+												echo 'safe';
 
+											} elseif ($remaining >= 15) {
+												
 												echo 'Upcoming';
 
-														
-											} else {
-												
+											} elseif($remaining <= 7){
 												echo 'Deadline';
-											}
-																				
+												
+											}	elseif($remaining <= 0){
+												echo 'done';	
+											}							
 										?>
 											{{-- {{$remaining}} --}}
 											{{-- {{ $post->proceduredate->diffForHumans() }} --}}
 										</p>
+									     	
 									</td>
 									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->status }}</td>
 									<td style="{{ $color }}">
@@ -296,5 +300,10 @@
 	
 </script>
 
+<script type="text/javascript">
+	$("input[type='button']").click(function(){
+	alert(this.value);
+	});
+	</script>
 @endsection
 
