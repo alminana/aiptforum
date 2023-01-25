@@ -72,6 +72,28 @@
                                             @enderror
                                         </div>
                                          
+                                          <!-- status -->
+                                          <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Client</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+                                                            <select required name='excerpt' class="single-select">
+                                                                @foreach($clients as $key => $client)
+                                                                <option {{ $post->excerpt === $client->name ? 'selected' : '' }} value="{{ $client->name }}">{{  $client->name,$post->name  }}</option>
+                                                                @endforeach
+                                                            </select>
+
+                                                            @error('name')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!-- Agent -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Agent</label>
@@ -81,7 +103,7 @@
                                                         <div class="mb-3">
                                                             <select required name='agent' class="single-select">
                                                                 @foreach($clients as $key => $client)
-                                                                <option {{ $post->excerpt === $client->name ? 'selected' : '' }} value="{{ $client->name }}">{{  $client->name,$post->name  }}</option>
+                                                                <option {{ $post->agent === $client->name ? 'selected' : '' }} value="{{ $client->name }}">{{  $client->name,$post->name  }}</option>
 
                                                                 {{-- <option value="{{ $client->name }}">{{ $client->name,$post->name }}</option>  --}}
                                                                 @endforeach
@@ -145,27 +167,7 @@
                                         </div> --}}
                                        
                                         <!-- status -->
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Client</label>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="rounded">
-                                                        <div class="mb-3">
-                                                            <select required name='excerpt' class="single-select">
-                                                                @foreach($clients as $key => $client)
-                                                                <option value="{{ $client->name }}">{{ $client->name,$post->name }}</option>
-                                                                @endforeach
-                                                            </select>
-
-                                                            @error('name')
-                                                                <p class='text-danger'>{{ $message }}</p>
-                                                            @enderror
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
                                          <!-- procedure -->
                                          <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Procedure</label>
