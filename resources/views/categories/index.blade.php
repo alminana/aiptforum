@@ -25,6 +25,7 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
+										<th style="font-size:11px;">No.</th>
 										<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Ref.</th>
 										<th style="font-size:11px;">Client</th> 
@@ -47,7 +48,7 @@
 								<tbody>
 								@forelse($posts as $post)
 							<tr>
-							
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->id}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>

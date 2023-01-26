@@ -62,7 +62,7 @@ class AdminPostsController extends Controller
         
         $recent_posts = Post::latest()->take(10)->get();
 
-        $categories = Category::withCount('posts')->latest('posts_count', 'desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->latest('id', 'desc')->take(1000)->get();
 
         $tags= Tag::all();
         $posts = Post::latest()->take(1000)->get();
