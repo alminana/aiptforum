@@ -30,6 +30,7 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
+									<th style="font-size:11px;">No.</th>
 									<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Reference</th>
 										<th style="font-size:11px;">Application</th>
@@ -101,7 +102,7 @@
 									$total =floor($day_diff/(60*60*24));
 								@endphp
 
-
+									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->id }}</td>
 									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->aiptref }}</td>
 									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->clientref }}</td>
 									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->title }}</td>
