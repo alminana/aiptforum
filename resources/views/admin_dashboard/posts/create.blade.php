@@ -130,14 +130,14 @@
                                             @enderror
                                         </div> --}}
                                         <!-- Renewal -->
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Renewal</label>
                                             <input type="text" value='n/a' placeholder="Please Input n/a if there is no renewal no. yet" class="form-control"  name='renewal' id="inputProductTitle">
 
                                             @error('renewal')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                         
                                         <!-- client -->
                                         <div class="mb-3">
