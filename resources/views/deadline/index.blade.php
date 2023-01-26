@@ -75,6 +75,7 @@
 									$deadline = "Deadline";
 									$upcomming = "Upcomming";
 									$safe = "safe";
+									$done = "done";
 									if($remaining <=  7) {
 										$color = "color:black;background-color:red;";
 										
@@ -88,7 +89,7 @@
 										
 										$color = "color:black;background-color:green;";
 										
-									}elseif($remaining == 0) {
+									}elseif($remaining < 0) {
 										
 										$color = "color:black;background-color:white;";
 										

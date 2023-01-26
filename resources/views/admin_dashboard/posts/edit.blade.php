@@ -189,7 +189,7 @@
 
                                                         <div class="mb-3">
                                                             <label for="inputProductTitle" class="form-label">Requested Date</label>
-                                                            <input type="text" value="{{ old('requesteddate', date('Y-m-d')) }}" class="form-control"  name='requesteddate' id="inputProductTitle">
+                                                            <input type="text" value="{{ old('requesteddate',$post->requesteddate) }}" class="form-control"  name='requesteddate' id="inputProductTitle">
                                                             @error('requesteddate')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
@@ -204,7 +204,7 @@
                                                             @enderror --}}
                                                            
                                                             <label for="inputProductTitle" class="form-label">Actual Date</label>
-                                                            <input type="text" value="{{ old('proceduredate', date('Y-m-d')) }}" class="form-control"  name='proceduredate' id="inputProductTitle">
+                                                            <input type="text" value="{{ old('proceduredate',$post->proceduredate) }}" class="form-control"  name='proceduredate' id="inputProductTitle">
                                                             @error('proceduredate')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
