@@ -510,7 +510,8 @@
 
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Application Status</label>
-                                            <textarea name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="12">{{ old("body") }}
+                                            
+                                            <Input name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="12">{{ old("body") }}
                                            
                                             </textarea>
                                         
