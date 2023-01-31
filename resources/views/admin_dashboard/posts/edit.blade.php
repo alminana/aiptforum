@@ -537,8 +537,31 @@
                                             </div>
                                         </div>
 
-
                                         <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Status</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+
+                                                            <select required name='body'  class="single-select">
+                                                                <option value="{{ old("body",$post->body) }}">{{ old("body",$post->body) }}</option>
+                                                                <option value="New Application">New Application</option>
+                                                                <option value="Processing">Processing</option>
+                                                                <option value="Waiting">Waiting</option>
+                                                                <option value="Done">Done</option>
+                                                            </select>
+
+                                                            @error('body')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Application Status</label>
                                             <textarea name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="12">{{ old("body",$post->body) }}
                                            
@@ -547,7 +570,7 @@
                                             @error('body')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
-                                        </div>
+                                        </div> --}}
 
                                         <button class='btn btn-primary' type='submit'>Update</button>                                        
                                     </div>

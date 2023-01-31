@@ -1,6 +1,6 @@
 @extends('main_layouts.master')
 
-@section('title', ' Category | AIPTFORUM')
+@section('title')
 @section("style")
 	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
@@ -10,6 +10,8 @@
 	@endsection
 
 @section('content')  
+
+
 		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="">
@@ -27,7 +29,7 @@
 					
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Dashboard </h3>
+								<h3 class="panel-title">Notification </h3>
 				
 								<div class="pull-right">
 									{{-- <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#form" onClick="createModal()">
@@ -71,13 +73,13 @@
 												$safe = "safe";
 												$done = "done";
 											if(($expire == NULL)){
-												echo "new ";
+												
 												$color = "color:black;background-color:white;";
 											}elseif($today >= $expire){
-												echo "expired ";
+												
 												$color = "color:black;background-color:red;";
 											} elseif ($day_diff <= 30) {
-												echo "active";
+											
 												$color = "color:black;background-color:yellow;";
 											}elseif ($day_diff > 30 )  {
 												echo "active";
@@ -120,8 +122,7 @@
 													{{ $post->requesteddate }}
 												</td>
 												<td style="{{ $color }}">
-													<button data-toggle="modal" data-target="#form" onClick="" class="btn btn-sm btn-primary" style="color: white">{{ $post->proceduredate }}</button>
-													
+													<a href="{{ route('admin.posts.edit', $post) }}"> <button class="btn btn-primary">{{ $post->proceduredate }}</button></a>													
 												</td>
 												
 												<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->slug }}</td>
@@ -156,7 +157,7 @@
 								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 								<h4 class="modal-title" id="defModalHead">Update Status</h4>
 							</div>
-							<form action="/users" method="POST" class="form-horizontal section">
+							<form action="{{ route('admin.posts.edit', $post) }}" method="POST" class="form-horizontal section">
 				
 								{{ csrf_field() }}
 				
@@ -231,7 +232,7 @@
 								
 							<tr>
 							
-								@php
+								{{-- @php
 							
 									$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
 									$color = "";
@@ -258,7 +259,7 @@
 									$today = strtotime("today midnight");
 									$day_diff =   $expire - $today;
 									$total =floor($day_diff/(60*60*24));
-								@endphp
+								@endphp --}}
 
 
 									<td  href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{$post->id}}</td>

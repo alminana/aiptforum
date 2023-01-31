@@ -94,7 +94,6 @@
 								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="" >
 								<?php
 										$remaining = \Carbon\Carbon::now()->diffInDays($item->proceduredate);
-
 										$expire = strtotime($item->proceduredate);
 											$today = strtotime("today midnight");
 											$day_diff =   $expire - $today;
@@ -193,4 +192,3 @@
 </script>
 
 @endsection
-

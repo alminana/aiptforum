@@ -87,6 +87,8 @@ Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.de
 
 Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
 
+Route::get('/notify', [PostsController::class, 'notification'])->name('deadline.notification');
+
 
 require __DIR__.'/auth.php';
 

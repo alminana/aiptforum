@@ -180,15 +180,17 @@
 
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="inputProductTitle" class="form-label">Requested Date</label>
-                                                            <input type="date" value='0000-00-00' class="form-control"  name='requesteddate' id="inputProductTitle">
+                                                            <label for="inputProductTitle" class="form-label">Requested Date:</label>
+                                                            <label for="inputProductTitle" class="form-label">If there is no date. Please Input 0001-01-01</label>
+                                                            <input type="date" value='' class="form-control"  name='requesteddate' id="inputProductTitle">
                                                             @error('requesteddate')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="inputProductTitle" class="form-label">Actual Date</label>
-                                                            <input type="date" placeholder='0000-00-00'  class="form-control"  name='proceduredate' id="inputProductTitle">
+                                                            <label for="inputProductTitle" class="form-label">Actual Date:</label>
+                                                            <label for="inputProductTitle" class="form-label">If there is no date. Please Input 0001-01-01</label>
+                                                            <input type="date" placeholder=''  class="form-control"  name='proceduredate' id="inputProductTitle">
                                                             @error('proceduredate')
                                                                 <p class='text-danger'>{{ $message }}</p>
                                                             @enderror
@@ -507,8 +509,30 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="mb-3">
+                                            <label for="inputProductTitle" class="form-label">Status</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="rounded">
+                                                        <div class="mb-3">
+
+                                                            <select required name='body'  class="single-select">
+                                                                <option value="New Application">New Application</option>
+                                                                <option value="Processing">Processing</option>
+                                                                <option value="Waiting">Waiting</option>
+                                                                <option value="Done Procedure">Done</option>
+                                                            </select>
+
+                                                            @error('body')
+                                                                <p class='text-danger'>{{ $message }}</p>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Application Status</label>
                                             
                                             <Input name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="12">{{ old("body") }}
@@ -518,7 +542,7 @@
                                             @error('body')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
-                                        </div>
+                                        </div> --}}
 
                                         <button class='btn btn-primary' type='submit'>Add Post</button>
                                         

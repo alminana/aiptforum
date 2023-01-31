@@ -206,7 +206,9 @@ class AdminPostsController extends Controller
     }
     
     public function edit(Post $post)
+    
     {
+        
         $clients = Client::all();
         $method = Method::latest()->take(1000)->get();
         return view('admin_dashboard.posts.edit', [

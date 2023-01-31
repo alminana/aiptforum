@@ -33,8 +33,8 @@ class CreatePostsTable extends Migration
             $table->text('aiptref');
 
             $table->text('status');
-            $table->date('proceduredate')->nullable();
-            $table->date('requesteddate')->nullable();
+            $table->date('proceduredate')->nullable(0);
+            $table->date('requesteddate')->nullable(0);
             $table->foreignId('user_id');
             $table->foreignId('category_id');
 

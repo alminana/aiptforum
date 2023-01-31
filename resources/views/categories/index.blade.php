@@ -4,16 +4,37 @@
 @section("style")
 	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 	@endsection
-
+	
 @section('content')  
 		<!--start page wrapper -->
 		<div class="page-wrapper">
+			<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+				@forelse($categories as $category)
+					<div class="col">
+						<div class="card radius-10 border-start border-0 border-3 border-info">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0 text-secondary"><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></p>
+										<h1 class="my-1 text-info"><a href="{{ route('categories.show', $category) }}">{{ $category->posts_count }}</a></h1>
+								
+									</div>
+									<div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					@empty
+						<p class='lead'>There are no categories to show.</p>
+					@endforelse
+				</div><!--end row--> 
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 					<div class="breadcrumb-title pe-3">All Application</div>
 					<div class="ps-3">
-				
+						
 					</div>
 
 				</div>

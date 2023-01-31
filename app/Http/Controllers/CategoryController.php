@@ -16,7 +16,7 @@ class CategoryController extends Controller
 {
     public function downloadPdf(Post $post) {
         
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
         // return view('pdf', );
         
         $pdf = Pdf::loadView('pdf', [
@@ -47,14 +47,14 @@ class CategoryController extends Controller
     {
         $comments = DB::table('comments')->latest('id')->first();
         $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
         $posts = Post::withCount('comments')->get();
         $method = Method::latest()->take(1000)->get();
    
         return view('categories.index', [
             'posts' => $posts,
             'recentPosts' => $recentPosts,
-            'categories' => Category::withCount('posts')->paginate(100),
+            'categories' => Category::withCount('posts')->paginate(1000),
             'comments' => $comments,
         ], compact('posts','comments', 'method'));
     }
@@ -111,7 +111,7 @@ class CategoryController extends Controller
  public function getData(Request $request){
     $comments = DB::table('comments')->latest('id')->first();
     $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
-    $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+    $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
     $posts = Post::withCount('comments')->get();
     $method = Method::latest()->take(1000)->get();
     $clients = Client::latest()->take(1000)->get();

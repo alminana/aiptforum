@@ -143,7 +143,46 @@ class PostsController extends Controller
             'method' => $method,
         ]);
     }
+    
 
+    public function notification(Request $request , Post $posts ){
+       
+        $now = Carbon::now();
+        $comments = Comment::orderBy('id', 'DESC')->take(1000)->get();
+        $recent_posts = Post::orderBy('id', 'DESC')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $tags = Tag::latest()->take(1000)->get();
+        $posts = Post::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
+
+        return view('deadline.notification', [
+            'comments' => $comments,    
+            'posts' => $posts,
+            'recent_posts' => $recent_posts,
+            'categories' => $categories,
+            'tags' => $tags,
+            'method' => $method,
+        ]);   
+    } 
+
+    public function edit(Post $post)
+    
+    {   
+        $now = Carbon::now();
+        $comments = Comment::orderBy('id', 'DESC')->take(1000)->get();
+        $recent_posts = Post::orderBy('id', 'DESC')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $tags = Tag::latest()->take(1000)->get();
+        $posts = Post::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
+        return view('admin_dashboard.posts.edit', [
+            'post' => $post,
+            'categories' => Category::pluck('name', 'id'),
+            'clients'=>$clients,
+            'method' > $method
+        ],compact('clients','method','post'));
+    }
+   
     public function getData(Request $request , Post $posts ){
         $comments = DB::table('comments')->latest('id')->first();
         $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
