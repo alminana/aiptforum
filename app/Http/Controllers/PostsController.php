@@ -146,7 +146,6 @@ class PostsController extends Controller
     
 
     public function notification(Request $request , Post $posts ){
-       
         $now = Carbon::now();
         $comments = Comment::orderBy('id', 'DESC')->take(1000)->get();
         $recent_posts = Post::orderBy('id', 'DESC')->take(1000)->get();
@@ -154,6 +153,14 @@ class PostsController extends Controller
         $tags = Tag::latest()->take(1000)->get();
         $posts = Post::latest()->take(1000)->get();
         $method = Method::latest()->take(1000)->get();
+
+      // Search in the status columns from the posts table
+        // $posts = Post::query()
+        // ->where('status', 'LIKE', "%{$posts}%")
+
+        // ->get();
+
+        // Model::whereNotIn('status', ['done', 'new application'])
 
         return view('deadline.notification', [
             'comments' => $comments,    
