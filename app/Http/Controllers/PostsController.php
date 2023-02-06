@@ -146,30 +146,9 @@ class PostsController extends Controller
     
 
     public function notification(Request $request , Post $posts ){
-        $now = Carbon::now();
-        $comments = Comment::orderBy('id', 'DESC')->take(1000)->get();
-        $recent_posts = Post::orderBy('id', 'DESC')->take(1000)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $tags = Tag::latest()->take(1000)->get();
-        $posts = Post::latest()->take(1000)->get();
-        $method = Method::latest()->take(1000)->get();
-
-      // Search in the status columns from the posts table
-        // $posts = Post::query()
-        // ->where('status', 'LIKE', "%{$posts}%")
-
-        // ->get();
-
-        // Model::whereNotIn('status', ['done', 'new application'])
-
-        return view('deadline.notification', [
-            'comments' => $comments,    
-            'posts' => $posts,
-            'recent_posts' => $recent_posts,
-            'categories' => $categories,
-            'tags' => $tags,
-            'method' => $method,
-        ]);   
+        $posts = Post::orderBy('id','desc')->orderBy('id','desc')->where('body','1')->get();
+        return view('deadline.notification',compact('posts','categories'));
     } 
 
     public function edit(Post $post)

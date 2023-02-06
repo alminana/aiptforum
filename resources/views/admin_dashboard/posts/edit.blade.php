@@ -546,10 +546,10 @@
 
                                                             <select required name='body'  class="single-select">
                                                                 <option value="{{ old("body",$post->body) }}">{{ old("body",$post->body) }}</option>
-                                                                <option value="New Application">New Application</option>
-                                                                <option value="Processing">Processing</option>
-                                                                <option value="Waiting">Waiting</option>
-                                                                <option value="Done">Done</option>
+                                                                <option value="1">New Application</option>
+                                                                <option value="2">On Process</option>
+                                                                <option value="3">Done</option>
+                                                                <option value="4">Rejected</option>
                                                             </select>
 
                                                             @error('body')

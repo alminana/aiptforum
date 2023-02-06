@@ -16,6 +16,7 @@ use App\Models\Method;
 class Post extends Model
 {
     use HasFactory;
+    
 
     protected $fillable = [ 'aiptref',
                             'clientref',

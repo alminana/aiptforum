@@ -86,41 +86,7 @@
 									}elseif ($day_diff > 30 )  {
 										echo "active";
 									}
-                                    // if (($remaining == NULL)) {
-                                    //     $color = "color:black;background-color:white;";
-                                    // } elseif(($remaining <= 7 )) {
-                                    // 	$color = "color:black;background-color:red;";
-                                    // }elseif(($remaining < 30 )) {
-                                    //    $color = "color:black;background-color:yellow;";
-                                    // }elseif(($remaining > 180 and $remaining > 365 )) {
-                                    //    $color = "color:black;background-color:orange;";
-                                    // }
-
-                                    // $expire = strtotime($post->proceduredate);
-									// $today = strtotime("today midnight");
-									// $day_diff = $today - $expire;
-									// $total =floor($day_diff/(60*60*24));
-
-
-									// if($remaining <=  7) {
-									// 	$color = "color:black;background-color:red;";
-									// }
-									// elseif($remaining <= 30) {
-										
-									// 	$color = "color:black;background-color:yellow;";
-							
-									// }elseif($remaining <= 180) {
-										
-									// 	$color = "color:black;background-color:green;";
-										
-									// }elseif($remaining < 0) {
-										
-									// 	$color = "color:black;background-color:white;";
-										
-									// }
 									
-									
-
 								@endphp
 
                                 
@@ -311,3 +277,69 @@
 	});
 	</script>
 @endsection
+
+
+https://stackoverflow.com/questions/24359846/how-to-hide-a-td-when-dynamically-getting-data-in-php-codeigniter
+
+<?php
+           if($row->job_advantage_skills != '')
+           {?>
+               <td valign="middle"><strong>Advantage:</strong><?php echo $row->job_advantage_skills; ?></td>
+           <?
+           }
+?>
+
+<?php
+           if($row->job_advantage_skills != '')
+           {?>
+               <td valign="middle"><strong>Advantage:</strong><?php echo $row->job_advantage_skills; ?></td>
+           <?
+           }
+?>
+{{-- 
+foreach($orderrecords as $k => $v) 
+{
+    $hide = ''; // reset $hide variable to avoid to hide other rows
+    if ($v['two'] == "world") 
+    {
+        $hide = 'style="display: none;"';
+    }
+    ?>
+    <tr <?php echo $hide;?> >
+        <td><?php echo $v["tracking_id"]; ?></td>
+        <td>
+			<?php 
+            echo $v["world"]; 
+        ?>
+        </td>
+    <tr>
+
+        <?php
+        $hide='';
+    
+        if(!empty($orderrecords)) 
+        {
+            foreach($orderrecords as $k=>$v) 
+            {
+                $hide = $row['two'] == "world" ?  ' style="display: none;"' : '';
+                ?>
+                <tr<?php echo $hide;?>>
+                <td><?php echo $orderrecords[$k]["tracking_id"]; ?></td>
+                <td>
+                    <?php echo $orderrecords[$k]["world"]; ?>
+                </td>
+            <tr>
+    
+           <?php 
+               $tabindex++;
+           }
+       }
+    ?> --}}
+
+<?php
+if(!empty($row->job_advantage_skills))
+{?>
+    <td valign="middle"><strong>Advantage:</strong><?php echo $row->job_advantage_skills; ?></td>
+<?
+}
+?>
