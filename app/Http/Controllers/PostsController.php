@@ -126,22 +126,26 @@ class PostsController extends Controller
     }
 
     public function deadline(Request $request){
-        $now = Carbon::now();
-        $comments = Comment::orderBy('id', 'DESC')->take(1000)->get();
-        $recent_posts = Post::orderBy('id', 'DESC')->take(1000)->get();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $tags = Tag::latest()->take(1000)->get();
-        $posts = Post::latest()->take(1000)->get();
-        $method = Method::latest()->get();
+        $posts = Post::orderBy('id','desc')->orderBy('id','desc')->where('body','New')->take(100)->get();
+    return view('deadline.index',compact('posts','categories'));
+    
+    //     $now = Carbon::now();
+    //     $comments = Comment::orderBy('id', 'DESC')->take(1000)->get();
+    //     $recent_posts = Post::orderBy('id', 'DESC')->take(1000)->get();
+    //     $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+    //     $tags = Tag::latest()->take(1000)->get();
+    //     $posts = Post::latest()->take(1000)->get();
+    //     $method = Method::latest()->get();
 
-        return view('deadline.index', [
-            'comments' => $comments,    
-            'posts' => $posts,
-            'recent_posts' => $recent_posts,
-            'categories' => $categories,
-            'tags' => $tags,
-            'method' => $method,
-        ]);
+    //     return view('deadline.index', [
+    //         'comments' => $comments,    
+    //         'posts' => $posts,
+    //         'recent_posts' => $recent_posts,
+    //         'categories' => $categories,
+    //         'tags' => $tags,
+    //         'method' => $method,
+    //     ]);
     }
     
 

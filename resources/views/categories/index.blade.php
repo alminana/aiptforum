@@ -1,6 +1,6 @@
 @extends('main_layouts.master')
 
-@section('title', ' Category | AIPTFORUM')
+@section('title')
 @section("style")
 	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 	@endsection
@@ -62,20 +62,45 @@
 										<th style="font-size:11px;">Actual deadline</th>
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Agent</th>
-										{{-- <th style="font-size:11px;">Status</th>  --}}
+										<th style="font-size:11px;">Condition</th> 
 										<th style="font-size:11px;">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 								@forelse($posts as $post)
 							<tr>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->id}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
-								<td style="font-size:11px;">
-									<img style='width: 100%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+								<?php
+								$favcolor = ($post->body);
+								$color = "";
+								switch ($favcolor) {
+								case "Done":
+									$color = "color:black;background-color:#94F740;";
+																			
+									break;
+								case "New":
+									$color = "color:black;background-color:#94F740;";	
+																		
+									break;
+								case "Process":
+									$color = "color:black;background-color:#F5FF53;";
+																	
+									break;
+								case "Rejected":
+									$color = "color:black;background-color:#9440F7;";
+																		
+								default:
+									$color = "color:black;background-color:White;";
+																	
+								}
+									?>
+
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->id}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
+								<td style="font-size:11px;{{ $color }};">
+									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 
 									{{-- <a style="color:black;"href="{{ route('posts.show', $post) }}">
 
@@ -84,20 +109,48 @@
 									</a> --}}
 								</td>
 
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
 								
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->requesteddate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
-								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td>  --}}
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->requesteddate}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
+								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
+								<td  style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
 								
-								<td>			
+								<td  style="font-size:11px;{{ $color }};"><a style="color:black;" href="" >
+									{{$post->body}}
+									<?php
+								$favcolor = ($post->body);
+								$color = "";
+								switch ($favcolor) {
+								case "Done":
+									$color = "color:black;background-color:#94F740;";
+																			
+									break;
+								case "New":
+									$color = "color:black;background-color:#94F740;";	
+																		
+									break;
+								case "Process":
+									$color = "color:black;background-color:#F5FF53;";
+																	
+									break;
+								case "Rejected":
+									$color = "color:black;background-color:#9440F7;";
+																		
+								default:
+									$color = "color:black;background-color:White;";
+																	
+								}
+									?>
+								
+						
+
+								<td  style="{{ $color }};">			
 											<div class="d-flex order-actions">
 											<a href="{{ route('print.printthis', $post) }}" class=""><i class='bx bxs-printer'></i></a>
 												

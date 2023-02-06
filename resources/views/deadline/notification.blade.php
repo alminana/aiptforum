@@ -1,6 +1,6 @@
 @extends('main_layouts.master')
 
-@section('title', ' Category | AIPTFORUM')
+@section('title')
 @section("style")
 	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
@@ -160,7 +160,7 @@
 										<th class="excerpt" style="font-size:11px;">Client</th> 
 										<th class="country" style="font-size:11px;">Country</th>
 										<th class="body" style="font-size:11px;">Condition</th>
-
+										<th class="body" style="font-size:11px;">Created At</th>
                                        
 									</tr>
 								</thead>
@@ -238,6 +238,8 @@
                                         {{ $post->body }}
                                     
                                     </td> 
+									<td class="country" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->created_at }}</td>
+
                             	</td> 
                                 
                             </td>

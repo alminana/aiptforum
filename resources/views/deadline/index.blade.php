@@ -1,6 +1,6 @@
 @extends('main_layouts.master')
 
-@section('title', ' Category | AIPTFORUM')
+@section('title')
 @section("style")
 	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
@@ -10,6 +10,8 @@
 	@endsection
 
 @section('content')  
+
+
 		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="">
@@ -17,212 +19,147 @@
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
 					<div class="card-body">
-					
-					</div>
-				</div>
-				{{-- <!--end breadcrumb-->------------------------------------- --}}					
-
-				<div class="row">
-					<div class="col-md-12">
-					
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">Dashboard </h3>
-				
-								<div class="pull-right">
-									{{-- <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#form" onClick="createModal()">
-										<i class="fa fa-plus"></i>Create
-									</button>                              --}}
-								</div>                
-							</div>
-							<div class="panel-body">
-								<table id="example2" class="table table-striped table-bordered">
-									<thead>
-										<tr>
-											<th style="font-size:11px;">No.</th>
-											<th style="font-size:11px;">AIPTREF</th>
-												<th style="font-size:11px;">Client Reference</th>
-												<th style="font-size:11px;">Application</th>
-												<th style="font-size:11px;">Result</th>
-												<th style="font-size:11px;">Procedure</th>
-												<th style="font-size:11px;">Requested Deadline</th>
-												<th style="font-size:11px;">Actual Deadline</th>
-												<th style="font-size:11px;">Filing no:</th>
-												<th style="font-size:11px;">Registration no:</th>
-												<th style="font-size:11px;">Class</th>
-												<th style="font-size:11px;">Client</th> 
-												<th style="font-size:11px;">Country</th>
-												<th style="font-size:11px;">Status</th>
-											   
-											</tr>
-									</thead>
-								
-									<tbody>
-										@foreach($posts as $post)
-											
-										<tr>
-											@php			
-												$expire = strtotime($post->proceduredate);
-												$today = strtotime("today midnight");
-												$day_diff = $today - $expire;                                   
-												$color = "";
-												$deadline = "Deadline";
-												$upcomming = "Upcoming";
-												$safe = "safe";
-												$done = "done";
-											if(($expire == NULL)){
-												echo "new ";
-												$color = "color:black;background-color:white;";
-											}elseif($today >= $expire){
-												echo "expired ";
-												$color = "color:black;background-color:red;";
-											} elseif ($day_diff <= 30) {
-												echo "active";
-												$color = "color:black;background-color:yellow;";
-											}elseif ($day_diff > 30 )  {
-												echo "active";
-											}	
-											@endphp
-			
-			
-												<td  href="{{ route('posts.show', $post) }}" style="{{ $color }}">	{{  $post->id }}</td>
-												<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->aiptref }}</td>
-												 <td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->clientref }}</td> 
-												<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->title }}</td>
-			
-												<td href="{{ route('posts.show', $post) }}" style="{{ $color, $deadline , $upcomming }}">
-													<p>	
-														<?php
-												
-														$expire = strtotime($post->proceduredate);
-														$today = strtotime("today midnight");
-														$day_diff = $today - $expire;
-														if(($expire == NULL)){
-														echo "new ";
-														$color = "color:black;background-color:white;";
-													}elseif($today >= $expire){
-														echo "expired ";
-														$color = "color:black;background-color:red;";
-													} elseif ($day_diff <= 30) {
-														echo "active";
-														$color = "color:black;background-color:yellow;";
-													}elseif ($day_diff > 30 )  {
-														echo "active";
-													}						
-														?>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-6">
+										<div>
+											<h5><p style="color: red">Check the checkbox to hide the row Items *</p></h5>
+										</div>
+										<div class="row form-check-inline">
+											<div class="container-fluid mt-12">
+												<div class="row">
+												<div class="col" style="color:black">
+													<div class="form-check">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" id="post_id" name="post_id">ID
+														</label>
+													  </div>
+													  <div class="form-check">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="aiptref">AIPTREF
+														</label>
+													  </div>
+													  <div class="form-check ">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="clientref" >Client Ref
+														</label>
+													  </div>
+													  <div class="form-check ">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="title" >Application
+														</label>
+													  </div>
 													
-													</p>
-														 
-												</td>
-											
-												<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->status }}</td>
-												<td style="{{ $color }}">
-													{{ $post->requesteddate }}
-												</td>
-												<td style="{{ $color }}">
-													<button data-toggle="modal" data-target="#form" onClick="" class="btn btn-sm btn-primary" style="color: white">{{ $post->proceduredate }}</button>
-													
-												</td>
+													</div>
 												
-												<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->slug }}</td>
-												<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</td>
-												<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->class }}</td>
-												<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</td>
-												<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->country }}</td>
-												<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{  $post->body }}</td>
-												{{-- <td style="{{ $color }}">{{ $post->created_at }} </td> --}}
-			
-											
-											</td> 
-								
-										</td>
-										</tr>
-								
-										@endforeach
-											</tbody>
-								</table>                                    
-								
-							</div>
-						</div>
+													<div class="col" style="color:black">
+													<div class="form-check">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="status">Method
+														</label>
+													  </div>
+													  <div class="form-check">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="slug">Filing 
+														</label>
+													  </div>
+													  <div class="form-check ">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="registrationno" >Reg.no.
+														</label>
+													  </div>
+													  <div class="form-check ">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="requesteddate" >Req. 
+														</label>
+													  </div>
 				
-					</div>
-				</div>
-				
-				<!-- MODAL -->        
-				<div class="modal" id="form" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-								<h4 class="modal-title" id="defModalHead">Update Status</h4>
-							</div>
-							<form action="/users" method="POST" class="form-horizontal section">
-				
-								{{ csrf_field() }}
-				
-								<input type="hidden" name="_method" value="POST">
-				
-								<div class="modal-body">
-									<label for="inputProductTitle" class="form-label"><b>Aipt Referrence</b></label>
-									<input type="text" class="form-control" name="name" placeholder="User Name" value="" />
-									
-									<label for="inputProductTitle" class="form-label"><b>Application Name</b></label>
-									<input type="text" class="form-control" name="name" placeholder="User Name" value="" />
-									
-									<label for="inputProductTitle" class="form-label"><b>Procedure</b></label>
-									<input type="number" class="form-control" name="age" placeholder="User Age" value="" />
-
-									<label for="inputProductTitle" class="form-label"><b>Status</b></label>
-									<select required name='agent' class="form-control" class="single-select">
+												  </div>
+												  <div class="col" style="color:black">
+													<div class="form-check">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="country">Country
+														</label>
+													  </div>
+													  <div class="form-check">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="client">Client
+														</label>
+													  </div>
+													  <div class="form-check ">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="class" >Class
+														</label>
+													  </div>
+													  <div class="form-check ">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="body" >Description
+														</label>
+													  </div>
+												  </div>
+												  <div class="col" style="color:black">
+													<div class="form-check">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="country">Country
+														</label>
+													  </div>
+													  <div class="form-check ">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="proceduredate" >Actual
+														</label>
+													  </div>
+													  <div class="form-check ">
+														<label class="form-check-label">
+														  <input type="checkbox" class="form-check-input" name="deadline" >Status
+														</label>
+													  </div>
+												  </div>
+												  
+												  
+												</div>
+											  </div>
 										
-										<option value="">Done</option>
-										<option value="">Waiting</option>
-										<option value="">On Process</option>
-										<option value="">Cancel</option>
-									</select>
-
-									@error('agent')
-										<p class='text-danger'>{{ $message }}</p>
-									@enderror
+										</div>
+									</div>
+									{{-- graph --}}
+									<div class="col-md-6">
+										<div id="piechart" style="width: 500px; height: 200px;"></div>
+										
+									</div>
 								</div>
-				
-								<div class="modal-footer">
-									<button type="submit" class="btn btn-primary">Submit</button>
-								</div>
-				
-							</form>
+							
+							</div>
 						</div>
+						
+
+						
+			
 					</div>
 				</div>
-				
-				@endsection
-				
-				@section('bottom')
-				
-		
-
+				<!--end breadcrumb-->
+			  
 				<div class="card">
+				
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-									<th style="font-size:11px;">No.</th>
-									<th style="font-size:11px;">AIPTREF</th>
-										{{-- <th style="font-size:11px;">Client Reference</th> --}}
-										<th style="font-size:11px;">Application</th>
-										{{-- <th style="font-size:11px;">Remaining days</th> --}}
-										<th style="font-size:11px;">Deadline</th>
-                                        <th style="font-size:11px;">Method</th>
-										{{-- <th style="font-size:11px;">Requested Deadline</th> --}}
-										<th style="font-size:11px;">Actual Deadline</th>
-										{{-- <th style="font-size:11px;">Filing no:</th>
-										<th style="font-size:11px;">Registration no:</th> --}}
-                                        <th style="font-size:11px;">Class</th>
-										<th style="font-size:11px;">Client</th> 
-										<th style="font-size:11px;">Country</th>
-										<th style="font-size:11px;">Status</th>
-										{{-- <th style="font-size:11px;">Created_At</th> --}}
+										<th class="post_id" style="font-size:11px;">ID</th>
+										<th class="aiptref" style="font-size:11px;">AIPTREF</th>
+										<th class="clientref" style="font-size:11px;">Client Reference</th>
+										<th class="title" style="font-size:11px;">Application</th>
+                                        <th class="status" style="font-size:11px;">Method</th>
+										<th class="requesteddate" style="font-size:11px;">Requested Deadline</th>
+										<th class="proceduredate" style="font-size:11px;">Actual Deadline</th>
+										<th class="slug" style="font-size:11px;">Filing no:</th>
+										<th class="registrationno" style="font-size:11px;">Registration no:</th>
+                                        <th class="class" style="font-size:11px;">Class</th>
+										<th class="excerpt" style="font-size:11px;">Client</th> 
+										<th class="country" style="font-size:11px;">Country</th>
+										<th class="body" style="font-size:11px;">Condition</th>
+										<th class="body" style="font-size:11px;">Created At</th>
                                        
 									</tr>
 								</thead>
@@ -231,63 +168,64 @@
 								
 							<tr>
 							
+
 								@php
-							
-									$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
+								
+									$expire = strtotime($post->proceduredate);
+									$today = strtotime("today midnight");
+									$day_diff = $today - $expire;                                    
 									$color = "";
 									$deadline = "Deadline";
-									$upcomming = "Upcomming";
+									$upcomming = "Upcoming";
 									$safe = "safe";
 									$done = "done";
 									
-									if($remaining <=  7) {
-
-										$color = "color:black;background-color:red;";
-										
-									}elseif($remaining <= 30) {
-										
-										$color = "color:black;background-color:yellow;";
-										
-									}elseif($remaining < 0) {
-										
+									if(($today == NULL)){
 										$color = "color:black;background-color:white;";
-										
+									}elseif($today >= $expire){
+										$color = "color:black;background-color:orange;";
+									} elseif ($day_diff <= 30) {
+										$color = "color:black;background-color:yellow;";
 									}
-									
-									$expire = strtotime($post->proceduredate);
-									$today = strtotime("today midnight");
-									$day_diff =   $expire - $today;
-									$total =floor($day_diff/(60*60*24));
 								@endphp
 
+                     
+									<td class="post_id" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->id }}</td>
+									<td class="aiptref" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->aiptref }}</td>
+									<td class="clientref" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->clientref }}</td>
+									<td class="title" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->title }}</td>
 
-									<td  href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{$post->id}}</td>
-									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->aiptref }}</td>
-									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->clientref }}</td>
-									<td href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->title }}</td>
-
-							
-									{{-- <td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->status }}</td> --}}
-									<td style="{{ $color }}">
+								
+									<td class="" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->status }}</td>
+									<td class="requesteddate" style="{{ $color }}">
 										{{ $post->requesteddate }}
 									</td>
-									<td style="{{ $color }}">
-										{{ $post->proceduredate }}
+									<td class="proceduredate" style="{{ $color }}">
+										<a href="{{ route('admin.posts.edit', $post) }}"><button  class="btn btn-primary">{{ $post->proceduredate }}</button></a>
+
 									</td>
 									
-									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->slug }}</td>
-									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</td> 
-									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->class }}</td>
-									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</td>
-									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->country }}</td>
-									<td style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->body }}</td>
+									<td class="slug" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->slug }}</td>
+									<td class="registrationno" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</td>
+									<td class="class" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->class }}</td>
+									<td class="excerpt" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</td>
+									<td class="country" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->country }}</td>
+                               
+
+                                    <td class="body" style="{{ $color }}" href="{{ route('posts.show', $post) }}">
+                
+                                        {{ $post->body }}
+                                    
+                                    </td> 
+									<td class="country" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->created_at }}</td>
+
                             	</td> 
                                 
                             </td>
                             </tr>
+								
 							@endforeach
 								</tbody>
-										<!-- Modal -->
 							</table>
 						
 				
@@ -304,9 +242,22 @@
 	
 
     @section("script")
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.s">
+
+	</script>
+
+
+	<script>
+		$("input:checkbox").attr("checked",false).click(function(){
+			var shcolumn="."+$(this).attr("name");
+			$(shcolumn).toggle();
+		});
+	</script>
 	<script>
 		$(document).ready(function() {
 			var table = $('#example2').DataTable( {
@@ -351,8 +302,24 @@
 	alert(this.value);
 	});
 	</script>
-	    <script src="~/scripts/jquery.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-@endsection
 
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+			['Task', 'Hours per Day'],
+			['New Application', 11],
+			['Expired',  2],
+			['Active',  12],
+			['Done',  2],
+			]);
+			var options = {
+			title: 'Application Statistic'
+			};
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			chart.draw(data, options);
+		}
+		</script>
+@endsection
