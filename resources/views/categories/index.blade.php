@@ -56,7 +56,6 @@
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Filing no:</th>
 										<th style="font-size:11px;">Registration</th>
-										<th style="font-size:11px;">Renewal</th> 
 										<th style="font-size:11px;">Procedure</th>
 										<th style="font-size:11px;">Requested deadline</th>
 										<th style="font-size:11px;">Actual deadline</th>
@@ -87,7 +86,7 @@
 									break;
 								case "Rejected":
 									$color = "color:black;background-color:#9440F7;";
-																		
+									break;								
 								default:
 									$color = "color:black;background-color:White;";
 																	
@@ -114,7 +113,6 @@
 								
 								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
 								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->renewal}}</a></td>
 								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
 								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->requesteddate}}</a></td>
 								<td style="font-size:11px;{{ $color }};"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
@@ -136,12 +134,11 @@
 																		
 									break;
 								case "Process":
-									$color = "color:black;background-color:#F5FF53;";
-																	
+									$color = "color:black;background-color:#F5FF53;";							
 									break;
 								case "Rejected":
 									$color = "color:black;background-color:#9440F7;";
-																		
+									break;						
 								default:
 									$color = "color:black;background-color:White;";
 																	

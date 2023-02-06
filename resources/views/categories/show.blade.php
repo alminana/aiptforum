@@ -30,30 +30,7 @@
 								<thead>
 									<tr>
 
-										<?php
-								$favcolor = ($post->body);
-								$color = "";
-								switch ($favcolor) {
-								case "Done":
-									$color = "color:black;background-color:#94F740;";
-																			
-									break;
-								case "New":
-									$color = "color:black;background-color:#94F740;";	
-																		
-									break;
-								case "Process":
-									$color = "color:black;background-color:#F5FF53;";
-																	
-									break;
-								case "Rejected":
-									$color = "color:black;background-color:#9440F7;";
-																		
-								default:
-									$color = "color:black;background-color:White;";
-																	
-								}
-									?>
+									
 
 										<th style="font-size:11px;">No.</th>
 										<th style="font-size:11px;">AIPTREF</th>
@@ -71,9 +48,6 @@
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Agent</th>
 										<th style="font-size:11px;">Condition</th> 
-
-
-										
 									</tr>
 								</thead>
 								<tbody>
@@ -85,7 +59,7 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
 								<td style="font-size:11px;">
-									<img style='width: 100%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 
 									{{-- <a style="color:black;"href="{{ route('posts.show', $post) }}">
 
