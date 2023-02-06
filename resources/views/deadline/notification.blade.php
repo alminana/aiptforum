@@ -150,7 +150,7 @@
 										<th class="aiptref" style="font-size:11px;">AIPTREF</th>
 										<th class="clientref" style="font-size:11px;">Client Reference</th>
 										<th class="title" style="font-size:11px;">Application</th>
-										<th class="deadline" style="font-size:11px;">Deadline</th>
+										<th class="deadline" style="font-size:11px;">Status</th>
                                         <th class="status" style="font-size:11px;">Method</th>
 										<th class="requesteddate" style="font-size:11px;">Requested Deadline</th>
 										<th class="proceduredate" style="font-size:11px;">Actual Deadline</th>

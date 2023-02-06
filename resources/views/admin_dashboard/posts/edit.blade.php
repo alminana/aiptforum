@@ -543,13 +543,13 @@
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-
+                                                        
                                                             <select required name='body'  class="single-select">
                                                                 <option value="{{ old("body",$post->body) }}">{{ old("body",$post->body) }}</option>
-                                                                <option value="1">New Application</option>
-                                                                <option value="2">On Process</option>
-                                                                <option value="3">Done</option>
-                                                                <option value="4">Rejected</option>
+                                                                <option value="0">New Application</option>
+                                                                <option value="1">On Process</option>
+                                                                <option value="0">Done</option>
+                                                                <option value="0">Rejected</option>
                                                             </select>
 
                                                             @error('body')
