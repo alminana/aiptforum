@@ -77,7 +77,7 @@
 																			
 									break;
 								case "New":
-									$color = "color:black;background-color:#94F740;";	
+									$color = "color:black;background-color:orange";	
 																		
 									break;
 								case "Process":
@@ -130,7 +130,7 @@
 																			
 									break;
 								case "New":
-									$color = "color:black;background-color:#94F740;";	
+									$color = "color:black;background-color:orange;";	
 																		
 									break;
 								case "Process":
