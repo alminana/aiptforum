@@ -517,10 +517,10 @@
                                                         <div class="mb-3">
 
                                                             <select required name='body'  class="single-select">
-                                                                <option value="0">New Application</option>
-                                                                <option value="1">On Process</option>
-                                                                <option value="0">Done</option>
-                                                                <option value="0">Rejected</option>
+                                                                <option value="New">New Application</option>
+                                                                <option value="Process">On Process</option>
+                                                                <option value="Done">Done</option>
+                                                                <option value="Rejected">Rejected</option>
                                                             </select>
 
                                                             @error('body')

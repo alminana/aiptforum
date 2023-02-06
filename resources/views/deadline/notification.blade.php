@@ -159,7 +159,7 @@
                                         <th class="class" style="font-size:11px;">Class</th>
 										<th class="excerpt" style="font-size:11px;">Client</th> 
 										<th class="country" style="font-size:11px;">Country</th>
-										{{-- <th class="body" style="font-size:11px;">Status</th> --}}
+										<th class="body" style="font-size:11px;">Status</th>
 
                                        
 									</tr>
@@ -231,13 +231,13 @@
 									<td class="class" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->class }}</td>
 									<td class="excerpt" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</td>
 									<td class="country" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->country }}</td>
-{{--                                 
+                               
 
                                     <td class="body" style="{{ $color }}" href="{{ route('posts.show', $post) }}">
                 
                                         {{ $post->body }}
                                     
-                                    </td> --}}
+                                    </td> 
                             	</td> 
                                 
                             </td>

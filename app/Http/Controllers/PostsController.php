@@ -147,7 +147,7 @@ class PostsController extends Controller
 
     public function notification(Request $request , Post $posts ){
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $posts = Post::orderBy('id','desc')->orderBy('id','desc')->where('body','1')->take(100)->get();
+        $posts = Post::orderBy('id','desc')->orderBy('id','desc')->where('body','Process')->take(100)->get();
         return view('deadline.notification',compact('posts','categories'));
     } 
 
