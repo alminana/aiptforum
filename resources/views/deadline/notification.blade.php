@@ -159,7 +159,7 @@
                                         <th class="class" style="font-size:11px;">Class</th>
 										<th class="excerpt" style="font-size:11px;">Client</th> 
 										<th class="country" style="font-size:11px;">Country</th>
-										<th class="body" style="font-size:11px;">Status</th>
+										<th class="body" style="font-size:11px;">Condition</th>
 
                                        
 									</tr>
