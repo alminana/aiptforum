@@ -168,25 +168,49 @@
 							@foreach($posts as $post)
 								
 							<tr>
-							
+{{-- 							
+								{{-- <?php
+										$remaining = \Carbon\Carbon::now()->diffInDays($item->proceduredate);
+										$expire = strtotime($item->proceduredate);
+											$today = strtotime("today midnight");
+											$day_diff =   $expire - $today;
+											if($remaining > 7){
+												echo floor($day_diff/(60*60*24)),'<p style="color: yellow;color:black; text-align: center">Upcoming </p>';	
+											} else {
+												
+												echo floor($day_diff/(60*60*24)),'<p style="color: red;color:black; text-align: center">Deadline </p>' ;
+											}
+                                       									  
+								?>  --}}
+								@php
+									$remaining = \Carbon\Carbon::now()->diffInDays($post->requesteddate);
+									$expire = strtotime($post->requesteddate);
+									$today = strtotime("today midnight");
+									$day_diff = $today - $expire;                                    
+									$color = "";
+								
+									if ($today >= $expire) {
+										$color = "color:black;background-color:#D99594;";
+									}elseif ($remaining < 7 ) {
+										$color = "color:black;background-color:#FFFF00;";
+									} elseif ($expire >= 30) {
+										$color = "color:black;background-color:#92D050;";
+									}
+								@endphp
 
 								@php
-								
+									$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
 									$expire = strtotime($post->proceduredate);
 									$today = strtotime("today midnight");
 									$day_diff = $today - $expire;                                    
 									$color = "";
-									$deadline = "Deadline";
-									$upcomming = "Upcoming";
-									$safe = "safe";
-									$done = "done";
-									
-									if(($today == NULL)){
-										$color = "color:black;background-color:white;";
-									}elseif($today >= $expire){
-										$color = "color:black;background-color:red;";
-									} elseif ($day_diff <= 30) {
-										$color = "color:black;background-color:yellow;";
+								
+									if ($today >= $expire) {
+										$color = "color:black;background-color:#D99594;";
+									}elseif ($remaining < 7 ) {
+										$color = "color:black;background-color:#FFFF00;";
+									} elseif ($expire >= 30) {
+										$color = "color:black;background-color:#92D050;";
 									}
 								@endphp
 
@@ -196,23 +220,26 @@
 									<td class="clientref" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->clientref }}</td>
 									<td class="title" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->title }}</td>
 
-									<td class="deadline" href="{{ route('posts.show', $post) }}" style="{{ $color, $deadline , $upcomming }}">
+									<td class="deadline" href="{{ route('posts.show', $post) }}" style="{{ $color }}">
 										<p>	
-											<?php
-									
-											$expire = strtotime($post->proceduredate);
-											$today = strtotime("today midnight");
-											$day_diff = $today - $expire;
-											if($today >= $expire){
-												echo "expired ";
-												$color = "color:black;background-color:red;";
-											} elseif ($day_diff <= 30) {
-												echo "active";
-												$color = "color:black;background-color:yellow;";
-											}elseif ($day_diff > 30 )  {
-												echo "active";
-											}							
-										    ?>
+											@php
+												$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
+												$expire = strtotime($post->proceduredate);
+												$today = strtotime("today midnight");
+												$day_diff = $today - $expire;                                    
+												$color = "";
+											
+												if ($today >= $expire) {
+													echo "deadline";
+													$color = "color:black;background-color:#D99594;";
+												}elseif ($remaining < 7 ) {
+													echo "upcoming";
+													$color = "color:black;background-color:#FFFF00;";
+												} elseif ($expire >= 30) {
+													echo "safe";
+													$color = "color:black;background-color:#92D050;";
+												}
+											@endphp
 										
 										</p>
 									     	

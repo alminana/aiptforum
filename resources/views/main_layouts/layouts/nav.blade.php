@@ -30,13 +30,13 @@
                 <li>
                     <a target='_blank' href="{{ route('deadline.deadline') }}">
                     <div class="parent-icon"><i class='bx bx-lock'></i></div>
-                        <div class="menu-title">Unmoving</div>
+                        <div class="menu-title">Monitoring</div>
                     </a>
                 </li>
                 <li>
                     <a target='_blank' href="{{ route('deadline.notification') }}">
                     <div class="parent-icon"><i class='bx bx-lock'></i></div>
-                        <div class="menu-title">Notification</div>
+                        <div class="menu-title">Deadline</div>
                     </a>
                 </li>
                 

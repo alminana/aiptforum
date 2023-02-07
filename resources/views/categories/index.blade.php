@@ -73,7 +73,7 @@
 								$color = "";
 								switch ($favcolor) {
 								case "Done":
-									$color = "color:black;background-color:#94F740;";
+									$color = "color:black;background-color:#92D050;";
 																			
 									break;
 								case "New":
@@ -81,7 +81,7 @@
 																		
 									break;
 								case "Process":
-									$color = "color:black;background-color:#F5FF53;";
+									$color = "color:black;background-color:#FFFF00;";
 																	
 									break;
 								case "Rejected":
@@ -125,27 +125,28 @@
 								$favcolor = ($post->body);
 								$color = "";
 								switch ($favcolor) {
-								case "Done":
-									$color = "color:black;background-color:#94F740;";
+									case "Done":
+									$color = "color:black;background-color:#92D050;";
 																			
 									break;
 								case "New":
-									$color = "color:black;background-color:orange;";	
+									$color = "color:black;background-color:orange";	
 																		
 									break;
 								case "Process":
-									$color = "color:black;background-color:#F5FF53;";							
+									$color = "color:black;background-color:#FFFF00;";
+																	
 									break;
 								case "Rejected":
 									$color = "color:black;background-color:#9440F7;";
-									break;						
+									break;							
 								default:
 									$color = "color:black;background-color:White;";
 																	
 								}
 									?>
 								
-						
+							</td>
 
 								<td  style="{{ $color }};">			
 											<div class="d-flex order-actions">

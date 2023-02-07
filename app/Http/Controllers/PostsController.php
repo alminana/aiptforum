@@ -128,6 +128,8 @@ class PostsController extends Controller
     public function deadline(Request $request){
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $posts = Post::orderBy('id','desc')->orderBy('id','desc')->where('body','New')->take(100)->get();
+        
+
     return view('deadline.index',compact('posts','categories'));
     }
     

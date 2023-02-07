@@ -168,8 +168,22 @@
 								
 							<tr>
 							
-
 								@php
+								$remaining = \Carbon\Carbon::now()->diffInDays($post->created_at);
+								$expire = strtotime($post->created_at);
+								$today = strtotime("today midnight");
+								$day_diff = $today - $expire;                                    
+								$color = "";
+							
+								if ($today >= $expire) {
+									$color = "color:black;background-color:#D99594;";
+								}elseif ($remaining < 7 ) {
+									$color = "color:black;background-color:#FFFF00;";
+								} elseif ($expire >= 30) {
+									$color = "color:black;background-color:#92D050;";
+								}
+							@endphp
+								{{-- @php
 								
 									$expire = strtotime($post->proceduredate);
 									$today = strtotime("today midnight");
@@ -187,7 +201,7 @@
 									} elseif ($day_diff <= 30) {
 										$color = "color:black;background-color:yellow;";
 									}
-								@endphp
+								@endphp --}}
 
                      
 									<td class="post_id" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->id }}</td>
