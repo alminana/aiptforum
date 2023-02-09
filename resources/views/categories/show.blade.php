@@ -30,7 +30,30 @@
 								<thead>
 									<tr>
 
-									
+										<?php
+										$favcolor = ($post->body);
+										$color = "";
+										switch ($favcolor) {
+										case "Done":
+											$color = "color:black;background-color:#94F740;";
+																					
+											break;
+										case "New":
+											$color = "color:black;background-color:orange";	
+																				
+											break;
+										case "Process":
+											$color = "color:black;background-color:#F5FF53;";
+																			
+											break;
+										case "Rejected":
+											$color = "color:black;background-color:#9440F7;";
+											break;								
+										default:
+											$color = "color:black;background-color:White;";
+																			
+										}
+											?>
 
 										<th style="font-size:11px;">No.</th>
 										<th style="font-size:11px;">AIPTREF</th>
