@@ -15,7 +15,7 @@
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href="{{ route('categories.index') }}"><i class="bx bx-home-alt"></i></a>
+								<li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
 								</li>
 							</ol>
 						</nav>
@@ -29,8 +29,31 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
+										
 
-										<?php
+									
+								
+										<th style="font-size:11px;">No.</th>
+										<th style="font-size:11px;">AIPTREF</th>
+										<th style="font-size:11px;">Client Ref.</th>
+										<th style="font-size:11px;">Client</th> 
+										<th style="font-size:11px;">Type</th>
+										<th style="font-size:11px;">Image</th>
+										<th style="font-size:11px;">Application</th>
+										<th style="font-size:11px;">Class</th>
+										<th style="font-size:11px;">Filing no:</th>
+										<th style="font-size:11px;">Registration</th>
+										<th style="font-size:11px;">Procedure</th>
+										<th style="font-size:11px;">Requested deadline</th>
+										<th style="font-size:11px;">Actual deadline</th>
+										<th style="font-size:11px;">Country</th>
+										<th style="font-size:11px;">Agent</th>
+										<th style="font-size:11px;">Condition</th> 
+									</tr>
+								</thead>
+								<tbody>
+								@forelse($posts as $post)
+								<?php
 										$favcolor = ($post->body);
 										$color = "";
 										switch ($favcolor) {
@@ -54,27 +77,6 @@
 																			
 										}
 											?>
-
-										<th style="font-size:11px;">No.</th>
-										<th style="font-size:11px;">AIPTREF</th>
-										<th style="font-size:11px;">Client Ref.</th>
-										<th style="font-size:11px;">Client</th> 
-										<th style="font-size:11px;">Type</th>
-										<th style="font-size:11px;">Image</th>
-										<th style="font-size:11px;">Application</th>
-										<th style="font-size:11px;">Class</th>
-										<th style="font-size:11px;">Filing no:</th>
-										<th style="font-size:11px;">Registration</th>
-										<th style="font-size:11px;">Procedure</th>
-										<th style="font-size:11px;">Requested deadline</th>
-										<th style="font-size:11px;">Actual deadline</th>
-										<th style="font-size:11px;">Country</th>
-										<th style="font-size:11px;">Agent</th>
-										<th style="font-size:11px;">Condition</th> 
-									</tr>
-								</thead>
-								<tbody>
-								@forelse($posts as $post)
 							<tr>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->id}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>

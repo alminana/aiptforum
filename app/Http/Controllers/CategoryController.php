@@ -93,21 +93,36 @@ class CategoryController extends Controller
     //     ]);
     // }
 
-    public function show(Category $category , Request $request)
- {
-
-    $recent_posts = Post::latest()->take(5)->get();
-    $categories = Category::withCount('posts')->orderBy('posts_count','desc')->take(100)->get();
-    $method = Method::latest()->take(1000)->get();
+//     public function show(Category $category)
+//  {
+//     $comments = DB::table('comments')->latest('id')->first();
+//     $recent_posts = Post::latest('created_at','desc')->take(1000)->get();
+//     $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
+//     $posts = Post::withCount('comments')->get();
+//     $method = Method::latest()->take(1000)->get();
     
-    return view('categories.show',[
-        'category'=>$category,
-        'posts' => $category->posts()->paginate(1000),
+//     return view('categories.show',[
+//         'category'=>$category,
+//         'posts' => $category->posts()->paginate(1000),
+//         'recent_posts' => $recent_posts,
+//         'categories'=>$categories,
+//         'methos'=>$method,
+//     ], compact('posts','comments', 'method'));
+//  }
+public function show(Category $category)
+{
+    $recent_posts = Post::latest()->take(5)->get();
+    $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+    $tags = Tag::latest()->take(50)->get();
+
+    return view('categories.show', [
+        'category' => $category,
+        'posts' => $category->posts()->paginate(10),
         'recent_posts' => $recent_posts,
-        'categories'=>$categories,
-        'methos'=>$method,
+        'categories' => $categories,
+        'tags' => $tags
     ]);
- }
+}
  public function getData(Request $request){
     $comments = DB::table('comments')->latest('id')->first();
     $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
