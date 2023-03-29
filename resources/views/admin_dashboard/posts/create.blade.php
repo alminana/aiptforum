@@ -453,7 +453,8 @@
                                                             <option value="Yemen">Yemen</option>
                                                             <option value="Zambia">Zambia</option>
                                                             <option value="Zimbabwe">Zimbabwe</option>
-                                                                
+                                                            <option value="Aripo">Aripo</option>
+                                                            <option value="OAPI">OAPI</option>
                                                             </select>
 
                                                             @error('country')
