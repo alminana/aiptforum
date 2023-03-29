@@ -15,17 +15,11 @@
                 <li>
                     <a href="{{ route('categories.index') }}">
                     <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
-                        <div class="menu-title">Dashboard</div>
+                        <div class="menu-title">Application</div>
                     </a>
                 </li>
 
-                <li>
-                        @forelse($categories as $category)
-                        <li><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></li>
-                        @empty
-                        <p>No Categories found</p>
-                        @endforelse
-                </li>
+              
                 <hr>
                 <li>
                     <a target='_blank' href="{{ route('deadline.deadline') }}">
