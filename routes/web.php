@@ -60,8 +60,8 @@ Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logou
 Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
-Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
+Route::get('/posts/{post:id}', [PostsController::class, 'show'])->name('posts.show');
+Route::post('/posts/{post:id}', [PostsController::class, 'addComment'])->name('posts.add_comment');
 
 
 Route::get('/pdf/{id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
