@@ -61,7 +61,7 @@ Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profile
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/posts/{post:id}', [PostsController::class, 'show'])->name('posts.show');
-Route::post('/posts/{post:id}', [PostsController::class, 'addComment'])->name('posts.add_comment');
+Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
 
 
 Route::get('/pdf/{id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
