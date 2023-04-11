@@ -105,6 +105,7 @@
                                         <!-- Filing date. -->
                                         {{-- <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing Date.</label>
+                                             <label for="inputProductTitle" class="form-label">If there is no Filing no. Please Input 0</label>
                                             <input type="date" value='00-00-0000' class="form-control"  name='filingdate' id="inputProductTitle">
 
                                             @error('filingdate')
@@ -114,6 +115,7 @@
                                            
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration no.</label>
+                                            <label for="inputProductTitle" class="form-label">If there is no Registration no. Please Input 0</label>
                                             <input type="text" value='n/a' placeholder="Please Input n/a if there is no Registration no. yet  " class="form-control"  name='registrationno' id="inputProductTitle">
 
                                             @error('registrationno')
@@ -469,6 +471,8 @@
                                         <!-- class -->
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Class</label>
+                                            <label for="inputProductTitle" class="form-label">Please Input n/a if the application is Patent or design</label>
+                                            
                                             <input type="text" value='{{ old("class") }}' placeholder="Please Input n/a if the application is Patent or design" name='class'  class="form-control" id="inputclass">                                        
                                             
                                             @error('class')
@@ -501,6 +505,7 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <label for="inputProductDescription" class="form-label">Post Thumbnail</label>
+                                                    <label for="inputProductTitle" class="form-label">Check the image before you save it to Avoid corrupted</label>
                                                     <input id='thumbnail'  name='thumbnail' id="file" type="file">
 
                                                     @error('thumbnail')
