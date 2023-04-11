@@ -472,7 +472,7 @@
                                         <!-- class -->
                                         <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Class</label><br>
-                                            <label for="inputProductTitle" class="form-label">Please Input n/a if the application is Patent or design</label>
+                                            <label for="inputProductTitle" class="form-label">Please Input n/a if the application is Patent or Design</label>
                                             
                                             <input type="text" value='{{ old("class") }}' placeholder="Please Input n/a if the application is Patent or design" name='class'  class="form-control" id="inputclass">                                        
                                             
