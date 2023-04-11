@@ -96,6 +96,7 @@
                                         <!-- Filing no. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Filing no.</label>
+                                             <label for="inputProductTitle" class="form-label">If there is no Filing no. Please Input 0</label>
                                             <input type="text" value='n/a' placeholder="Please Input n/a if there is no Filing no. yet" class="form-control"  name='slug' id="inputProductTitle">
 
                                             @error('slug')
@@ -470,7 +471,7 @@
                                         </div>
                                         <!-- class -->
                                         <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Class</label>
+                                            <label for="inputProductDescription" class="form-label">Class</label><br>
                                             <label for="inputProductTitle" class="form-label">Please Input n/a if the application is Patent or design</label>
                                             
                                             <input type="text" value='{{ old("class") }}' placeholder="Please Input n/a if the application is Patent or design" name='class'  class="form-control" id="inputclass">                                        
@@ -504,7 +505,7 @@
                                         <div class="mb-3">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <label for="inputProductDescription" class="form-label">Post Thumbnail</label>
+                                                    <label for="inputProductDescription" class="form-label">Post Thumbnail</label><br>
                                                     <label for="inputProductTitle" class="form-label">Check the image before you save it to Avoid corrupted</label>
                                                     <input id='thumbnail'  name='thumbnail' id="file" type="file">
 
