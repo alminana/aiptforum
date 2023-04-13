@@ -73,7 +73,7 @@
                                          
                                         <!-- Agent -->
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Agent</label>
+                                            <label for="inputProductTitle" class="form-label">Associate</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
