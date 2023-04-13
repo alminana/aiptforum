@@ -536,6 +536,7 @@
                                                             <select required name='type' class="form-control" value='{{ old("type") }}' class="single-select">                                                            
                                                             <option value="Direct">Direct</option>
                                                             <option value="Agent">Agent</option>
+                                                            <option value="Associate">Associate</option>
                                                             </select>
 
                                                             @error('type')
