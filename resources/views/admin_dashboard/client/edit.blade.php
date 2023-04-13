@@ -302,6 +302,7 @@
                                                             <option value="Yemen">Yemen</option>
                                                             <option value="Zambia">Zambia</option>
                                                             <option value="Zimbabwe">Zimbabwe</option>
+                                                            <option value="Zanzibar">Zanzibar</option>
                                                             </select>
 
                                                             @error('country')
@@ -510,7 +511,7 @@
                                                             <option value="GB">GB</option>
                                                             <option value="US">US</option>
                                                             <option value="UY">UY</option>
-
+                                                            <option value="ZAN">ZAN</option>
                                                             </select>
 
                                                             @error('abbr')
