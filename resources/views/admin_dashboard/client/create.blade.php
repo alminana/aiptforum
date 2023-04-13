@@ -516,6 +516,7 @@
                                                         <option value="US">US</option>
                                                         <option value="UY">UY</option>
                                                         <option value="Zan">Zan</option>
+                                                         <option value="ZM">ZM</option>
                                                         </select>
 
                                                         @error('abbr')
