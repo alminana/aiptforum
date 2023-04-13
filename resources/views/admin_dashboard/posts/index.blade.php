@@ -31,7 +31,7 @@
 										<th style="font-size:11px;">No.</th>
 										<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Reference</th>
-										<th style="font-size:11px;">Agent</th>
+										<th style="font-size:11px;">Associate</th>
 										<th style="font-size:11px;">Image</th>
 										<th style="font-size:11px;">Application</th>
 										<th style="font-size:11px;">Filing no:</th>
