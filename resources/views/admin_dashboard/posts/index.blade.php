@@ -28,10 +28,11 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
+                                      
 										<th style="font-size:11px;">No.</th>
 										<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Reference</th>
-										<th style="font-size:11px;">Agent</th>
+										<th style="font-size:11px;">Associate</th>
 										<th style="font-size:11px;">Image</th>
 										<th style="font-size:11px;">Application</th>
 										<th style="font-size:11px;">Filing no:</th>
@@ -48,15 +49,15 @@
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
-				
-										{{-- <th style="font-size:11px;">Status</th> --}}
 
+										{{-- <th style="font-size:11px;">Status</th> 
 										<th style="font-size:11px;">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 								@forelse($posts as $post)
 							<tr>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->user_id}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->id}}</a></td>
 							   <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
@@ -86,7 +87,6 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
-				
 								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td> --}}
 								<td>
 											<div class="d-flex order-actions">
@@ -191,7 +191,7 @@
 	  <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 	<script>
-		$(document).raeady(function() {
+		$(document).ready(function() {
 			var table = $('#example2').DataTable( {
 				lengthChange: false,
 				buttons: ['excel','copy']
@@ -207,5 +207,3 @@
         });
 	</script>
     @endsection
-
-	
