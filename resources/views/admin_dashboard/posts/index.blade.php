@@ -48,7 +48,7 @@
 										<th style="font-size:11px;">Country</th>
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
-										<th style="font-size:11px;">User Id</th>
+
 										{{-- <th style="font-size:11px;">Status</th> --}}
 
 										<th style="font-size:11px;">Action</th>
@@ -86,7 +86,6 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->user_id}}</a></td>
 								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}</a></td> --}}
 								<td>
 											<div class="d-flex order-actions">
@@ -191,7 +190,7 @@
 	  <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 	<script>
-		$(document).raeady(function() {
+		$(document).ready(function() {
 			var table = $('#example2').DataTable( {
 				lengthChange: false,
 				buttons: ['excel','copy']
