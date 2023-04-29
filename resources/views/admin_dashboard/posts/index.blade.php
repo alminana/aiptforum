@@ -28,6 +28,7 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
+                                        <th style="font-size:11px;">Created By</th>
 										<th style="font-size:11px;">No.</th>
 										<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Reference</th>
@@ -49,14 +50,14 @@
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Type</th>
 
-										{{-- <th style="font-size:11px;">Status</th> --}}
-
+										{{-- <th style="font-size:11px;">Status</th> 
 										<th style="font-size:11px;">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 								@forelse($posts as $post)
 							<tr>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->user_id}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->id}}</a></td>
 							   <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
