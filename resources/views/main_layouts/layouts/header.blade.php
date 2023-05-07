@@ -205,8 +205,7 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{{route('profiles.profileindex',$users->name )}}"><i class="bx bx-user"></i><span>Profile</span></a>
-                            </li>
+                        
                             
                             <li>
                                 <a class="dropdown-item text-danger" href="{{route('user.logout')}}"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
