@@ -29,9 +29,20 @@
 								<thead>
 								<tr>
 										<th>Comment#</th>
+										<th>Reference</th>
+										<th>Application</th>
+								
+										<th>Procedure</th>
+										<th>Filing No.</th>
+										<th>Client</th>
+										<th>Country</th>
+										<th>Class</th>
+								
+										<th>Actual Deadline</th>
 										<th>Comment Author</th>
                                         <th>Comment Body</th>
                                         <th>View Comment</th>
+									
 										<th>Created at</th>
 										<th>Actions</th>
 									</tr>
@@ -49,10 +60,18 @@
 												</div>
 											</div>
 										</td>
+										<td>{{$comment->post->aiptref}}</td>
+										<td>{{$comment->post->title}}</td>
+										<td>{{$comment->post->status}}</td>
+										<td>{{$comment->post->slug}}</td>
+										<td>{{$comment->post->excerpt}}</td>
+										<td>{{$comment->post->country}}</td>
+										<td>{{$comment->post->class}}</td>
+										<td>{{$comment->post->proceduredate}}</td>
 										<td>{{ $comment->user->name }} </td>
                                         <td>{{ \Str::limit($comment->the_comment, 60) }} </td>
                                         <td>
-                                            <a target='_blank' class='btn btn-primary btn-sm' href="{{ route('posts.show', $comment->post->slug) }}#comment_{{ $comment->id }}">View Comment</a>
+                                            <a target='_blank' class='btn btn-primary btn-sm' href="{{ route('posts.show', $comment->post->id) }}#comment_{{ $comment->id }}">View Comment</a>
                                         </td>
                                         <td>{{ $comment->created_at->diffForHumans() }}</td>
                                         <td>
@@ -62,7 +81,7 @@
 											
                                                 <form method='post' action="{{ route('admin.comments.destroy', $comment) }}" id='delete_form_{{ $comment->id }}'>@csrf @method('DELETE')</form> -->
 
-												<form method='post' action="{{ route('admin.comments.destroy', $comment) }}" id='delete_form_{{ $comment->id }}'>
+												{{-- <form method='post' action="{{ route('admin.comments.destroy', $comment) }}" id='delete_form_{{ $comment->id }}'>
 												@csrf 
 												@method('DELETE')
 												<!-- Button trigger modal -->
@@ -91,7 +110,7 @@
 													</div>
 												</div>
 												</div>
-												</form> 
+												</form>  --}}
 
                                             </div>
 										</td>
@@ -173,6 +192,23 @@
         });
 	</script>
     @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
