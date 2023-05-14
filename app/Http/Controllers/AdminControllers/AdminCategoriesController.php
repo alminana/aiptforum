@@ -68,7 +68,7 @@ class AdminCategoriesController extends Controller
         return redirect()->route('admin.categories.edit', $category)->with('success', 'Category has been Updated.');
     }
 
-    public function destroy(Category $category)
+   public function destroy(Category $category)
     {
         $default_category_id = Category::where('name', 'Uncategorized')->first()->id;
         
