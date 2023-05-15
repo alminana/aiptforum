@@ -38,7 +38,7 @@
 										<th>Created at</th>
                                         <th>Status</th>
 										<th>Views</th>
-										<th>Actions</th>
+						
 									</tr>
 								</thead>
 								<tbody>
@@ -67,14 +67,7 @@
 
                                         <td>{{ $post->views }}</td>
                                         
-                                        <td>
-											<div class="d-flex order-actions">
-												<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
-												<a href="#" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $post->id }}').submit();" class="ms-3"><i class='bx bxs-trash'></i></a>
-											
-                                                <form method='post' action="{{ route('admin.posts.destroy', $post) }}" id='delete_form_{{ $post->id }}'>@csrf @method('DELETE')</form>
-                                            </div>
-										</td>
+                                        
 									</tr>
                                     @endforeach
 								</tbody>
