@@ -26,13 +26,13 @@
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
-								<tr>
-									<th>Category#</th>
-									<th>Category Name</th>
-									<th>Creator</th>
-                                    <th>Related Posts</th>
-									<th>Created at</th>
-									<th>Actions</th>
+									<tr>
+										<th>Category#</th>
+										<th>Category Name</th>
+										<th>Creator</th>
+                                        <th>Related Posts</th>
+										<th>Created at</th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -44,16 +44,16 @@
 													<input class="form-check-input me-3" type="checkbox" value="" aria-label="...">
 												</div>
 												<div class="ms-2">
-													<h6 class="mb-0 font-14">{{ $category->id }}</h6>
+													<h6 class="mb-0 font-14">#P-{{ $category->id }}</h6>
 												</div>
 											</div>
 										</td>
 										<td>{{ $category->name }} </td>
-                                         <td>{{ $category->user->name }}</td>
-                                        <td>
-                                            <a class='btn btn-primary btn-sm' href="{{ route('admin.categories.show', $category) }}">Related Posts</a>
+                                        <td>{{ $category->user->name }}</td>
+										<td>
+                                            <a class='btn btn-success btn-sm' href="{{ route('admin.categories.show', $category) }}">Related Posts</a>
                                         </td>
-                                        <td>{{ $category->created_at->diffForHumans() }}</td>
+										<td>{{ $category->created_at->diffForHumans() }}</td>
                                         <td>
 											<div class="d-flex order-actions">
 												<a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-edit'></i></a>
