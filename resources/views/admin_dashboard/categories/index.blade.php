@@ -34,7 +34,7 @@
 									<tr>
 										<th>Category#</th>
 										<th>Category Name</th>
-										<th>Creator</th>
+										
                                         <th>Related Posts</th>
 										<th>Created at</th>
 										<th>Actions</th>
@@ -54,7 +54,7 @@
 											</div>
 										</td>
 										<td>{{ $category->name }} </td>
-                                        <td>{{ $category->user->name }}</td>
+                            
                                         <td>
                                             <a class='btn btn-primary btn-sm' href="{{ route('admin.categories.show', $category) }}">Related Posts</a>
                                         </td>
