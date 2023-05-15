@@ -74,7 +74,7 @@
 						</div>
 
                         <div class='mt-4'>
-                        {{ $categories->links() }}
+               
                         </div>
                         
 					</div>
