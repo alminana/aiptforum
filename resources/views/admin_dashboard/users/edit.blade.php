@@ -52,7 +52,7 @@
 
                                         <div class="mb-3">
                                             <label for="input_name" class="form-label">Username</label>
-                                            <input name='username' type='text' class="form-control" id="input_name" value='{{ old("username") }}'>
+                                            <input name='username' type='text' class="form-control" id="input_name" value='{{ old("username",$user->username) }}'>
                                         
                                             @error('username')
                                                 <p class='text-danger'>{{ $message }}</p>
@@ -70,7 +70,7 @@
                                         
                                         <div class="mb-3">
                                             <label for="input_password" class="form-label">Password</label>
-                                            <input name='password' type='password' class="form-control" id="input_password">
+                                            <input name='password' type='password'  class="form-control" id="input_password">
                                         
                                             @error('password')
                                                 <p class='text-danger'>{{ $message }}</p>
