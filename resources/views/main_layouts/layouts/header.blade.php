@@ -13,7 +13,7 @@
                     <div class="top-menu ms-auto">
                         <ul class="navbar-nav align-items-center">
                             <li class="nav-item mobile-search-icon">
-                                <a class="nav-link" href="#">   <i class='bx bx-search'></i>
+                                <a class="nav-link" href="#"> <i class='bx bx-search'></i>
                                 </a>
                             </li>
                             <li class="nav-item dropdown dropdown-large">
@@ -193,6 +193,42 @@
                     $id = Auth::user()->id;
                     $users = App\Models\User::find($id);
                     @endphp
+                    <div class="user-box dropdown">
+                        <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class="bx bx-group"></i>
+                            </div>
+                            <div class="app-title"><a href="{{ route('admin.index') }}">Administrator</a></div>
+                        
+                        </a>
+                    </div>
+
+                    <div class="user-box dropdown">
+                        <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class="bx bx-file"></i>
+                            </div>
+                            <div class="app-title"><a href="{{ route('deadline.getData') }}">Report</a></div>
+                          
+                        </a>
+                    </div>
+
+                    <div class="user-box dropdown">
+                        <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class='bx bx-bell'></i>
+                            </div>
+                            <div class="app-title"><a href="{{ route('deadline.notification') }}">Deadline</a></div>
+                          
+                        </a>
+                  
+                    </div>
+
+                    <div class="user-box dropdown">
+                        <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class='bx bx-desktop'></i>
+                            </div>
+                            <div class="app-title"><a href="{{ route('deadline.deadline') }}">Monitoring</a></div>
+                           
+                        </a>
+                    </div>
 
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
