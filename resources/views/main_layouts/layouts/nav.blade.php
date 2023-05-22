@@ -20,33 +20,33 @@
                 </li>
 
               
-                <hr>
+                {{-- <hr>
                 <li>
                     <a target='_blank' href="{{ route('deadline.deadline') }}">
                     <div class="parent-icon"><i class='bx bx-lock'></i></div>
                         <div class="menu-title">Monitoring</div>
                     </a>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <a target='_blank' href="{{ route('deadline.notification') }}">
                     <div class="parent-icon"><i class='bx bx-lock'></i></div>
                         <div class="menu-title">Deadline</div>
                     </a>
-                </li>
+                </li> --}}
                 
-                <li>
+                {{-- <li>
                     <a target='_blank' href="{{ route('deadline.getData') }}">
                     <div class="parent-icon"><i class='bx bx-lock'></i></div>
                         <div class="menu-title">Report</div>
                     </a>
-                </li>
+                </li> --}}
                 <hr>
-                <li>
+                {{-- <li>
                     <a target='_blank' href="{{ route('home') }}">
                     <div class="parent-icon"><i class='bx bx-lock'></i></div>
                         <div class="menu-title">Lock</div>
                     </a>
-                </li>
+                </li> --}}
                 
                 <li>
                     <a target='_blank' href="{{ route('admin.index') }}">
