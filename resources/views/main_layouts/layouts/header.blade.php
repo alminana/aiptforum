@@ -229,9 +229,7 @@
 
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div>    
-                            <img style="height:50px;" src="{{ $users->image ? asset('storage/' . $users->image->path) : asset('storage/placeholders/user_placeholder.jpg') }}" alt="">
-                        </div>
+                       
                             <div class="user-info ps-3">
                                 <p class="user-name mb-0">Categories</p>
                              
@@ -253,9 +251,7 @@
 
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div>    
-                            <img style="height:50px;" src="{{ $users->image ? asset('storage/' . $users->image->path) : asset('storage/placeholders/user_placeholder.jpg') }}" alt="">
-                        </div>
+                       
                             <div class="user-info ps-3">
                                 <p class="user-name mb-0">Notification</p>
                              
@@ -287,9 +283,7 @@
 
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div>    
-                            <img style="height:50px;" src="{{ $users->image ? asset('storage/' . $users->image->path) : asset('storage/placeholders/user_placeholder.jpg') }}" alt="">
-                        </div>
+                        
                             <div class="user-info ps-3">
                                 <p class="user-name mb-0">{{ $users->name }}</p>
                                 <p class="designattion mb-0">{{ $users->email }}</p>
