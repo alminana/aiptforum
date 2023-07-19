@@ -8,7 +8,7 @@
 @section('content')  
 		<!--start page wrapper -->
 		<div class="page-wrapper">
-			<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+			{{-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
 				@forelse($categories as $category)
 					<div class="col">
 						<div class="card radius-10 border-start border-0 border-3 border-info">
@@ -28,9 +28,9 @@
 					@empty
 						<p class='lead'>There are no categories to show.</p>
 					@endforelse
-				</div><!--end row--> 
+				</div> --}}
 			<div class="page-content">
-				<!--breadcrumb-->
+				
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 					<div class="breadcrumb-title pe-3">All Application</div>
 					<div class="ps-3">
@@ -38,7 +38,7 @@
 					</div>
 
 				</div>
-				<!--end breadcrumb-->
+			
 			  
 				<div class="card">
 					<div class="card-body">
@@ -182,7 +182,7 @@
 	<script>
 		$(document).ready(function() {
 			var table = $('#example2').DataTable( {
-				lengthChange: false,
+				"pageLength":100,
 				buttons: ['excel','copy']
 			} );
 		 

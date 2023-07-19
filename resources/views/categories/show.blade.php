@@ -2,56 +2,79 @@
 
 @section('title')
 @section("style")
-	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
-	@endsection
-
+<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+@endsection
+	
 @section('content')  
 		<!--start page wrapper -->
 		<div class="page-wrapper">
+			{{-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+				@forelse($categories as $category)
+					<div class="col">
+						<div class="card radius-10 border-start border-0 border-3 border-info">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0 text-secondary"><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></p>
+										<h1 class="my-1 text-info"><a href="{{ route('categories.show', $category) }}">{{ $category->posts_count }}</a></h1>
+								
+									</div>
+									<div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					@empty
+						<p class='lead'>There are no categories to show.</p>
+					@endforelse
+				</div> --}}
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">All Application</div>
+					<div class="breadcrumb-title pe-3">{{ $category->name }}</div>
 					<div class="ps-3">
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
-								</li>
-							</ol>
-						</nav>
+						
 					</div>
+
 				</div>
 				<!--end breadcrumb-->
-			  
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
-							<table id="example2" class="table table-striped table-bordered">
+							<table id="tbAdresse" cellspacing="0" style="border:1px;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
 								<thead>
-									<tr>
-										
-
-									
+								<tr role="row">
+							
+								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Type</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Description</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Class</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Procedure</th>								
+							</tr>
+							</thead>
+								<tfoot>
+									<tr role="row">
 								
-										<th style="font-size:11px;">No.</th>
-										<th style="font-size:11px;">AIPTREF</th>
-										<th style="font-size:11px;">Client Ref.</th>
-										<th style="font-size:11px;">Client</th> 
-										<th style="font-size:11px;">Type</th>
-										<th style="font-size:11px;">Image</th>
-										<th style="font-size:11px;">Application</th>
-										<th style="font-size:11px;">Class</th>
-										<th style="font-size:11px;">Filing no:</th>
-										<th style="font-size:11px;">Registration</th>
-										<th style="font-size:11px;">Procedure</th>
-										<th style="font-size:11px;">Requested deadline</th>
-										<th style="font-size:11px;">Actual deadline</th>
-										<th style="font-size:11px;">Country</th>
-										<th style="font-size:11px;">Agent</th>
-										<th style="font-size:11px;">Condition</th> 
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Type</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Description</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Class</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration</th>
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Procedure</th>
 									</tr>
-								</thead>
-								<tbody>
+								</tfoot>
+							
+							<tbody>
 								@forelse($posts as $post)
 								<?php
 										$favcolor = ($post->body);
@@ -77,74 +100,77 @@
 																			
 										}
 											?>
-							<tr>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->id}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
-								<td style="font-size:11px;">
-									<img style='width: 100%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
-
-									{{-- <a style="color:black;"href="{{ route('posts.show', $post) }}">
-
-										<img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" />
+							<tr role="row" class="odd">
 							
-									</a> --}}
+								<td style="font-size:12px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+								<td style="font-size:12px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
+								<td style="font-size:12px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->excerpt}}</a></td>
+								<td style="font-size:12px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->category->name}}</a></td>
+								<td style="font-size:12px;">
+									<img style='width: 100%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 								</td>
-
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
-								
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->requesteddate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->body}}
-									
+								<td style="font-size:12px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
+								<td style="font-size:12px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
+								<td style="font-size:1px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
+								<td style="font-size:12px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
+								<td style="font-size:12px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
+						
 									</a>
 								</td>  
                             </tr>
                             @empty
 								<p class='lead'>There are no Application to show.</p>
 							@endforelse
-								</tbody>
-							</table>
-						
-				
-				</div>
-                        
+							</tbody>
+						</table>
+						</div>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 		<!--end page wrapper -->
 		@endsection
 	
 
-    @section("script")
+    
+		@section("script")
 
-    <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
-	<script>
+		<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+		<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+		<script>
+
+
+
 		$(document).ready(function() {
-			var table = $('#example2').DataTable( {
-				lengthChange: false,
-				buttons: ['excel','copy']
-			} );
-		 
-			table.buttons().container()
-				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
-		
-            setTimeout(() => {
-                $(".general-message").fadeOut();
-            }, 5000);
-        
-        });
-	</script>
-    @endsection
+	    
+			// Setup - add a text input to each header cell
+			$('#tbAdresse thead th').each(function() {
+				var title = $(this).text();
+				$(this).html('<input type="text"   placeholder="Search ' + title + '" />');
+			});
+
+			// DataTable
+			var table = $('#tbAdresse').DataTable();
+
+			// Apply the search
+			table.columns().every(function() {
+				var that = this;
+
+				$('input', this.header()).on('keypress change', function(e) {
+				var keycode = e.which;
+				//launch search action only when enter is pressed
+				if (keycode == '13') {
+					console.log('enter key pressed !')
+					if (that.search() !== this.value) {
+					that
+						.search(this.value)
+						.draw();
+					}
+				}
+
+				});
+			});
+			});
+		</script>
+		@endsection
+

@@ -193,16 +193,15 @@
                     $id = Auth::user()->id;
                     $users = App\Models\User::find($id);
                     @endphp
-                    <div class="user-box dropdown">
+                    {{-- <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class="bx bx-group"></i>
                             </div>
                             <div class="app-title"><a href="{{ route('admin.index') }}">Administrator</a></div>
                         
                         </a>
-                    </div>
-
-                    <div class="user-box dropdown">
+                    </div> --}}
+                    {{-- <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class="bx bx-file"></i>
                             </div>
@@ -210,7 +209,6 @@
                           
                         </a>
                     </div>
-
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class='bx bx-bell'></i>
@@ -220,7 +218,6 @@
                         </a>
                   
                     </div>
-
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="app-box mx-auto bg-gradient-kyoto text-dark"><i class='bx bx-desktop'></i>
@@ -228,6 +225,64 @@
                             <div class="app-title"><a href="{{ route('deadline.deadline') }}">Monitoring</a></div>
                            
                         </a>
+                    </div> --}}
+
+                    <div class="user-box dropdown">
+                        <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div>    
+                            <img style="height:50px;" src="{{ $users->image ? asset('storage/' . $users->image->path) : asset('storage/placeholders/user_placeholder.jpg') }}" alt="">
+                        </div>
+                            <div class="user-info ps-3">
+                                <p class="user-name mb-0">Categories</p>
+                             
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item " href="">
+                                        @forelse($categories as $category)
+                                        <a class="dropdown-item text-primary" href="{{ route('categories.show', $category) }}"><i class="bx bx-file"></i><span>{{ $category->name }} {{ $category->posts_count }}</span></a>
+                                        @empty
+                                            <p class='lead'>There are no categories to show.</p>
+                                        @endforelse
+                                    </a>
+                                </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="user-box dropdown">
+                        <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div>    
+                            <img style="height:50px;" src="{{ $users->image ? asset('storage/' . $users->image->path) : asset('storage/placeholders/user_placeholder.jpg') }}" alt="">
+                        </div>
+                            <div class="user-info ps-3">
+                                <p class="user-name mb-0">Notification</p>
+                             
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item " href="">
+                                        <span>
+                                            <a class="dropdown-item " href="{{ route('deadline.getData') }}">
+                                                <i class="bx bx-file"></i> <span>Report</span>
+                                            </a>
+                                            <a class="dropdown-item " href="{{ route('deadline.deadline') }}">
+                                                <i class='bx bx-bell'></i><span>Monitoring</span>
+                                            </a>
+                                            <a class="dropdown-item " href="{{ route('deadline.notification') }}">
+                                                <i class='bx bx-desktop'></i>  <span>Deadline</span>
+                                            </a>
+                                            <hr/>
+                                            <a class="dropdown-item " href="{{ route('admin.index') }}">
+                                                <i class="bx bx-group"></i> <span>Administrator</span>
+                                            </a>
+                                        </span>
+                                    </a>
+                                </li>
+
+                        </ul>
                     </div>
 
                     <div class="user-box dropdown">

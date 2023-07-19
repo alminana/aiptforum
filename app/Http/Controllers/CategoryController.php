@@ -111,13 +111,13 @@ class CategoryController extends Controller
 //  }
 public function show(Category $category)
 {
-    $recent_posts = Post::latest()->take(5)->get();
-    $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-    $tags = Tag::latest()->take(50)->get();
+    $recent_posts = Post::latest()->take(100)->get();
+    $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(100)->get();
+    $tags = Tag::latest()->take(100)->get();
 
     return view('categories.show', [
         'category' => $category,
-        'posts' => $category->posts()->paginate(10),
+        'posts' => $category->posts()->paginate(100),
         'recent_posts' => $recent_posts,
         'categories' => $categories,
         'tags' => $tags
