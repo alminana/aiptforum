@@ -45,6 +45,7 @@
 							<table id="tbAdresse" cellspacing="0" style="border:1px;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
 								<thead>
 								<tr role="row">
+									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
 									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
 									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
 									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
@@ -57,12 +58,13 @@
 									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
 									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
 									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>						
+				
 		
 							</tr>
 							</thead>
 								<tfoot>
 									<tr role="row">
+										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
 										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
 										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
 										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
@@ -75,7 +77,7 @@
 										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
 										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
 										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>						
+					
 										</tr>
 								</thead>
 							
@@ -98,6 +100,30 @@
 								}
 							@endphp
 							<tr role="row" class="odd">
+								<td class="deadline" href="{{ route('posts.show', $post) }}" style="{{ $color }}">
+									<p>	
+										@php
+											$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
+											$expire = strtotime($post->proceduredate);
+											$today = strtotime("today midnight");
+											$day_diff = $today - $expire;                                    
+											$color = "";
+										
+											if ($today >= $expire) {
+												echo "Deadline";
+												$color = "color:black;background-color:#D99594;";
+											}elseif ($remaining < 7 ) {
+												echo "Upcoming";
+												$color = "color:black;background-color:#FFFF00;";
+											} elseif ($expire >= 30) {
+												echo "Safe";
+												$color = "color:black;background-color:#92D050;";
+											}
+										@endphp
+									
+									</p>
+										 
+								</td>
 								<td class="aiptref" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{  $post->aiptref }}</td>
 								<td class="clientref" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->clientref }}</td>
 								<td class="title" href="{{ route('posts.show', $post) }}" style="{{ $color }}">{{ $post->title }}</td>
@@ -105,7 +131,7 @@
 							
 								<td class="" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->status }}</td>
 								<td style="font-size:11px;{{ $color }};">
-									<img style='width: 100%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 
 									{{-- <a style="color:black;"href="{{ route('posts.show', $post) }}">
 
@@ -130,34 +156,10 @@
 								<td class="country" style="{{ $color }}" href="{{ route('posts.show', $post) }}">{{ $post->country }}</td>
 						   
 
-								<td class="deadline" href="{{ route('posts.show', $post) }}" style="{{ $color }}">
-									<p>	
-										@php
-											$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
-											$expire = strtotime($post->proceduredate);
-											$today = strtotime("today midnight");
-											$day_diff = $today - $expire;                                    
-											$color = "";
-										
-											if ($today >= $expire) {
-												echo "deadline";
-												$color = "color:black;background-color:#D99594;";
-											}elseif ($remaining < 7 ) {
-												echo "upcoming";
-												$color = "color:black;background-color:#FFFF00;";
-											} elseif ($expire >= 30) {
-												echo "safe";
-												$color = "color:black;background-color:#92D050;";
-											}
-										@endphp
-									
-									</p>
-										 
-								</td>
+							
 
 						
-									</a>
-								</td>  
+							
                             </tr>
                             @empty
 								<p class='lead'>There are no Application to show.</p>
