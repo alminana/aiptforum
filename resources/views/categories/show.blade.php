@@ -116,11 +116,11 @@
 									</a> --}}
 								</td>
 								<td class="requesteddate" style="{{ $color }}">
-									<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:12; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
+									<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
 								</td>
 
 								<td class="proceduredate" style="{{ $color }}">
-									<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:12; color:white; align-item:center;"  class="btn btn-primary">{{ $post->proceduredate }}</button></a>
+									<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-primary">{{ $post->proceduredate }}</button></a>
 								</td>
 								
 								<td class="slug" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
