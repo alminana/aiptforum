@@ -164,7 +164,7 @@
 									</tr>
 								</thead>
 								<tbody>
-                                @forelse($posts as $post)
+                            @forelse($posts as $post)
 								
 							<tr>
 							

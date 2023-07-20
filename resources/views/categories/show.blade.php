@@ -13,7 +13,7 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
-							<table id="tbAdresse" cellspacing="0" style="border:1px;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
+							<table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
 								<thead>
 								<tr role="row">
 									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
@@ -157,23 +157,40 @@
 		<script>
 
 
+		$(document).ready(function() {
+			$('#tbAdresse ').DataTable( {
+				dom: 'Bfrtip',
+				buttons: [
+					'print','excel','pdf','copy'
+				]
+			} );
+		} );
 
 		$(document).ready(function() {
-	    
+	    	
+		
+
 			// Setup - add a text input to each header cell
-			$('#tbAdresse thead th').each(function() {
+			$('#tbAdresse thead th').each(function() 
+			
+			{
 				var title = $(this).text();
 				$(this).html('<input type="text"   placeholder="Search ' + title + '" />');
+				
 			});
 
 			// DataTable
 			var table = $('#tbAdresse').DataTable();
+			
+			//Entires
+
 
 			// Apply the search
 			table.columns().every(function() {
 				var that = this;
 
 				$('input', this.header()).on('keypress change', function(e) {
+					
 				var keycode = e.which;
 				//launch search action only when enter is pressed
 				if (keycode == '13') {
