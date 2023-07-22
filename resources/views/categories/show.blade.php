@@ -85,10 +85,10 @@
 								}
 							@endphp
 							<tr role="row" class="odd">
-								<td class="deadline" href="" style="{{ $color }}">
+								<td class="deadline" href="" >
 									<a style="font-weight:bold; font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
-										<p>	
-										@php
+										<span class="badge bg-gradient-quepal text-white shadow-sm w-100">
+											@php
 											$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
 											$expire = strtotime($post->proceduredate);
 											$today = strtotime("today midnight");
@@ -106,48 +106,32 @@
 												$color = "color:black;background-color:#92D050;";
 											}
 										@endphp
-									
-									</p>
-										
+										</span>
 									</a>
 									
 										 
 								</td>
-								<td class="aiptref" style="{{ $color }}"  ><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{  $post->aiptref }}</a> </td>
-								<td class="clientref" style="{{ $color }}" href="{{ route('posts.show', $post) }}"style="font-weight:bold; font-size:12; color:black;"  style="{{ $color }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->clientref }}</a></td>
-								<td class="title" href="{{ route('posts.show', $post) }}" style="{{ $color }}"> <a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></td>
+							<td style="{{ $color }}">{{$post->aiptref}}</td>
+							<td style="{{ $color }}">{{ $post->clientref }}</td>
+							<td style="{{ $color }}">{{ $post->title }}</td>
+							<td style="{{ $color }}">{{ $post->status }}</td>
+							<td>
+								<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+							</td>
+							<td class="proceduredate" style="{{ $color }}">
+								<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
+							</td>
 
+							<td class="proceduredate" style="{{ $color }}">
+								<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
+							</td>
 							
-								<td class="" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->status }}</a></td>
-								<td style="font-size:11px;{{ $color }};"><a href="{{ route('posts.show', $post) }}">
-									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
-</a>
+							<td class="slug" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
+							<td class="registrationno" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
+							<td class="class" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
+							<td class="excerpt" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
+							<td class="country" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
 
-									{{-- <a style="color:black;"href="{{ route('posts.show', $post) }}">
-
-										<img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" />
-							
-									</a> --}}
-								</td>
-								<td class="requesteddate" style="{{ $color }}">
-									<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
-								</td>
-
-								<td class="proceduredate" style="{{ $color }}">
-									<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-primary">{{ $post->proceduredate }}</button></a>
-								</td>
-								
-								<td class="slug" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
-								<td class="registrationno" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
-								<td class="class" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
-								<td class="excerpt" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
-								<td class="country" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
-						   
-
-							
-
-						
-							
                             </tr>
                             @empty
 								<p class='lead'>There are no Application to show.</p>
