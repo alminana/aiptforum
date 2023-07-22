@@ -157,8 +157,11 @@
 		<script>
 
 
+
+
 		$(document).ready(function() {
 			$('#tbAdresse ').DataTable( {
+		
 				dom: 'Bfrtip',
 				buttons: [
 					'print','excel','pdf','copy'
