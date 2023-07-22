@@ -14,8 +14,8 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <p class="mb-0 text-secondary">{{ $category->name }}</p>
-                                    <h4 class="my-1 text-danger">{{ $category->posts_count }}</h4>
+                                    <p class="mb-0 text-secondary"><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></p>
+                                    <h4 class="my-1 text-danger"><a href="{{ route('categories.show', $category) }}">{{ $category->posts_count }}</a><h4>
                                 </div>
                                 <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
                                 </div>
@@ -28,7 +28,7 @@
 				@endforelse
                 
             </div><!--end row-->
-o
+
             <div class="card radius-10">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
