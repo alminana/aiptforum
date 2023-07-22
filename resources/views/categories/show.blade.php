@@ -8,7 +8,21 @@
 @section('content')  
 		<!--start page wrapper -->
 		<div class="page-wrapper">
-		
+		<div class="page-content">
+		<!--breadcrumb-->
+		<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+			<div style="font-weight: 200"  class="breadcrumb-title pe-3"><a  href="{{ route('categories.index', $category) }}">{{ $category->name }}</a></div>
+			<div class="ps-3">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb mb-0 p-0">
+						<li class="breadcrumb-item"><a href="{{ route('categories.index', $category) }}"><i class="bx bx-home-alt"></i></a>
+						</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+		<!--end breadcrumb-->
 			<div class="page-content">
 				<div class="card">
 					<div class="card-body">
