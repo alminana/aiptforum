@@ -46,24 +46,17 @@
         </li>
 
 
-        <hr>
-
-        <li>
-            <a target='_blank' href="{{ route('deadline.notification') }}">
-            <div class="parent-icon"><i class='bx bx-lock'></i></div>
-                <div class="menu-title">Deadline</div>
-            </a>
-        </li> 
+        <hr> 
         
          <li>
-            <a target='_blank' href="{{ route('deadline.getData') }}">
-            <div class="parent-icon"><i class='bx bx-lock'></i></div>
+            <a href="{{ route('deadline.getData') }}">
+            <div class="parent-icon"><i class='bx bx-report'></i></div>
                 <div class="menu-title">Report</div>
             </a>
         </li> 
         <hr>
         <li>
-            <a target='_blank' href="{{ route('home') }}">
+            <a href="{{ route('home') }}">
             <div class="parent-icon"><i class='bx bx-lock'></i></div>
                 <div class="menu-title">Lock</div>
             </a>
