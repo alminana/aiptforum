@@ -29,18 +29,19 @@
                 <div class="menu-title">Categories</div>
             </a>
 
-            <ul>
+            <ul>    
+                 @forelse($categories as $category)
                 <li> 
-                    @forelse($categories as $category)
+               
                     <a href="{{ route('categories.show', $category) }}">
+                        
                         <i class="bx bx-right-arrow-alt"></i>
-                    </i><span>{{ $category->name }} {{ $category->posts_count }}</span>
+                    </i><span>{{ $category->name }}</span>
                     </a>
-                    @empty
+                </li>
+               @empty
                         <p class='lead'>There are no categories to show.</p>
                     @endforelse
-                </li>
-              
                 
             </ul>
         </li>
