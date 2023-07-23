@@ -51,7 +51,7 @@
 				<form method="GET" action="{{route('deadline.getData')}}">
 					{{ csrf_field() }}
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<div class="form-group">
 									<label for="">From Date</label>
 									<input type="date" name="start_date" id="start_date" class="form-control"> 
@@ -68,6 +68,98 @@
 								<div class="form-group">
 									<label for=""></label><br>
 									<button type="submit" value="Submit" class="btn btn-success">Filter</button>
+								</div>
+							</div>
+
+							<div class="col-md-">
+								<div>
+									<h5><p style="color: red">Check the checkbox to hide the row Items *</p></h5>
+								</div>
+								<div class="row ">
+									
+										<div class="col" style="color:black">
+											<div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="deadline" >Status
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="aiptref">AIPTREF
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="clientref" >Client Ref
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="title" >Application
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="status">Method
+												</label>
+											  </div>
+											</div>
+										
+											<div class="col" style="color:black">
+											
+											<div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="image">Image
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="requesteddate">Requested Date
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="proceduredate">Actual Deadline
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="slug" >Filing
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="registrationno" >Registration
+												</label>
+											  </div>
+		
+										  </div>
+										  <div class="col" style="color:black">
+											<div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="class">Class
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="excerpt">Client
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="country" >Country
+												</label>
+											  </div>
+										  </div>
+										  <div class="col" style="color:black">
+											
+											 
+										  </div>
+										  
+										  
+										</div>
+									
+								
 								</div>
 							</div>
 						</div>
@@ -93,19 +185,19 @@
 						<table  id="tbAdresse" class="table table-striped table-bordered">
                             <thead class="table-light">
                             <tr>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th>
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
-								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
+								<th class="deadline" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
+								<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+								<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+								<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
+								<th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
+								<th class="image" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
+								<th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
+								<th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
+								<th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
+								<th class="registrationno" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th>
+								<th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
+								<th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
+								<th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
                             </tr>
                             </thead>
                             <tbody>
@@ -126,9 +218,10 @@
 								}
 							@endphp
 								<tr>
-									<td class="deadline" href="" >
-										<a style="font-weight:bold; font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
-											<span class="badge bg-gradient-quepal text-white shadow-sm w-100">
+									<td class="deadline" style="{{ $color }}" href="" >
+										<a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
+
+											<span class="badge bg-gradient-quepal text-white shadow-sm w-50">
 												@php
 												$expire = strtotime($post->proceduredate);
 												$today = strtotime("today midnight");
@@ -154,31 +247,35 @@
 														}	
 														
 											@endphp
-											</span>
+											  </button>
+
+											<div class="badge badge-secondary">
+												
+											</div>
 										</a>
 										
 											 
 									</td>
-								<td >{{$post->aiptref}}</td>
-								<td >{{ $post->clientref }}</td>
-                                <td >{{ $post->title }}</td>
-                                <td >{{ $post->status }}</td>
-                                <td>
+								<td class="aiptref"><a style="font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{$post->aiptref}}</a></td>
+								<td class="clientref"><a style="font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->clientref }}</a></td>
+                                <td class="title"><a style="font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->title }}</a></td>
+                                <td class="status"><a style="font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->status }}</a></td>
+                                <td class="image">
 									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 								</td>
-                                <td class="proceduredate">
-									<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
+                                <td class="requesteddate">
+									<a style="font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
 								</td>
 
 								<td class="proceduredate">
-									<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
+									<a style=" font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
 								</td>
 								
-								<td class="slug"  href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
-								<td class="registrationno"  href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
-								<td class="class"  href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
-								<td class="excerpt"  href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
-								<td class="country"  href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
+								<td class="slug"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
+								<td class="registrationno"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
+								<td class="class"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
+								<td class="excerpt"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
+								<td class="country"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
                             </tr>
 							@empty
 							<p class='lead'>There are no Application to show.</p>
@@ -205,6 +302,12 @@
 <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 
 <script>
+
+$("input:checkbox").attr("checked",false).click(function(){
+			var shcolumn="."+$(this).attr("name");
+			$(shcolumn).toggle();
+		});
+
 $(document).ready(function() {
 	$('#tbAdresse ').DataTable( {
 

@@ -22,7 +22,99 @@
 			</div>
 		</div>
 	</div>
+	    <div class="page-content">
+				<div>
+									<h5><p style="color: red">Check the checkbox to hide the row Items *</p></h5>
+								</div>
+								<div class="row ">
+									
+										<div class="col" style="color:black">
+											<div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="deadline" >Status
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="aiptref">AIPTREF
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="clientref" >Client Ref
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="title" >Application
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="status">Method
+												</label>
+											  </div>
+											</div>
+										
+											<div class="col" style="color:black">
+											
+											<div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="image">Image
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="requesteddate">Requested Date
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="proceduredate">Actual Deadline
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="slug" >Filing
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="registrationno" >Registration
+												</label>
+											  </div>
+		
+										  </div>
+										  <div class="col" style="color:black">
+											<div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="class">Class
+												</label>
+											  </div>
+											  <div class="form-check">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="excerpt">Client
+												</label>
+											  </div>
+											  <div class="form-check ">
+												<label class="form-check-label">
+												  <input type="checkbox" class="form-check-input" name="country" >Country
+												</label>
+											  </div>
+										  </div>
+										  <div class="col" style="color:black">
+											
+											 
+										  </div>
+										  
+										  
+										</div>
+									
+								
+								</div>
+	
 		<!--end breadcrumb-->
+		
 			<div class="page-content">
 				<div class="card">
 					<div class="card-body">
@@ -30,39 +122,39 @@
 							<table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
 								<thead>
 								<tr role="row">
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 0px;">Condition</th>	
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 0px;">AIPTREF</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th>
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
-									<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
-				
+									<th class="deadline" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
+									<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+									<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+									<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
+									<th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
+									<th class="image" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
+									<th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
+									<th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
+									<th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
+									<th class="registrationno" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th>
+									<th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
+									<th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
+									<th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
+					
 		
 							</tr>
 							</thead>
 								<tfoot>
 									<tr role="row">
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 5px;">Condition</th>	
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 5px;">AIPTREF</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th>
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
-										<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
-					
+										<th class="deadline" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
+										<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+										<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+										<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
+										<th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
+										<th class="image" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
+										<th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
+										<th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
+										<th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
+										<th class="registrationno" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th>
+										<th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
+										<th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
+										<th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
+							
 										</tr>
 								</thead>
 							
@@ -86,7 +178,7 @@
 							@endphp
 							<tr role="row" class="odd">
 								<td class="deadline" href="" >
-									<a style="font-weight:bold; font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
+									<a style=" font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
 										<span class="badge bg-gradient-quepal text-white shadow-sm w-50">
 											@php
 											$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
@@ -111,26 +203,26 @@
 									
 										 
 								</td>
-							<td style="{{ $color }}">{{$post->aiptref}}</td>
-							<td style="{{ $color }}">{{ $post->clientref }}</td>
-							<td style="{{ $color }}">{{ $post->title }}</td>
-							<td style="{{ $color }}">{{ $post->status }}</td>
+							<td ><a style=" font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{$post->aiptref}}</a></td>
+							<td ><a style=" font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->clientref }}</a> </td>
+							<td ><a style=" font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->title }}</a></td>
+							<td ><a style=" font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->status }}</a></td>
 							<td>
 								<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 							</td>
-							<td class="proceduredate" style="{{ $color }}">
-								<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
+							<td class="proceduredate" >
+								<a style=" font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style=" font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
 							</td>
 
-							<td class="proceduredate" style="{{ $color }}">
-								<a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
+							<td class="proceduredate" >
+								<a style=" font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style=" font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
 							</td>
 							
-							<td class="slug" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
-							<td class="registrationno" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
-							<td class="class" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
-							<td class="excerpt" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
-							<td class="country" style="{{ $color }}" href="{{ route('posts.show', $post) }}"><a style="font-weight:bold; font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
+							<td class="slug"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
+							<td class="registrationno"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
+							<td class="class"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
+							<td class="excerpt"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
+							<td class="country"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
 
                             </tr>
                             @empty
