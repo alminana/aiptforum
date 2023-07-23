@@ -227,7 +227,7 @@
                         </a>
                     </div> --}}
 
-                    <div class="user-box dropdown">
+                    {{-- <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                        
                             <div class="user-info ps-3">
@@ -279,7 +279,7 @@
                                 </li>
 
                         </ul>
-                    </div>
+                    </div> --}}
 
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
