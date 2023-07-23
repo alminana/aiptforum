@@ -129,33 +129,19 @@
 								<td style="font-size:11px;"><a style="color:black;"href="" ></a>{{$item->title }}</td>
 							
 								<td  style="font-size:11px; width:50px;"><a style="color:black;" href="" >
-									<?php
-									
-									$expire = strtotime($item->proceduredate);
-									$today = strtotime("today midnight");
-									$day_diff = $today - $expire; 
-									$default  =  strtotime("01/01/0001");                               
-									$color = "";
-									$deadline = "Deadline";
-									$upcomming = "Upcoming";
-									$safe = "01/01/0001";
-									$done = "done";
-									if(($expire == $default)){
-															echo "New/Done";
-															$color = "color:black;background-color:green;";
-														}elseif($today == $expire){
-															echo "DueDate ";
-															$color = "color:black;background-color:orange;";
-														} elseif ($day_diff <= 30) {
-															echo "Upcoming";
-															$color = "color:black;background-color:yellow;";
-														}	elseif ($today >= $expire) {
-															echo "Expired";
-															$color = "color:black;background-color:red;";
-														}	
-											
-																				
-										?>
+								{{-- <?php
+										$remaining = \Carbon\Carbon::now()->diffInDays($item->proceduredate);
+										$expire = strtotime($item->proceduredate);
+											$today = strtotime("today midnight");
+											$day_diff =   $expire - $today;
+											if($remaining > 7){
+												echo floor($day_diff/(60*60*24)),'<p style="color: yellow;color:black; text-align: center">Upcoming </p>';	
+											} else {
+												
+												echo floor($day_diff/(60*60*24)),'<p style="color: red;color:black; text-align: center">Deadline </p>' ;
+											}
+                                       									  
+								?> --}}
 								
 								
                                 </a>

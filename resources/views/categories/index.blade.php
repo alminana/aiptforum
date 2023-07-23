@@ -28,6 +28,7 @@
 				@endforelse
                 
             </div>
+
 			<!--end row-->
 			<div class="row">
 				<div class="col-12">
@@ -89,7 +90,7 @@
                         
                     </div>
                     <div class="table-responsive">
-                        <table id="tbAdresse" class="table align-middle mb-0">
+						<table  id="tbAdresse" class="table table-striped table-bordered">
                             <thead class="table-light">
                             <tr>
 								<th class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
@@ -129,22 +130,29 @@
 										<a style="font-weight:bold; font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
 											<span class="badge bg-gradient-quepal text-white shadow-sm w-100">
 												@php
-												$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
 												$expire = strtotime($post->proceduredate);
 												$today = strtotime("today midnight");
-												$day_diff = $today - $expire;                                    
+												$day_diff = $today - $expire; 
+												$default  =  strtotime("01/01/0001");                               
 												$color = "";
-											
-												if ($today >= $expire) {
-													echo "Deadline";
-													$color = "color:black;background-color:#D99594;";
-												}elseif ($remaining < 7 ) {
-													echo "Upcoming";
-													$color = "color:black;background-color:#FFFF00;";
-												} elseif ($expire >= 30) {
-													echo "Safe";
-													$color = "color:black;background-color:#92D050;";
-												}
+												$deadline = "Deadline";
+												$upcomming = "Upcoming";
+												$safe = "01/01/0001";
+												$done = "done";
+														if(($expire == $default)){
+															echo "New/Done";
+															$color = "color:black;background-color:green;";
+														}elseif($today == $expire){
+															echo "DueDate ";
+															$color = "color:black;background-color:orange;";
+														} elseif ($day_diff <= 30) {
+															echo "Upcoming";
+															$color = "color:black;background-color:yellow;";
+														}	elseif ($today >= $expire) {
+															echo "Expired";
+															$color = "color:black;background-color:red;";
+														}	
+														
 											@endphp
 											</span>
 										</a>
@@ -195,11 +203,8 @@
 
 <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+
 <script>
-
-
-
-
 $(document).ready(function() {
 	$('#tbAdresse ').DataTable( {
 
