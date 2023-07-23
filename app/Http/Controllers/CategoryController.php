@@ -39,10 +39,6 @@ class CategoryController extends Controller
         return Excel::download(PostDataExport::class);
     }
 
-
-
-   
-
     public function index(Request $request)
     {
         $comments = DB::table('comments')->latest('id')->first();
@@ -150,6 +146,8 @@ public function show(Category $category)
         'method'=>$method,
     ],compact('clients','method', 'posts','categories'));
 }
+
+
 }
 
 

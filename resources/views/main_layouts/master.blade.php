@@ -63,7 +63,7 @@
 		<!--End Back To Top Button-->
 		<footer class="page-footer">
 			<p class="mb-0">Copyright © 2022. All right reserved.</p>
-            <p class="mb-0"><a href="https://alminana.github.io/alminanaeilerbutad/">Developed by. EA-ITSolution</a></p>
+            <p class="mb-0"><a href="https://alminana.github.io/alminanaeilerbutad/">Developed by. alminana</a></p>
 		</footer>
 	</div>
 	<!--end wrapper-->
