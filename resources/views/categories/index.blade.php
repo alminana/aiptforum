@@ -256,19 +256,19 @@
 										
 											 
 									</td>
-								<td class="aiptref"><a style="font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{$post->aiptref}}</a></td>
-								<td class="clientref"><a style="font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->clientref }}</a></td>
-                                <td class="title"><a style="font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->title }}</a></td>
-                                <td class="status"><a style="font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->status }}</a></td>
+								<td class="aiptref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+								<td class="clientref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->clientref }}</a></td>
+                                <td class="title"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></td>
+                                <td class="status"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->status }}</a></td>
                                 <td class="image">
 									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 								</td>
                                 <td class="requesteddate">
-									<a style="font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
+									<a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
 								</td>
 
 								<td class="proceduredate">
-									<a style=" font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
+									<a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
 								</td>
 								
 								<td class="slug"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>

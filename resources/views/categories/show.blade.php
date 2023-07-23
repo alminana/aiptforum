@@ -160,8 +160,7 @@
 							
 							<tbody>
 								@forelse($posts as $post)
-						
-							@php
+								@php
 								$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
 								$expire = strtotime($post->proceduredate);
 								$today = strtotime("today midnight");
@@ -176,51 +175,63 @@
 									$color = "color:black;background-color:#92D050;";
 								}
 							@endphp
-							<tr role="row" class="odd">
-								<td class="deadline" href="" >
-									<a style=" font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
+					
+								<td class="deadline" style="{{ $color }}" href="" >
+									<a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
+
 										<span class="badge bg-gradient-quepal text-white shadow-sm w-50">
 											@php
-											$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
 											$expire = strtotime($post->proceduredate);
 											$today = strtotime("today midnight");
-											$day_diff = $today - $expire;                                    
+											$day_diff = $today - $expire; 
+											$default  =  strtotime("01/01/0001");                               
 											$color = "";
-										
-											if ($today >= $expire) {
-												echo "Deadline";
-												$color = "color:black;background-color:#D99594;";
-											}elseif ($remaining < 7 ) {
-												echo "Upcoming";
-												$color = "color:black;background-color:#FFFF00;";
-											} elseif ($expire >= 30) {
-												echo "Safe";
-												$color = "color:black;background-color:#92D050;";
-											}
+											$deadline = "Deadline";
+											$upcomming = "Upcoming";
+											$safe = "01/01/0001";
+											$done = "done";
+													if(($expire == $default)){
+														echo "New/Done";
+														$color = "color:black;background-color:green;";
+													}elseif($today == $expire){
+														echo "DueDate ";
+														$color = "color:black;background-color:orange;";
+													} elseif ($day_diff <= 30) {
+														echo "Upcoming";
+														$color = "color:black;background-color:yellow;";
+													}	elseif ($today >= $expire) {
+														echo "Expired";
+														$color = "color:black;background-color:red;";
+													}	
+													
 										@endphp
-										</span>
+										  </button>
+
+										<div class="badge badge-secondary">
+											
+										</div>
 									</a>
 									
 										 
 								</td>
-							<td ><a style=" font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{$post->aiptref}}</a></td>
-							<td ><a style=" font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->clientref }}</a> </td>
-							<td ><a style=" font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->title }}</a></td>
-							<td ><a style=" font-size:12; color:black;" href="{{ route('admin.posts.edit', $post) }}">{{ $post->status }}</a></td>
-							<td>
+							<td class="aiptref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+							<td class="clientref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->clientref }}</a></td>
+							<td class="title"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></td>
+							<td class="status"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->status }}</a></td>
+							<td class="image">
 								<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 							</td>
-							<td class="proceduredate" >
-								<a style=" font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style=" font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
+							<td class="requesteddate">
+								<a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
 							</td>
 
-							<td class="proceduredate" >
-								<a style=" font-size:12; color:black;"  href="{{ route('admin.posts.edit', $post) }}"><button style=" font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
+							<td class="proceduredate">
+								<a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
 							</td>
 							
-							<td class="slug"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
-							<td class="registrationno"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
-							<td class="class"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
+							<td class="slug"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
+							<td class="registrationno"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
+							<td class="class"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
 							<td class="excerpt"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
 							<td class="country"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
 
@@ -246,7 +257,11 @@
 		<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 		<script>
 
-
+			
+$("input:checkbox").attr("checked",false).click(function(){
+			var shcolumn="."+$(this).attr("name");
+			$(shcolumn).toggle();
+		});
 
 
 		$(document).ready(function() {
