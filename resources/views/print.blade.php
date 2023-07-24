@@ -122,9 +122,10 @@
                 <img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col-md-12">
-                <h2 class="colorlib-heading-2">{{ count($post->comments) }} Activity logs</h2>
+                <h5 class="colorlib-heading-2">{{ count($post->comments) }} Activity logs</h6>
 
                 @foreach($post->comments as $comment)
                 <div id="comment_{{ $comment->id }}" class="review">
@@ -133,11 +134,11 @@
                        style="background-image: url({{ $comment->user->image ? asset('storage/' . $comment->user->image->path. '') : 'https://images.assetsdelivery.com/compings_v2/salamatik/salamatik1801/salamatik180100019.jpg'  }});"></div>
                        <div class="desc">
                            <h4>
-                               <span class="text-left">{{ $comment->user->name }}</span>
-                               <span class="text-right">{{ $comment->created_at->diffForHumans() }}</span>
-                            <span class="text-right">{{ $comment->created_at}}</span>
+                               <span class="text-left" style="font-size:15px">{{ $comment->user->name }}</span>
+                               <span class="text-right" style="font-size:15px">{{ $comment->created_at->diffForHumans() }}</span>
+                            <span class="text-right" style="font-size:15px">{{ $comment->created_at}}</span>
                            </h4>
-                           <p>{{ $comment->the_comment }}</p>
+                           <p style="font-size: 15">{{ $comment->the_comment }}</p>
                            <p class="star">
                                <span class="text-left"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
                            </p>
