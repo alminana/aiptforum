@@ -2,8 +2,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('admin_dashboard_assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
-        </div>
+            <img src="{{asset('logo/logo.JPG')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">        </div>
         <div>
             <h4 class="logo-text">AIPTDocket</h4>
         </div>
@@ -51,7 +50,7 @@
         
          <li>
             <a href="{{ route('deadline.getData') }}">
-            <div class="parent-icon"><i class='bx bx-report'></i></div>
+            <div class="parent-icon"><i class='bx bx-right-arrow-alt'></i></div>
                 <div class="menu-title">Report</div>
             </a>
         </li> 
