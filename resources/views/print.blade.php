@@ -33,7 +33,7 @@
                 </div>
             </div>
            <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="container">
                     <div>
                         <label for="inputProductTitle" class="form-label">Referrence :</label>
@@ -118,7 +118,7 @@
                     </div>  
                 </div> 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
             </div>
         </div>
