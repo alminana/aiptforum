@@ -48,138 +48,110 @@
 					</div>
 				</div>
 				<!--end breadcrumb-->
-			  
-				<div class="container">
-				    <form action="{{ route('admin.posts.update', $post) }}" method='post' enctype='multipart/form-data'>
-						<div class="row">
-							<div class="col-md-7">
-								<div class="card">
-									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
-									{{-- <div class="card-body">
-										<img style='width: 100%' src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" />
-									</div> --}}
-									<div class="classes-img" style="background-image: url({{ asset($post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '')  }});">
+			
+				<hr>
+				        <div class="row row-pb-lg animate-box">
+							<div class="container">
+								<form action="{{ route('admin.posts.update', $post) }}" method='post' enctype='multipart/form-data'>
+									<div class="row">
+										<div class="col-8">
+											<div class="card" style="width:100rem; align-item:center;">											
+												<div class="card-body">
+													<div>
+														<label for="inputProductTitle" class="form-label">Referrence :</label>
+														<label for="inputProductTitle" class="form-label">{{ old("aiptref", $post->aiptref) }}</label>
+														<!-- <input type="text" value='{{ old("aiptref", $post->aiptref) }}' name='title' required class="form-control" id="myText"> -->
+			
+														@error('aiptref')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+													<div class="mb-3">
+														<label for="inputProductTitle" class="form-label">Application Name :</label>
+														<label for="inputProductTitle" class="form-label">{{ old("title", $post->title) }}</label>
+														<!-- <input type="text" value='{{ old("title", $post->title) }}' name='title' required class="form-control" id="myText"> -->
+			
+														@error('title')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+			
+													<div class="mb-3">
+														<label for="inputProductTitle" class="form-label">Filing No. :</label>
+														<label for="inputProductTitle" class="form-label">{{ old("slug", $post->slug) }}</label>
+														<!-- <input type="text" value='{{ old("slug", $post->slug) }}' class="form-control" required name='slug' id="inputProductTitle"> -->
+			
+														@error('slug')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+													<div class="mb-3">
+														<label for="inputProductDescription" class="form-label">Registration :</label>
+														<label for="inputProductDescription" class="form-label">{{ old("registrationno", $post->registrationno) }}</label>
+														<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
+														@error('status')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+													<div class="mb-3">
+														<label for="inputProductTitle" class="form-label">Class :</label>
+														<label for="inputProductTitle" class="form-label">{{ old("class", $post->class) }}</label>
+														<!-- <input type="text" value='{{ old("cladss", $post->class) }}' class="form-control" required name='class' id="inputProductTitle"> -->
+			
+														@error('class')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+			
+													<div class="mb-3">
+														<label for="inputProductDescription" class="form-label">Client Name :</label>
+														<label for="inputProductDescription" class="form-label">{{ old("excerpt", $post->excerpt) }}</label>
+														<!-- <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt", $post->excerpt) }}</textarea> -->
+													
+														@error('excerpt')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+			
+													<div class="mb-3">
+														<label for="inputProductTitle" class="form-label">Type :</label>
+														<label for="inputProductTitle" class="form-label">{{ $post->category->name }}</label>
+														<!-- <input type="text" value='{{ $post->category->name }}' class="form-control" required name='category' id="inputProductTitle"> -->
+			
+														@error('category')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+													<div class="mb-3">
+														<label for="inputProductDescription" class="form-label">Status :</label>
+														<label for="inputProductDescription" class="form-label">{{ old("status", $post->status) }}</label>
+														<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
+														@error('status')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+													<div class="mb-3">
+														<label for="inputProductDescription" class="form-label">Status Date :</label>
+														<label for="inputProductDescription" class="form-label">{{ old("proceduredate", $post->proceduredate) }}</label>
+														{{-- <!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         --> --}}
+														@error('proceduredate')
+															<p class='text-danger'>{{ $message }}</p>
+														@enderror
+													</div>
+												</div>
+											</div>
 										</div>
-								</div>
-							<div class="row row-pb-lg">
-								<div class="col-md-12 animate-box">
-										<div class="classes class-single">
-											<div class="desc desc2">
-											<label for="inputProductTitle" class="form-label"><b>Other Details</b></label>
-												<div>
-												{!! $post->body !!}
-												</div>	
+										<div class="col-4">
+											<div class="card" style="width:18rem; align-item:center;">											
+												<div class="card-body">
+													<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								</form>
 							</div>
-							<div class="col-md-5">
-								<div class>
-								<div class="card">
-									<div class="card-body">
-									<div class="col-lg-12">
-                                    <div class="">
-									<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Referrence :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("aiptref", $post->aiptref) }}</label>
-                                            <!-- <input type="text" value='{{ old("aiptref", $post->aiptref) }}' name='title' required class="form-control" id="myText"> -->
-
-                                            @error('aiptref')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Application Name :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("title", $post->title) }}</label>
-                                            <!-- <input type="text" value='{{ old("title", $post->title) }}' name='title' required class="form-control" id="myText"> -->
-
-                                            @error('title')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Filing No. :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("slug", $post->slug) }}</label>
-                                            <!-- <input type="text" value='{{ old("slug", $post->slug) }}' class="form-control" required name='slug' id="inputProductTitle"> -->
-
-                                            @error('slug')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Registration :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("registrationno", $post->registrationno) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Class :</label>
-											<label for="inputProductTitle" class="form-label">{{ old("class", $post->class) }}</label>
-                                            <!-- <input type="text" value='{{ old("cladss", $post->class) }}' class="form-control" required name='class' id="inputProductTitle"> -->
-
-                                            @error('class')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Client Name :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("excerpt", $post->excerpt) }}</label>
-                                            <!-- <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt", $post->excerpt) }}</textarea> -->
-                                        
-                                            @error('excerpt')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-
-										<div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Type :</label>
-											<label for="inputProductTitle" class="form-label">{{ $post->category->name }}</label>
-                                            <!-- <input type="text" value='{{ $post->category->name }}' class="form-control" required name='category' id="inputProductTitle"> -->
-
-                                            @error('category')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Status :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("status", $post->status) }}</label>
-											<!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										<div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Status Date :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("proceduredate", $post->proceduredate) }}</label>
-											{{-- <!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         --> --}}
-                                            @error('proceduredate')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div>
-										{{-- <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Renewal date :</label>
-											<label for="inputProductDescription" class="form-label">{{ old("renewal", $post->renewal) }}</label>
-                                            @error('status')
-                                                <p class='text-danger'>{{ $message }}</p>
-                                            @enderror
-                                        </div> --}}
-                                    </div>
-                                </div>
-								</div>
-								</div>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-				<hr>
-				        <div class="row row-pb-lg animate-box">
-
+			
 							<div class="col-md-12">
 								<h2 class="colorlib-heading-2">{{ count($post->comments) }} Activity logs</h2>
 
