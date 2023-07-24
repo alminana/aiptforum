@@ -1,108 +1,182 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="{{ asset('admin_dashboard_assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-	<link href="{{ asset('admin_dashboard_assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-	<link href="{{ asset('admin_dashboard_assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-	<!-- loader-->
-	<link href="{{ asset('admin_dashboard_assets/css/pace.min.css') }}" rel="stylesheet" />
-	<script src="{{ asset('admin_dashboard_assets/js/pace.min.js') }}"></script>
-	<!-- Bootstrap CSS -->
-	<link href="{{ asset('admin_dashboard_assets/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-	<link href="{{ asset('admin_dashboard_assets/css/app.css') }}" rel="stylesheet">
-	<link href="{{ asset('admin_dashboard_assets/css/icons.css') }}" rel="stylesheet">
+@extends('main_layouts.master')
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container wrapper">
-    <div class="card-body ">
-    
-    <div class="text-center mt-6">
-        <div class="mb-1 container">
-            <a href="index.html" class="auth-logo">
-            <img src="{{asset('logo/logo.JPG')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">
-            </a>
-                <h5 class=" text-center font-size-0"><b>Mohammad Saleh Al-otaishan Law Firm</b><br/></h5>
-                <p class=" text-center font-size-0">Office 10, Bldg 03, South of Manarat Al Riyadh School, AL Ezdehar District, Exit (8), P.O Box 341774, Riyadh11333 KSA Tel: +966- 1 454 4765; www.aiptlaw.com</p><br/>
-                <h5 class=" text-center font-size-0"><b>Application Report</b><br/></h5>
-                <hr>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h6 style="text-align:left">Reference#        : {{ old("aiptref", $post->aiptref) }}</h6>  
-                            <h6 style="text-align:left">Application Name  : {{ old("aiptref", $post->title) }}</h6>  
-                            <h6 style="text-align:left">Class             : {{ old("aiptref", $post->class) }}</h6>  
-                            <h6 style="text-align:left">Filing            : {{ old("aiptref",  $post->slug) }}</h6>  
-                            <h6 style="text-align:left">Registration      : {{ old("aiptref", $post->registrationno) }}</h6>  
-                            {{-- <h6 style="text-align:left">Date          : {{ old("aiptref", $post->proceduredate) }}</h6>   --}}
-                            <h6 style="text-align:left">Status            : {{ old("aiptref", $post->status) }}</h6>  
-                            <h6 style="text-align:left">Date              : {{ old("aiptref", $post->proceduredate) }}</h6>
-                            {{-- <h6 style="text-align:left">Image :<img style='width: 10%' src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" /> --}}
-                            <h6 style="text-align:left">Image :
-                                    <img style='width: 10%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
-                            </h6>
-                        </div>
-                        
-                    </div>
-                    <hr>
-                    <h2 style="font-size:12px;text-align:left;"class="colorlib-heading-2">{{ count($post->comments) }} Activity logs</h2>
+@section('title', 'AIPTFORUM | Home')
 
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="">
-                                    <table id="example2" class="table table-striped comment table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th style="font-size:11px;">Date</th>
-                                                <th style="font-size:11px;"> Description</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        @forelse($post->comments as $comment)
-                                    <tr>
+@section('content')
+
+@section("style")
+
+<link href="{{ asset('admin_dashboard_assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('admin_dashboard_assets/plugins/select2/css/select2-bootstrap4.css') }}" rel="stylesheet" />
+
+<link href="{{ asset('admin_dashboard_assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.0/tinymce.min.js" integrity="sha512-XNYSOn0laKYg55QGFv1r3sIlQWCAyNKjCa+XXF5uliZH+8ohn327Ewr2bpEnssV9Zw3pB3pmVvPQNrnCTRZtCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+@endsection
+
+@section('custom_css')
+
+	<style>
+		body{
+			top:50px;
+		}
+		.class-single .desc img {
+			width: 100%;
+		}
+	</style>
+
+@endsection
+
+@section('content')
+
+
+<div class="page-wrapper">
+			<div class="page-content">
+				        <div class="row row-pb-lg animate-box">
+							<div class="container">
+								<form action="{{ route('admin.posts.update', $post) }}" method='post' enctype='multipart/form-data'>
+									<div class="row">
+										<div class="col-8">
+											<div class="card" style="width:95rem; align-item:center;">											
+                                                <div class="row">
+                                                    <div style="text-align: center; margin-top:12px;">
+                                                        <a href="index.html" class="auth-logo">
+                                                            <img src="{{asset('logo/logo.JPG')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">
+                                                            </a>
+                                                                <h5 class=" text-center font-size-0"><b>Mohammad Saleh Al-otaishan Law Firm</b><br/></h5>
+                                                                <p class=" text-center font-size-0">Office 10, Bldg 03, South of Manarat Al Riyadh School, AL Ezdehar District, Exit (8), P.O Box 341774, Riyadh11333 KSA Tel: +966- 1 454 4765; www.aiptlaw.com</p><br/>
+                                                                <h5 class=" text-center font-size-0"><b>Application Report</b><br/></h5>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="container">
+                                                            <div>
+                                                                <label for="inputProductTitle" class="form-label">Referrence :</label>
+                                                                <label for="inputProductTitle" class="form-label">{{ old("aiptref", $post->aiptref) }}</label>
+                                                                <!-- <input type="text" value='{{ old("aiptref", $post->aiptref) }}' name='title' required class="form-control" id="myText"> -->
+                    
+                                                                @error('aiptref')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="inputProductTitle" class="form-label">Application Name :</label>
+                                                                <label for="inputProductTitle" class="form-label">{{ old("title", $post->title) }}</label>
+                                                                <!-- <input type="text" value='{{ old("title", $post->title) }}' name='title' required class="form-control" id="myText"> -->
+                    
+                                                                @error('title')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                    
+                                                            <div class="mb-3">
+                                                                <label for="inputProductTitle" class="form-label">Filing No. :</label>
+                                                                <label for="inputProductTitle" class="form-label">{{ old("slug", $post->slug) }}</label>
+                                                                <!-- <input type="text" value='{{ old("slug", $post->slug) }}' class="form-control" required name='slug' id="inputProductTitle"> -->
+                    
+                                                                @error('slug')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="inputProductDescription" class="form-label">Registration :</label>
+                                                                <label for="inputProductDescription" class="form-label">{{ old("registrationno", $post->registrationno) }}</label>
+                                                                <!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
+                                                                @error('status')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="inputProductTitle" class="form-label">Class :</label>
+                                                                <label for="inputProductTitle" class="form-label">{{ old("class", $post->class) }}</label>
+                                                                <!-- <input type="text" value='{{ old("cladss", $post->class) }}' class="form-control" required name='class' id="inputProductTitle"> -->
+                    
+                                                                @error('class')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                    
+                                                            <div class="mb-3">
+                                                                <label for="inputProductDescription" class="form-label">Client Name :</label>
+                                                                <label for="inputProductDescription" class="form-label">{{ old("excerpt", $post->excerpt) }}</label>
+                                                                <!-- <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt", $post->excerpt) }}</textarea> -->
+                                                            
+                                                                @error('excerpt')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                    
+                                                            <div class="mb-3">
+                                                                <label for="inputProductTitle" class="form-label">Type :</label>
+                                                                <label for="inputProductTitle" class="form-label">{{ $post->category->name }}</label>
+                                                                <!-- <input type="text" value='{{ $post->category->name }}' class="form-control" required name='category' id="inputProductTitle"> -->
+                    
+                                                                @error('category')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="inputProductDescription" class="form-label">Status :</label>
+                                                                <label for="inputProductDescription" class="form-label">{{ old("status", $post->status) }}</label>
+                                                                <!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         -->
+                                                                @error('status')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="inputProductDescription" class="form-label">Status Date :</label>
+                                                                <label for="inputProductDescription" class="form-label">{{ old("proceduredate", $post->proceduredate) }}</label>
+                                                                {{-- <!-- <input type="status" class="form-control" value='{{ old("status", $post->status) }}' name='status' data-role="tagsinput">                                         --> --}}
+                                                                @error('proceduredate')
+                                                                    <p class='text-danger'>{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+
+                                                    </div>
+                                                </div>
+											</div>
+										</div>
+									</div>
                                     
-                                        <td style="font-size:12px;text-align:left;"><a style="color:black;" href="">{{date('m/d/Y',strtotime(($comment->created)))}} </a></td>
-                                        <td style="font-size:12px;text-align:left;"><a style="color:black;"href="">{{ $comment->the_comment }}</a></td>		
-                                    @empty
-                                        <p class='lead'>There are no Logs to show.</p>
-                                    @endforelse
-                                        </tbody>
-                                    </table>
+							<div class="col-md-12">
+								<h2 class="colorlib-heading-2">{{ count($post->comments) }} Activity logs</h2>
+
+								@foreach($post->comments as $comment)
+								<div id="comment_{{ $comment->id }}" class="review">
+							   		<div 
+							   		class="user-img" 
+							   		style="background-image: url({{ $comment->user->image ? asset('storage/' . $comment->user->image->path. '') : 'https://images.assetsdelivery.com/compings_v2/salamatik/salamatik1801/salamatik180100019.jpg'  }});"></div>
+							   		<div class="desc">
+							   			<h4>
+							   				<span class="text-left">{{ $comment->user->name }}</span>
+							   				<span class="text-right">{{ $comment->created_at->diffForHumans() }}</span>
+											<span class="text-right">{{ $comment->created_at}}</span>
+							   			</h4>
+							   			<p>{{ $comment->the_comment }}</p>
+							   			<p class="star">
+						   					<span class="text-left"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
+							   			</p>
+							   		</div>
+							   	</div>
+							   	@endforeach
+
+								  
+							</div>
+								</form>
+                                <div>
+                                    <button type="button" value="Print" class="btn btn-success float-right" style="margin-right: 5px;">
+                                             <a href="javascript:window.print()" style="color:white"> Print</a>
+                                         </button>	
+                                </div>
+							</div>
                         </div>
-                                 
-        </div>
-    </div>
+		
+			</div>
+		</div>
+@endsection
 
-    <div class="p-3">
-
-        <!-- end form -->
-    </div>
-</div>
-               
-
-       
-            
-    </div>
-    <button type="button" value="Print" class="btn btn-info float-right" style="margin-right: 5px;">
-  <a href="javascript:window.print()">Print</a>
-   </button>	
-
-</body>
-</html>
-
-<style>
-body{
-    background-color: white;
-}
-table, th, td {
-  border:5px black;
-}
-thead tr th {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-</style>
+@section('custom_js')
