@@ -84,23 +84,14 @@
                     </form>
                                  @endguest
                                  @auth
-                            <div style="align-items: center">
-                              <div class="form-group mb-3 text-center row mt-3 pt-1">
-                                <div class="col-12">
-                                    <button class="btn btn-info w-100 waves-effect waves-light" type="submit"><a href="/dashboard"></a>Dashboard</button>
-                                </div>
-                                
-                           
-                            </div> 
-                          
-                                <div class="col-12">
-                                  <button class="btn btn-danger w-100 waves-effect waves-light" type="submit"><a href="/dashboard" ></a>Logout</button>
-                                </div>
-                            </div>
-
-                            
-                            
-                           
+                            <div>
+                              <a class="btn btn-info w-100 waves-effect waves-light" href="/dashboard">Dashboard
+                              </a>
+                             ,<br>
+                              <a class="btn btn-danger w-100 waves-effect waves-light" onclick="event.preventDefault();
+                                      document.getElementById('nav-logout-form').submit()" 
+                                      href="#">Logout
+                              </a>
                             </div>
                             
                  
