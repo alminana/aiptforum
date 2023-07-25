@@ -1,119 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  
 
-<!DOCTYPE html>
-<html>
-
-<head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-
-  <title>AIPAIT</title>
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{{asset('docketing_layout/css/bootstrap.css')}}" />
-
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="{{asset('docketing_layout/css/style.css')}}" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="{{asset('docketing_layout/css/responsive.css')}}" rel="stylesheet" />
-</head>
-
-<body>
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-
-          </a>
-          <div class="navbar-collapse" id="">
-            <ul class="navbar-nav justify-content-between ">
-              <div class="User_option">
-                <li class="">
-                  <a class="mr-4" href="">
-                 
-                  </a>
-                  <a class="" href="">
-                  
-                  </a>
-                </li>
-              </div>
-            </ul>
+    <head>
         
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 offset-md-1">
-            <div class="detail-box">
-				<div >
-				<!-- <img src="{{asset('logo/logo.JPG')}}" style="weight:50px;height:50px;" alt="logo icon"> -->
-				<br>
-				</div>
-              <h1>
-                <span>AIPT</span> <br>
-                Docketing<br>
-                System
-              </h1>
-              <p>
-              </p>
-              <div class="btn-box">
-			  @guest
-			   <a  href="{{route('login')}}"  class="btn btn-main">Login</a>
-                    @endguest
-                @auth
-				<a class="btn btn-main" href="/dashboard">Dashboard
-				</a>
-				<a class="btn btn-main" onclick="event.preventDefault();
-                    document.getElementById('nav-logout-form').submit()" 
-                    href="#">Logout</a>
+        <meta charset="utf-8" />
+        <title>Login </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
 
-                <form id="nav-logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                </form>
-                </li>
-                </ul>
-                 </li>
-                @endauth
-              </div>
+        <!-- Bootstrap Css -->
+        <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+
+         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+    </head>
+
+    <body class="auth-body-bg">
+        <div class="bg-overlay"></div>
+        <div class="wrapper-page">
+            <div class="container-fluid p-0">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="text-center mt-4">
+                            <div class="mb-3">
+                                <a href="/" class="auth-logo">
+                                <img src="{{asset('logo/logo.JPG')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">
+                                    <!-- <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
+                                    <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt=""> -->
+                                </a>
+                            </div>
+                        </div>
+    
+                        <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
+    
+                        <div class="p-3">
+                          @guest
+                          <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
+                            @csrf
+
+                        <div class="form-group mb-3 row">
+                            <div class="col-12">
+                                <input class="form-control" id="username" name="username" type="text" required="" placeholder="Username">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
+                            <div class="col-12">
+                                <input class="form-control" id="password" name="password" type="password" required="" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
+                            <div class="col-12">
+                                <div class="custom-control custom-checkbox">
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 text-center row mt-3 pt-1">
+                            <div class="col-12">
+                                <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0 row mt-2">
+                            <div class="col-sm-7 mt-3">
+                                <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
+                            </div>
+                            <div class="col-sm-5 mt-3">
+                                <a href="{{ route('register') }}" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
+                            </div>
+                        </div>
+                    </form>
+                                 @endguest
+                                 @auth
+                            <div style="align-items: center">
+                              <div class="form-group mb-3 text-center row mt-3 pt-1">
+                                <div class="col-12">
+                                    <button class="btn btn-info w-100 waves-effect waves-light" type="submit"><a href="/dashboard"></a>Dashboard</button>
+                                </div>
+                                
+                           
+                            </div> 
+                          
+                                <div class="col-12">
+                                  <button class="btn btn-danger w-100 waves-effect waves-light" type="submit"><a href="/dashboard" ></a>Logout</button>
+                                </div>
+                            </div>
+
+                            
+                            
+                           
+                            </div>
+                            
+                 
+                                 <form id="nav-logout-form" action="{{ route('logout') }}" method="POST">
+                                     @csrf
+                                 </form>
+                                 </li>
+                                 </ul>
+                                  </li>
+                                 @endauth
+                        </div>
+                        <!-- end -->
+                    </div>
+                    <!-- end cardbody -->
+                </div>
+                <!-- end card -->
             </div>
-          </div>
+            <!-- end container -->
         </div>
-      </div>
-    </section>
-    <!-- end slider section -->
-  </div>
-  <script type="text/javascript" src="{{asset('docketing_layout/js/jquery-3.4.1.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('docketing_layout/js/bootstrap.js')}}"></script>
-  <script type="text/javascript" src="{{asset('docketing_layout/js/custom.js')}}"></script>
+        <!-- end -->
 
+        <!-- JAVASCRIPT -->
+        <script src="{{ asset('backend/assets/libs/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('backend/assets/libs/metismenu/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }}"></script>
 
-</body>
+        <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
-</html>
-</body>
+         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ @if(Session::has('message'))
+ var type = "{{ Session::get('alert-type','info') }}"
+ switch(type){
+    case 'info':
+    toastr.info(" {{ Session::get('message') }} ");
+    break;
+
+    case 'success':
+    toastr.success(" {{ Session::get('message') }} ");
+    break;
+
+    case 'warning':
+    toastr.warning(" {{ Session::get('message') }} ");
+    break;
+
+    case 'error':
+    toastr.error(" {{ Session::get('message') }} ");
+    break; 
+ }
+ @endif 
+</script>
+
+    </body>
 </html>

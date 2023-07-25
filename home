@@ -1,0 +1,42 @@
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 offset-md-1">
+            <div class="detail-box">
+				<div >
+				<!-- <img src="{{asset('logo/logo.JPG')}}" style="weight:50px;height:50px;" alt="logo icon"> -->
+				<br>
+				</div>
+              <h1>
+                <span>AIPT</span> <br>
+                Docketing<br>
+                System
+              </h1>
+              <p>
+              </p>
+              <div class="btn-box">
+			  @guest
+			   <a  href="{{route('login')}}"  class="btn btn-main">Login</a>
+                    @endguest
+                @auth
+				<a class="btn btn-main" href="/dashboard">Dashboard
+				</a>
+				<a class="btn btn-main" onclick="event.preventDefault();
+                    document.getElementById('nav-logout-form').submit()" 
+                    href="#">Logout</a>
+
+                <form id="nav-logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
+                </li>
+                </ul>
+                 </li>
+                @endauth
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
