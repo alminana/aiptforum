@@ -31,7 +31,7 @@
 
 
     <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}">
-    <title>AIPTFORUM</title>
+    <title>AIPTDocket</title>
 </head>
 
 <body>

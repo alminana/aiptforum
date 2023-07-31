@@ -14,7 +14,7 @@
         <li>
             <a href="{{ route('categories.index') }}">
             <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
-                <div class="menu-title">Application</div>
+                <div class="menu-title">Applications</div>
             </a>
         </li>
         <hr>
@@ -23,9 +23,9 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-menu'></i>
+                <div class="parent-icon"><span style="font-size: 90%; color:gray;">TM</span>
                 </div>
-                <div class="menu-title">Categories</div>
+                <div class="menu-title">Trademark</div>
             </a>
 
             <ul>    
@@ -45,12 +45,18 @@
             </ul>
         </li>
 
+        <li>
+            <a href="{{ route('patent.index') }}">
+            <div class="parent-icon"><i class='bx bx-notepad'></i></div>
+                <div class="menu-title">Patent</div>
+            </a>
+        </li> 
+      
+        <hr>
 
-        <hr> 
-        
          <li>
             <a href="{{ route('deadline.getData') }}">
-            <div class="parent-icon"><i class='bx bx-right-arrow-alt'></i></div>
+            <div class="parent-icon"><i class='bx bx-notepad'></i></div>
                 <div class="menu-title">Report</div>
             </a>
         </li> 
@@ -64,7 +70,7 @@
         
         <li>
             <a target='_blank' href="{{ route('admin.index') }}">
-            <div class="parent-icon"><i class='bx bx-pointer'></i></div>
+            <div class="parent-icon"><i class='bx bx-user-circle'></i></div>
                 <div class="menu-title">Admin Only</div>
             </a>
         </li>

@@ -24,6 +24,8 @@ use App\Http\Controllers\AdminControllers\AdminUsersController;
 use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
 
+use App\Http\Controllers\AdminControllers\AdminPatentController;
+
 use App\Http\Controllers\AdminControllers\AdminClientController;
 use App\Http\Controllers\AdminControllers\AdminMethodController;
 use App\Http\Controllers\AdminControllers\AdminProfileController;
@@ -35,6 +37,7 @@ use App\Http\Controllers\ServicearController;
 use App\Http\Controllers\NewsarController;
 use App\Http\Controllers\ContactarController;
 
+use App\Http\Controllers\PatentController;
 
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\HomeController;
@@ -59,6 +62,12 @@ Route::post('profile/{id}', [AdminUsersController::class, 'update'])->name('prof
 Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logout');
 Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::resource('patent', PatentController::class);
+// Route::get('/patent/{id}', [PatentController::class, 'update'])->name('patent.update');
+// Route::get('/patent/{id}', [PatentController::class, 'edit'])->name('patent.edit');
+// Route::get('/patent', [PatentController::class, 'index'])->name('patent.index');
+// Route::post('/patent/{id}', [PatentController::class, 'show'])->name('patent.show');
 
 Route::get('/posts/{post:id}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
@@ -107,6 +116,10 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
     Route::resource('method', AdminMethodController::class);
 
     Route::resource('posts', AdminPostsController::class);
+    
+    //patent
+    Route::resource('patents', AdminPatentController::class);
+
     Route::resource('categories', AdminCategoriesController::class);
     Route::resource('tags', AdminTagsController::class)->only(['index', 'show', 'destroy']);
     Route::resource('comments', AdminCommentsController::class)->except('show');
