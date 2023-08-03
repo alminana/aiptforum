@@ -12,6 +12,7 @@ use App\Models\Post;
 use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Category;
+use App\Models\Patent_comments;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -47,6 +48,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function patent_comments()
+    {
+        return $this->hasMany(Patent_comments::class);
     }
 
     public function image()

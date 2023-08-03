@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Tag;
-use App\Models\Comment;
+use App\Models\Patent_comments;
 use App\Models\Image;
 use App\Models\Client;
 use App\Models\Method;
@@ -70,6 +70,11 @@ class Patent extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function patent_comments()
+    {
+        return $this->belongsTo(Patent_comments::class);
     }
 
     public function image()

@@ -42,7 +42,7 @@
 								<li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
 								</li>
 								<li class="breadcrumb-item active" aria-current="page">All Details</li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="">Print</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('print.printthis',$patent)}}">Print</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -52,7 +52,7 @@
 				<hr>
 				        <div class="row row-pb-lg animate-box">
 							<div class="container">
-
+								<form action="{{ route('patent.show', $patent) }}" method='get' >
                   <div class="form-body mt-4">
                     <div class="row">
                     <div class="col-lg-12">
@@ -98,6 +98,10 @@
                                                         <input type="text" disabled value='{{  $client->name,$patent->name  }}' name='title' required class="form-control" id="inputProductTitle">
 
                                                         @endforeach
+                                                    
+
+              
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -232,9 +236,10 @@
                         </div>
                     </div>
                 </div>
-					
+								</form>
 							</div>
-		      {{-- <div class="col-md-12">
+			
+							{{-- <div class="col-md-12">
 								<h2 class="colorlib-heading-2">{{ count($patent->comments) }} Activity logs</h2>
 
 								@foreach($patent->comments as $comment)
@@ -257,7 +262,7 @@
 							   	@endforeach
 
 								  
-							</div>  --}}
+							</div> --}}
 						</div>
 						
 						<div class="row animate-box">
@@ -271,6 +276,7 @@
 
 								<form method="POST" action="{{ route('patent.add_comment', $patent) }}">
 									@csrf
+									
 									<div class="row form-group">
 										<div class="col-md-12">
 											<!-- <label for="message">Message</label> -->

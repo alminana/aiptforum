@@ -259,7 +259,7 @@
 								  
 							</div>  --}}
 						</div>
-						
+{{-- 						
 						<div class="row animate-box">
 							<div class="col-md-12">
 
@@ -288,7 +288,7 @@
 								<p class="lead"><a href="{{ route('login') }}">Login </a> OR <a href="{{ route('register') }}">Register</a> to write comments</p>
 								@endguest	
 							</div>
-						</div> 
+						</div>  --}}
 			</div>
 		</div>
 @endsection

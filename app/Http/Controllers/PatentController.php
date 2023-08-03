@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Client;
 use App\Models\Method;
 use App\Models\Patent;
+use App\Models\Patent_comments;
 use DB;
 use App\Models\Category;
 use Illuminate\Validation\Rule;
@@ -89,16 +90,16 @@ class PatentController extends Controller
      */
     public function show(Patent $patent)
     {
-        $patent = Patent::latest()->take(100)->get();
-        $method = Method::latest()->take(100)->get();
-        $client = Client::latest()->take(100)->get();
+        $clients = Client::all();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        return view('patent.show', [
+        $method = Method::all();
+        return view('patent.index', [
             'patent' => $patent,
+            'clients'=>$clients,
             'method' => $method,
-            'client' => $client,
-        ],compact('patent','method','client','categories'));
+        ],compact('clients','method','patent','categories'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -143,5 +144,17 @@ class PatentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addComment(Patent $id)
+    { 
+        $attributes = request()->validate([
+            'the_comment' => 'required|min:10|max:300'
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+        $Patent_comment = $id->Patent_comments()->create($attributes);
+
+        return redirect('/patent/' . $patent->id . '#comment_' . $Patent_comment->id)->with('success', 'Comment has been added.');
     }
 }
