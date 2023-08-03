@@ -122,7 +122,6 @@
 							<table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
 								<thead>
 								<tr role="row">
-									<th class="deadline" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
 									<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
 									<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
 									<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
@@ -141,7 +140,6 @@
 							</thead>
 								<tfoot>
 									<tr role="row">
-										<th class="deadline" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	
 										<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
 										<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
 										<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
@@ -176,12 +174,21 @@
 								}
 							@endphp
 					
-								<td class="deadline" style="{{ $color }}" href="" >
-									<a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
+							<td class="aiptref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
+							<td class="clientref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->clientref }}</a></td>
+							<td class="title"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></td>
+							<td class="status"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->status }}</a></td>
+							<td class="image">
+								<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+							</td>
+							{{-- <td class="requesteddate">
+								<a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
+							</td> --}}
 
-										<span class="badge bg-gradient-quepal text-white shadow-sm w-50">
-											@php
-											$expire = strtotime($post->proceduredate);
+							<td  class="requesteddate">
+								<a style="font-size:15; color:black; "  href="{{ route('posts.show', $post) }}">
+									@php
+											$expire = strtotime($post->requesteddate);
 											$today = strtotime("today midnight");
 											$day_diff = $today - $expire; 
 											$default  =  strtotime("01/01/0001");                               
@@ -191,7 +198,7 @@
 											$safe = "01/01/0001";
 											$done = "done";
 													if(($expire == $default)){
-														echo "New/Done";
+														echo "No Deadline";
 														$color = "color:black;background-color:green;";
 													}elseif($today == $expire){
 														echo "DueDate ";
@@ -205,28 +212,39 @@
 													}	
 													
 										@endphp
-										  </button>
-
-										<div class="badge badge-secondary">
-											
-										</div>
+									<span> - {{ $post->requesteddate }}</span>
 									</a>
-									
-										 
-								</td>
-							<td class="aiptref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
-							<td class="clientref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->clientref }}</a></td>
-							<td class="title"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></td>
-							<td class="status"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->status }}</a></td>
-							<td class="image">
-								<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 							</td>
-							<td class="requesteddate">
-								<a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{ $post->requesteddate }}</button></a>
-							</td>
-
 							<td class="proceduredate">
-								<a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}"><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{ $post->proceduredate }}</button></a>
+								<a style=" font-size:15; color:black;"  href="{{ route('posts.show', $post) }}">
+									@php
+											$expire = strtotime($post->proceduredate);
+											$today = strtotime("today midnight");
+											$day_diff = $today - $expire; 
+											$default  =  strtotime("01/01/0001");                               
+											$color = "";
+											$deadline = "Deadline";
+											$upcomming = "Upcoming";
+											$safe = "01/01/0001";
+											$done = "done";
+													if(($expire == $default)){
+														echo "No Deadline";
+														$color = "color:black;background-color:green;";
+													}elseif($today == $expire){
+														echo "DueDate ";
+														$color = "color:black;background-color:orange;";
+													} elseif ($day_diff <= 30) {
+														echo "Upcoming";
+														$color = "color:black;background-color:yellow;";
+													}	elseif ($today >= $expire) {
+														echo "Expired";
+														$color = "color:black;background-color:red;";
+													}	
+													
+										@endphp
+									<span> - {{ $post->proceduredate }}</span>
+									
+								</a>
 							</td>
 							
 							<td class="slug"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
