@@ -46,7 +46,7 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
-							<table id="example2" class="table table-striped table-bordered">
+							<table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
 								<thead>
 									<tr>
 										<th style="font-size:11px;">AIPTREF</th>
@@ -201,23 +201,48 @@
   });
 
     </script>
-	  <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-	<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+		<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+		<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 	<script>
-		$(document).ready(function() {
-			var table = $('#example2').DataTable( {
-				lengthChange: false,
-				buttons: ['excel','copy']
-			} );
-		 
-			table.buttons().container()
-				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
+			$(document).ready(function() {
+	    	
 		
-            setTimeout(() => {
-                $(".general-message").fadeOut();
-            }, 5000);
-        
-        });
+
+			// Setup - add a text input to each header cell
+			$('#tbAdresse thead th').each(function() 
+			
+			{
+				var title = $(this).text();
+				$(this).html('<input type="text"   placeholder="Search ' + title + '" />');
+				
+			});
+
+			// DataTable
+			var table = $('#tbAdresse').DataTable();
+			
+			//Entires
+
+
+			// Apply the search
+			table.columns().every(function() {
+				var that = this;
+
+				$('input', this.header()).on('keypress change', function(e) {
+					
+				var keycode = e.which;
+				//launch search action only when enter is pressed
+				if (keycode == '13') {
+					console.log('enter key pressed !')
+					if (that.search() !== this.value) {
+					that
+						.search(this.value)
+						.draw();
+					}
+				}
+
+				});
+			});
+			});
 	</script>
     @endsection
 
