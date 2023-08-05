@@ -98,7 +98,9 @@
                                 
                                 <td class="annuity"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annuity}}</a></td>
                                 <td class="annual_office_fee"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annual_office_fee}}</a></td>
-                                <td class="annual_deadline"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annual_deadline}}</a></td>
+								<td class="proceduredate">
+                                    <a style=" font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{$patent->annual_deadline}}</button></a>
+                                </td>
                                 <td class="deadline_Status"  href=""><a style=" font-size:12; color:black;"  href="">{{$patent->deadline_Status}}</a></td>
 								<td>
 									<div class="d-flex order-actions">

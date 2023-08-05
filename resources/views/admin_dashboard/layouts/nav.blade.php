@@ -45,7 +45,7 @@
                     <ul>
                         <li> <a href="{{ route('admin.patents.index') }}"><i class="bx bx-right-arrow-alt"></i>All Patent</a>
                         </li>
-                        <li> <a href=""><i class="bx bx-right-arrow-alt"></i>Add New Patent</a>
+                        <li> <a href="{{ route('admin.patents.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Patent</a>
                         </li>
                         
                     </ul>
