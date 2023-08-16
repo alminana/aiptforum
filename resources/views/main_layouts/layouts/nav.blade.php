@@ -19,8 +19,8 @@
         </li>
         <hr>
         <li>
-            <a href="{{ route('categories.index') }}">
-            <div class="parent-icon"></div>
+            <a href="{{ route('categories.show') }}">
+            <div class="parent-icon">TM</div>
                 <div class="menu-title">TradeMark</div>
             </a>
         </li>
