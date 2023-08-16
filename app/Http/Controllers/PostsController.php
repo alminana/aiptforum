@@ -23,7 +23,7 @@ class PostsController extends Controller
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $method = Method::latest()->take(1000)->get();
         $tags = Tag::latest()->take(50)->get();
-
+        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
         return view('post', [
             'comments' => $comments,
             'post' => $post,
