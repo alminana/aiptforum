@@ -105,7 +105,7 @@ class CategoryController extends Controller
 //         'methos'=>$method,
 //     ], compact('posts','comments', 'method'));
 //  }
-public function show(Category $category)
+public function show(Request $request, Category $category)
 {
     $comments = DB::table('comments')->latest('id')->first();
     $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
