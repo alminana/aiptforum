@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
 use App\Models\Patent;
+use App\Models\Patent_comments;
 
 class Patent_comments extends Model
 {
@@ -22,5 +23,9 @@ class Patent_comments extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function patent_comments()
+    {
+        return $this->belongsTo(Patent_comments::class);
     }
 }

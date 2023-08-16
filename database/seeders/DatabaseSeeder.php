@@ -49,6 +49,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'eiler',
             'email' => 'alminanaeilerbutad20@gmail.com',
+            'password' => '$2y$10$mB19YLQaoNKaikooaXRJlu5qQdNoXRyI06maR9spePgwBJx2dmqBq',
             'role_id' => 2
         ]);
 

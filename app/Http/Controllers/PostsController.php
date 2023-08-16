@@ -19,12 +19,18 @@ class PostsController extends Controller
     
 
     public function show(Post $post) {
-        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
-        $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
+        // $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
+        // $recent_posts = Post::orderBy('id', 'DESC')->take(5)->get();
 
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        // $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
 
-        $tags = Tag::latest()->take(50)->get();
+        // $tags = Tag::latest()->take(50)->get();
+
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
 
         return view('post', [
             'comments' => $comments,

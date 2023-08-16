@@ -48,7 +48,8 @@
 					</div>
 				</div>
 				<!--end breadcrumb-->
-			
+				<!--end row-->
+
 				<hr>
 				        <div class="row row-pb-lg animate-box">
 							<div class="container">
@@ -234,10 +235,10 @@
                 </div>
 					
 							</div>
-		      {{-- <div class="col-md-12">
-								<h2 class="colorlib-heading-2">{{ count($patent->comments) }} Activity logs</h2>
+		     <div class="col-md-12">
+								{{-- <h2 class="colorlib-heading-2">{{ count($patent->comments) }} Activity logs</h2> --}}
 
-								@foreach($patent->comments as $comment)
+								{{-- @foreach($patent->comments as $comment)
 								<div id="comment_{{ $comment->id }}" class="review">
 							   		<div 
 							   		class="user-img" 
@@ -254,10 +255,10 @@
 							   			</p>
 							   		</div>
 							   	</div>
-							   	@endforeach
+							   	@endforeach --}}
 
 								  
-							</div>  --}}
+							</div>  
 						</div>
 						
 						<div class="row animate-box">
@@ -272,7 +273,8 @@
 								<form method="POST" action="{{ route('patent.add_comment', $patent) }}">
 									@csrf
 									<div class="row form-group">
-										<div class="col-md-12">
+                    
+                    <input  type="text" disabled value='{{ old("id",$patent->id) }}' name='patent_id' required class="form-control" id="inputProductTitle">
 											<!-- <label for="message">Message</label> -->
 											<textarea name="the_comment" id="the_comment" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
 										</div>

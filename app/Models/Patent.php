@@ -74,7 +74,7 @@ class Patent extends Model
 
     public function patent_comments()
     {
-        return $this->belongsTo(Patent_comments::class);
+        return $this->belongsToMany(Patent_comments::class);
     }
 
     public function image()
@@ -92,5 +92,12 @@ class Patent extends Model
     {
         return $this->belongsToMany(Client::class);
     }
+
+    public function patent()
+    {
+        return $this->belongsTo(Patent::class);
+    }
+    
+
 }
 

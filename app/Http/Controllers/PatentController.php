@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Comment;
+
 use App\Models\Client;
 use App\Models\Method;
 use App\Models\Patent;
@@ -90,14 +90,16 @@ class PatentController extends Controller
      */
     public function show(Patent $patent)
     {
+        $patent_comments = Patent_comments::orderBy('id', 'DESC')->take(5)->get();
+        $patents = Patent::latest()->take(1000)->get();
         $clients = Client::all();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $method = Method::all();
-        return view('patent.index', [
+        return view('patent.show', [
             'patent' => $patent,
             'clients'=>$clients,
             'method' => $method,
-        ],compact('clients','method','patent','categories'));
+        ],compact('clients','method','patent','categories','patents'));
     }
 
 
@@ -146,15 +148,16 @@ class PatentController extends Controller
         //
     }
 
-    public function addComment(Patent $id)
+    public function addComment(Patent $patent)
     { 
         $attributes = request()->validate([
             'the_comment' => 'required|min:10|max:300'
         ]);
 
         $attributes['user_id'] = auth()->id();
-        $Patent_comment = $id->Patent_comments()->create($attributes);
+        $comment = $patent->Patent_comments()->create($attributes);
+            dd($patent);
+        // return redirect('/posts/' . $post->slug . '#comment_' . $comment->id)->with('success', 'Comment has been added.');
 
-        return redirect('/patent/' . $patent->id . '#comment_' . $Patent_comment->id)->with('success', 'Comment has been added.');
     }
 }

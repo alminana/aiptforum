@@ -114,7 +114,53 @@
 								</div>
 	
 		<!--end breadcrumb-->
-		
+			<!--end row-->
+			<div class="row">
+				<div class="col-12">
+					<div>
+						<div class="p-2">
+							<h3 class="font-size-16">
+								<strong>
+									Daily Report 
+								</strong>
+						    </h3>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<!--breadcrumb-->
+			<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
+				<div class="card-body">
+				<form method="GET" action="{{route('deadline.getData')}}">
+					{{ csrf_field() }}
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="">From Date</label>
+									<input type="date" name="start_date" id="start_date" class="form-control"> 
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="">To Date</label>
+									<input type="date" name="end_date" id="end_date" class="form-control">
+								</div>
+							</div>
+							
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for=""></label><br>
+									<button type="submit" value="Submit" class="btn btn-success">Filter</button>
+								</div>
+							</div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--end breadcrumb-->
 			<div class="page-content">
 				<div class="card">
 					<div class="card-body">

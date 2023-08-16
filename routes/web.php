@@ -64,7 +64,7 @@ Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profile
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('patent', PatentController::class);
-
+// Route::get('/filter',[PatentController::class, 'filter'])->name('patent.filter');
 Route::post('/patent/{patent:id}', [PatentController::class, 'addComment'])->name('patent.add_comment');
 // Route::get('/patent/{id}', [PatentController::class, 'update'])->name('patent.update');
 // Route::get('/patent/{id}', [PatentController::class, 'edit'])->name('patent.edit');
