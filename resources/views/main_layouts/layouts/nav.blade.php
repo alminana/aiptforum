@@ -18,10 +18,16 @@
             </a>
         </li>
         <hr>
+        <li>
+            <a href="{{ route('categories.index') }}">
+            <div class="parent-icon"></div>
+                <div class="menu-title">TradeMark</div>
+            </a>
+        </li>
        
 
 
-        <li>
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><span style="font-size: 90%; color:gray;">TM</span>
                 </div>
@@ -43,7 +49,7 @@
                     @endforelse
                 
             </ul>
-        </li>
+        </li> --}}
 
         <li>
             <a href="{{ route('patent.index') }}">
