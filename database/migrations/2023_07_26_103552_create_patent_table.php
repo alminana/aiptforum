@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('client');
             //filing date
             $table->string('pct_date')->default('00-00-0000');
+            $table->string('pct_no');
             $table->string('regular_date')->default('00-00-0000');
+            $table->string('regular_no');
             //filing
             $table->string('filingno');
             //method

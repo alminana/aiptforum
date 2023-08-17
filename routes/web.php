@@ -86,6 +86,8 @@ Route::post('/posts/download-pdf',[PostsController::class, 'downloadPdf'])->name
 Route::post('/posts/export-excel',[PostsController::class, 'exportExcel'])->name('posts.download-excel');
 
 
+Route::resource('categories', CategoryController::class);
+
 Route::get('/categories/{category:id}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');
 

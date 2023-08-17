@@ -54,34 +54,34 @@ class PostsController extends Controller
         // ]);
     }
 
-    public function wordExport($id)
-    {
-        $post = Post::findOrFail($id);
-        $comment = Comment::findOrFail($id);
-        $templateProcessor = new TemplateProcessor('word-template/Document.docx');
-        $templateProcessor->setValue('id', $post->id);
-        $templateProcessor->setValue('image', $post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '');
-        $templateProcessor->setValue('aiptref', $post->aiptref);
-        $templateProcessor->setValue('title', $post->title);
-        $templateProcessor->setValue('slug', $post->slug);
-        $templateProcessor->setValue('filingdate', $post->filingdate);
-        $templateProcessor->setValue('registrationno', $post->registrationno);
-        $templateProcessor->setValue('registrationdate', $post->registrationdate);
-        $templateProcessor->setValue('status', $post->status);
-        $templateProcessor->setValue('excerpt', $post->excerpt);
-        $templateProcessor->setValue('country', $post->country);
-        $templateProcessor->setValue('class', $post->class);
-        $templateProcessor->setValue('body', $post->body);
-        $templateProcessor->setValue('renewal', $post->renewal);
+    // public function wordExport($id)
+    // {
+    //     $post = Post::findOrFail($id);
+    //     $comment = Comment::findOrFail($id);
+    //     $templateProcessor = new TemplateProcessor('word-template/Document.docx');
+    //     $templateProcessor->setValue('id', $post->id);
+    //     $templateProcessor->setValue('image', $post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '');
+    //     $templateProcessor->setValue('aiptref', $post->aiptref);
+    //     $templateProcessor->setValue('title', $post->title);
+    //     $templateProcessor->setValue('slug', $post->slug);
+    //     $templateProcessor->setValue('filingdate', $post->filingdate);
+    //     $templateProcessor->setValue('registrationno', $post->registrationno);
+    //     $templateProcessor->setValue('registrationdate', $post->registrationdate);
+    //     $templateProcessor->setValue('status', $post->status);
+    //     $templateProcessor->setValue('excerpt', $post->excerpt);
+    //     $templateProcessor->setValue('country', $post->country);
+    //     $templateProcessor->setValue('class', $post->class);
+    //     $templateProcessor->setValue('body', $post->body);
+    //     $templateProcessor->setValue('renewal', $post->renewal);
 
-        $templateProcessor->setValue('the_comment', $post->the_comment);
-        $templateProcessor->setValue('post_id', $comment->user->name);
-        $templateProcessor->setValue('created_at', $comment->created_at);
+    //     $templateProcessor->setValue('the_comment', $post->the_comment);
+    //     $templateProcessor->setValue('post_id', $comment->user->name);
+    //     $templateProcessor->setValue('created_at', $comment->created_at);
        
-        $fileName = $post->title;
-        $templateProcessor->saveAs($fileName . '.docx');
-        return response()->download($fileName . '.docx')->deleteFileAfterSend(true);
-    }
+    //     $fileName = $post->title;
+    //     $templateProcessor->saveAs($fileName . '.docx');
+    //     return response()->download($fileName . '.docx')->deleteFileAfterSend(true);
+    // }
 
     // public function generatepdf(Post $post) {
     //     $comments = Comment::orderBy('id', 'DESC')->take(5)->get();

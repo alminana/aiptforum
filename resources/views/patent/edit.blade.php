@@ -94,41 +94,52 @@
                                             </div>
                                         </div>
                                        <!-- Filing no. -->
-                                        <div class="container">
-                                            <div class="row">
-                                              <div class="col">
-                                                <div class="mb-3">
-                                                    <label for="inputProductTitle" class="form-label">PCT Date:</label>
-                                                    <label for="inputProductTitle" class="form-label"></label>
-                                                    <input type="date" value='{{ old("pct_date",$patent->pct_date) }}' class="form-control" required  name='pct_date' id="inputProductTitle">
-                                                    @error('pct_date')
-                                                        <p class='text-danger'>{{ $message }}</p>
-                                                    @enderror
-                                                </div>
-                                              </div>
-                                              <div class="col">
-                                                <div class="mb-3">
-                                                    <label for="inputProductTitle" class="form-label">Priority Date:</label>
-                                                    <label style="font-size: 9" for="inputProductTitle" class="form-label"></label>
-                                                    <input type="date" value='{{ old("regular_date",$patent->regular_date) }}' class="form-control" required  name='regular_date' id="inputProductTitle">
-                                                    @error('regular_date')
-                                                        <p class='text-danger'>{{ $message }}</p>
-                                                    @enderror
-                                                </div>
-                                              </div>
-                                              <div class="col">
-                                                <!-- filing -->
-                                                <div class="mb-3">
-                                                    <label for="inputProductTitle" class="form-label">Filing no.</label>
-                                                    <input type="text" value='{{ old("filingno",$patent->filingno) }}'  required  placeholder="Please Input n/a if theres is no Client References no." name='filingno'  class="form-control" id="inputProductclientref">
-
-                                                    @error('filingno')
-                                                        <p class='text-danger'>{{ $message }}</p>
-                                                    @enderror
-                                                </div>
-                                              </div>
+                                       <div class="mb-3">
+                                        <label for="inputProductTitle" class="form-label">PCT Date:</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                               <label for="inputProductTitle" class="form-label">If there is no date. Please Input 0001-01-01</label>
+                                               <input type="date" value='{{ old("pct_date",$patent->pct_date) }}' class="form-control" required  name='pct_date' id="inputProductTitle">
+                                               @error('pct_date')
+                                                    <p class='text-danger'>{{ $message }}</p>
+                                                @enderror  
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="inputProductTitle" class="form-label">Priority no.</label>
+                                                <input type="text" value='{{ old("pct_no",$patent->pct_no) }}' class="form-control" required  name='pct_no' id="inputProductTitle">
+                                                @error('pct_no')
+                                                    <p class='text-danger'>{{ $message }}</p>
+                                                @enderror 
                                             </div>
                                         </div>
+                                      
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                        <div class="col-6">
+                                            <label for="inputProductTitle" class="form-label">Priority Date:</label>
+                                                <label for="inputProductTitle" class="form-label">If there is no date. Please Input 0001-01-01</label>
+                                                <input type="date" value='{{ old("regular_date",$patent->regular_date) }}' class="form-control" required  name='regular_date' id="inputProductTitle">
+                                                @error('regular_date')
+                                                    <p class='text-danger'>{{ $message }}</p>
+                                                @enderror
+                                         </div>
+                                         <div class="col-6">
+                                            <label for="inputProductTitle" class="form-label">Priority no.</label>
+                                            <input type="text" value='{{ old("regular_no",$patent->regular_no) }}' class="form-control" required  name='regular_no' id="inputProductTitle">
+                                            @error('regular_no')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror 
+                                         </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputProductTitle" class="form-label">Filing no.</label>
+                                        <input type="text" value='{{ old("filingno",$patent->filingno) }}'  required  placeholder="Please Input n/a if theres is no Client References no." name='filingno'  class="form-control" id="inputProductclientref">
+
+                                        @error('filingno')
+                                            <p class='text-danger'>{{ $message }}</p>
+                                        @enderror
+                                    </div>
 
                                         <div class="container">
                                             <div class="row">
@@ -168,99 +179,6 @@
                                               </div>
                                             </div>
                                           </div>
-                                          
-                                          {{-- <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Deadline Status</label>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="rounded">
-                                                        <div class="mb-3">
-
-                                                            @php
-                                                            $annuity_acc = [
-                                                                "Select Annuity",
-                                                                "1st Annuity",
-                                                                "2nd Annuity",
-                                                                "3rd Annuity",
-                                                                "4th Annuity",
-                                                                "5th Annuity",
-                                                                "6th Annuity",
-                                                                "7th Annuity",
-                                                                "8th Annuity",
-                                                                "9th Annuity",
-                                                                "10th Annuity",
-                                                                "11th Annuity",
-                                                                "12th Annuity",
-                                                                "13th Annuity",
-                                                                "14th Annuity",
-                                                                "15th Annuity",
-                                                                "16th Annuity",
-                                                             
-                                                                "17th Annuity",
-                                                                "18th Annuity",
-                                                                "9th Annuity",
-                                                                "20th Annuity",
-                                                                "21th Annuity",
-                                                                "2th Annuity",
-                                                                "23th Annuity",
-                                                                "24th Annuity",
-                                                                "25th Annuity",
-                                                                "26th Annuity",
-                                                                "27th Annuity",
-                                                                "28th Annuity",
-                                                                "29th Annuity",
-                                                                "30th Annuity",
-                                                              
-                                                                "31th Annuity",
-                                                                "32th Annuity",
-                                                                "33th Annuity",
-                                                                "34th Annuity",
-                                                                "35th Annuity",
-                                                                "36th Annuity",
-                                                                "37th Annuity",
-                                                                "38th Annuity",
-                                                                "39th Annuity",
-                                                                "40th Annuity",
-                                                                "41th Annuity",
-                                                                "42th Annuity",
-                                                                "43th Annuity",
-                                                                "44th Annuity",
-                                                                "45th Annuity",
-                                                                "46th Annuity",
-                                                                
-                                                                "47th Annuity",
-                                                                "48th Annuity",
-                                                                "49th Annuity",
-                                                                "50th Annuity",
-                                                                "1st & 2nd Annuities",
-                                                                "1st,2nd,3rd Annuities",
-                                                                "1st,2nd,3rd,4th Annuities",
-                                                                "1st,2nd,3rd,4th,5th Annuities",
-                                                                "1st,2nd,3rd,4th,5th,6th Annuities",
-                                                                "1st,2nd,3rd,4th,5th,6th,7th Annuities",
-                                                                "1st,2nd,3rd,4th,5th,6th,7th,,8th Annuities",
-                                                                "1st,2nd,3rd,4th,5th,6th,7th,,8th,9th Annuities",
-                                                                "1st,2nd,3rd,4th,5th,6th,7th,,8th,9th,10th Annuities",
-                                                            ];
-
-                                                            @endphp
-                                                         
-                                                            <select required  name='annuity' value='{{ old("annuity",$patent->annuity) }}' class="single-select">                              
-                                                                @foreach($annuity_acc as $c)                              
-                                                                    <option value="{{$c}}" {{ old("country",$patent->country) == $c  ? 'selected' : '' }}>{{$c}}</option>
-                                                                @endforeach
-
-                                                            </select>
-
-                                                            @error('annuity')
-                                                                <p class='text-danger'>{{ $message }}</p>
-                                                            @enderror
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>  --}}
 
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Please fill up if they have a Annual Fee</label>

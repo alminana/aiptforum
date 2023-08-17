@@ -16,6 +16,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class PatentController extends Controller
 {
 
+
     private $rules = [
         'aiptref'=>'required',
         'clientref'=>'required',
@@ -24,9 +25,11 @@ class PatentController extends Controller
 
         // //selection for patent filing
         'pct_date'=>'required',
+        'pct_no' =>'required',
         'regular_date'=>'required',
-        
-        'filingno'=>'required',
+        'pct_no' =>'required',
+        'regular_no'=>'required',
+        'filingno' =>'required',
 
         //date of filing
         'procedure'=>'required',
@@ -43,6 +46,7 @@ class PatentController extends Controller
         //user
 
     ];
+
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +72,15 @@ class PatentController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+        $method = Method::all();
+        $patents = Patent::all();
+        return view('patent.create', [
+            'clients'=> Client::all(),
+            'method'=> Method::all(),
+            'patents'=> Patent::all(),
+        ],compact('clients','method','patents'));
+
     }
 
     /**
@@ -79,7 +91,13 @@ class PatentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clients = Client::all();
+        $method = Method::latest()->take(1000)->get();
+        $validated = $request->validate($this->rules);
+        $validated['user_id'] = auth()->id();
+        $patents = Patent::create($validated);
+        $patents = Patent::all();
+        return redirect()->route('patent.index',compact('clients','method','patents'))->with('success', 'Patent has been Created.');
     }
 
     /**
@@ -114,6 +132,7 @@ class PatentController extends Controller
         $clients = Client::all();
         $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
         $method = Method::latest()->take(1000)->get();
+     
         return view('patent.edit', [
             'patent' => $patent,
             'clients'=>$clients,
@@ -133,8 +152,9 @@ class PatentController extends Controller
         $validated = $request->validate($this->rules);
         
         $patent->update($validated);
-        
+
         return redirect()->route('patent.index', $patent)->with('success', 'Patent has been updated');
+
     }
     
     /**
@@ -150,12 +170,14 @@ class PatentController extends Controller
 
     public function addComment(Patent $patent)
     { 
-        $attributes = request()->validate([
+       
+         $attributes = request()->validate([
             'the_comment' => 'required|min:10|max:300'
-        ]);
+         ]);
 
-        $attributes['user_id'] = auth()->id();
-        $comment = $patent->Patent_comments()->create($attributes);
+         $attributes['user_id'] = auth()->id();
+  
+         $patent_comment = $patent->Patent_comments()->create($attributes);
             dd($patent);
         // return redirect('/posts/' . $post->slug . '#comment_' . $comment->id)->with('success', 'Comment has been added.');
 

@@ -234,21 +234,21 @@
                 </div>
 					
 							</div>
-		      {{-- <div class="col-md-12">
-								<h2 class="colorlib-heading-2">{{ count($patent->comments) }} Activity logs</h2>
+		     <div class="col-md-12">
+								<h2 class="colorlib-heading-2">{{ count($patent->Patent_comments) }} Activity logs</h2>
 
-								@foreach($patent->comments as $comment)
+								@foreach($patent->Patent_comments as $patent_comments)
 								<div id="comment_{{ $comment->id }}" class="review">
-							   		<div 
+							   		{{-- <div 
 							   		class="user-img" 
 							   		style="background-image: url({{ $comment->user->image ? asset('storage/' . $comment->user->image->path. '') : 'https://images.assetsdelivery.com/compings_v2/salamatik/salamatik1801/salamatik180100019.jpg'  }});"></div>
-							   		<div class="desc">
+							   		<div class="desc"> --}}
 							   			<h4>
-							   				<span class="text-left">{{ $comment->user->name }}</span>
-							   				<span class="text-right">{{ $comment->created_at->diffForHumans() }}</span>
-											<span class="text-right">{{ $comment->created_at}}</span>
+							   				<span class="text-left">{{ $patent_comments->user->name }}</span>
+							   				<span class="text-right">{{ $patent_comments->created_at->diffForHumans() }}</span>
+											<span class="text-right">{{ $patent_comments->created_at}}</span>
 							   			</h4>
-							   			<p>{{ $comment->the_comment }}</p>
+							   			<p>{{ $patent_comments->the_comment }}</p>
 							   			<p class="star">
 						   					<span class="text-left"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
 							   			</p>
@@ -257,9 +257,9 @@
 							   	@endforeach
 
 								  
-							</div>  --}}
+							</div>  
 						</div>
-{{-- 						
+					
 						<div class="row animate-box">
 							<div class="col-md-12">
 
@@ -288,7 +288,7 @@
 								<p class="lead"><a href="{{ route('login') }}">Login </a> OR <a href="{{ route('register') }}">Register</a> to write comments</p>
 								@endguest	
 							</div>
-						</div>  --}}
+						</div>  
 			</div>
 		</div>
 @endsection

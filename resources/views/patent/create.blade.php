@@ -1,5 +1,4 @@
-
-@extends("admin_dashboard.layouts.app")
+@extends('main_layouts.master')
 
 @section("style")
 
@@ -12,9 +11,9 @@
 
 @endsection
     
-    @section("wrapper")
-    <!--start page wrapper -->
-    <div class="page-wrapper">
+    @section("content")
+      <!--start page wrapper -->
+      <div class="page-wrapper">
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -37,7 +36,7 @@
                     <hr/>
 
           
-                    <form action="{{ route('admin.patents.store') }}" method='post'>
+                    <form action="{{ route('patent.store') }}" method='post'>
                         @csrf
                         <div class="form-body mt-4">
                             <div class="row">

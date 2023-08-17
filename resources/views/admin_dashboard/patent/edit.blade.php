@@ -95,7 +95,53 @@
                                             </div>
                                         </div>
                                        <!-- Filing no. -->
-                                        <div class="container">
+                                       <div class="mb-3">
+                                        <label for="inputProductTitle" class="form-label">PCT Date:</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                               <label for="inputProductTitle" class="form-label">If there is no date. Please Input 0001-01-01</label>
+                                               <input type="date" value='{{ old("pct_date",$patent->pct_date) }}' class="form-control" required  name='pct_date' id="inputProductTitle">
+                                               @error('pct_date')
+                                                    <p class='text-danger'>{{ $message }}</p>
+                                                @enderror  
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="inputProductTitle" class="form-label">Priority no.</label>
+                                                <input type="text" value='{{ old("pct_no",$patent->pct_no) }}' class="form-control" required  name='pct_no' id="inputProductTitle">
+                                                @error('pct_no')
+                                                    <p class='text-danger'>{{ $message }}</p>
+                                                @enderror 
+                                            </div>
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                        <div class="col-6">
+                                            <label for="inputProductTitle" class="form-label">Priority Date:</label>
+                                                <label for="inputProductTitle" class="form-label">If there is no date. Please Input 0001-01-01</label>
+                                                <input type="date" value='{{ old("regular_date",$patent->regular_date) }}' class="form-control" required  name='regular_date' id="inputProductTitle">
+                                                @error('regular_date')
+                                                    <p class='text-danger'>{{ $message }}</p>
+                                                @enderror
+                                         </div>
+                                         <div class="col-6">
+                                            <label for="inputProductTitle" class="form-label">Priority no.</label>
+                                            <input type="text" value='{{ old("regular_no",$patent->regular_no) }}' class="form-control" required  name='regular_no' id="inputProductTitle">
+                                            @error('regular_no')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror 
+                                         </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputProductTitle" class="form-label">Filing no.</label>
+                                        <input type="text" value='{{ old("filingno",$patent->filingno) }}'  required  placeholder="Please Input n/a if theres is no Client References no." name='filingno'  class="form-control" id="inputProductclientref">
+
+                                        @error('filingno')
+                                            <p class='text-danger'>{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                        {{-- <div class="container">
                                             <div class="row">
                                               <div class="col">
                                                 <div class="mb-3">
@@ -107,6 +153,7 @@
                                                     @enderror
                                                 </div>
                                               </div>
+                                              
                                               <div class="col">
                                                 <div class="mb-3">
                                                     <label for="inputProductTitle" class="form-label">Priority Date:</label>
@@ -129,7 +176,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="container">
                                             <div class="row">

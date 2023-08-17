@@ -24,7 +24,9 @@ class Patent extends Model
                             'client',
                             //selection for patent filing
                             'pct_date',
+                            'pct_no',
                             'regular_date',
+                            'regular_no',
 
                             //filing
                             'filingno',

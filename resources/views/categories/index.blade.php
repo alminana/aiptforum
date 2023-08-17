@@ -61,6 +61,7 @@
 								<th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
 								<th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
 								<th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
+								<th class="action"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>	
                             </tr>
                             </thead>
                             <tbody>
@@ -194,6 +195,7 @@
 								<td class="class"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
 								<td class="excerpt"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
 								<td class="country"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
+								<td class="action"  href=""><a style=" font-size:12; color:black;"  href=""></a></td>
                             </tr>
 							@empty
 							<p class='lead'>There are no Application to show.</p>
@@ -204,11 +206,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
     </div>
 @endsection

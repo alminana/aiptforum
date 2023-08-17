@@ -19,9 +19,11 @@ class AdminPatentController extends Controller
 
         // //selection for patent filing
         'pct_date'=>'required',
+        'pct_no' =>'required',
         'regular_date'=>'required',
-        
-        'filingno'=>'required',
+        'pct_no' =>'required',
+        'regular_no'=>'required',
+        'filingno' =>'required',
 
         //date of filing
         'procedure'=>'required',
@@ -85,6 +87,8 @@ class AdminPatentController extends Controller
         return redirect()->route('admin.patents.index', $patent)->with('success', 'Patent has been updated');
 
     }
+
+  
 
     public function destroy(Patent $patent)
     {
