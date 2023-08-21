@@ -117,7 +117,7 @@ class PatentController extends Controller
             'patent' => $patent,
             'clients'=>$clients,
             'method' => $method,
-        ],compact('clients','method','patent','categories','patents'));
+        ],compact('clients','method','patent','categories','patents','patent_comments'));
     }
 
 
@@ -172,13 +172,14 @@ class PatentController extends Controller
     { 
        
          $attributes = request()->validate([
-            'the_comment' => 'required|min:10|max:300'
+            'the_comment' => 'required|min:10|max:300',
+            'patent_id' => 'required|min:10|max:300',
          ]);
 
          $attributes['user_id'] = auth()->id();
-  
+         $attributes['patent_id'] ->id();
          $patent_comment = $patent->Patent_comments()->create($attributes);
-            dd($patent);
+         dd( $patent_comment);
         // return redirect('/posts/' . $post->slug . '#comment_' . $comment->id)->with('success', 'Comment has been added.');
 
     }

@@ -50,6 +50,15 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\PcommentController;
+use App\Http\Controllers\PastController;
+
+// Route::get('past', [PastController::class, 'index'])->name('past.index');
+// Route::get('past/new', [PastController::class, 'create'])->name('create');
+// Route::post('/past', [PastController::class, 'store'])->name('store');
+
+Route::resource('past', PastController::class);
+Route::post('/pasts/{past}/comments', [PcommentController::class, 'store']);
 
 // Front User Routes
 // Route::get('/', function () {

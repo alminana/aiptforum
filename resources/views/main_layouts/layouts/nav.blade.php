@@ -57,6 +57,14 @@
                 <div class="menu-title">Patent</div>
             </a>
         </li> 
+
+        
+        <li>
+            <a href="{{ route('past.index') }}">
+            <div class="parent-icon"><i class='bx bx-notepad'></i></div>
+                <div class="menu-title">past</div>
+            </a>
+        </li> 
       
         <hr>
 

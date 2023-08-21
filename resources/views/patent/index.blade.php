@@ -81,13 +81,13 @@
                                     @forelse($patents as $patent)
                                 
                                  
-                                                    <td class="aiptref"><a style="font-size:12; color:black;" href="{{route('patent.show', $patent )}}">{{$patent->aiptref}}</a></td>
-                                                    <td class="clientref"><a style="font-size:12; color:black;" href="{{route('patent.show', $patent )}}">{{$patent->clientref}}</a></td>
-                                                    <td class="title"><a style="font-size:12; color:black;" href="{{route('patent.show', $patent )}}">{{$patent->title}}</a></td>
-                                                    <td class="client"><a style="font-size:12; color:black;" href="{{route('patent.show', $patent )}}">{{$patent->client}}</a></td>
+                                                    <td class="aiptref"><a style="font-size:12; color:black;" href="">{{$patent->aiptref}}</a></td>
+                                                    <td class="clientref"><a style="font-size:12; color:black;" href="">{{$patent->clientref}}</a></td>
+                                                    <td class="title"><a style="font-size:12; color:black;" href="">{{$patent->title}}</a></td>
+                                                    <td class="client"><a style="font-size:12; color:black;" href="">{{$patent->client}}</a></td>
                                                     
                                                     <td   class="pct_date">
-                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('patent.show', $patent) }}">
+                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                                         @php
                                                           $expire = strtotime($patent->pct_date);
                                                           $today = strtotime("today midnight");
@@ -119,7 +119,7 @@
                                                     <td class="title"><a style="font-size:12; color:black;" href="">{{$patent->pct_no}}</a></td>
 
                                                     <td  class="regular_date">
-                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('patent.show', $patent) }}">
+                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                                         @php
                                                           $expire = strtotime($patent->regular_date);
                                                           $today = strtotime("today midnight");
@@ -151,11 +151,11 @@
                                                     </td> 
                                                     <td class="title"><a style="font-size:12; color:black;" href="">{{$patent->regular_no}}</a></td>
 
-                                                    <td class="filingno"><a style="font-size:12; color:black;" href="{{route('patent.show', $patent )}}">{{$patent->filingno}}</a></td>
-                                                    <td class="procedure"><a style="font-size:12; color:black;" href="{{route('patent.show', $patent )}}">{{$patent->procedure}}</a></td>
+                                                    <td class="filingno"><a style="font-size:12; color:black;" href="">{{$patent->filingno}}</a></td>
+                                                    <td class="procedure"><a style="font-size:12; color:black;" href="">{{$patent->procedure}}</a></td>
                     
                                                     <td  class="requesteddate">
-                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('patent.show', $patent) }}">
+                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                                         @php
                                                           $expire = strtotime($patent->requesteddate);
                                                           $today = strtotime("today midnight");
@@ -186,7 +186,7 @@
                                                         </a>
                                                     </td>
                                                   <td   class="proceduredate">
-                                                    <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('patent.show', $patent) }}">
+                                                    <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                                       @php
                                                           $expire = strtotime($patent->proceduredate);
                                                           $today = strtotime("today midnight");
@@ -216,14 +216,14 @@
                                                        
                                                        </a>
                                                     </td>
-                                    <td class="country"><a style="font-size:12; color:black;" href="{{route('patent.show', $patent )}}">{{$patent->country}}</a></td>
+                                    <td class="country"><a style="font-size:12; color:black;" href="">{{$patent->country}}</a></td>
                     
                                                     
-                                                    <td class="annuity"  href=""><a style="font-size:12; color:black;"  href="{{route('patent.show', $patent )}}">{{$patent->annuity}}</a></td>
-                                                    <td class="annual_office_fee"  href=""><a style="font-size:12; color:black;"  href="{{route('patent.show', $patent )}}">{{$patent->annual_office_fee}}</a></td>
+                                                    <td class="annuity"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annuity}}</a></td>
+                                                    <td class="annual_office_fee"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annual_office_fee}}</a></td>
                     
                                                     <td class="annual_office_fee"  href="" >
-                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('patent.show', $patent) }}">
+                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                   
                                                         
                                                           @php
