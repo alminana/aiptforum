@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pcomments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('past_id')->constrained('pasts')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->author = $data['author'];
             $table->text('text');
             $table->timestamps();
         });

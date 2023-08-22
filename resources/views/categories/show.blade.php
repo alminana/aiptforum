@@ -2,315 +2,63 @@
 
 @section('title')
 @section("style")
-	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
-	@endsection
-	@section("content")
-    <div class="page-wrapper">
-        <div class="page-content">
-            {{-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-				@forelse($categories as $category)
-                <div class="col">
-                    <div class="card radius-10 border-start border-0 border-3 border-success">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <p class="mb-0 text-secondary"><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></p>
-                                    <h4 class="my-1 text-danger"><a href="{{ route('categories.show', $category) }}">{{ $category->posts_count }}</a><h4>
-                                </div>
-                                <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				@empty
-					<p class='lead'>There are no categories to show.</p>
-				@endforelse
+<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+@endsection
+	
+@section('content')  
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+		<div class="page-content">
+	<!--breadcrumb-->
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <div style="font-weight: 200"  class="breadcrumb-title pe-3"><a  href="">Patent</a></div>
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item"><a href="{{route('patent.create')}}"><button type="button" class="btn btn-primary">Add New</button></a>
+                 
+                    </li>
+                </ol>
                 
-            </div> --}}
-
-		
-			
-
-            <div class="card radius-10">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-						<div class="p-2">
-							<h3 class="font-size-16">
-								<strong>
-									TradeMark Applications
-								</strong>
-						    </h3>
-						</div>
-                        
-                    </div>
-                    <div class="table-responsive">
-						<table  id="tbAdresse" class="table table-striped table-bordered">
-                            <thead class="table-light">
-                            <tr>
-								{{-- <th class="deadline" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	 --}}
-								<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
-								<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
-								<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
-								<th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
-								<th class="image" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
-								<th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
-								<th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
-								<th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
-								<th class="registrationno" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th>
-								<th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
-								<th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
-								<th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
-                            </tr>
-                            </thead>
-                            <tbody>
-								@forelse($posts as $post)
-								@php
-								$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
-								$expire = strtotime($post->proceduredate);
-								$today = strtotime("today midnight");
-								$day_diff = $today - $expire;                                    
-								$color = "";
-							
-								if ($today >= $expire) {
-									$color = "color:black;background-color:#D99594;";
-								}elseif ($remaining < 7 ) {
-									$color = "color:black;background-color:#FFFF00;";
-								} elseif ($expire >= 30) {
-									$color = "color:black;background-color:#92D050;";
-								}
-								@endphp
-								<tr>
-									{{-- <td class="deadline" style="{{ $color }}" href="" >
-										<a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('posts.show', $post) }}">
-
-											<span class="badge bg-gradient-quepal text-white shadow-sm w-50">
-												@php
-												$expire = strtotime($post->proceduredate);
-												$today = strtotime("today midnight");
-												$day_diff = $today - $expire; 
-												$default  =  strtotime("01/01/0001");                               
-												$color = "";
-												$deadline = "Deadline";
-												$upcomming = "Upcoming";
-												$safe = "01/01/0001";
-												$done = "done";
-														if(($expire == $default)){
-															echo "New/Done";
-															$color = "color:black;background-color:green;";
-														}elseif($today == $expire){
-															echo "DueDate ";
-															$color = "color:black;background-color:orange;";
-														} elseif ($day_diff <= 30) {
-															echo "Upcoming";
-															$color = "color:black;background-color:yellow;";
-														}	elseif ($today >= $expire) {
-															echo "Expired";
-															$color = "color:black;background-color:red;";
-														}	
-														
-											@endphp
-											  </button>
-
-											<div class="badge badge-secondary">
-												
-											</div>
-										</a>
-										
-											 
-									</td> --}}
-								<td class="aiptref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
-								<td class="clientref"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->clientref }}</a></td>
-                                <td class="title"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></td>
-                                <td class="status"><a style="font-size:12; color:black;" href="{{ route('posts.show', $post) }}">{{ $post->status }}</a></td>
-                                <td class="image">
-									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
-								</td>
-                                <td  class="requesteddate">
-									<a style="font-size:15; color:black; "  href="{{ route('posts.show', $post) }}">
-										@php
-												$expire = strtotime($post->requesteddate);
-												$today = strtotime("today midnight");
-												$day_diff = $today - $expire; 
-												$default  =  strtotime("01/01/0001");                               
-												$color = "";
-												$deadline = "Deadline";
-												$upcomming = "Upcoming";
-												$safe = "01/01/0001";
-												$done = "done";
-														if(($expire == $default)){
-															echo "No Deadline";
-															$color = "color:black;background-color:green;";
-														}elseif($today == $expire){
-															echo "DueDate ";
-															$color = "color:black;background-color:orange;";
-														} elseif ($day_diff <= 30) {
-															echo "Upcoming";
-															$color = "color:black;background-color:yellow;";
-														}	elseif ($today >= $expire) {
-															echo "Expired";
-															$color = "color:black;background-color:red;";
-														}	
-														
-											@endphp
-										<span> - {{ $post->requesteddate }}</span>
-										</a>
-								</td>
-
-								<td class="proceduredate">
-									<a style=" font-size:15; color:black;"  href="{{ route('posts.show', $post) }}">
-										@php
-												$expire = strtotime($post->proceduredate);
-												$today = strtotime("today midnight");
-												$day_diff = $today - $expire; 
-												$default  =  strtotime("01/01/0001");                               
-												$color = "";
-												$deadline = "Deadline";
-												$upcomming = "Upcoming";
-												$safe = "01/01/0001";
-												$done = "done";
-														if(($expire == $default)){
-															echo "No Deadline";
-															$color = "color:black;background-color:green;";
-														}elseif($today == $expire){
-															echo "DueDate ";
-															$color = "color:black;background-color:orange;";
-														} elseif ($day_diff <= 30) {
-															echo "Upcoming";
-															$color = "color:black;background-color:yellow;";
-														}	elseif ($today >= $expire) {
-															echo "Expired";
-															$color = "color:black;background-color:red;";
-														}	
-														
-											@endphp
-										<span> - {{ $post->proceduredate }}</span>
-										
-									</a>
-								</td>
-								
-								<td class="slug"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->slug }}</a></td>
-								<td class="registrationno"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->registrationno }}</a></td>
-								<td class="class"  href="{{ route('posts.show', $post) }}"><a style="font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->class }}</a></td>
-								<td class="excerpt"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->excerpt }}</a></td>
-								<td class="country"  href="{{ route('posts.show', $post) }}"><a style=" font-size:12; color:black;"  href="{{ route('posts.show', $post) }}">{{ $post->country }}</a></td>
-                            </tr>
-							@empty
-							<p class='lead'>There are no Application to show.</p>
-							@endforelse
-                         
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
+            </nav>
         </div>
     </div>
-@endsection
 
-@section("script")
-@section("script")
+    <div class="container-fuild">
+        <div class="card" style="width: auto; height:25%;">
+            <div class="container-fuild">
+                <div class="container-fuild alert alert-success" role="alert">
+                    Application
+                  </div>
+                  <div class="container">
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-2">
+                        <label style="color: blueviolet; font-weight:bold">Aipt Reference</label>
+                        <h6 style="color:black; font-weight:bold">{{$post->aiptref}}</h6>
+                        </div>
+                        <div class="col-2">
+                            <label style="color: blueviolet; font-weight:bold">Client Reference</label>
+                            <h6 style="color:black; font-weight:bold">{{$post->clientref}}</h6>
+                        </div>
+                        <div class="col-2">
+                            <label style="color: blueviolet; font-weight:bold">Filing Number</label>
+                            <h6 style="color:black; font-weight:bold">{{$post->filingno}}</h6>
+                        </div>
+                        <div class="col-2">
+                            <label style="color: blueviolet; font-weight:bold">Country</label>
+                            <h6 style="color:black; font-weight:bold">{{$post->country}}</h6>
+                        </div>
+						<div class="col-2">
+                            <label style="color: blueviolet; font-weight:bold">Class</label>
+                            <h6 style="color:black; font-weight:bold">{{$post->country}}</h6>
+                        </div>
+                    </div>
+                  
+                  </div>
+              
+              </div>
+          </div>
 
-<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
-
-<script>
-
-$("input:checkbox").attr("checked",false).click(function(){
-			var shcolumn="."+$(this).attr("name");
-			$(shcolumn).toggle();
-		});
-
-$(document).ready(function() {
-	$('#tbAdresse ').DataTable( {
-
-		dom: 'Bfrtip',
-		buttons: [
-			'print','excel','pdf','copy'
-		]
-	} );
-} );
-
-$(document).ready(function() {
-	
-
-
-	// Setup - add a text input to each header cell
-	$('#tbAdresse thead th').each(function() 
-	
-	{
-		var title = $(this).text();
-		$(this).html('<input type="text"   placeholder="Search ' + title + '" />');
-		
-	});
-
-	// DataTable
-	var table = $('#tbAdresse').DataTable();
-	
-	//Entires
-
-
-	// Apply the search
-	table.columns().every(function() {
-		var that = this;
-
-		$('input', this.header()).on('keypress change', function(e) {
-			
-		var keycode = e.which;
-		//launch search action only when enter is pressed
-		if (keycode == '13') {
-			console.log('enter key pressed !')
-			if (that.search() !== this.value) {
-			that
-				.search(this.value)
-				.draw();
-			}
-		}
-
-		});
-	});
-	});
-
-	$(function() {                   
-             $("#start-date").datepicker({
-              dateFormat: "dd/mm/yy",
-               maxDate: 0,
-              onSelect: function (date) {
-                  var dt2 = $('#end-date');
-                  var startDate = $(this).datepicker('getDate');
-                  var minDate = $(this).datepicker('getDate');
-                  if (dt2.datepicker('getDate') == null){
-                    dt2.datepicker('setDate', minDate);
-                  }              
-                  //dt2.datepicker('option', 'maxDate', '0');
-                  dt2.datepicker('option', 'minDate', minDate);
-              }
-            });
-            $('#end-date').datepicker({
-                dateFormat: "dd/mm/yy",
-                maxDate: 0
-            });           
-         });
-	
-
-
-</script>
-@endsection
-
-
-
-
-
-
-    <script src="{{ asset('admin_dashboard_assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
-    <script src="{{ asset('admin_dashboard_assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <script src="{{ asset('admin_dashboard_assets/plugins/chartjs/js/Chart.min.js') }}"></script>
-    <script src="{{ asset('admin_dashboard_assets/plugins/chartjs/js/Chart.extension.js') }}"></script>
-    <script src="{{ asset('admin_dashboard_assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
-    <script src="{{ asset('admin_dashboard_assets/js/index.js') }}"></script>
+    </div>
+   
 @endsection

@@ -1,5 +1,5 @@
 <!--sidebar wrapper -->
-<div class="sidebar-wrapper" data-simplebar="true">
+<div class="sidebar-wrapper" style data-simplebar="true">
     <div class="sidebar-header">
         <div>
             <img src="{{asset('logo/logo.JPG')}}" style=" height:50px; weight:50px" class="logo-dark mx-auto" alt="">        </div>
@@ -13,15 +13,15 @@
     <ul class="metismenu" id="menu">
         <li>
             <a href="{{ route('categories.index') }}">
-            <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
-                <div class="menu-title">Applications</div>
+            <div class="parent-icon"><i class='bx bx-home-circle' style="color: aliceblue"></i></div>
+                <div class="menu-title" style="font-size:12; color: white; font-weight:bold">Applications</div>
             </a>
         </li>
-        <hr>
+        <hr style="font-size:12; color: white; font-weight:bold">
         <li>
             <a href="{{ route('categories.index') }}">
-            <div class="parent-icon">TM</div>
-                <div class="menu-title">TradeMark</div>
+            <div class="parent-icon" style="color: aliceblue">TM</div>
+                <div class="menu-title" style="font-size:12; color: white; font-weight:bold">TradeMark</div>
             </a>
         </li>
        
@@ -51,41 +51,41 @@
             </ul>
         </li> --}}
 
-        <li>
+        {{-- <li>
             <a href="{{ route('patent.index') }}">
             <div class="parent-icon"><i class='bx bx-notepad'></i></div>
                 <div class="menu-title">Patent</div>
             </a>
-        </li> 
+        </li>  --}}
 
         
         <li>
             <a href="{{ route('past.index') }}">
-            <div class="parent-icon"><i class='bx bx-notepad'></i></div>
-                <div class="menu-title">past</div>
+            <div class="parent-icon"><i class='bx bx-notepad' style="color: aliceblue"></i></div>
+                <div class="menu-title" style="font-size:12; color: white; font-weight:bold">Patent</div>
             </a>
         </li> 
       
-        <hr>
+        <hr style="font-size:12; color: white; font-weight:bold">
 
          <li>
             <a href="{{ route('deadline.getData') }}">
-            <div class="parent-icon"><i class='bx bx-notepad'></i></div>
-                <div class="menu-title">Report</div>
+            <div class="parent-icon"><i class='bx bx-notepad' style="color: aliceblue"></i></div>
+                <div class="menu-title" style="font-size:12; color: white; font-weight:bold">Report</div>
             </a>
         </li> 
-        <hr>
+        <hr style="font-size:12; color: white; font-weight:bold">
         <li>
             <a href="{{ route('home') }}">
-            <div class="parent-icon"><i class='bx bx-lock'></i></div>
-                <div class="menu-title">Lock</div>
+            <div class="parent-icon"><i class='bx bx-lock' style="color: aliceblue"></i></div>
+                <div class="menu-title" style="font-size:12; color: white; font-weight:bold">Lock</div>
             </a>
         </li>
         
         <li>
             <a target='_blank' href="{{ route('admin.index') }}">
-            <div class="parent-icon"><i class='bx bx-user-circle'></i></div>
-                <div class="menu-title">Admin Only</div>
+            <div class="parent-icon"><i class='bx bx-user-circle' style="color: aliceblue"></i></div>
+                <div class="menu-title" style="font-size:12; color: white; font-weight:bold">Admin Only</div>
             </a>
         </li>
 

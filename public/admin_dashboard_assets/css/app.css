@@ -144,7 +144,7 @@ a {
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
-	flex-direction: column
+	flex-direction: column;
 }
 
 .sidebar-wrapper .metismenu li+li {
@@ -167,7 +167,8 @@ a {
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	position: relative
+	position: relative;
+	
 }
 
 .sidebar-wrapper .metismenu a {
@@ -183,12 +184,13 @@ a {
 	overflow: hidden;
 	letter-spacing: .5px;
 	border: 1px solid #ffffff00;
-	transition: all .3s ease-out
+	transition: all .3s ease-out;
 }
 
 .sidebar-wrapper .metismenu a .parent-icon {
 	font-size: 24px;
-	line-height: 1
+	line-height: 1;
+	
 }
 
 .sidebar-wrapper .metismenu a .menu-title {

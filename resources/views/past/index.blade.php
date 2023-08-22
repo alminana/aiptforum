@@ -80,14 +80,14 @@
                                   
                                    @forelse ($pasts as $past)
                                 
-                                 
-                                                    <td class="aiptref"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
-                                                    <td class="clientref"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{$past->clientref}}</a></td>
-                                                    <td class="title"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{$past->title}}</a></td>
-                                                    <td class="client"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{$past->client}}</a></td>
+                                
+                                                    <td class="aiptref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
+                                                    <td class="clientref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->clientref}}</a></td>
+                                                    <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->title}}</a></td>
+                                                    <td class="client"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->client}}</a></td>
                                                     
                                                     <td   class="pct_date">
-                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="/past/{{ $past->id }}">
+                                                      <a style="font-weight:bold; align-item:center; font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">
                                                         @php
                                                           $expire = strtotime($past->pct_date);
                                                           $today = strtotime("today midnight");
@@ -116,10 +116,10 @@
                                                         <span> - {{$past->pct_date}}</span>  
                                                         </a>
                                                     </td>
-                                                    <td class="title"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{$past->pct_no}}</a></td>
+                                                    <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->pct_no}}</a></td>
 
                                                     <td  class="regular_date">
-                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="/past/{{ $past->id }}">
+                                                      <a style="font-weight:bold; align-item:center; font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">
                                                         @php
                                                           $expire = strtotime($past->regular_date);
                                                           $today = strtotime("today midnight");
@@ -149,13 +149,13 @@
                                                           
                                                       </a>
                                                     </td> 
-                                                    <td class="title"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{$past->regular_no}}</a></td>
+                                                    <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->regular_no}}</a></td>
 
-                                                    <td class="filingno"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{$past->filingno}}</a></td>
-                                                    <td class="procedure"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{$past->procedure}}</a></td>
+                                                    <td class="filingno"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->filingno}}</a></td>
+                                                    <td class="procedure"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->procedure}}</a></td>
                     
                                                     <td  class="requesteddate">
-                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="/past/{{ $past->id }}">
+                                                      <a style="font-weight:bold; align-item:center; font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">
                                                         @php
                                                           $expire = strtotime($past->requesteddate);
                                                           $today = strtotime("today midnight");
@@ -186,7 +186,7 @@
                                                         </a>
                                                     </td>
                                                   <td   class="proceduredate">
-                                                    <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="/past/{{ $past->id }}">
+                                                    <a style="font-weight:bold; align-item:center; font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">
                                                       @php
                                                           $expire = strtotime($past->proceduredate);
                                                           $today = strtotime("today midnight");
@@ -216,14 +216,14 @@
                                                        
                                                        </a>
                                                     </td>
-                                    <td class="country"><a style="font-size:12; color:black;" href="/past/{{ $past->id }}">{{$past->country}}</a></td>
+                                    <td class="country"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->country}}</a></td>
                     
                                                     
-                                                    <td class="annuity"  href=""><a style="font-size:12; color:black;"  href="/past/{{ $past->id }}">{{$past->annuity}}</a></td>
-                                                    <td class="annual_office_fee"  href=""><a style="font-size:12; color:black;"  href="/past/{{ $past->id }}">{{$past->annual_office_fee}}</a></td>
+                                                    <td class="annuity"  href=""><a style="font-size:12; color: blueviolet; font-weight:bold"  href="/past/{{ $past->id }}">{{$past->annuity}}</a></td>
+                                                    <td class="annual_office_fee"  href=""><a style="font-size:12; color: blueviolet; font-weight:bold"  href="/past/{{ $past->id }}">{{$past->annual_office_fee}}</a></td>
                     
                                                     <td class="annual_office_fee"  href="" >
-                                                      <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="/past/{{ $past->id }}">
+                                                      <a style="font-weight:bold; align-item:center; font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">
                                   
                                                         
                                                           @php
@@ -258,7 +258,7 @@
                                                          
                                                     </td>
                                                     
-                                                    <td class="deadline_Status"  href=""><a style=" font-size:12; color:black;"  href="/past/{{ $past->id }}">{{$past->deadline_Status}}</a></td>
+                                                    <td class="deadline_Status"  href=""><a style=" font-size:12; color: blueviolet; font-weight:bold"  href="/past/{{ $past->id }}">{{$past->deadline_Status}}</a></td>
                                                     <td>
                                                       <div class="d-flex order-actions">
                                                         <a href="{{ route('patent.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>									

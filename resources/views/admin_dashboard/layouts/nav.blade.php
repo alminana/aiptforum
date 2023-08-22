@@ -14,16 +14,16 @@
             <ul class="metismenu" id="menu">
                 <li>
                     <a href="{{ route('admin.index') }}">
-                    <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
-                        <div class="menu-title">Dashboard</div>
+                    <div class="parent-icon"><i class='bx bx-home-circle' style="color: white"></i></div>
+                        <div style="color: white">Dashboard</div>
                     </a>
                 </li>
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
+                        <div class="parent-icon"><i class='bx bx-message-square-edit' style="color: white"></i>
                         </div>
-                        <div class="menu-title">Trademark</div>
+                        <div class="" style="color: white">Trademark</div>
                     </a>
 
                     <ul>
@@ -37,60 +37,60 @@
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
+                        <div class="parent-icon"><i class='bx bx-message-square-edit' style="color: white"></i>
                         </div>
-                        <div class="menu-title">Patent</div>
+                        <div class="" style="color: white">Patent</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.patents.index') }}"><i class="bx bx-right-arrow-alt"></i>All Patent</a>
+                        <li> <a href="{{ route('admin.patents.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Patent</a>
                         </li>
-                        <li> <a href="{{ route('admin.patents.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Patent</a>
+                        <li> <a href="{{ route('admin.patents.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Patent</a>
                         </li>
                         
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-user'></i>
+                        <div class="parent-icon"><i class='bx bx-user' style="color: white"></i>
                         </div>
-                        <div class="menu-title">Client</div>
+                        <div class="" style="color: white">Client</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.clients.index') }}"><i class="bx bx-right-arrow-alt"></i>All Client</a>
+                        <li> <a href="{{ route('admin.clients.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Client</a>
                         </li>
-                        <li> <a href="{{route('admin.clients.create')}}"><i class="bx bx-right-arrow-alt"></i>Add New Client</a>
+                        <li> <a href="{{route('admin.clients.create')}}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Client</a>
                         </li>
                         
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-user'></i>
+                        <div class="parent-icon"><i class='bx bx-user' style="color: white"></i>
                         </div>
-                        <div class="menu-title">Method</div>
+                        <div class="" style="color: white">Method</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.method.index') }}"><i class="bx bx-right-arrow-alt"></i>All Method</a>
+                        <li> <a href="{{ route('admin.method.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Method</a>
                         </li>
-                        <li> <a href="{{ route('admin.method.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Method</a>
+                        <li> <a href="{{ route('admin.method.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Method</a>
                         </li>
                         
                     </ul>
                 </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-menu'></i>
+                        <div class="parent-icon"><i class='bx bx-menu' style="color: white"></i>
                         </div>
-                        <div class="menu-title">Categories</div>
+                        <div class="" style="color: white">Categories</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.categories.index') }}"><i class="bx bx-right-arrow-alt"></i>All Categories</a>
+                        <li> <a href="{{ route('admin.categories.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Categories</a>
                         </li>
-                        <li> <a href="{{ route('admin.categories.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Category</a>
+                        <li> <a href="{{ route('admin.categories.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Category</a>
                         </li>
                         
                     </ul>
@@ -99,21 +99,21 @@
                 <!-- <li>
                     <a href="{{ route('admin.tags.index') }}">
                     <div class="parent-icon"><i class='bx bx-purchase-tag'></i></div>
-                        <div class="menu-title">Tags</div>
+                        <div class="">Tags</div>
                     </a>
                 </li> -->
 
                  <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-comment-dots'></i>
+                        <div class="parent-icon"><i class='bx bx-comment-dots' style="color: white"></i>
                         </div>
-                        <div class="menu-title">Comments</div>
+                        <div class="" style="color: white">Comments</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.comments.index') }}"><i class="bx bx-right-arrow-alt"></i>All Comments</a>
+                        <li> <a href="{{ route('admin.comments.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Comments</a>
                         </li>
-                        <li> <a href="{{ route('admin.comments.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Comment</a>
+                        <li> <a href="{{ route('admin.comments.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Comment</a>
                         </li>
                         
                     </ul>
@@ -123,15 +123,15 @@
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-key'></i>
+                        <div class="parent-icon"><i class='bx bx-key' style="color: white"></i>
                         </div>
-                        <div class="menu-title">Roles</div>
+                        <div class="" style="color: white">Roles</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.roles.index') }}"><i class="bx bx-right-arrow-alt"></i>All Roles</a>
+                        <li> <a href="{{ route('admin.roles.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Roles</a>
                         </li>
-                        <li> <a href="{{ route('admin.roles.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Role</a>
+                        <li> <a href="{{ route('admin.roles.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Role</a>
                         </li>
                         
                     </ul>
@@ -139,15 +139,15 @@
                 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-user'></i>
+                        <div class="parent-icon"><i class='bx bx-user' style="color: white"> </i>
                         </div>
-                        <div class="menu-title">Users</div>
+                        <div class="" style="color: white">Users</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.users.index') }}"><i class="bx bx-right-arrow-alt"></i>All Users</a>
+                        <li> <a href="{{ route('admin.users.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Users</a>
                         </li>
-                        <li> <a href="{{ route('admin.users.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New User</a>
+                        <li> <a href="{{ route('admin.users.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New User</a>
                         </li>
                         
                     </ul>
@@ -157,28 +157,28 @@
                 <!-- <li>
                     <a href="{{ route('admin.contacts') }}">
                     <div class="parent-icon"><i class='bx bx-mail-send'></i></div>
-                        <div class="menu-title">Contacts</div>
+                        <div class="">Contacts</div>
                     </a>
                 </li> -->
 
                 <!-- <li>
                     <a href="{{ route('admin.setting.edit') }}">
                     <div class="parent-icon"><i class='bx bx-info-square'></i></div>
-                        <div class="menu-title">Setting</div>
+                        <div class="">Setting</div>
                     </a>
                 </li> -->
                 <!-- <li>
                     <a href="{{ route('admin.import.index') }}">
                     <div class="parent-icon"><i class='bx bx-info-square'></i></div>
-                        <div class="menu-title">Import</div>
+                        <div class="">Import</div>
                     </a>
                 </li> -->
                 <hr>
                 
                 <li>
                     <a target='_blank' href="{{ route('home') }}">
-                    <div class="parent-icon"><i class='bx bx-pointer'></i></div>
-                        <div class="menu-title">Visit Site</div>
+                    <div class="parent-icon"><i class='bx bx-pointer' style="color: white"></i></div>
+                        <div class="" style="color: white">Visit Site</div>
                     </a>
                 </li>
 

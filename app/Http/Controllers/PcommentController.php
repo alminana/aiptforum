@@ -11,6 +11,7 @@ class PcommentController extends Controller
 {
     public function store(Past $past, PcommentRequest $request): RedirectResponse
     {
+        
         $data = $request->validated();
         $pcomment = new pcomment();
 
@@ -20,6 +21,6 @@ class PcommentController extends Controller
         $pcomment->save();
 
         return back();
-
+        
     }
 }

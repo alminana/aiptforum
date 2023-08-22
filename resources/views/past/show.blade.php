@@ -11,7 +11,7 @@
 		<div class="page-content">
 	<!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div style="font-weight: 200"  class="breadcrumb-title pe-3"><a  href="">Past</a></div>
+        <div style="font-weight: 200"  class="breadcrumb-title pe-3"><a  href="">Patent</a></div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -187,7 +187,7 @@
                   <hr>
                   @endforeach
                 
-                  {{ $comments->links() }}
+
               </div>
           </div>
           <div class="row animate-box">
@@ -195,14 +195,14 @@
 
                 <x-blog.message :status="'success'"/>
 
-                <h2 class="colorlib-heading-2">Say something</h2>
+                <h2 class="colorlib-heading-2" style="color: blueviolet; font-weight:bold">Say something</h2>
 
                 @auth
 
                 <form action="/pasts/{{ $past->id }}/comments" method="POST" class="mb-0">
                     @csrf
                     <div class="row form-group">
-                        <input type="text" Disaable name="author" class="mt-1 py-2 px-3 block w-full borded border-gray-400 rounded-md shadow-sm" value="{{ old('author')}}" required>
+                        <textarea type="text"  name="author" class="mt-1 py-2 px-3 block w-full borded border-gray-400 rounded-md shadow-sm" value="{{ old('author')}}" placeholder="Enter your name" required></textarea>
 
                         <!-- <label for="message">Message</label> -->
                         <textarea name="text" id="the_comment" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
