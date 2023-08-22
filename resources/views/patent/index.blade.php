@@ -78,18 +78,18 @@
                                   
                                   <tbody>
                                   
-                                    @forelse($patents as $patent)
+                                    @foreach ($pasts as $past)
                                 
                                  
-                                                    <td class="aiptref"><a style="font-size:12; color:black;" href="">{{$patent->aiptref}}</a></td>
-                                                    <td class="clientref"><a style="font-size:12; color:black;" href="">{{$patent->clientref}}</a></td>
-                                                    <td class="title"><a style="font-size:12; color:black;" href="">{{$patent->title}}</a></td>
-                                                    <td class="client"><a style="font-size:12; color:black;" href="">{{$patent->client}}</a></td>
+                                                    <td class="aiptref"><a style="font-size:12; color:black;" href="">{{$past->title}}</a></td>
+                                                    <td class="clientref"><a style="font-size:12; color:black;" href="">{{$past->text}}</a></td>
+                                                    <td class="title"><a style="font-size:12; color:black;" href="">{{$past->title}}</a></td>
+                                                    <td class="client"><a style="font-size:12; color:black;" href="">{{$past->client}}</a></td>
                                                     
                                                     <td   class="pct_date">
                                                       <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                                         @php
-                                                          $expire = strtotime($patent->pct_date);
+                                                          $expire = strtotime($past->pct_date);
                                                           $today = strtotime("today midnight");
                                                           $day_diff = $today - $expire; 
                                                           $default  =  strtotime("01/01/0001");                               
@@ -113,15 +113,15 @@
                                                         }	
                                                               
                                                         @endphp
-                                                        <span> - {{$patent->pct_date}}</span>  
+                                                        <span> - {{$past->pct_date}}</span>  
                                                         </a>
                                                     </td>
-                                                    <td class="title"><a style="font-size:12; color:black;" href="">{{$patent->pct_no}}</a></td>
+                                                    <td class="title"><a style="font-size:12; color:black;" href="">{{$past->pct_no}}</a></td>
 
                                                     <td  class="regular_date">
                                                       <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                                         @php
-                                                          $expire = strtotime($patent->regular_date);
+                                                          $expire = strtotime($past->regular_date);
                                                           $today = strtotime("today midnight");
                                                           $day_diff = $today - $expire; 
                                                           $default  =  strtotime("01/01/0001");                               
@@ -145,19 +145,19 @@
                                                               }	
                                                               
                                                         @endphp
-                                                        <span> - {{$patent->regular_date}}</span>
+                                                        <span> - {{$past->regular_date}}</span>
                                                           
                                                       </a>
                                                     </td> 
-                                                    <td class="title"><a style="font-size:12; color:black;" href="">{{$patent->regular_no}}</a></td>
+                                                    <td class="title"><a style="font-size:12; color:black;" href="">{{$past->regular_no}}</a></td>
 
-                                                    <td class="filingno"><a style="font-size:12; color:black;" href="">{{$patent->filingno}}</a></td>
-                                                    <td class="procedure"><a style="font-size:12; color:black;" href="">{{$patent->procedure}}</a></td>
+                                                    <td class="filingno"><a style="font-size:12; color:black;" href="">{{$past->filingno}}</a></td>
+                                                    <td class="procedure"><a style="font-size:12; color:black;" href="">{{$past->procedure}}</a></td>
                     
                                                     <td  class="requesteddate">
                                                       <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                                         @php
-                                                          $expire = strtotime($patent->requesteddate);
+                                                          $expire = strtotime($past->requesteddate);
                                                           $today = strtotime("today midnight");
                                                           $day_diff = $today - $expire; 
                                                           $default  =  strtotime("01/01/0001");                               
@@ -181,14 +181,14 @@
                                                               }	
                                                               
                                                         @endphp 
-                                                        <span> - {{$patent->requesteddate}}</span>
+                                                        <span> - {{$past->requesteddate}}</span>
                                                           
                                                         </a>
                                                     </td>
                                                   <td   class="proceduredate">
                                                     <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                                       @php
-                                                          $expire = strtotime($patent->proceduredate);
+                                                          $expire = strtotime($past->proceduredate);
                                                           $today = strtotime("today midnight");
                                                           $day_diff = $today - $expire; 
                                                           $default  =  strtotime("01/01/0001");                               
@@ -212,22 +212,22 @@
                                                               }	
                                                               
                                                         @endphp 
-                                                         <span> - {{$patent->proceduredate}}</span>
+                                                         <span> - {{$past->proceduredate}}</span>
                                                        
                                                        </a>
                                                     </td>
-                                    <td class="country"><a style="font-size:12; color:black;" href="">{{$patent->country}}</a></td>
+                                                  <td class="country"><a style="font-size:12; color:black;" href="">{{$past->country}}</a></td>
                     
                                                     
-                                                    <td class="annuity"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annuity}}</a></td>
-                                                    <td class="annual_office_fee"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annual_office_fee}}</a></td>
+                                                    <td class="annuity"  href=""><a style="font-size:12; color:black;"  href="">{{$past->annuity}}</a></td>
+                                                    <td class="annual_office_fee"  href=""><a style="font-size:12; color:black;"  href="">{{$past->annual_office_fee}}</a></td>
                     
                                                     <td class="annual_office_fee"  href="" >
                                                       <a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="">
                                   
                                                         
                                                           @php
-                                                          $expire = strtotime($patent->annual_deadline);
+                                                          $expire = strtotime($past->annual_deadline);
                                                           $today = strtotime("today midnight");
                                                           $day_diff = $today - $expire; 
                                                           $default  =  strtotime("01/01/0001");                               
@@ -251,19 +251,19 @@
                                                               }	
                                                               
                                                         @endphp
-                                                              <span> - {{$patent->annual_deadline}}</span>
+                                                              <span> - {{$past->annual_deadline}}</span>
                                                        
                                                       </a>
                                                       
                                                          
                                                     </td>
                                                     
-                                                    <td class="deadline_Status"  href=""><a style=" font-size:12; color:black;"  href="">{{$patent->deadline_Status}}</a></td>
-                                                    <td>
+                                                    <td class="deadline_Status"  href=""><a style=" font-size:12; color:black;"  href="">{{$past->deadline_Status}}</a></td>
+                                                    {{-- <td>
                                                       <div class="d-flex order-actions">
-                                                        <a href="{{ route('patent.edit', $patent) }}" class=""><i class='bx bxs-edit'></i></a>									
+                                                        <a href="{{ route('patent.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>									
                                                                         </div>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                                 @empty
                                                 <p class='lead'>There are no Patent to show.</p>

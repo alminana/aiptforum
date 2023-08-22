@@ -23,102 +23,202 @@
             </nav>
         </div>
     </div>
-    <div class="text-center">
-        <h2 class="text-4xl leading-10 tracking-tight font-bold text-gray-900">Welcome to the blog</h2>
-        <p class="max-w-2xl mx-auto mt-5 text-xl leading-7 text-gray-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem tenetur expedita debitis veritatis aut ea quae itaque beatae delectus corrupti aspernatur, odio nesciunt possimus excepturi, necessitatibus et adipisci, minus deleniti!</p>
-    </div>
 
-<div class="bg-gray-50 py-16 px-4 sm:grid sm:grid-cols-12">
-    <div class="sm:col-start-4 sm:col-span-6">
-        <a href="/">
-            <div class="bg-white text-center px-4 py-3 rounded-sm shadow-sm hover:shadow-md">Back</div>
-        </a>
-
-        <div class="bg-white mt-4 px-4 py-6 rounded-sm shadow-sm">
-            <div class="flex items-center">
-                <div class="flex-shrink-0">
-                    <img class="h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/1194113737092935681/63O1znGw.jpg" alt="author avatar">
-                </div>
-
-                <div class="ml-3">
-                    <p class="text-sm leading-5 font-medium text-gray-900">John Doe</p>
-                    <div class="flex text-sm leading-5 text-gray-500">
-                        <time datetime="{{ $past->created_at }}">
-                            {{ $past->created_at->diffForHumans() }}
-                        </time>
-                        <span class="mx-1">&middot;</span>
-                        <span>{{ ceil(strlen($past->text) / 863) }} min read</span>
+    <div class="container-fuild">
+        <div class="card" style="width: auto; height:25%;">
+            <div class="container-fuild">
+                <div class="container-fuild alert alert-success" role="alert">
+                    Application
+                  </div>
+                  <div class="container">
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-3">
+                        <label style="color: blueviolet; font-weight:bold">Aipt Reference</label>
+                        <h6 style="color:black; font-weight:bold">{{$past->aiptref}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <label style="color: blueviolet; font-weight:bold">Client Reference</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->clientref}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <label style="color: blueviolet; font-weight:bold">Filing Number</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->filingno}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <label style="color: blueviolet; font-weight:bold">Country</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->country}}</h6>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mt-4 rounded-sm overflow-hidden">
-                <img class="w-full object-cover" src="https://images.unsplash.com/photo-1602526430780-782d6b1783fa?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="blog image">
-            </div>
-
-            <h2 class="mt-6 text-4xl leading-10 tracking-tight font-bold text-gray-900 text-center">{{ $past->title }}</h2>
-            <p class="mt-6 leading-6 text-gray-500">{{ $past->text }}</p>
-        </div>
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-12">
+                        <label style="color: blueviolet; font-weight:bold">Application Title</label>
+                        <h6 style="color:black; font-weight:bold">{{$past->title}}</h6>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-9">
+                            <label style="color: blueviolet; font-weight:bold">Client</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->client}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <label style="color: blueviolet; font-weight:bold">Status</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->deadline_Status}}</h6>
+                        </div>
+                    </div>
+                  </div>
+              
+              </div>
+          </div>
 
     </div>
-</div>
-<h2 class="mt-6 text-4xl leading-10 tracking-tight font-bold text-gray-900 text-center">Comments</h2>
-
-<div>
-    <form action="/pasts/{{ $past->id }}/comments" method="POST" class="mb-0">
-        @csrf
-        <label for="author" class="text-sm font-medium text-gray-700">Author</label>
-        <input type="text" name="author" class="mt-1 py-2 px-3 block w-full borded border-gray-400 rounded-md shadow-sm" value="{{ old('author')}}" required>
-
-        <label for="author" class="mt-6 block text-sm font-medium text-gray-700">Text</label>
-        <textarea name="text" class="mt-1 py-2 px-3 blocs w-full borded border-gray-400 rounded-md shadow-sm" required>{{ old('text') }}</textarea>
-
-        @if ($errors->any())
-            <div class="mt-6">
-                <ul class="bg-red-100 px-4 py-5 roundend-md">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-        <button type="submit" class="mt-6 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none">Post</button>
-    </form>
-</div>
-
-<div class="mt-6">
-    @foreach ($comments as $comment)
-        <div class="mb-5 bg-white px-4 py-6 rounded-sm shadow-md">
-            <div class="flex">
-                {{-- Avatar --}}
-                <div class="mr-3 flex flex-col justify-center">
-                    <div>
-                        <?php
-                            $parts    = explode(' ', $comment->author);
-                            $initials = strtoupper($parts[0][0] . $parts[count($parts) - 1][0]);
-                        ?>
-
-                        <span class="bg-gray-300 p-3 rounded-full">{{ $initials }}</span>
+    <div class="container-fuild">
+        <div class="card" style="width: auto; height:25%;">
+            <div class="container-fuild">
+                <div class="container-fuild alert alert-success" role="alert">
+                    Schdule of Date
+                  </div>
+                  <div class="container">
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-6">
+                        <label style="color: blueviolet; font-weight:bold">PCT Date</label>
+                        <h6 style="color:black; font-weight:bold">{{$past->pct_date}}</h6>
+                        </div>
+                        <div class="col-6">
+                            <label style="color: blueviolet; font-weight:bold">PCT Number</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->pct_no}}</h6>
+                        </div>
                     </div>
-                </div>
-                {{-- Avatar --}}
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-6">
+                        <label style="color: blueviolet; font-weight:bold">Regular Date</label>
+                        <h6 style="color:black; font-weight:bold">{{$past->regular_date}}</h6>
+                        </div>
+                        <div class="col-6">
+                            <label style="color: blueviolet; font-weight:bold">Regular Number</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->regular_date}}</h6>
+                        </div>
+                    </div>
+                  
+                  </div>
+              
+              </div>
+          </div>
 
-                <div class="flex flex-col justify-center">
-                    <p class="mr-2 font-bold">{{ $comment->author }}</p>
-                    <p class="text-gray-600">{{ $comment->created_at->diffForHumans() }}</p>
-                </div>
+    </div>
+    <div class="container-fuild">
+        <div class="card" style="width: auto; height:25%;">
+            <div class="container-fuild">
+                <div class="container-fuild alert alert-success" role="alert">
+                    Procedure
+                  </div>
+                  <div class="container">
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-4">
+                        <label style="color: blueviolet; font-weight:bold">Procedure</label>
+                        <h6 style="color:black; font-weight:bold">{{$past->procedure}}</h6>
+                        </div>
+                        <div class="col-4">
+                            <label style="color: blueviolet; font-weight:bold">Requested Date</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->requesteddate}}</h6>
+                        </div>
+                        <div class="col-4">
+                            <label style="color: blueviolet; font-weight:bold">Actual Date</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->proceduredate}}</h6>
+                        </div>
+                    </div>
+                  </div>
+              
+              </div>
+          </div>
+
+    </div>
+    <div class="container-fuild">
+        <div class="card" style="width: auto; height:25%;">
+            <div class="container-fuild">
+                <div class="container-fuild alert alert-success" role="alert">
+                    Annuity
+                  </div>
+                  <div class="container">
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-3">
+                        <label style="color: blueviolet; font-weight:bold">Annuity</label>
+                        <h6 style="color:black; font-weight:bold">{{$past->annuity}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <label style="color: blueviolet; font-weight:bold">Annuity Fee.</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->annual_office_fee}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <label style="color: blueviolet; font-weight:bold">Annuity Date</label>
+                            <h6 style="color:black; font-weight:bold">{{$past->annual_deadline}}</h6>
+                        </div>
+                    </div>
+                
+                  </div>
+              
+              </div>
+          </div>
+
+    </div>
+    <div class="container-fuild">
+        <div class="card" style="width: auto; height:25%;">
+            <div class="container-fuild">
+                <div class="container-fuild alert alert-success" role="alert">
+                    Comment Section
+                    
+                  </div>
+                  @foreach ($comments as $comment)
+                  <div class="container">
+                    <div class="row" style="margin-top:15px">
+                        <div class="col-3">
+                        <label style="color: blueviolet; font-weight:bold">User</label>
+                        <h6 style="color:black; font-weight:bold">{{ $comment->author }}</h6>
+                        </div>
+                        <div class="col-6">
+                            <label style="color: blueviolet; font-weight:bold">Comment</label>
+                            <h6 style="color:black; font-weight:bold">{{ $comment->text }}</h6>
+                        </div>
+                        <div class="col-3">
+                            <label style="color: blueviolet; font-weight:bold">Date</label>
+                            <h6 style="color:black; font-weight:bold">{{ $comment->created_at->diffForHumans() }}</h6>
+                        </div>
+                    </div>
+                  </div> 
+                  <hr>
+                  @endforeach
+                
+                  {{ $comments->links() }}
+              </div>
+          </div>
+          <div class="row animate-box">
+            <div class="col-md-12">
+
+                <x-blog.message :status="'success'"/>
+
+                <h2 class="colorlib-heading-2">Say something</h2>
+
+                @auth
+
+                <form action="/pasts/{{ $past->id }}/comments" method="POST" class="mb-0">
+                    @csrf
+                    <div class="row form-group">
+                        <input type="text" Disaable name="author" class="mt-1 py-2 px-3 block w-full borded border-gray-400 rounded-md shadow-sm" value="{{ old('author')}}" required>
+
+                        <!-- <label for="message">Message</label> -->
+                        <textarea name="text" id="the_comment" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Post Comment" class="btn btn-primary">
+                    </div>
+                </form>
+
+                @endauth
+
+                @guest
+                <p class="lead"><a href="{{ route('login') }}">Login </a> OR <a href="{{ route('register') }}">Register</a> to write comments</p>
+                @endguest	
             </div>
-
-            <div class="mt-3">
-                <p>{{ $comment->text }}</p>
-            </div>
-
-        </div>
-    @endforeach
-
-    {{ $comments->links() }}
-</div>
-
-
+        </div> 
+    </div>
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Client;
 use App\Models\Post;
-
+use App\Models\Past;
 class Client extends Model
 {
     use HasFactory;
@@ -17,5 +17,10 @@ class Client extends Model
     public function posts()
     {
         return $this->belongsToMany(Post::class);
+    }
+
+    public function past()
+    {
+        return $this->belongsToMany(Past::class);
     }
 }

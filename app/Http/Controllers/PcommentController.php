@@ -18,6 +18,8 @@ class PcommentController extends Controller
         $pcomment->author  = $data['author'];
         $pcomment->text    = $data['text'];
         $pcomment->save();
+
         return back();
+
     }
 }
