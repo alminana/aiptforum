@@ -14,7 +14,7 @@
         <li>
             <a href="{{ route('categories.index') }}">
             <div class="parent-icon"><i class='bx bx-home-circle' style="color: blueviolet"></i></div>
-                <div class="menu-title" style="font-size:12; color: white; font-weight:bold">Applications</div>
+                <div class="menu-title" style="font-size:12; color: blueviolet; font-weight:bold">Applications</div>
             </a>
         </li>
         <hr style="font-size:12; color: blueviolet; font-weight:bold">
