@@ -69,15 +69,14 @@ class AdminPastController extends Controller
 
     public function edit(Past $past )
     {
+        $clients = Client::all();
+        $method = Method::latest()->take(1000)->get();
        dd($past);
-    //     $clients = Client::all();
-    //     $method = Method::latest()->take(1000)->get();
-    //    dd($past);
-    //     return view('admin_dashboard.patent.edit', [
-    //         'past' => $past,
-    //         'clients'=>$clients,
-    //         'method' => $method,
-    //     ],compact('clients','method','past'));
+        return view('admin_dashboard.patent.edit', [
+            'past' => $past,
+            'clients'=>$clients,
+            'method' => $method,
+        ],compact('clients','method','past'));
     }
 
     public function update(Request $request, Past $past)
@@ -92,12 +91,13 @@ class AdminPastController extends Controller
 
   
 
-    public function destroy(Patent $patent)
+    public function destroy(Past $past)
     {
-        $method = Method::all();    
-        $patent->delete();
-        Alert::success('Successfully Delete','Delete');
-        return redirect()->route('admin.patents.index')->with('success', 'Patent has been Deleted.');
+        dd($past);
+        // $method = Method::all();    
+        // $past->delete();
+        // Alert::success('Successfully Delete','Delete');
+        // return redirect()->route('admin.patents.index')->with('success', 'Patent has been Deleted.');
     }
 
 }
