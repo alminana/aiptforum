@@ -1,5 +1,4 @@
-
-@extends("admin_dashboard.layouts.app")
+@extends('main_layouts.master')
 
 @section("style")
 
@@ -12,7 +11,7 @@
 
 @endsection
     
-    @section("wrapper")
+    @section("content")
     <!--start page wrapper -->
     <div class="page-wrapper">
         <div class="page-content">
@@ -33,12 +32,10 @@
           
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Edit Post: {{ $past->title }}</h5>
+                    <h5 class="card-title">Edit Post:</h5>
                     <hr/>
 
-       
-
-                    <form action="{{ route('admin.patents.update', $past) }}" method='post'>
+                    <form action="{{ route('past.update', $past) }}" method='post'>
                         @csrf
                         @method('PATCH')
 
@@ -610,6 +607,7 @@
                         </div>
                         
                     </form>
+
               
                 </div>
             </div>

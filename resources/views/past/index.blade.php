@@ -261,7 +261,7 @@
                                                     <td class="deadline_Status"  href=""><a style=" font-size:12; color: blueviolet; font-weight:bold"  href="/past/{{ $past->id }}">{{$past->deadline_Status}}</a></td>
                                                     <td>
                                                       <div class="d-flex order-actions">
-                                                        <a href="{{ route('patent.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>									
+                                                        <a href="{{ route('past.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>									
                                                                         </div>
                                                     </td>
                                                 </tr>

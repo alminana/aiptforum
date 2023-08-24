@@ -24,7 +24,7 @@ use App\Http\Controllers\AdminControllers\AdminUsersController;
 use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
 
-use App\Http\Controllers\AdminControllers\AdminPatentController;
+use App\Http\Controllers\AdminControllers\AdminPastController;
 
 use App\Http\Controllers\AdminControllers\AdminClientController;
 use App\Http\Controllers\AdminControllers\AdminMethodController;
@@ -131,7 +131,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
     Route::resource('posts', AdminPostsController::class);
     
     //patent
-    Route::resource('patents', AdminPatentController::class);
+    Route::resource('patents', AdminPastController::class);
 
     Route::resource('categories', AdminCategoriesController::class);
     Route::resource('tags', AdminTagsController::class)->only(['index', 'show', 'destroy']);

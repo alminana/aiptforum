@@ -8,13 +8,13 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Patent</div>
+					<div class="breadcrumb-title pe-3">past</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href=""><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.patents.create') }}">Add New</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="{{route('admin.patents.create')}}">Add New</a></li>
 
 							</ol>
 						</nav>
@@ -75,43 +75,43 @@
                                 
                                 <tbody>
                           
-									@forelse($patents as $patent)
+									@forelse($past as $past)
                                    
-                                <td class="aiptref"><a style="font-size:12; color:black;" href="">{{$patent->aiptref}}</a></td>
-                                <td class="clientref"><a style="font-size:12; color:black;" href="">{{$patent->clientref}}</a></td>
-                                <td class="title"><a style="font-size:12; color:black;" href="">{{$patent->title}}</a></td>
-                                <td class="client"><a style="font-size:12; color:black;" href="">{{$patent->client}}</a></td>
+                                <td class="aiptref"><a style="font-size:12; color:black;" href="">{{$past->aiptref}}</a></td>
+                                <td class="clientref"><a style="font-size:12; color:black;" href="">{{$past->clientref}}</a></td>
+                                <td class="title"><a style="font-size:12; color:black;" href="">{{$past->title}}</a></td>
+                                <td class="client"><a style="font-size:12; color:black;" href="">{{$past->client}}</a></td>
 								<td class="pctdate">
-                                    <a style="font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{$patent->pct_date}}</button></a>
+                                    <a style="font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{$past->pct_date}}</button></a>
                                 </td>
-								<td class="title"><a style="font-size:12; color:black;" href="">{{$patent->pct_no}}</a></td>
+								<td class="title"><a style="font-size:12; color:black;" href="">{{$past->pct_no}}</a></td>
                                 <td class="regulardate">
-                                    <a style="font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{$patent->regular_date}}</button></a>
+                                    <a style="font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-success">{{$past->regular_date}}</button></a>
                                 </td>
-								<td class="title"><a style="font-size:12; color:black;" href="">{{$patent->regular_no}}</a></td>
-								<td class="filingno"><a style="font-size:12; color:black;" href="">{{$patent->filingno}}</a></td>
-								<td class="procedure"><a style="font-size:12; color:black;" href="">{{$patent->procedure}}</a></td>
+								<td class="title"><a style="font-size:12; color:black;" href="">{{$past->regular_no}}</a></td>
+								<td class="filingno"><a style="font-size:12; color:black;" href="">{{$past->filingno}}</a></td>
+								<td class="procedure"><a style="font-size:12; color:black;" href="">{{$past->procedure}}</a></td>
 
                                 <td class="requesteddate">
-                                    <a style=" font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{$patent->requesteddate}}</button></a>
+                                    <a style=" font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{$past->requesteddate}}</button></a>
                                 </td>
 								<td class="proceduredate">
-                                    <a style=" font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{$patent->proceduredate}}</button></a>
+                                    <a style=" font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{$past->proceduredate}}</button></a>
                                 </td>
-								<td class="country"><a style="font-size:12; color:black;" href="">{{$patent->country}}</a></td>
+								<td class="country"><a style="font-size:12; color:black;" href="">{{$past->country}}</a></td>
 
                                 
-                                <td class="annuity"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annuity}}</a></td>
-                                <td class="annual_office_fee"  href=""><a style="font-size:12; color:black;"  href="">{{$patent->annual_office_fee}}</a></td>
+                                <td class="annuity"  href=""><a style="font-size:12; color:black;"  href="">{{$past->annuity}}</a></td>
+                                <td class="annual_office_fee"  href=""><a style="font-size:12; color:black;"  href="">{{$past->annual_office_fee}}</a></td>
 								<td class="proceduredate">
-                                    <a style=" font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{$patent->annual_deadline}}</button></a>
+                                    <a style=" font-size:12; color:black;"  href=""><button style="font-weight:bold; font-size:16; color:white; align-item:center;"  class="btn btn-danger">{{$past->annual_deadline}}</button></a>
                                 </td>
-                                <td class="deadline_Status"  href=""><a style=" font-size:12; color:black;"  href="">{{$patent->deadline_Status}}</a></td>
+                                <td class="deadline_Status"  href=""><a style=" font-size:12; color:black;"  href="">{{$past->deadline_Status}}</a></td>
 								<td>
 									<div class="d-flex order-actions">
-										<a href="{{ route('admin.patents.edit', $patent) }}" class=""><i class='bx bxs-edit'></i></a>
+										<a href="{{route('admin.patents.edit', $past)}}" class=""><i class='bx bxs-edit'></i></a>
 									
-										<form method='post' action="{{ route('admin.patents.destroy', $patent) }}" id='delete_form_{{ $patent->id }}'>
+										<form method='post' action="" id='delete_form_{{ $past->id }}'>
 										@csrf 
 										@method('DELETE')
 										<!-- Button trigger modal -->
@@ -127,7 +127,7 @@
 											
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-												<button type="button" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $patent->id }}').submit();" class="btn btn-primary">Delete</button>
+												<button type="button" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $past->id }}').submit();" class="btn btn-primary">Delete</button>
 											</div>
 											</div>
 										</div>

@@ -81,5 +81,25 @@ class PastController extends Controller
         ]);
     }
 
+    public function edit(Past $past )
+    {
+        $clients = Client::all();
+        $method = Method::latest()->take(1000)->get();
+     
+        return view('past.edit', [
+            'past' => $past,
+            'clients'=>$clients,
+            'method' => $method,
+        ],compact('clients','method','past'));
+    }
+    public function update(Request $request, Past $past)
+    {
+        $validated = $request->validate($this->rules);
+        
+        $past->update($validated);
+
+        return redirect()->route('past.index', $past)->with('success', 'Patent has been updated');
+
+    }
    
 }

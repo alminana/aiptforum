@@ -4,12 +4,12 @@ namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Patent;
+use App\Models\Past;
 use App\Models\Client;
 use App\Models\Method;
 use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
-class AdminPatentController extends Controller
+class AdminPastController extends Controller
 {
     private $rules = [
         'aiptref'=>'required',
@@ -43,48 +43,50 @@ class AdminPatentController extends Controller
 
     public function index(Request $request) 
     {
-        $patents = Patent::latest()->take(1000)->get();
-        return view('admin_dashboard.patent.index',compact('patents'));
+        $past = Past::latest()->take(1000)->get();
+        return view('admin_dashboard.patent.index',compact('past'));
     }
 
     public function create()
     {
         $clients = Client::all();
         $method = Method::all();
-        $patents = Patent::all();
+        $past = Past::all();
         return view('admin_dashboard.patent.create', [
             'clients'=> Client::all(),
             'method'=> Method::all(),
-        ],compact('clients','method'));
+        ],compact('clients','method','past'));
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate($this->rules);
         $validated['user_id'] = auth()->id();
-        $patents = Patent::create($validated);
-        $patents = Patent::all();
-        return view('admin_dashboard.patent.index',compact('patents'));
+        $past = Past::create($validated);
+        $past = Past::all();
+        return view('admin_dashboard.patent.index',compact('past'));
     }
 
-    public function edit(Patent $patent )
+    public function edit(Past $past )
     {
-        $clients = Client::all();
-        $method = Method::latest()->take(1000)->get();
-        return view('admin_dashboard.patent.edit', [
-            'patent' => $patent,
-            'clients'=>$clients,
-            'method' => $method,
-        ],compact('clients','method','patent'));
+       dd($past);
+    //     $clients = Client::all();
+    //     $method = Method::latest()->take(1000)->get();
+    //    dd($past);
+    //     return view('admin_dashboard.patent.edit', [
+    //         'past' => $past,
+    //         'clients'=>$clients,
+    //         'method' => $method,
+    //     ],compact('clients','method','past'));
     }
 
-    public function update(Request $request, Patent $patent)
+    public function update(Request $request, Past $past)
     {
         $validated = $request->validate($this->rules);
         
-        $patent->update($validated);
-        
-        return redirect()->route('admin.patents.index', $patent)->with('success', 'Patent has been updated');
+        $past->update($validated);
+
+        return redirect()->route('past.index', $past)->with('success', 'Patent has been updated');
 
     }
 
