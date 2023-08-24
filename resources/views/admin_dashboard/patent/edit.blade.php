@@ -33,7 +33,7 @@
           
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Edit Post: {{ $pasts->title }}</h5>
+                    <h5 class="card-title">Edit Post: {{ $past->title }}</h5>
                     <hr/>
 
        

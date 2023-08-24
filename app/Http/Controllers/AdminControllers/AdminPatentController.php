@@ -9,7 +9,7 @@ use App\Models\Client;
 use App\Models\Method;
 use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
-class AdminPastController extends Controller
+class AdminPatentController extends Controller
 {
     private $rules = [
         'aiptref'=>'required',
@@ -44,7 +44,9 @@ class AdminPastController extends Controller
     public function index(Request $request) 
     {
         $past = Past::latest()->take(1000)->get();
-        return view('admin_dashboard.patent.index',compact('past'));
+        $clients = Client::all();
+        $method = Method::all();
+        return view('admin_dashboard.patent.index',compact('past','clients','method'));
     }
 
     public function create()
@@ -66,18 +68,18 @@ class AdminPastController extends Controller
         $past = Past::all();
         return view('admin_dashboard.patent.index',compact('past'));
     }
-
-    public function edit(Past $past )
+    public function edit(Past $past)
     {
-        $clients = Client::all();
-        $method = Method::latest()->take(1000)->get();
-       dd($past);
-        return view('admin_dashboard.patent.edit', [
-            'past' => $past,
-            'clients'=>$clients,
-            'method' => $method,
-        ],compact('clients','method','past'));
+    $clients = Client::all();
+    $method = Method::all();
+    return view('admin_dashboard.patent.edit')->with([
+        'past' => $past,
+        'clients'=>$clients,
+        'method' => $method,
+    ],compact('past','clients','method'));
     }
+
+
 
     public function update(Request $request, Past $past)
     {

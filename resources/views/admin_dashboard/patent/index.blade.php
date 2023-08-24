@@ -109,9 +109,9 @@
                                 <td class="deadline_Status"  href=""><a style=" font-size:12; color:black;"  href="">{{$past->deadline_Status}}</a></td>
 								<td>
 									<div class="d-flex order-actions">
-										<a href="{{route('admin.patents.edit', $past)}}" class=""><i class='bx bxs-edit'></i></a>
+										<a href="{{route('admin.patents.edit', $past->id )}}" class=""><i class='bx bxs-edit'></i></a>
 									
-										<form method='post' action="{{route('admin.patents.destroy')}}" id='delete_form_{{ $past->id }}'>
+										<form method='post' action="" id='delete_form_{{ $past->id }}'>
 										@csrf 
 										@method('DELETE')
 										<!-- Button trigger modal -->
