@@ -90,7 +90,7 @@
                     <ul>
                         <li> <a href="{{ route('admin.categories.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All Categories</a>
                         </li>
-                        <li> <a href="{{ route('admin.categories.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Category</a>
+                        <li> <a href="{{ route('admin.categories.create') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New Category</a>
                         </li>
                         
                     </ul>
@@ -105,15 +105,15 @@
 
                  <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-comment-dots' style="color: white"></i>
+                        <div class="parent-icon"><i class='bx bx-comment-dots' style="color: blueviolet"></i>
                         </div>
-                        <div class="" style="color: white">Comments</div>
+                        <div class="" style="color: blueviolet">Comments</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.comments.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Comments</a>
+                        <li> <a href="{{ route('admin.comments.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All Comments</a>
                         </li>
-                        <li> <a href="{{ route('admin.comments.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Comment</a>
+                        <li> <a href="{{ route('admin.comments.create') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New Comment</a>
                         </li>
                         
                     </ul>
@@ -123,15 +123,15 @@
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-key' style="color: white"></i>
+                        <div class="parent-icon"><i class='bx bx-key' style="color: blueviolet"></i>
                         </div>
-                        <div class="" style="color: white">Roles</div>
+                        <div class="" style="color: blueviolet">Roles</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.roles.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Roles</a>
+                        <li> <a href="{{ route('admin.roles.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All Roles</a>
                         </li>
-                        <li> <a href="{{ route('admin.roles.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New Role</a>
+                        <li> <a href="{{ route('admin.roles.create') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New Role</a>
                         </li>
                         
                     </ul>
@@ -139,15 +139,15 @@
                 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-user' style="color: white"> </i>
+                        <div class="parent-icon"><i class='bx bx-user' style="color: blueviolet"> </i>
                         </div>
-                        <div class="" style="color: white">Users</div>
+                        <div class="" style="color: blueviolet">Users</div>
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.users.index') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>All Users</a>
+                        <li> <a href="{{ route('admin.users.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All Users</a>
                         </li>
-                        <li> <a href="{{ route('admin.users.create') }}"><i class="bx bx-right-arrow-alt" style="color: white"></i>Add New User</a>
+                        <li> <a href="{{ route('admin.users.create') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New User</a>
                         </li>
                         
                     </ul>
@@ -177,8 +177,8 @@
                 
                 <li>
                     <a target='_blank' href="{{ route('home') }}">
-                    <div class="parent-icon"><i class='bx bx-pointer' style="color: white"></i></div>
-                        <div class="" style="color: white">Visit Site</div>
+                    <div class="parent-icon"><i class='bx bx-pointer' style="color: blueviolet"></i></div>
+                        <div class="" style="color: blueviolet">Visit Site</div>
                     </a>
                 </li>
 
