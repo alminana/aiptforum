@@ -79,10 +79,11 @@ Route::post('/patent/{patent:id}', [PatentController::class, 'addComment'])->nam
 // Route::get('/patent/{id}', [PatentController::class, 'edit'])->name('patent.edit');
 // Route::get('/patent', [PatentController::class, 'index'])->name('patent.index');
 // Route::post('/patent/{id}', [PatentController::class, 'show'])->name('patent.show');
-
+Route::resource('post', PostsController::class);
+// 
 Route::get('/posts/{post:id}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
-
+// Route::get('/posts', [PostsController::class, 'create'])->name('posts.create');
 
 Route::get('/pdf/{id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
 
