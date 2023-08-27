@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category; 
@@ -136,6 +136,14 @@ class PostsController extends Controller
         return redirect('/posts/' . $post->id . '#comment_' . $comment->id)->with('success', 'Comment has been added.');
     }
 
+    public function destroy(Post $post)
+    {
+        $method = Method::all();    
+        $post->tags()->delete();
+        $post->delete();
+        Alert::success('Successfully Delete','Delete');
+        return redirect()->route('admin.posts.index')->with('success', 'Post has been Deleted.');
+    }
    
     public function printthis(Post $post ,Request $request){
         $comments = Comment::orderBy('id', 'DESC')->take(5)->get();

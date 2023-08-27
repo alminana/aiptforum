@@ -12,6 +12,7 @@ use App\Models\Category;
 use Illuminate\Contracts\View\View;
 use App\Http\Requests\PastRequest;
 use Illuminate\Validation\Rule;
+use DB;
 use RealRashid\SweetAlert\Facades\Alert;
 class AdminpastController extends Controller
 {
@@ -91,23 +92,13 @@ class AdminpastController extends Controller
         
         $past->update($validated);
 
-        dd('$past');
-        // return redirect()->route('admin_dashboard.past.index', $past)->with('success', 'Patent has been Updated.');
+        return redirect()->route('admin_dashboard.past.index', $past)->with('success', 'Patent has been Updated.');
 
     }
   
-    // public function destroy(Past $past)
-    // {
-    //     $past->delete();
-
-    //     return redirect()->route('admin.past.index')->with('success', 'Patent has been Deleted.');
-    // }
-    public function delete(\Illuminate\Http\Request $request)
-{
-    $id = $request->get('id', false);
-    // TODO: Check for validation
-    $past = DB::select('select '.$id.' from past');
-    $past -> delete();
-    return redirect()->route('admin.past.index')->with('success', 'Patent has been Deleted.');
-}
+    public function destroy(Past $past,Request $request )
+    {
+        $past -> delete();
+        return redirect()->route('admin_dashboard.past.index')->with('success', 'Patent has been Deleted.');
+    }
 }

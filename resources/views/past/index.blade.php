@@ -262,7 +262,7 @@
                                                     <td>
                                                       <div class="d-flex order-actions">
                                                         <a href="{{ route('past.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>	
-                                                        {{-- <form method='post' action="{{ route('past.destroy', $past) }}" id='delete_form_{{ $past->id }}'>
+                                                       {{-- <form method='post' action="{{ route('past.destroy', $past) }}" id='delete_form_{{ $past->id }}'>
                                                           @csrf 
                                                           @method('DELETE')
                                                         
@@ -287,7 +287,7 @@
                                                             </div>
                                                           </div>
                                                           </div>
-                                                          </form> 									 --}}
+                                                          </form> 								 --}}
                                                       </div>
                                                     </td>
                                                 </tr>
