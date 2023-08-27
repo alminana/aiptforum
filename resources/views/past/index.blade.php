@@ -262,12 +262,12 @@
                                                     <td>
                                                       <div class="d-flex order-actions">
                                                         <a href="{{ route('past.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>	
-                                                        <form method='post' action="{{ route('past.destroy', $past) }}" id='delete_form_{{ $past->id }}'>
+                                                        {{-- <form method='post' action="{{ route('past.destroy', $past) }}" id='delete_form_{{ $past->id }}'>
                                                           @csrf 
                                                           @method('DELETE')
-                                                          <!-- Button trigger modal -->
+                                                        
                                                           <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="ms-3"><i class='bx bxs-trash'></i></a>
-                                                          <!-- Modal -->
+                                                      
                                                           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                           <div class="modal-dialog">
                                                             <div class="modal-content">
@@ -287,7 +287,7 @@
                                                             </div>
                                                           </div>
                                                           </div>
-                                                          </form> 									
+                                                          </form> 									 --}}
                                                       </div>
                                                     </td>
                                                 </tr>
