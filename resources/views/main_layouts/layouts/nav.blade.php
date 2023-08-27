@@ -83,7 +83,7 @@
         </li>
         
         <li>
-            <a target='_blank' href="{{ route('admin.index') }}">
+            <a href="{{ route('admin.index') }}">
             <div class="parent-icon"><i class='bx bx-user-circle' style="color: white"></i></div>
                 <div class="menu-title" style="font-size:12; color: white; font-weight:bold">Admin Only</div>
             </a>

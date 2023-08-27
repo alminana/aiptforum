@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
-use DB;
+namespace App\Http\Controllers\AdminControllers;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Past;
 use App\Models\Client;
@@ -12,7 +13,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Requests\PastRequest;
 use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
-class PastController extends Controller
+class AdminpastController extends Controller
 {
     private $rules = [
         'aiptref'=>'required',
@@ -44,22 +45,21 @@ class PastController extends Controller
 
     ];
 
-    public function index()
+    public function index(Request $request) 
     {
+        $past = Past::latest()->take(1000)->get();
         $clients = Client::all();
         $method = Method::all();
-        return view('past.index', [
-            'pasts' => Past::latest()->get(),
-            'clients'=> Client::all(),
-            'method'=> Method::all(),
-        ]);
+        return view('admin_dashboard.past.index',compact('past','clients','method'));
     }
 
+   
     public function create()
     {
         $clients = Client::all();
         $method = Method::all();
-        return view('past.create',compact('clients','method'));
+        return view('admin_dashboard.past.create',compact('clients','method'));
+
     }
 
     public function store(Request $request)
@@ -70,45 +70,44 @@ class PastController extends Controller
         $validated['user_id'] = auth()->id();
         $past = Past::create($validated);
         $past = Past::all();
-        return redirect()->route('past.index',compact('clients','method'))->with('success', 'Patent has been Created.');
-    }
-    
-    public function show(Past $past): View
-    {
-        return view('past.show', [
-            'past' => $past,
-            'comments' => $past->Pcomment()->paginate(5)
-        ]);
+        return redirect()->route('admin.past.index',compact('clients','method'))->with('success', 'Patent has been Created.');
     }
 
     public function edit(Past $past )
     {
         $clients = Client::all();
-        $method = Method::latest()->take(1000)->get();
-     
-        return view('past.edit', [
+        $method = Method::all();
+        return view('admin_dashboard.past.edit')->with([
             'past' => $past,
             'clients'=>$clients,
             'method' => $method,
-        ],compact('clients','method','past'));
+        ],compact('past','clients','method'));
     }
+ 
     public function update(Request $request, Past $past)
     {
+       
         $validated = $request->validate($this->rules);
         
         $past->update($validated);
 
-        return redirect()->route('past.index', $past)->with('success', 'Patent has been updated');
+        dd('$past');
+        // return redirect()->route('admin_dashboard.past.index', $past)->with('success', 'Patent has been Updated.');
 
     }
+  
+    // public function destroy(Past $past)
+    // {
+    //     $past->delete();
 
-
-    public function destroy(Past $past)
-    {
-      
-        $past->delete();
-
-        return redirect()->route('past.index')->with('success', 'Patent has been Deleted.');
-    }
-   
+    //     return redirect()->route('admin.past.index')->with('success', 'Patent has been Deleted.');
+    // }
+    public function delete(\Illuminate\Http\Request $request)
+{
+    $id = $request->get('id', false);
+    // TODO: Check for validation
+    $past = DB::select('select '.$id.' from past');
+    $past -> delete();
+    return redirect()->route('admin.past.index')->with('success', 'Patent has been Deleted.');
+}
 }

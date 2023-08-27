@@ -23,6 +23,7 @@ use App\Http\Controllers\AdminControllers\AdminRolesController;
 use App\Http\Controllers\AdminControllers\AdminUsersController;
 use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
+use App\Http\Controllers\AdminControllers\AdminpastController;
 
 use App\Http\Controllers\AdminControllers\AdminPatentController;
 
@@ -131,6 +132,8 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
 
     Route::resource('posts', AdminPostsController::class);
     
+
+    Route::resource('past', AdminpastController::class);
     //patent
     Route::resource('patents', AdminPatentController::class);
 

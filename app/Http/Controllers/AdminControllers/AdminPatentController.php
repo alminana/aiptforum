@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Past;
 use App\Models\Client;
 use App\Models\Method;
+use App\Models\Pcomment;
+use App\Models\Category;
+use Illuminate\Contracts\View\View;
+use App\Http\Requests\PastRequest;
 use Illuminate\Validation\Rule;
-use RealRashid\SweetAlert\Facades\Alert;
 class AdminPatentController extends Controller
 {
     private $rules = [
@@ -94,12 +97,11 @@ class AdminPatentController extends Controller
   
 
     public function destroy(Past $past)
+
     {
-        dd($past);
-        // $method = Method::all();    
-        // $past->delete();
-        // Alert::success('Successfully Delete','Delete');
-        // return redirect()->route('admin.patents.index')->with('success', 'Patent has been Deleted.');
+        $past->delete();
+        return redirect()->route('patent.index')->with('success', 'Patent has been Deleted.');
+
     }
 
 }

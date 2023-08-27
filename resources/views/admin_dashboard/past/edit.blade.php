@@ -1,4 +1,5 @@
-@extends('main_layouts.master')
+
+@extends("admin_dashboard.layouts.app")
 
 @section("style")
 
@@ -11,7 +12,7 @@
 
 @endsection
     
-    @section("content")
+    @section("wrapper")
     <!--start page wrapper -->
     <div class="page-wrapper">
         <div class="page-content">
@@ -32,10 +33,9 @@
           
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Edit Post:</h5>
+                    <h5 class="card-title">Edit Post: {{ $past->title }}</h5>
                     <hr/>
-
-                    <form action="{{ route('admin.past.update', $past) }}" method='post'>
+                    <form action="{{ route('past.update', $past) }}" method='post'>
                         @csrf
                         @method('PATCH')
 
@@ -191,6 +191,7 @@
                                                             <label for="inputProductTitle" class="form-label">Annualy</label>
                                                             <select  name='annuity' value='{{ old("annuity",$past->annuity) }}' class="single-select">
                                                                 <option value='{{ old("annuity",$past->annuity) }}'>{{ old("annuity",$past->annuity) }}</option>
+                                                                <option value="Regular">Regular</option>
                                                                 <option value="1st Annuity">1st Annuity</option>
                                                                 <option value="2nd Annuity">2nd Annuity</option>
                                                                 <option value="3rd Annuity">3rd Annuity</option>
@@ -599,8 +600,6 @@
                         </div>
                         
                     </form>
-
-              
                 </div>
             </div>
         </div>

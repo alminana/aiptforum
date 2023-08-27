@@ -43,9 +43,9 @@
                     </a>
 
                     <ul>
-                        <li> <a href="{{ route('admin.patents.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All Patent</a>
+                        <li> <a href="{{ route('admin.past.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All Patent</a>
                         </li>
-                        <li> <a href="{{ route('admin.patents.create') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New Patent</a>
+                        <li> <a href="{{ route('admin.past.create') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New Patent</a>
                         </li>
                         
                     </ul>
@@ -176,7 +176,7 @@
                 <hr>
                 
                 <li>
-                    <a target='_blank' href="{{ route('home') }}">
+                    <a href="{{ route('home') }}">
                     <div class="parent-icon"><i class='bx bx-pointer' style="color: white"></i></div>
                         <div class="" style="color: white">Visit Site</div>
                     </a>
