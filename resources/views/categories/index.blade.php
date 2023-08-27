@@ -7,7 +7,7 @@
 	@section("content")
     <div class="page-wrapper">
         <div class="page-content">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+            {{-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
 				@forelse($categories as $category)
                 <div class="col">
                     <div class="card radius-10 border-start border-0 border-3 border-success">
@@ -27,7 +27,7 @@
 					<p class='lead'>There are no categories to show.</p>
 				@endforelse
                 
-            </div>
+            </div> --}}
 
 		
 			
