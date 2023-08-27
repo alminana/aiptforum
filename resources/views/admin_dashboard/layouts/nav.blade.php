@@ -14,16 +14,16 @@
             <ul class="metismenu" id="menu">
                 <li>
                     <a href="{{ route('admin.index') }}">
-                    <div class="parent-icon"><i class='bx bx-home-circle' style="color: blueviolet"></i></div>
-                        <div style="color: blueviolet">Dashboard</div>
+                    <div class="parent-icon"><i class='bx bx-home-circle' style="color: white"></i></div>
+                        <div style="color: white">Dashboard</div>
                     </a>
                 </li>
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-message-square-edit' style="color: blueviolet"></i>
+                        <div class="parent-icon"><i class='bx bx-message-square-edit' style="color: white"></i>
                         </div>
-                        <div class="" style="color: blueviolet">Trademark</div>
+                        <div class="" style="color: white">Trademark</div>
                     </a>
 
                     <ul>
@@ -37,9 +37,9 @@
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-message-square-edit' style="color: blueviolet"></i>
+                        <div class="parent-icon"><i class='bx bx-message-square-edit' style="color: white"></i>
                         </div>
-                        <div class="" style="color: blueviolet">Patent</div>
+                        <div class="" style="color: white">Patent</div>
                     </a>
 
                     <ul>
@@ -52,9 +52,9 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-user' style="color: blueviolet"></i>
+                        <div class="parent-icon"><i class='bx bx-user' style="color: white"></i>
                         </div>
-                        <div class="" style="color: blueviolet">Client</div>
+                        <div class="" style="color: white">Client</div>
                     </a>
 
                     <ul>
@@ -67,9 +67,9 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-user' style="color: blueviolet"></i>
+                        <div class="parent-icon"><i class='bx bx-user' style="color: white"></i>
                         </div>
-                        <div class="" style="color: blueviolet">Method</div>
+                        <div class="" style="color: white">Method</div>
                     </a>
 
                     <ul>
@@ -82,9 +82,9 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-menu' style="color: blueviolet"></i>
+                        <div class="parent-icon"><i class='bx bx-menu' style="color: white"></i>
                         </div>
-                        <div class="" style="color: blueviolet">Categories</div>
+                        <div class="" style="color: white">Categories</div>
                     </a>
 
                     <ul>
@@ -105,9 +105,9 @@
 
                  <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-comment-dots' style="color: blueviolet"></i>
+                        <div class="parent-icon"><i class='bx bx-comment-dots' style="color: white"></i>
                         </div>
-                        <div class="" style="color: blueviolet">Comments</div>
+                        <div class="" style="color: white">Comments</div>
                     </a>
 
                     <ul>
@@ -123,9 +123,9 @@
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-key' style="color: blueviolet"></i>
+                        <div class="parent-icon"><i class='bx bx-key' style="color: white"></i>
                         </div>
-                        <div class="" style="color: blueviolet">Roles</div>
+                        <div class="" style="color: white">Roles</div>
                     </a>
 
                     <ul>
@@ -139,9 +139,9 @@
                 
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-user' style="color: blueviolet"> </i>
+                        <div class="parent-icon"><i class='bx bx-user' style="color: white"> </i>
                         </div>
-                        <div class="" style="color: blueviolet">Users</div>
+                        <div class="" style="color: white">Users</div>
                     </a>
 
                     <ul>
@@ -177,8 +177,8 @@
                 
                 <li>
                     <a target='_blank' href="{{ route('home') }}">
-                    <div class="parent-icon"><i class='bx bx-pointer' style="color: blueviolet"></i></div>
-                        <div class="" style="color: blueviolet">Visit Site</div>
+                    <div class="parent-icon"><i class='bx bx-pointer' style="color: white"></i></div>
+                        <div class="" style="color: white">Visit Site</div>
                     </a>
                 </li>
 
