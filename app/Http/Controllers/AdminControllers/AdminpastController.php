@@ -92,13 +92,13 @@ class AdminpastController extends Controller
         
         $past->update($validated);
 
-        return redirect()->route('admin_dashboard.past.index', $past)->with('success', 'Patent has been Updated.');
+        return redirect()->route('admin.past.index', $past)->with('success', 'Patent has been updated.');
 
     }
   
     public function destroy(Past $past,Request $request )
     {
         $past -> delete();
-        return redirect()->route('admin_dashboard.past.index')->with('success', 'Patent has been Deleted.');
+        return redirect()->route('admin.past.index')->with('success', 'Patent has been Deleted.');
     }
 }

@@ -594,39 +594,42 @@
                                             </div>
                                         </div> 
                                         <button class='btn btn-primary' type='submit'>Update</button>        
-                                          <!-- Button trigger modal -->
-                                          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                            Delete
-                                        </button>
-                                        
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                <h4>Are you sure you want to delete this application</h4>
-                                                </div>
-                                                <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <form method='post' action="{{ route('admin.past.destroy', $past->id ) }}" id='delete_form_{{ $past->id }}'>
-                                                    @csrf 
-                                                    @method('DELETE')
-                                                    <button class='btn btn-danger' type='submit'>Delete</button>   
-                                                </form>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>                                
+                                                                   
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                     </form>
+
+                       <!-- Button trigger modal -->
+                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Delete
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Delete : {{ old("aiptref",$past->aiptref) }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <h4>Are you sure you want to delete this application</h4>
+                           
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form method='post' action="{{ route('admin.past.destroy', $past->id ) }}" id='delete_form_{{ $past->id }}'>
+                                @csrf 
+                                @method('DELETE')
+                                <button class='btn btn-danger' type='submit'>Delete</button>   
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>    
                 </div>
             </div>
         </div>

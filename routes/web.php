@@ -133,7 +133,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
     Route::resource('posts', AdminPostsController::class);
     
 
-    Route::resource('past', AdminpastController::class);
+    Route::resource('past', AdminpastController::class)->only(['index', 'show', 'destroy','create','edit','update','store']);
     //patent
     Route::resource('patents', AdminPatentController::class);
 
