@@ -67,7 +67,7 @@ class AdminPostsController extends Controller
         $tags= Tag::all();
         $posts = Post::latest()->take(20)->get();
         $client = Client::latest()->take(20)->get();
-        $method = Method::latest()->take(20)->get();
+        $method = Method::latest()->take(0)->get();
         
         if ($request->has('search')) {
             $posts = Post::where('body', 'like', "%{$request->search}%")
