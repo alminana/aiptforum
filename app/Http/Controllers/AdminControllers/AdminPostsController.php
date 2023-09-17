@@ -62,12 +62,12 @@ class AdminPostsController extends Controller
         
         $recent_posts = Post::latest()->take(10)->get();
 
-        $categories = Category::withCount('posts')->latest('id', 'desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->latest('id', 'desc')->take(20)->get();
 
         $tags= Tag::all();
-        $posts = Post::latest()->take(1000)->get();
-        $client = Client::latest()->take(1000)->get();
-        $method = Method::latest()->take(1000)->get();
+        $posts = Post::latest()->take(20)->get();
+        $client = Client::latest()->take(20)->get();
+        $method = Method::latest()->take(20)->get();
         
         if ($request->has('search')) {
             $posts = Post::where('body', 'like', "%{$request->search}%")
