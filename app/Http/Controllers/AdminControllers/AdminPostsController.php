@@ -65,7 +65,7 @@ class AdminPostsController extends Controller
         $categories = Category::withCount('posts')->latest('id', 'desc')->take(20)->get();
 
         $tags= Tag::all();
-        $posts = Post::latest()->paginate(1000);
+        $posts = Post::latest(all)->paginate(1000);
         $client = Client::latest()->take(20)->get();
         $method = Method::latest()->take(0)->get();
         
