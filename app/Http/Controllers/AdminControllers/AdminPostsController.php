@@ -65,7 +65,7 @@ class AdminPostsController extends Controller
         $categories = Category::withCount('posts')->latest('id', 'desc')->take(20)->get();
 
         $tags= Tag::all();
-        $posts = Post::latest()->paginate(100);
+        $posts = Post::latest()->paginate(1000);
         $client = Client::latest()->take(20)->get();
         $method = Method::latest()->take(0)->get();
         
@@ -73,7 +73,7 @@ class AdminPostsController extends Controller
             $posts = Post::where('body', 'like', "%{$request->search}%")
             ->orWhere('id', 'like', "%{$request->search}%")
             ->orWhere('title', 'like', "%{$request->search}%")
-            ->orWhere('clientref', 'like', "%{$request->search}%")
+            ->orWhere('clientref', 'like', "%{$request->searchgit }%")
             ->orWhere('annuitydue', 'like', "%{$request->search}%")
             ->orWhere('annuitydeadline', 'like', "%{$request->search}%")
             ->orWhere('slug', 'like', "%{$request->search}%")
