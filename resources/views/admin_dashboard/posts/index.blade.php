@@ -33,7 +33,7 @@
 										<th style="font-size:11px;">Client Reference</th>
 										<th style="font-size:11px;">Client</th>
 										<th style="font-size:11px;">Class</th>
-										{{-- <th style="font-size:11px;">Image</th> --}}
+										<th style="font-size:11px;">Image</th>
 										<th style="font-size:11px;">Application</th>
 										<th style="font-size:11px;">Filing no:</th>
                                    		{{-- <th style="font-size:11px;">Filing date</th> --}}
@@ -63,14 +63,14 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->class}}</a></td>
-								{{-- <td style="font-size:11px;">
-									<img style='width: 100%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail"> --}}
+								<td style="font-size:11px;">
+									<img style='width: 20%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail"> 
 									{{-- <a style="color:black;"href="{{ route('posts.show', $post) }}">
 
 									<img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image->path, now()->addMinutes(20))}}" />
 							
 									</a> --}}
-								{{-- </td> --}}
+								</td> 
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
 								{{-- <td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td> --}}
