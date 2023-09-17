@@ -40,7 +40,7 @@ class DashboardController extends Controller
         return view('admin_dashboard.index', [
             'posts' => $posts,
             'recentPosts' => $recentPosts,
-            'categories' => Category::withCount('posts')->paginate(100),
+            'categories' => Category::withCount('posts')->paginate(20),
             'tags' => $tags,
             'comments' => $comments,
             'user' => $user,
