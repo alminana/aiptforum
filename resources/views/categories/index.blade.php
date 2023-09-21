@@ -66,11 +66,11 @@
 								<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
 								<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
 								<th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
-								<th class="image" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th>
-								<th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
-								<th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
+								{{-- <th class="image" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th> --}}
+								{{-- <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
+								<th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th> --}}
 								<th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
-								<th class="registrationno" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th>
+								{{-- <th class="registrationno" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th> --}}
 								<th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
 								<th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
 								<th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
@@ -137,13 +137,13 @@
 								<td class="clientref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
                                 <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
                                 <td class="status"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->status }}</a></td>
-                                <td class="image">
-								</a> 
+                                {{-- <td class="image">
+								</a>  --}}
 								{{-- <img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg', now()->addMinutes(20))}}" /> --}}
-
-									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
-								</td>
-                                <td  class="requesteddate">
+{{-- 
+									<img style='width: 30%; height:20' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+								</td> --}}
+                                {{-- <td  class="requesteddate">
 									<a style="font-size:15; color:black; "  href="{{ route('post.show', $post) }}">
 										@php
 												$expire = strtotime($post->requesteddate);
@@ -204,10 +204,10 @@
 										<span> - {{ $post->proceduredate }}</span>
 										
 									</a>
-								</td>
+								</td> --}}
 								
-								<td class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
-								<td class="registrationno"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->registrationno }}</a></td>
+								{{-- <td class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
+								<td class="registrationno"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->registrationno }}</a></td> --}}
 								<td class="class"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->class }}</a></td>
 								<td class="excerpt"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->excerpt }}</a></td>
 								<td class="country"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->country }}</a></td>
