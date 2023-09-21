@@ -206,8 +206,8 @@
 									</a>
 								</td> --}}
 								
-								{{-- <td class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
-								<td class="registrationno"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->registrationno }}</a></td> --}}
+								<td class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
+								{{-- <td class="registrationno"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->registrationno }}</a></td> --}}
 								<td class="class"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->class }}</a></td>
 								<td class="excerpt"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->excerpt }}</a></td>
 								<td class="country"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->country }}</a></td>
