@@ -117,16 +117,6 @@ class AdminPostsController extends Controller
           if($request->has('thumbnail'))
         {
 
-            // $thumbnail = $request->file('thumbnail');
-            // $filename = $thumbnail->getClientOriginalName();
-            // $file_extension = $thumbnail->getClientOriginalExtension();
-            // $path = $thumbnail->store('images', 'public');
-
-            // $post->image()->create([
-            //     'name' => $filename,
-            //     'extension' => $file_extension,
-            //     'path' => $path
-            // ]);
             $thumbnail = $request->file('thumbnail');
             $filename = $thumbnail->getClientOriginalName();
             $file_extension = $thumbnail->getClientOriginalExtension();
@@ -150,36 +140,46 @@ class AdminPostsController extends Controller
         return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');
         // dd($post);
 // -----------------------
-        if($request->has('thumbnail'))
-        {
-            $thumbnail = $request->file('thumbnail');
-            $filename = $thumbnail->getClientOriginalName();
-            $file_extension = $thumbnail->getClientOriginalExtension();
-            $path = $request->file('thumbnail')->store('images', 's3');
 
-            Storage::disk('s3')->delete($path. "/".$file_extension );
+            // $thumbnail = $request->file('thumbnail');
+            // $filename = $thumbnail->getClientOriginalName();
+            // $file_extension = $thumbnail->getClientOriginalExtension();
+            // $path = $thumbnail->store('images', 'public');
 
-            $post->image()->create([
-                'name' => $filename,
-                'extension' => $file_extension,
-                'path' => $path
-            ]);
+            // $post->image()->create([
+            //     'name' => $filename,
+            //     'extension' => $file_extension,
+            //     'path' => $path
+            // ]);
+        // if($request->has('thumbnail'))
+        // {
+        //     // $thumbnail = $request->file('thumbnail');
+        //     $filename = $thumbnail->getClientOriginalName();
+        //     $file_extension = $thumbnail->getClientOriginalExtension();
+        //     $path = $request->file('thumbnail')->store('images', 's3');
 
-            $url = Storage::disk('s3')->url($path."/".$file_extension);
-        }
+        //     // Storage::disk('s3')->delete($path. "/".$file_extension );
+
+        //     $post->image()->create([
+        //         'name' => $filename,
+        //         'extension' => $file_extension,
+        //         'path' => $path
+        //     ]);
+
+        //     $url = Storage::disk('s3')->url($path."/".$file_extension);
+        // }
 // ------------------------
-        $path = $request->file('thumbnail')->store('images', 's3');
+        // $path = $request->file('thumbnail')->store('images', 's3');
 
-        Storage::disk('s3')->setVisibility($path, 'private');
+        // Storage::disk('s3')->setVisibility($path, 'private');
 
-            // c->image()->create([
-             $post->image()->create([
-            'name' => $filename,
-            'extension' => $file_extension,
-            'path' => basename($path),
-            'url' => Storage::disk('s3')->url("$path"),
-            
-        ]);
+        //     // c->image()->create([
+        //      $post->image()->create([
+        //     'name' => $filename,
+        //     'extension' => $file_extension,
+        //     'path' => basename($path),
+        //     'url' => Storage::disk('s3')->url($path),
+        // ]);
 
 //  -----------------------------------------------
       
