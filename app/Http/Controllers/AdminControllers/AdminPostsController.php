@@ -117,68 +117,68 @@ class AdminPostsController extends Controller
           if($request->has('thumbnail'))
         {
 
+            // $thumbnail = $request->file('thumbnail');
+            // $filename = $thumbnail->getClientOriginalName();
+            // $file_extension = $thumbnail->getClientOriginalExtension();
+            // $path = $thumbnail->store('images', 'public');
+
+            // $post->image()->create([
+            //     'name' => $filename,
+            //     'extension' => $file_extension,
+            //     'path' => $path
+            // ]);
             $thumbnail = $request->file('thumbnail');
             $filename = $thumbnail->getClientOriginalName();
             $file_extension = $thumbnail->getClientOriginalExtension();
             $path = $thumbnail->store('images', 'public');
+            $path = $request->file('thumbnail')->store('images/', 's3');
+
+            $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
+
+            // save image name in database
+           
+
+            $post->image()->create([
+                'name' => $filename,
+                'extension' => $file_extension,
+                'path' => $path,
+                'filename' => basename($path),
+                'url' => Storage::disk('s3')->url('$path')
+            ]);
+   
+        }
+        return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');
+        // dd($post);
+// -----------------------
+        if($request->has('thumbnail'))
+        {
+            // $thumbnail = $request->file('thumbnail');
+            $filename = $thumbnail->getClientOriginalName();
+            $file_extension = $thumbnail->getClientOriginalExtension();
+            $path = $request->file('thumbnail')->store('images', 's3');
+
+            // Storage::disk('s3')->delete($path. "/".$file_extension );
 
             $post->image()->create([
                 'name' => $filename,
                 'extension' => $file_extension,
                 'path' => $path
             ]);
-            // $thumbnail = $request->file('thumbnail');
-            // $filename = $thumbnail->getClientOriginalName();
-            // $file_extension = $thumbnail->getClientOriginalExtension();
-            // $path = $thumbnail->store('images', 'public');
-            // $path = $request->file('thumbnail')->store('images/', 's3');
 
-            // $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
-
-            //save image name in database
-           
-
-            // $post->image()->create([
-            //     'name' => $filename,
-            //     'extension' => $file_extension,
-            //     'path' => $path,
-            //     'filename' => basename($path),
-            //     'url' => Storage::disk('s3')->url('$path')
-            // ]);
-   
+            $url = Storage::disk('s3')->url($path."/".$file_extension);
         }
-        return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');
-        // dd($post);
-// -----------------------
-        // if($request->has('thumbnail'))
-        // {
-        //     // $thumbnail = $request->file('thumbnail');
-        //     $filename = $thumbnail->getClientOriginalName();
-        //     $file_extension = $thumbnail->getClientOriginalExtension();
-        //     $path = $request->file('thumbnail')->store('images', 's3');
-
-        //     // Storage::disk('s3')->delete($path. "/".$file_extension );
-
-        //     $post->image()->create([
-        //         'name' => $filename,
-        //         'extension' => $file_extension,
-        //         'path' => $path
-        //     ]);
-
-        //     $url = Storage::disk('s3')->url($path."/".$file_extension);
-        // }
 // ------------------------
-        // $path = $request->file('thumbnail')->store('images', 's3');
+        $path = $request->file('thumbnail')->store('images', 's3');
 
-        // Storage::disk('s3')->setVisibility($path, 'private');
+        Storage::disk('s3')->setVisibility($path, 'private');
 
-        //     // c->image()->create([
-        //      $post->image()->create([
-        //     'name' => $filename,
-        //     'extension' => $file_extension,
-        //     'path' => basename($path),
-        //     'url' => Storage::disk('s3')->url($path),
-        // ]);
+            // c->image()->create([
+             $post->image()->create([
+            'name' => $filename,
+            'extension' => $file_extension,
+            'path' => basename($path),
+            'url' => Storage::disk('s3')->url($path),
+        ]);
 
 //  -----------------------------------------------
       
@@ -228,33 +228,33 @@ class AdminPostsController extends Controller
 
         if($request->has('thumbnail'))
         {
-            $thumbnail = $request->file('thumbnail');
-            $filename = $thumbnail->getClientOriginalName();
-            $file_extension = $thumbnail->getClientOriginalExtension();
-            $path = $thumbnail->store('images', 'public');
-
-            $post->image()->update([
-                'name' => $filename,
-                'extension' => $file_extension,
-                'path' => $path
-            ]);
             // $thumbnail = $request->file('thumbnail');
             // $filename = $thumbnail->getClientOriginalName();
             // $file_extension = $thumbnail->getClientOriginalExtension();
             // $path = $thumbnail->store('images', 'public');
-            // $path = $request->file('thumbnail')->store('images/', 's3');
 
-            // $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
-
-            //save image name in database
-           
             // $post->image()->update([
             //     'name' => $filename,
             //     'extension' => $file_extension,
-            //     'path' => $path,
-            //     'filename' => basename($path),
-            //     'url' => Storage::disk('s3')->url('$path')
+            //     'path' => $path
             // ]);
+            $thumbnail = $request->file('thumbnail');
+            $filename = $thumbnail->getClientOriginalName();
+            $file_extension = $thumbnail->getClientOriginalExtension();
+            $path = $thumbnail->store('images', 'public');
+            $path = $request->file('thumbnail')->store('images/', 's3');
+
+            $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
+
+            // save image name in database
+           
+            $post->image()->update([
+                'name' => $filename,
+                'extension' => $file_extension,
+                'path' => $path,
+                // 'filename' => basename($path),
+                // 'url' => Storage::disk('s3')->url('$path')
+            ]);
    
         }
         return redirect()->route('admin.posts.index', $post)->with('success', 'Post has been updated.');
