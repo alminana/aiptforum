@@ -120,7 +120,7 @@ class AdminPostsController extends Controller
             $thumbnail = $request->file('thumbnail');
             $filename = $thumbnail->getClientOriginalName();
             $file_extension = $thumbnail->getClientOriginalExtension();
-            $path = $thumbnail->store('images', 'public');
+            // $path = $thumbnail->store('images', 'public');
             $path = $request->file('thumbnail')->store('images/', 's3');
 
             $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
@@ -132,12 +132,11 @@ class AdminPostsController extends Controller
                 'name' => $filename,
                 'extension' => $file_extension,
                 'path' => $path,
-                'filename' => basename($path),
-                'url' => Storage::disk('s3')->url('$path')
+           
             ]);
    
         }
-        return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');
+     return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');
         // dd($post);
 // -----------------------
 
