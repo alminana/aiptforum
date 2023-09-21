@@ -152,12 +152,12 @@ class AdminPostsController extends Controller
 // -----------------------
         if($request->has('thumbnail'))
         {
-            // $thumbnail = $request->file('thumbnail');
+            $thumbnail = $request->file('thumbnail');
             $filename = $thumbnail->getClientOriginalName();
             $file_extension = $thumbnail->getClientOriginalExtension();
             $path = $request->file('thumbnail')->store('images', 's3');
 
-            // Storage::disk('s3')->delete($path. "/".$file_extension );
+            Storage::disk('s3')->delete($path. "/".$file_extension );
 
             $post->image()->create([
                 'name' => $filename,
