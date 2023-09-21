@@ -139,9 +139,9 @@
                                 <td class="status"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->status }}</a></td>
                                 <td class="image">
 								</a> 
-								<img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg', now()->addMinutes(20))}}" />
+								{{-- <img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg', now()->addMinutes(20))}}" /> --}}
 
-									{{-- <img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail"> --}}
+									<img style='width: 50%' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 								</td>
                                 <td  class="requesteddate">
 									<a style="font-size:15; color:black; "  href="{{ route('post.show', $post) }}">

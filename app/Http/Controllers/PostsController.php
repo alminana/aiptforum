@@ -12,7 +12,6 @@ use App\Models\Method;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
 use DB;
 class PostsController extends Controller
 {
@@ -69,7 +68,6 @@ class PostsController extends Controller
         return view('post.create',compact('clients','method','categories','tags','clients'));
     }
 
-    
     public function store(Request $request)
     {
         $validated = $request->validate($this->rules);
@@ -84,43 +82,47 @@ class PostsController extends Controller
             $filename = $thumbnail->getClientOriginalName();
             $file_extension = $thumbnail->getClientOriginalExtension();
             $path = $thumbnail->store('images', 'public');
-            $path = $request->file('thumbnail')->store('images/', 's3');
-
-            $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
-
-            // save image name in database
-           
 
             $post->image()->create([
                 'name' => $filename,
                 'extension' => $file_extension,
-                'path' => $path,
-                'filename' => basename($path),
-                'url' => Storage::disk('s3')->url('$path')
+                'path' => $path
             ]);
-   
-        }
-        return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');
-
-//  -----------------------------------------------
-      
-        // if($request->has('thumbnail'))
-        // {
             // $thumbnail = $request->file('thumbnail');
             // $filename = $thumbnail->getClientOriginalName();
             // $file_extension = $thumbnail->getClientOriginalExtension();
             // $path = $thumbnail->store('images', 'public');
-            // $path = $thumbnail->store('images', 'public');
+            // $path = $request->file('thumbnail')->store('images/', 's3');
+
+            // $path = Storage::disk('s3')->put('images', $request->file('thumbnail'), 'public');
+
+            //save image name in database
+           
 
             // $post->image()->create([
             //     'name' => $filename,
             //     'extension' => $file_extension,
-            //     'path' => $path
+            //     'path' => $path,
+            //     'filename' => basename($path),
+            //     'url' => Storage::disk('s3')->url('$path')
             // ]);
-        // }
+   
+        }
+        return redirect()->route('categories.index')->with('success', 'Post has been created.');
 
-        
     }
+
+    // public function store(Request $request)
+    // {
+    //     $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+    //     $clients = Client::all();
+    //     $method = Method::latest()->take(1000)->get();
+    //     $validated = $request->validate($this->rules);
+    //     $validated['user_id'] = auth()->id();
+    //     $post = Post::create($validated);
+    //     $post = Post::all();
+    //     return redirect()->route('post.create',compact('clients','method','categories'))->with('success', 'Patent has been Created.');
+    // }
 
     public function addComment(Post $post)
     {
