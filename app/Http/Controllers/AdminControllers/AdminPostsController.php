@@ -177,7 +177,8 @@ class AdminPostsController extends Controller
             'name' => $filename,
             'extension' => $file_extension,
             'path' => basename($path),
-            'url' => Storage::disk('s3')->url($path),
+            'url' => Storage::disk('s3')->url("$path"),
+            
         ]);
 
 //  -----------------------------------------------
@@ -252,8 +253,8 @@ class AdminPostsController extends Controller
                 'name' => $filename,
                 'extension' => $file_extension,
                 'path' => $path,
-                // 'filename' => basename($path),
-                // 'url' => Storage::disk('s3')->url('$path')
+                'filename' => basename($path),
+                'url' => Storage::disk('s3')->url('$path')
             ]);
    
         }
