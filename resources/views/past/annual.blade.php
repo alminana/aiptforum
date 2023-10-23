@@ -70,7 +70,7 @@
                                                       $done = "done";
                                                       if(($expire == $default)){
                                                      
-                                                      $color = "color:black;background-color:green;";
+                                                      $color = "display:none";
                                                     }elseif($today == $expire){
                                                  
                                                       $color = "color:black;background-color:orange;";
@@ -103,7 +103,7 @@
                                                       $done = "done";
                                                       if(($expire == $default)){
                                                       echo "No Deadline";
-                                                      $color = "color:black;background-color:green;";
+                                                      $color = "display:none";
                                                     }elseif($today == $expire){
                                                       echo "DueDate ";
                                                       $color = "color:black;background-color:orange;";
