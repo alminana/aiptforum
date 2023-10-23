@@ -303,6 +303,8 @@
                                                             <option value="Zambia">Zambia</option>
                                                             <option value="Zimbabwe">Zimbabwe</option>
                                                             <option value="Zanzibar">Zanzibar</option>
+                                                            <option value="Aripo">ARIPO</option>
+                                                            <option value="Oapi">OAPI</option>
                                                             </select>
 
                                                             @error('country')
@@ -513,6 +515,8 @@
                                                             <option value="UY">UY</option>
                                                             <option value="ZAN">ZAN</option>
                                                              <option value="ZM">ZM</option>
+                                                             <option value="Aripo">ARIPO</option>
+                                                             <option value="Oapi">OAPI</option>
                                                             </select>
 
                                                             @error('abbr')

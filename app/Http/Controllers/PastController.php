@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Past;
 use App\Models\Client;
@@ -105,10 +106,100 @@ class PastController extends Controller
 
     public function destroy(Past $past)
     {
-      
         $past->delete();
-
         return redirect()->route('past.index')->with('success', 'Patent has been Deleted.');
     }
    
+
+    public function patentpct(Request $request)
+    {
+        $past = Past::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
+        $client = Client::latest()->take(1000)->get();
+
+        $currentDate = Carbon::now();
+        $deadlineThreshold = $currentDate->addDays(7);
+        $pasts= Past::whereDate('pct_date', '<=', $deadlineThreshold)->get();
+ 
+
+        return view('past.pct', [
+            'pasts' => Past::latest()->get(),
+            'clients'=> Client::all(),
+            'method'=> Method::all(),
+        ], compact('pasts','client', 'method'));
+    }
+
+    public function patentregular(Request $request)
+    {
+        $past = Past::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
+        $client = Client::latest()->take(1000)->get();
+
+        $currentDate = Carbon::now();
+        $deadlineThreshold = $currentDate->addDays(15);
+        $pasts= Past::whereDate('pct_date', '<=', $deadlineThreshold)->get();
+ 
+
+        return view('past.regular', [
+            'pasts' => Past::latest()->get(),
+            'clients'=> Client::all(),
+            'method'=> Method::all(),
+        ], compact('pasts','client', 'method'));
+    }
+
+    public function patentrequest(Request $request)
+    {
+        $past = Past::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
+        $client = Client::latest()->take(1000)->get();
+
+        $currentDate = Carbon::now();
+        $deadlineThreshold = $currentDate->addDays(15);
+        $pasts= Past::whereDate('requesteddate', '<=', $deadlineThreshold)->get();
+ 
+
+        return view('past.requested', [
+            'pasts' => Past::latest()->get(),
+            'clients'=> Client::all(),
+            'method'=> Method::all(),
+        ], compact('pasts','client', 'method'));
+    }
+
+
+    public function patentactual(Request $request)
+    {
+        $past = Past::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
+        $client = Client::latest()->take(1000)->get();
+
+        $currentDate = Carbon::now();
+        $deadlineThreshold = $currentDate->addDays(15);
+        $pasts= Past::whereDate('proceduredate', '<=', $deadlineThreshold)->get();
+ 
+
+        return view('past.actual', [
+            'pasts' => Past::latest()->get(),
+            'clients'=> Client::all(),
+            'method'=> Method::all(),
+        ], compact('pasts','client', 'method'));
+    }
+
+    public function patentannual(Request $request)
+    {
+        $past = Past::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
+        $client = Client::latest()->take(1000)->get();
+
+        $currentDate = Carbon::now();
+        $deadlineThreshold = $currentDate->addDays(15);
+        $pasts= Past::whereDate('annual_deadline', '<=', $deadlineThreshold)->get();
+ 
+
+        return view('past.annual', [
+            'pasts' => Past::latest()->get(),
+            'clients'=> Client::all(),
+            'method'=> Method::all(),
+        ], compact('pasts','client', 'method'));
+    }
+
 }

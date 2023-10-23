@@ -1,4 +1,4 @@
-<!--start header -->
+
 <header>
             <div class=" d-flex align-items-center">
                 <nav class="navbar navbar-expand">
@@ -199,8 +199,8 @@
                         <div><h5>Welcome!!</h5></div>
                         
                             <div class="user-info ps-3">
-                                <p class="user-name mb-0">{{ $adminData->name }}</p>
-                                <p class="designattion mb-0">{{ $adminData->email }}</p>
+                                {{-- <p class="user-name mb-0">{{ $adminData->name }}</p>
+                                <p class="designattion mb-0">{{ $adminData->email }}</p> --}}
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
@@ -215,4 +215,4 @@
                 </nav>
             </div>
         </header>
-        <!--end header -->
+       

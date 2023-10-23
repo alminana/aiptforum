@@ -39,6 +39,76 @@ class CategoryController extends Controller
         return Excel::download(PostDataExport::class);
     }
 
+    public function Tprocedure(Request $request)
+    {
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
+
+        $currentDate = Carbon::now();
+        $deadlineThreshold = $currentDate->addDays(15);
+        $posts= POST::whereDate('requesteddate', '<=', $deadlineThreshold)->get();
+ 
+
+        return view('categories.requested', [
+            'posts' => $posts,
+            'recentPosts' => $recentPosts,
+            'categories' => Category::withCount('posts')->paginate(1000),
+            'comments' => $comments,
+        ], compact('posts','comments', 'method'));
+    }
+
+
+    public function Tactual(Request $request)
+    {
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
+
+        $currentDate = Carbon::now();
+        $deadlineThreshold = $currentDate->addDays(7);
+        $posts= POST::whereDate('proceduredate', '<=', $deadlineThreshold)->get();
+ 
+
+        return view('categories.actual', [
+            'posts' => $posts,
+            'recentPosts' => $recentPosts,
+            'categories' => Category::withCount('posts')->paginate(1000),
+            'comments' => $comments,
+        ], compact('posts','comments', 'method'));
+    }
+
+
+    public function Trenewal(Request $request)
+    {
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(1000)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
+   
+        $searchItem = 'renewal';
+        $posts = Post::where('status', 'like', '%' . $searchItem . '%' )->get();
+
+        $currentDate = Carbon::now();
+        $deadlineThreshold = $currentDate->addDays(30);
+        $posts= POST::whereDate('filingdate', '<=', $deadlineThreshold)->get();
+
+
+
+        return view('categories.renewal', [
+            'posts' => $posts,
+            'recentPosts' => $recentPosts,
+            'categories' => Category::withCount('posts')->paginate(1000),
+            'comments' => $comments,
+        ], compact('posts','comments', 'method'));
+    }
+
+
     public function index(Request $request)
     {
         $comments = DB::table('comments')->latest('id')->first();
@@ -47,6 +117,28 @@ class CategoryController extends Controller
         $posts = Post::withCount('comments')->get();
         $method = Method::latest()->take(1000)->get();
    
+        // $searchItem = 'aipt-0109';
+
+        // // $posts = Post::where('aiptref', 'like', '%' . $searchItem . '%' )->get();
+
+        if ($request->has('search')) {
+            $posts = Post::where('proceduredate', 'like', "% {$request->search}% ")
+            ->orWhere('id', 'like', "%{$request->search}%")
+            ->orWhere('title', 'like', "%{$request->search}%")
+            ->orWhere('filingdate', 'like', "%{$request->search}%")
+            ->orWhere('registrationno', 'like', "%{$request->search}%")
+            ->orWhere('registrationdate', 'like', "%{$request->search}%")
+            ->orWhere('renewal', 'like', "%{$request->search}%")
+            ->orWhere('slug', 'like', "%{$request->search}%")
+            ->orWhere('excerpt', 'like', "%{$request->search}%")
+            ->orWhere('class', 'like', "%{$request->search}%")
+            ->orWhere('status', 'like', "%{$request->search}%")
+            ->orWhere('country', 'like', "%{$request->search}%")
+            ->orWhere('aiptref', 'like', "%{$request->search}%")
+            ->orWhere('created_at', 'like', "%{$request->search}%")
+            ->paginate(1000);
+        }
+
         return view('categories.index', [
             'posts' => $posts,
             'recentPosts' => $recentPosts,

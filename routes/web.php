@@ -57,10 +57,17 @@ use App\Http\Controllers\PastController;
 // Route::get('past', [PastController::class, 'index'])->name('past.index');
 // Route::get('past/new', [PastController::class, 'create'])->name('create');
 // Route::post('/past', [PastController::class, 'store'])->name('store');
+Route::middleware('auth')->group(function(){
+
 
 Route::resource('past', PastController::class);
-Route::post('/pasts/{past}/comments', [PcommentController::class, 'store']);
 
+Route::post('/pasts/{past}/comments', [PcommentController::class, 'store']);
+Route::get('/pct/patent/deadline',[PastController::class, 'patentpct'])->name('past.pct');
+Route::get('/regular/patent/deadline',[PastController::class, 'patentregular'])->name('past.regular');
+Route::get('/request/patent/deadline',[PastController::class, 'patentrequest'])->name('past.request');
+Route::get('/actual/patent/deadline',[PastController::class, 'patentactual'])->name('past.actual');
+Route::get('/annual/patent/deadline',[PastController::class, 'patentannual'])->name('past.annual');
 // Front User Routes
 // Route::get('/', function () {
 //     return view('auth.login');
@@ -101,7 +108,15 @@ Route::post('/posts/export-excel',[PostsController::class, 'exportExcel'])->name
 
 Route::get('/categories/{category:id}', [CategoryController::class, 'show'])->name('categories.show');
 
-Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');
+Route::get('/Trademark', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');
+
+Route::get('/tm/requested/deadline', [CategoryController::class, 'Tprocedure'])->middleware(['auth','verified'])->name('categories.requested');
+
+Route::get('/tm/actual/deadline', [CategoryController::class, 'Tactual'])->middleware(['auth','verified'])->name('categories.actual');
+
+
+// Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');
+
 
 Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show');
 
@@ -116,9 +131,9 @@ Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.de
 Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
 
 
-Route::get('/notify', [PostsController::class, 'notification'])->name('deadline.notification');
+Route::get('/dashboard', [PostsController::class, 'notification'])->name('deadline.notification');
 
-
+});
 require __DIR__.'/auth.php';
 
 // Admin Dashboard Routes

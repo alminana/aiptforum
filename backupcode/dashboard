@@ -1,0 +1,173 @@
+@extends('main_layouts.master')
+
+@section('title')
+@section("style")
+	<link href="{{ asset('admin_dashboard_assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+	@endsection
+	@section("content")
+    <div class="page-wrapper">
+        <div class="page-content">
+         
+			
+			<div class="row row-cols-12 row-cols-md-12 row-cols-lg-12 row-cols-xl-12">
+				<div class="col">
+					<h6 class="mb-0 text-uppercase">Notifications</h6>
+					<hr/>
+					<div class="card">
+						<div class="card-body">
+							<ul class="nav nav-tabs nav-primary" role="tablist">
+								<li class="nav-item" role="presentation">
+									<a class="nav-link active" data-bs-toggle="tab" href="#primaryhome" role="tab" aria-selected="true">
+										<div class="d-flex align-items-center">
+											<div class="tab-icon"><i class='bx bx-home font-18 me-1'></i>
+											</div>
+											<div class="tab-title">Trademark Procedure</div>
+										</div>
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" data-bs-toggle="tab" href="#primaryprofile" role="tab" aria-selected="false">
+										<div class="d-flex align-items-center">
+											<div class="tab-icon"><i class='bx bx-user-pin font-18 me-1'></i>
+											</div>
+											<div class="tab-title">Trademark Actual</div>
+										</div>
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" data-bs-toggle="tab" href="#primarycontact" role="tab" aria-selected="false">
+										<div class="d-flex align-items-center">
+											<div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+											</div>
+											<div class="tab-title">Contact</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+							<div class="tab-content py-3">
+								{{-- Trademark Procedure --}}
+								<div class="tab-pane fade show active" id="primaryhome" role="tabpanel">
+									<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
+								</div>
+								{{-- Trademark Actual --}}
+								<div class="tab-pane fade" id="primaryprofile" role="tabpanel">
+									<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+								</div>
+									{{-- Trademark Priority --}}
+								<div class="tab-pane fade" id="primarycontact" role="tabpanel">
+									<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+				</div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section("script")
+@section("script")
+
+<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+
+<script>
+
+$("input:checkbox").attr("checked",false).click(function(){
+			var shcolumn="."+$(this).attr("name");
+			$(shcolumn).toggle();
+		});
+
+$(document).ready(function() {
+	$('#tbAdresse ').DataTable( {
+
+		dom: 'Bfrtip',
+		buttons: [
+			'print','excel','pdf','copy'
+		]
+	} );
+} );
+
+$(document).ready(function() {
+	
+
+
+	// Setup - add a text input to each header cell
+	$('#tbAdresse thead th').each(function() 
+	
+	{
+		var title = $(this).text();
+		$(this).html('<input type="text"   placeholder="Search ' + title + '" />');
+		
+	});
+
+	// DataTable
+	var table = $('#tbAdresse').DataTable();
+	
+	//Entires
+
+
+	// Apply the search
+	table.columns().every(function() {
+		var that = this;
+
+		$('input', this.header()).on('keypress change', function(e) {
+			
+		var keycode = e.which;
+		//launch search action only when enter is pressed
+		if (keycode == '13') {
+			console.log('enter key pressed !')
+			if (that.search() !== this.value) {
+			that
+				.search(this.value)
+				.draw();
+			}
+		}
+
+		});
+	});
+	});
+
+	$(function() {                   
+             $("#start-date").datepicker({
+              dateFormat: "dd/mm/yy",
+               maxDate: 0,
+              onSelect: function (date) {
+                  var dt2 = $('#end-date');
+                  var startDate = $(this).datepicker('getDate');
+                  var minDate = $(this).datepicker('getDate');
+                  if (dt2.datepicker('getDate') == null){
+                    dt2.datepicker('setDate', minDate);
+                  }              
+                  //dt2.datepicker('option', 'maxDate', '0');
+                  dt2.datepicker('option', 'minDate', minDate);
+              }
+            });
+            $('#end-date').datepicker({
+                dateFormat: "dd/mm/yy",
+                maxDate: 0
+            });           
+         });
+	
+
+
+</script>
+@endsection
+
+
+
+
+
+
+    <script src="{{ asset('admin_dashboard_assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/plugins/chartjs/js/Chart.min.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/plugins/chartjs/js/Chart.extension.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/js/index.js') }}"></script>
+@endsection

@@ -173,7 +173,7 @@
                         <div class="">Import</div>
                     </a>
                 </li> -->
-                <hr>
+            
                 
                 <li>
                     <a href="{{ route('home') }}">
@@ -181,6 +181,31 @@
                         <div class="" style="color: black">Visit Site</div>
                     </a>
                 </li>
+                <hr>
+                <li>
+                    @php
+                    $id = Auth::user()->id;
+                     $adminData = App\Models\User::find($id);
+                     @endphp
+                    <a href="{{route('user.logout')}}">
+                    <div class="parent-icon"><i style="color:red" class='bx bx-log-out-circle'></i></div>
+                        <div style="color:red" class="">Logout</div>
+                    </a>
+                </li> 
+                <hr>
+                <li>
+                    @php
+                    $id = Auth::user()->id;
+                     $adminData = App\Models\User::find($id);
+                     @endphp
+                    <div style="text-align: center"><h5>Welcome Back</h5></div>
+                     <div class="parent-icon">
+                      <img src="{{$adminData->img }}" alt="">
+                    </div>
+                   
+               
+                </li>
+                 
 
 
             </ul>
