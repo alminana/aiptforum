@@ -58,57 +58,81 @@
                                 <tbody>
                                 
                                  @forelse ($pasts as $past)
-                              
-                              
-                                                  <td class="aiptref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
-                                                  <td class="clientref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->clientref}}</a></td>
-                                                  <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->title}}</a></td>
-                                                  <td class="client"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->client}}</a></td>
+                                                @php
+                                                      $expire = strtotime($past->annual_deadline);
+                                                      $today = strtotime("today midnight");
+                                                      $day_diff = $today - $expire; 
+                                                      $default  =  strtotime("01/01/0001");                               
+                                                      $color = "";
+                                                      $deadline = "Deadline";
+                                                      $upcomming = "Upcoming";
+                                                      $safe = "01/01/0001";
+                                                      $done = "done";
+                                                      if(($expire == $default)){
+                                                     
+                                                      $color = "color:black;background-color:green;";
+                                                    }elseif($today == $expire){
+                                                 
+                                                      $color = "color:black;background-color:orange;";
+                                                    } elseif ($day_diff <= 30) {
+                                                    
+                                                      $color = "color:black;background-color:yellow;";
+                                                    }	elseif ($today >= $expire) {
                                                   
-                                                  <td   class="annual_deadline">
-                                                    <a style="font-weight:bold; align-item:center; font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">
+                                                      $color = "display:none";
+                                                    }	
+                                                          
+                                                    @endphp
+                              
+                                                  <td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
+                                                  <td style="{{ $color }}" class="clientref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->clientref}}</a></td>
+                                                  <td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->title}}</a></td>
+                                                  <td style="{{ $color }}" class="client"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->client}}</a></td>
+                                                  
+                                                  <td  style="{{ $color }}"  class="annual_deadline">
+                                                    <a style="; align-item:center; font-size:12; color: black; " href="/past/{{ $past->id }}">
                                                       @php
-                                                        $expire = strtotime($past->annual_deadline);
-                                                        $today = strtotime("today midnight");
-                                                        $day_diff = $today - $expire; 
-                                                        $default  =  strtotime("01/01/0001");                               
-                                                        $color = "";
-                                                        $deadline = "Deadline";
-                                                        $upcomming = "Upcoming";
-                                                        $safe = "01/01/0001";
-                                                        $done = "done";
-                                                        if(($expire == $default)){
-                                                        echo "No Deadline";
-                                                        $color = "color:black;background-color:green;";
-                                                      }elseif($today == $expire){
-                                                        echo "DueDate ";
-                                                        $color = "color:black;background-color:orange;";
-                                                      } elseif ($day_diff <= 30) {
-                                                        echo "Upcoming";
-                                                        $color = "color:black;background-color:yellow;";
-                                                      }	elseif ($today >= $expire) {
-                                                        echo "Expired";
-                                                        $color = "color:black;background-color:red;";
-                                                      }	
-                                                            
-                                                      @endphp
+                                                      $expire = strtotime($past->annual_deadline);
+                                                      $today = strtotime("today midnight");
+                                                      $day_diff = $today - $expire; 
+                                                      $default  =  strtotime("01/01/0001");                               
+                                                      $color = "";
+                                                      $deadline = "Deadline";
+                                                      $upcomming = "Upcoming";
+                                                      $safe = "01/01/0001";
+                                                      $done = "done";
+                                                      if(($expire == $default)){
+                                                      echo "No Deadline";
+                                                      $color = "color:black;background-color:green;";
+                                                    }elseif($today == $expire){
+                                                      echo "DueDate ";
+                                                      $color = "color:black;background-color:orange;";
+                                                    } elseif ($day_diff <= 30) {
+                                                      echo "Upcoming";
+                                                      $color = "color:black;background-color:yellow;";
+                                                    }	elseif ($today >= $expire) {
+                                                      echo "Expired";
+                                                      $color = "display:none";
+                                                    }	
+                                                          
+                                                    @endphp
                                                       <span> - {{$past->annual_deadline}}</span>  
                                                       </a>
                                                   </td>
 
                                                 
-                                                  <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->regular_no}}</a></td>
+                                                  <td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->regular_no}}</a></td>
 
-                                                  <td class="filingno"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->filingno}}</a></td>
-                                                  <td class="procedure"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->procedure}}</a></td>
+                                                  <td style="{{ $color }}" class="filingno"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->filingno}}</a></td>
+                                                  <td style="{{ $color }}" class="procedure"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->procedure}}</a></td>
                   
                                                 
                                               
-                                                  <td class="country"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->country}}</a></td>
+                                                  <td style="{{ $color }}" class="country"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->country}}</a></td>
                   
                                            
                                                   
-                                                  <td>
+                                                  <td style="{{ $color }}">
                                                     <div class="d-flex order-actions">
                                                       <a href="{{ route('past.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>	
                                                      {{-- <form method='post' action="{{ route('past.destroy', $past) }}" id='delete_form_{{ $past->id }}'>
