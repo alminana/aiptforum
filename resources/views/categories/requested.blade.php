@@ -31,64 +31,74 @@
 								<tbody>
 									@forelse($posts as $post)
 									@php
-									$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
-									$expire = strtotime($post->proceduredate);
-									$today = strtotime("today midnight");
-									$day_diff = $today - $expire;                                    
-									$color = "";
-								
-									if ($today >= $expire) {
-										$color = "color:black;background-color:#D99594;";
-									}elseif ($remaining < 7 ) {
-										$color = "color:black;background-color:#FFFF00;";
-									} elseif ($expire >= 30) {
-										$color = "color:black;background-color:#92D050;";
-									}
-									@endphp
+                                                        $expire = strtotime($post->requesteddate);
+                                                        $today = strtotime("today midnight");
+                                                        $day_diff = $today - $expire; 
+                                                        $default  =  strtotime("01/01/0001");                               
+                                                        $color = "";
+                                                        $deadline = "Deadline";
+                                                        $upcomming = "Upcoming";
+                                                        $safe = "01/01/0001";
+                                                        $done = "done";
+                                                        if(($expire == $default)){
+                                                      
+                                                        $color = "color:black;background-color:green;";
+                                                      }elseif($today == $expire){
+                                                       
+                                                        $color = "color:black;background-color:orange;";
+                                                      } elseif ($day_diff <= 30) {
+                                                    
+                                                        $color = "color:black;background-color:yellow;";
+                                                      }	elseif ($today >= $expire) {
+                                                       
+														$color = "display:none";
+                                                      }	
+                                                            
+                                                      @endphp
 									<tr>
 								  
-									<td class="aiptref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{$post->aiptref}}</a></td>
-									<td class="clientref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
-									<td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
-									<td class="status"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->status }}</a></td>
+									<td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{$post->aiptref}}</a></td>
+									<td style="{{ $color }}" class="clientref"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
+									<td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
+									<td style="{{ $color }}" class="status"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{ $post->status }}</a></td>
 								   
-									<td  class="requesteddate">
+									<td style="{{ $color }}" class="requesteddate">
 										<a style="font-size:15; color:black; "  href="{{ route('post.show', $post) }}">
 											@php
-													$expire = strtotime($post->requesteddate);
-													$today = strtotime("today midnight");
-													$day_diff = $today - $expire; 
-													$default  =  strtotime("01/01/0001");                               
-													$color = "";
-													$deadline = "Deadline";
-													$upcomming = "Upcoming";
-													$safe = "01/01/0001";
-													$done = "done";
-															if(($expire == $default)){
-																echo "No Deadline";
-																$color = "color:black;background-color:green;";
-															}elseif($today == $expire){
-																echo "DueDate ";
-																$color = "color:black;background-color:orange;";
-															} elseif ($day_diff <= 30) {
-																echo "Upcoming";
-																$color = "color:black;background-color:yellow;";
-															}	elseif ($today >= $expire) {
-																echo "Expired";
-																$color = "color:black;background-color:red;";
-															}	
-															
-												@endphp
+                                                        $expire = strtotime($post->requesteddate);
+                                                        $today = strtotime("today midnight");
+                                                        $day_diff = $today - $expire; 
+                                                        $default  =  strtotime("01/01/0001");                               
+                                                        $color = "";
+                                                        $deadline = "Deadline";
+                                                        $upcomming = "Upcoming";
+                                                        $safe = "01/01/0001";
+                                                        $done = "done";
+                                                        if(($expire == $default)){
+                                                        echo "No Deadline";
+                                                        $color = "color:black;background-color:green;";
+                                                      }elseif($today == $expire){
+                                                        echo "DueDate ";
+                                                        $color = "color:black;background-color:orange;";
+                                                      } elseif ($day_diff <= 30) {
+                                                        echo "Upcoming";
+                                                        $color = "color:black;background-color:yellow;";
+                                                      }	elseif ($today >= $expire) {
+                                                        echo "Expired";
+														$color = "display:none";
+                                                      }	
+                                                            
+                                                      @endphp
 											<span> - {{ $post->requesteddate }}</span>
 											</a>
 									</td>
 	
 								
 									
-									<td class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
-									<td class="class"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->class }}</a></td>
-									<td class="excerpt"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->excerpt }}</a></td>
-									<td class="country"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->country }}</a></td>
+									<td style="{{ $color }}" class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; "  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
+									<td style="{{ $color }}" class="class"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; "  href="{{ route('post.show', $post) }}">{{ $post->class }}</a></td>
+									<td style="{{ $color }}" class="excerpt"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; "  href="{{ route('post.show', $post) }}">{{ $post->excerpt }}</a></td>
+									<td style="{{ $color }}" class="country"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; "  href="{{ route('post.show', $post) }}">{{ $post->country }}</a></td>
 								</tr>
 								@empty
 								<p class='lead'>There are no Application to show.</p>
