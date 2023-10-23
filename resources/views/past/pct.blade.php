@@ -9,7 +9,7 @@
         <div class="page-content">
          
 			<form method="GET" action="{{ route('past.pct') }}" id="myForm">
-       <p>PCT Deadline</p>
+        <p>Actual Deadline</p>
 				<hr/>
         <div class="table-responsive">
           <table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
@@ -20,8 +20,8 @@
               <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
               <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Title</th>
               <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>
-              <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">PCT Date</th>
-              <th class="pct_no" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">PCT no</th>
+              <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
+
 
               <th class="regular_no" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Regular no</th>
               <th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing no.</th>
@@ -42,8 +42,8 @@
                                       <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
                                       <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Title</th>
                                       <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>
-                                      <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">PCT Date</th>
-                                      <th class="pct_no" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">PCT no</th>
+                                      <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
+
                         
                                       <th class="regular_no" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Regular no</th>
                                       <th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing no.</th>
@@ -59,57 +59,80 @@
                                 
                                  @forelse ($pasts as $past)
                               
-                              
-                                                  <td class="aiptref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
-                                                  <td class="clientref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->clientref}}</a></td>
-                                                  <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->title}}</a></td>
-                                                  <td class="client"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->client}}</a></td>
+                                 @php
+                                 $expire = strtotime($past->pct_date);
+                                 $today = strtotime("today midnight");
+                                 $day_diff = $today - $expire; 
+                                 $default  =  strtotime("01/01/0001");                               
+                                 $color = "";
+                                 $deadline = "Deadline";
+                                 $upcomming = "Upcoming";
+                                 $safe = "01/01/0001";
+                                 $done = "done";
+                                 if(($expire == $default)){
+                               
+                                 $color = "color:black;background-color:green;";
+                               }elseif($today == $expire){
+                                
+                                 $color = "color:black;background-color:orange;";
+                               } elseif ($day_diff <= 30) {
+                             
+                                 $color = "color:black;background-color:yellow;";
+                               }	elseif ($today >= $expire) {
+                                
+                                $color = "display:none";
+                               }	
+                                     
+                               @endphp
+                                                  <td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
+                                                  <td style="{{ $color }}" class="clientref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->clientref}}</a></td>
+                                                  <td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->title}}</a></td>
+                                                  <td style="{{ $color }}" class="client"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->client}}</a></td>
                                                   
-                                                  <td   class="pct_date">
-                                                    <a style="font-weight:bold; align-item:center; font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">
+                                                  <td style="{{ $color }}"  class="proceduredate">
+                                                    <a style="; align-item:center; font-size:12; color: black; " href="/past/{{ $past->id }}">
                                                       @php
-                                                        $expire = strtotime($past->pct_date);
-                                                        $today = strtotime("today midnight");
-                                                        $day_diff = $today - $expire; 
-                                                        $default  =  strtotime("01/01/0001");                               
-                                                        $color = "";
-                                                        $deadline = "Deadline";
-                                                        $upcomming = "Upcoming";
-                                                        $safe = "01/01/0001";
-                                                        $done = "done";
-                                                        if(($expire == $default)){
-                                                        echo "No Deadline";
-                                                        $color = "color:black;background-color:green;";
-                                                      }elseif($today == $expire){
-                                                        echo "DueDate ";
-                                                        $color = "color:black;background-color:orange;";
-                                                      } elseif ($day_diff <= 30) {
-                                                        echo "Upcoming";
-                                                        $color = "color:black;background-color:yellow;";
-                                                      }	elseif ($today >= $expire) {
-                                                        echo "Expired";
-                                                        $color = "color:black;background-color:red;";
-                                                      }	
-                                                            
-                                                      @endphp
+                                                      $expire = strtotime($past->pct_date);
+                                                      $today = strtotime("today midnight");
+                                                      $day_diff = $today - $expire; 
+                                                      $default  =  strtotime("01/01/0001");                               
+                                                      $color = "";
+                                                      $deadline = "Deadline";
+                                                      $upcomming = "Upcoming";
+                                                      $safe = "01/01/0001";
+                                                      $done = "done";
+                                                      if(($expire == $default)){
+                                                      echo "No Deadline";
+                                                      $color = "color:black;background-color:green;";
+                                                    }elseif($today == $expire){
+                                                      echo "DueDate ";
+                                                      $color = "color:black;background-color:orange;";
+                                                    } elseif ($day_diff <= 30) {
+                                                      echo "Upcoming";
+                                                      $color = "color:black;background-color:yellow;";
+                                                    }	elseif ($today >= $expire) {
+                                                      echo "Expired";
+                                                      $color = "display:none";
+                                                    }	
+                                                          
+                                                    @endphp
                                                       <span> - {{$past->pct_date}}</span>  
                                                       </a>
                                                   </td>
-                                                  <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->pct_no}}</a></td>
 
                                                 
-                                                  <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->regular_no}}</a></td>
+                                                  <td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->regular_no}}</a></td>
 
-                                                  <td class="filingno"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->filingno}}</a></td>
-                                                  <td class="procedure"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->procedure}}</a></td>
+                                                  <td style="{{ $color }}" class="filingno"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->filingno}}</a></td>
+                                                  <td style="{{ $color }}" class="procedure"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->procedure}}</a></td>
                   
                                                 
                                               
-                                                  <td class="country"><a style="font-size:12; color: blueviolet; font-weight:bold" href="/past/{{ $past->id }}">{{$past->country}}</a></td>
+                                                  <td style="{{ $color }}" class="country"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->country}}</a></td>
                   
                                            
                                                   
-                                                  <td>
+                                                  <td style="{{ $color }}">
                                                     <div class="d-flex order-actions">
                                                       <a href="{{ route('past.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>	
                                                      {{-- <form method='post' action="{{ route('past.destroy', $past) }}" id='delete_form_{{ $past->id }}'>
