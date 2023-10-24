@@ -517,20 +517,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-3">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <label for="inputProductDescription" class="form-label">Upload Files</label><br>
-                                                    <label for="inputProductTitle" class="form-label">Check the image before you save it to Avoid corrupted</label>
-                                                    <input id='thumbnail'  name='thumbnail' id="file" type="file">
-
-                                                    @error('thumbnail')
-                                                        <p class='text-danger'>{{ $message }}</p>
-                                                    @enderror
-
-                                                </div>
-                                            </div>
-                                        </div>
+                            
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Status</label>
                                             <div class="card">
