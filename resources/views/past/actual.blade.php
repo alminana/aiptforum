@@ -71,17 +71,17 @@
                                  $done = "done";
                                  if(($expire == $default)){
                                
-                                 $color = "display:none";
-                               }elseif($today == $expire){
+                                  $color = "color:black;background-color:white;";
+                                  }elseif($today == $expire){
+                                    
+                                    $color = "color:black;background-color:orange;";
+                                  } elseif ($day_diff <= 30) {
                                 
-                                 $color = "color:black;background-color:orange;";
-                               } elseif ($day_diff <= 30) {
-                             
-                                 $color = "color:black;background-color:yellow;";
-                               }	elseif ($today >= $expire) {
-                                
-                                $color = "display:none";
-                               }	
+                                    $color = "color:black;background-color:yellow;";
+                                  }	elseif ($today >= $expire) {
+                                    
+                                    $color = "display:none";
+                                  }	
                                      
                                @endphp
                                                   <td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
@@ -103,7 +103,7 @@
                                                       $done = "done";
                                                       if(($expire == $default)){
                                                       echo "No Deadline";
-                                                      $color = "display:none";
+                                                      $color = "color:black;background-color:white;";
                                                     }elseif($today == $expire){
                                                       echo "DueDate ";
                                                       $color = "color:black;background-color:orange;";
