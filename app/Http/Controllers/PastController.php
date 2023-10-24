@@ -113,7 +113,7 @@ class PastController extends Controller
 
     public function patentpct(Request $request)
     {
-        $past = Past::latest()->get();
+        $past = Past::all()->get();
         $method = Method::latest()->take(1000)->get();
         $client = Client::latest()->take(1000)->get();
 
@@ -131,7 +131,7 @@ class PastController extends Controller
 
     public function patentregular(Request $request)
     {
-        $past = Past::latest()->get();
+        $past = Past::all()->get();
         $method = Method::latest()->take(1000)->get();
         $client = Client::latest()->take(1000)->get();
 
@@ -149,7 +149,7 @@ class PastController extends Controller
 
     public function patentrequest(Request $request)
     {
-        $past = Past::latest()->get();
+        $past = Past::all()->get();
         $method = Method::latest()->take(1000)->get();
         $client = Client::latest()->take(1000)->get();
 
@@ -169,7 +169,7 @@ class PastController extends Controller
     public function patentactual(Request $request)
     {
       
-        $past = Past::latest()->get();
+        $past = Past::all()->get();
         $method = Method::latest()->take(1000)->get();
         $client = Client::latest()->take(1000)->get();
 
@@ -187,7 +187,7 @@ class PastController extends Controller
 
     public function patentannual(Request $request)
     {
-        $past = Past::latest()->get();
+        $past = Past::all()->get();
         $method = Method::latest()->take(1000)->get();
         $client = Client::latest()->take(1000)->get();
 
