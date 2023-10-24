@@ -110,7 +110,7 @@
                                         <th style="font-size:11px;">Method</th>
 										<th style="font-size:11px;">Requested Deadline</th>
 										<th style="font-size:11px;">Actual Deadline</th>
-                                        <th style="font-size:11px;">Type</th>
+                                        {{-- <th style="font-size:11px;">Type</th> --}}
 										<th style="font-size:11px;">Filing no:</th>
                                         <th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Client</th> 
@@ -170,7 +170,7 @@
 							
                                 {{date('m/d/Y',strtotime(($item->proceduredate)))}} 
                                  </a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="" >{{$item->category->name}}</a></td>
+								{{-- <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->category->name}}</a></td> --}}
 								<td style="font-size:11px;"><a style="color:black;"href="" >{{$item->slug}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->class}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->excerpt}}</a></td>
