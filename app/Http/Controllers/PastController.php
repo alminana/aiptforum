@@ -113,7 +113,7 @@ class PastController extends Controller
 
     public function patentpct(Request $request)
     {
-        $past = Past::all()->get();
+        $past = Past::latest()->get();
         $method = Method::latest()->take(1000)->get();
         $client = Client::latest()->take(1000)->get();
 
