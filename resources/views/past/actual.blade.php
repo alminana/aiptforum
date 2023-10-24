@@ -100,7 +100,7 @@
                                                       $color = "color:black;background-color:yellow;";
                                                     }	elseif ($today >= $expire) {
                                                       echo "Expired";
-                                                      $color = "dislapy:none";
+                                                      $color = "display:none";
                                                     }	
                                                           
                                                     @endphp
