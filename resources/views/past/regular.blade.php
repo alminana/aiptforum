@@ -71,17 +71,17 @@
                                       $done = "done";
                                       if(($expire == $default)){
                                   
-                                        $color = "color:black;background-color:white;";
-                                    }elseif($today == $expire){
-                                   
-                                      $color = "color:black;background-color:orange;";
-                                    } elseif ($day_diff <= 30) {
+                                          $color = "color:black;background-color:white;";
+                                      }elseif($today == $expire){
                                     
-                                      $color = "color:black;background-color:yellow;";
-                                    }	elseif ($today >= $expire) {
-                                  
-                                      $color = "display:none";
-                                    }	
+                                        $color = "color:black;background-color:orange;";
+                                      } elseif ($day_diff <= 30) {
+                                      
+                                        $color = "color:black;background-color:yellow;";
+                                      }	elseif ($today >= $expire) {
+                                    
+                                        $color = "display:none;";
+                                      }	
                                           
                                     @endphp
                               
@@ -114,7 +114,7 @@
                                                         $color = "color:black;background-color:yellow;";
                                                       }	elseif ($today >= $expire) {
                                                         echo "Expired";
-                                                        $color = "display:none";
+                                                        $color = "display:none;";
                                                       }	
                                                             
                                                       @endphp

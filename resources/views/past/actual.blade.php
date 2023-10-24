@@ -70,6 +70,19 @@
                                  $safe = "01/01/0001";
                                  $done = "done";
                                
+                                 if(($expire == $default)){
+                                   echo "No Deadline";
+                                   $color = "color:black;background-color:white;";
+                                   }elseif($today == $expire){
+                                   echo "DueDate ";
+                                   $color = "color:black;background-color:orange;";
+                                   } elseif ($day_diff <= 30) {
+                                   echo "Upcoming";
+                                   $color = "color:black;background-color:yellow;";
+                                   }	elseif ($today >= $expire) {
+                                   echo "Expired";
+                                   $color = "display:none;";
+                                    }	
                                      
                                @endphp
                                                   <td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
@@ -100,7 +113,7 @@
                                                       $color = "color:black;background-color:yellow;";
                                                     }	elseif ($today >= $expire) {
                                                       echo "Expired";
-                                                      $color = "display:none";
+                                                      $color = "display:none;";
                                                     }	
                                                           
                                                     @endphp
