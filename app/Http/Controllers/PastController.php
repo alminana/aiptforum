@@ -118,15 +118,15 @@ class PastController extends Controller
         $client = Client::latest()->take(1000)->get();
 
         $currentDate = Carbon::now();
-        $deadlineThreshold = $currentDate->addDays(7);
-        $pasts= Past::whereDate('pct_date', '<=', $deadlineThreshold)->get();
+        $deadlineThreshold = $currentDate->addDays(30);
+        $past= Past::whereDate('pct_date', '<=', $deadlineThreshold)->get();
  
 
         return view('past.pct', [
             'pasts' => Past::latest()->get(),
             'clients'=> Client::all(),
             'method'=> Method::all(),
-        ], compact('pasts','client', 'method'));
+        ], compact('past','client', 'method'));
     }
 
     public function patentregular(Request $request)
@@ -136,15 +136,15 @@ class PastController extends Controller
         $client = Client::latest()->take(1000)->get();
 
         $currentDate = Carbon::now();
-        $deadlineThreshold = $currentDate->addDays(15);
-        $pasts= Past::whereDate('pct_date', '<=', $deadlineThreshold)->get();
+        $deadlineThreshold = $currentDate->addDays(30);
+        $past = Past::whereDate('pct_date', '<=', $deadlineThreshold)->get();
  
 
         return view('past.regular', [
             'pasts' => Past::latest()->get(),
             'clients'=> Client::all(),
             'method'=> Method::all(),
-        ], compact('pasts','client', 'method'));
+        ], compact('past','client', 'method'));
     }
 
     public function patentrequest(Request $request)
@@ -154,15 +154,15 @@ class PastController extends Controller
         $client = Client::latest()->take(1000)->get();
 
         $currentDate = Carbon::now();
-        $deadlineThreshold = $currentDate->addDays(15);
-        $pasts= Past::whereDate('requesteddate', '<=', $deadlineThreshold)->get();
+        $deadlineThreshold = $currentDate->addDays(30);
+        $past= Past::whereDate('requesteddate', '<=', $deadlineThreshold)->get();
  
 
         return view('past.requested', [
             'pasts' => Past::latest()->get(),
             'clients'=> Client::all(),
             'method'=> Method::all(),
-        ], compact('pasts','client', 'method'));
+        ], compact('past','client', 'method'));
     }
 
 
@@ -174,15 +174,15 @@ class PastController extends Controller
         $client = Client::latest()->take(1000)->get();
 
         $currentDate = Carbon::now();
-        $deadlineThreshold = $currentDate->addDays(15);
-        $pasts= Past::whereDate('proceduredate', '<=', $deadlineThreshold)->get();
+        $deadlineThreshold = $currentDate->addDays(30);
+        $past= Past::whereDate('proceduredate', '<=', $deadlineThreshold)->get();
  
 
         return view('past.actual', [
             'pasts' => Past::latest()->get(),
             'clients'=> Client::all(),
             'method'=> Method::all(),
-        ], compact('pasts','client', 'method'));
+        ], compact('past','client', 'method'));
     }
 
     public function patentannual(Request $request)
@@ -192,15 +192,17 @@ class PastController extends Controller
         $client = Client::latest()->take(1000)->get();
 
         $currentDate = Carbon::now();
-        $deadlineThreshold = $currentDate->addDays(15);
-        $pasts= Past::whereDate('annual_deadline', '<=', $deadlineThreshold)->get();
+        $deadlineThreshold = $currentDate->addDays(30);
+        $past= Past::whereDate('annual_deadline', '<=', $deadlineThreshold)->get();
  
 
         return view('past.annual', [
             'pasts' => Past::latest()->get(),
             'clients'=> Client::all(),
             'method'=> Method::all(),
-        ], compact('pasts','client', 'method'));
+        ], compact('past','client', 'method'));
     }
 
-}
+
+
+   }

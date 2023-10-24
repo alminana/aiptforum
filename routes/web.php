@@ -68,6 +68,11 @@ Route::get('/regular/patent/deadline',[PastController::class, 'patentregular'])-
 Route::get('/request/patent/deadline',[PastController::class, 'patentrequest'])->name('past.request');
 Route::get('/actual/patent/deadline',[PastController::class, 'patentactual'])->name('past.actual');
 Route::get('/annual/patent/deadline',[PastController::class, 'patentannual'])->name('past.annual');
+
+
+
+
+
 // Front User Routes
 // Route::get('/', function () {
 //     return view('auth.login');

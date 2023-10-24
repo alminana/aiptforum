@@ -9,7 +9,9 @@
         <div class="page-content">
          
 			<form method="GET" action="{{ route('past.actual') }}" id="myForm">
-        <p>Actual Deadline</p>
+
+        <p> Actaul Deadline: Input in the Actual Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
+
 				<hr/>
         <div class="table-responsive">
           <table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
@@ -71,18 +73,18 @@
                                  $done = "done";
                                
                                  if(($expire == $default)){
-                                   echo "No Deadline";
-                                   $color = "color:black;background-color:white;";
-                                   }elseif($today == $expire){
-                                   echo "DueDate ";
-                                   $color = "color:black;background-color:orange;";
-                                   } elseif ($day_diff <= 30) {
-                                   echo "Upcoming";
-                                   $color = "color:black;background-color:yellow;";
-                                   }	elseif ($today >= $expire) {
-                                   echo "Expired";
-                                   $color = "color:black;background-color:red;";
-                                    }	
+                                                      echo "No Deadline";
+                                                      $color = "color:black;background-color:white;";
+                                                    }elseif($today == $expire){
+                                                      echo "DueDate ";
+                                                      $color = "color:black;background-color:#ffab91;";
+                                                    } elseif ($day_diff <= 30) {
+                                                      echo "Upcoming";
+                                                      $color = "color:black;background-color:#faf3c0;";
+                                                    }	elseif ($today >= $expire) {
+                                                      echo "Expired";
+                                                      $color = "color:black;background-color:#ffb3b3;";
+                                                    }	
                                      
                                @endphp
                                                   <td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
@@ -107,13 +109,13 @@
                                                       $color = "color:black;background-color:white;";
                                                     }elseif($today == $expire){
                                                       echo "DueDate ";
-                                                      $color = "color:black;background-color:orange;";
+                                                      $color = "color:black;background-color:#ffab91;";
                                                     } elseif ($day_diff <= 30) {
                                                       echo "Upcoming";
-                                                      $color = "color:black;background-color:yellow;";
+                                                      $color = "color:black;background-color:#faf3c0;";
                                                     }	elseif ($today >= $expire) {
                                                       echo "Expired";
-                                                      $color = "color:black;background-color:red;";
+                                                      $color = "color:black;background-color:#ffb3b3;";
                                                     }	
                                                           
                                                     @endphp

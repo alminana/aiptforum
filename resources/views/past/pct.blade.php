@@ -7,11 +7,13 @@
 	@section("content")
     <div class="page-wrapper">
         <div class="page-content">
-         
+
 			<form method="GET" action="{{ route('past.pct') }}" id="myForm">
-        <p>Actual Deadline</p>
-				<hr/>
+        <p> PCT Deadline: Input in the PCT Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
+        <hr/>
+    
         <div class="table-responsive">
+          
           <table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
             <thead>
             <tr role="row">
@@ -74,13 +76,13 @@
                                   $color = "color:black;background-color:white;";
                                }elseif($today == $expire){
                                 
-                                 $color = "color:black;background-color:orange;";
+                                 $color = "color:black;background-color:#ffab91;";
                                } elseif ($day_diff <= 30) {
                              
-                                 $color = "color:black;background-color:yellow;";
+                                 $color = "color:black;background-color:#faf3c0;";
                                }	elseif ($today >= $expire) {
                                 
-                                $color = "color:black;background-color:red;";
+                                $color = "color:black;background-color:#ffb3b3;";
                                }	
                                      
                                @endphp
@@ -106,13 +108,13 @@
                                                       $color = "color:black;background-color:white;";
                                                     }elseif($today == $expire){
                                                       echo "DueDate ";
-                                                      $color = "color:black;background-color:orange;";
+                                                      $color = "color:black;background-color:#ffab91;";
                                                     } elseif ($day_diff <= 30) {
                                                       echo "Upcoming";
-                                                      $color = "color:black;background-color:yellow;";
+                                                      $color = "color:black;background-color:#faf3c0;";
                                                     }	elseif ($today >= $expire) {
                                                       echo "Expired";
-                                                      $color = "color:black;background-color:red;";
+                                                      $color = "color:black;background-color:#ffb3b3;";
                                                     }	
                                                           
                                                     @endphp
@@ -183,6 +185,10 @@
 
 <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+
+
+
+
 
 <script>
 

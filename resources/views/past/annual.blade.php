@@ -9,7 +9,8 @@
         <div class="page-content">
          
 			<form method="GET" action="{{ route('past.annual') }}" id="myForm">
-        <p>Annual Deadline</p>
+        <p>Annual Deadline: Please input in the Annual Deadline Date Search Column Upcoming, DueDate, No Deadline and Expired  </p> 
+
 				<hr/>
         <div class="table-responsive">
           <table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
@@ -69,17 +70,17 @@
                                                       $safe = "01/01/0001";
                                                       $done = "done";
                                                       if(($expire == $default)){
-                                                     
-                                                        $color = "color:black;background-color:white;";
+                                                      echo "No Deadline";
+                                                      $color = "color:black;background-color:white;";
                                                     }elseif($today == $expire){
-                                                 
-                                                      $color = "color:black;background-color:orange;";
+                                                      echo "DueDate ";
+                                                      $color = "color:black;background-color:#ffab91;";
                                                     } elseif ($day_diff <= 30) {
-                                                    
-                                                      $color = "color:black;background-color:yellow;";
+                                                      echo "Upcoming";
+                                                      $color = "color:black;background-color:#faf3c0;";
                                                     }	elseif ($today >= $expire) {
-                                                  
-                                                      $color = "color:black;background-color:red;";
+                                                      echo "Expired";
+                                                      $color = "color:black;background-color:#ffb3b3;";
                                                     }	
                                                           
                                                     @endphp
@@ -106,13 +107,13 @@
                                                       $color = "color:black;background-color:white;";
                                                     }elseif($today == $expire){
                                                       echo "DueDate ";
-                                                      $color = "color:black;background-color:orange;";
+                                                      $color = "color:black;background-color:#ffab91;";
                                                     } elseif ($day_diff <= 30) {
                                                       echo "Upcoming";
-                                                      $color = "color:black;background-color:yellow;";
+                                                      $color = "color:black;background-color:#faf3c0;";
                                                     }	elseif ($today >= $expire) {
                                                       echo "Expired";
-                                                      $color = "color:black;background-color:red;";
+                                                      $color = "color:black;background-color:#ffb3b3;";
                                                     }	
                                                           
                                                     @endphp
