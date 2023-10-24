@@ -37,7 +37,7 @@
                     <div class="d-flex align-items-center">
 						<div class="p-2">
 							<h3 class="font-size-16">
-								<strong style="font-size:12; color: blueviolet; font-weight:bold">
+								<strong style="font-size:12; color: black; f">
 								
 									<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 										<div style="font-weight: 200"  class="breadcrumb-title  pe-3"><a  href="">Trademark</a></div>
@@ -74,6 +74,7 @@
 								<th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
 								<th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
 								<th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
+								<th class="action"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>	
 
                             </tr>
                             </thead>
@@ -96,7 +97,7 @@
 								@endphp
 								<tr>
 									{{-- <td class="deadline" style="{{ $color }}" href="" >
-										<a style="font-weight:bold; align-item:center; font-size:12; color:black;" href="{{ route('post.show', $post) }}">
+										<a style="f; align-item:center; font-size:12; color:black;" href="{{ route('post.show', $post) }}">
 
 											<span class="badge bg-gradient-quepal text-white shadow-sm w-50">
 												@php
@@ -133,10 +134,10 @@
 										
 											 
 									</td> --}}
-								<td class="aiptref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{$post->aiptref}}</a></td>
-								<td class="clientref"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
-                                <td class="title"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
-                                <td class="status"><a style="font-size:12; color: blueviolet; font-weight:bold" href="{{ route('post.show', $post) }}">{{ $post->status }}</a></td>
+								<td class="aiptref"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{$post->aiptref}}</a></td>
+								<td class="clientref"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
+                                <td class="title"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
+                                <td class="status"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{ $post->status }}</a></td>
                                 {{-- <td class="image">
 								</a>  --}}
 								{{-- <img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg', now()->addMinutes(20))}}" /> --}}
@@ -175,7 +176,7 @@
 								</td>
 
 								<td class="proceduredate">
-									<a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">
+									<a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">
 										@php
 												$expire = strtotime($post->proceduredate);
 												$today = strtotime("today midnight");
@@ -206,11 +207,15 @@
 									</a>
 								</td> --}}
 								
-								<td class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
-								{{-- <td class="registrationno"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->registrationno }}</a></td> --}}
-								<td class="class"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->class }}</a></td>
-								<td class="excerpt"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->excerpt }}</a></td>
-								<td class="country"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: blueviolet; font-weight:bold"  href="{{ route('post.show', $post) }}">{{ $post->country }}</a></td>
+								<td class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
+								{{-- <td class="registrationno"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->registrationno }}</a></td> --}}
+								<td class="class"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->class }}</a></td>
+								<td class="excerpt"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->excerpt }}</a></td>
+								<td class="country"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->country }}</a></td>
+
+								<div class="d-flex order-actions">
+									<td class="action"><a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a></td>
+								</div>
                             </tr>
 							@empty
 							<p class='lead'>There are no Application to show.</p>
