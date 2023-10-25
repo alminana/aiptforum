@@ -224,5 +224,43 @@ class PostsController extends Controller
         $end_date = date('Y-m-d',strtotime($request->end_date));
         return view('deadline.getData',compact('allData','start_date','end_date','categories'));
     }
+
+    public function trademarkRequestfilter(Request $request , Post $posts ){
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
+
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Post::whereBetween('requesteddate',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.trequested',compact('allData','start_date','end_date','categories'));
+    }
+
+    public function trademarkactualfilter(Request $request , Post $posts ){
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
+
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Post::whereBetween('requesteddate',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.tactual',compact('allData','start_date','end_date','categories'));
+    }
    
 }

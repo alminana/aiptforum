@@ -37,16 +37,22 @@
                     <div class="d-flex align-items-center">
 						<div class="p-2">
 							<h3 class="font-size-16">
-								<strong style="font-size:12; color: black; f">
+								<strong style="font-size:12; color: black;f">
 								
 									<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
 										<div style="font-weight: 200"  class="breadcrumb-title  pe-3"><a  href="">Trademark</a></div>
 										<div class="ps-3">
 											<nav aria-label="breadcrumb">
 												<ol class="breadcrumb mb-0 p-0">
-													<li class="breadcrumb-item"><a href="{{route('post.create')}}"><button type="button" class="btn btn-primary">Add New</button></a>
-												 
+													<li class="breadcrumb-item">
+														<a href="{{route('post.create')}}">
+														<button type="button" class="btn btn-primary">Add New</button>
+														<a href="{{ route('deadline.getData') }}">
+															<button type="button" class="btn btn-primary">Filter</button>
+														</a>
+														</a>
 													</li>
+												
 												</ol>
 												
 											</nav>

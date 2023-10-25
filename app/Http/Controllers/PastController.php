@@ -185,21 +185,21 @@ class PastController extends Controller
         ], compact('past','client', 'method'));
     }
 
-    public function patentannual(Request $request)
+    public function patentannual(Request $request ,Past $pasts)
     {
         $past = Past::latest()->take(50)->get();
         $method = Method::latest()->take(1000)->get();
         $client = Client::latest()->take(1000)->get();
 
         $currentDate = Carbon::now();
-        $deadlineThreshold = $currentDate->addDays(30);
+        $deadlineThreshold = $currentDate->subDays(30);
         $past= Past::whereDate('annual_deadline', '<=', $deadlineThreshold)->get();
  
 
         return view('past.annual', [
             'pasts' => Past::latest()->get(),
             'clients'=> Client::all(),
-            'method'=> Method::all(),
+            'method'=> Method::all(),pp
         ], compact('past','client', 'method'));
     }
 

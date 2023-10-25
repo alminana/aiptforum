@@ -9,7 +9,14 @@
         <div class="page-content">
          
 			<form method="GET" action="{{ route('categories.requested') }}" id="myForm">
-				<p> Requested Deadline: Input in the Requested Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
+				<div class="row">
+					<div class="col-10">				
+						<p> Requested Deadline: Input in the Requested Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
+					</div>
+					<div class="col-2">
+						<p><a href="{{ route('deadline.trequested')}}">Filter Deadline</a></p>
+					</div>
+				  </div>
 				<hr/>
 				<div class="card">
 					<div class="card-body">

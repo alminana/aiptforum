@@ -9,8 +9,14 @@
         <div class="page-content">
     
 			<form method="GET" action="{{ route('categories.actual') }}" id="myForm">
-				<p> Actual Deadline: Input in the Actual Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
-				<hr/>
+				<div class="row">
+					<div class="col-10">				
+						<p> Actual Deadline: Input in the Actual Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
+					</div>
+					<div class="col-2">
+						<p><a href="{{ route('deadline.tactual')}}">Filter Deadline</a></p>
+					</div>
+				  </div>				<hr/>
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">

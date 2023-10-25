@@ -135,6 +135,9 @@ Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.de
 
 Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
 
+Route::get('/trademark/Request/filter', [PostsController::class, 'trademarkRequestfilter'])->name('deadline.trequested');
+
+Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactualfilter'])->name('deadline.tactual');
 
 Route::get('/dashboard', [PostsController::class, 'notification'])->name('deadline.notification');
 

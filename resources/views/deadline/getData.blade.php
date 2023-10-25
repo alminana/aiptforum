@@ -15,27 +15,7 @@
 		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="page-content">
-				<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-					@forelse($categories as $category)
-					<div class="col">
-						<div class="card radius-10 border-start border-0 border-3 border-success">
-							<div class="card-body">
-								<div class="d-flex align-items-center">
-									<div>
-										<p class="mb-0 text-secondary"><a href="{{ route('categories.show', $category) }}">{{ $category->name }}</a></p>
-										<h4 class="my-1 text-danger"><a href="{{ route('categories.show', $category) }}">{{ $category->posts_count }}</a><h4>
-									</div>
-									<div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					@empty
-						<p class='lead'>There are no categories to show.</p>
-					@endforelse
-					
-				</div>
+				
 						<!--end row-->
 			<div class="row">
 				<div class="col-12">
@@ -43,7 +23,7 @@
 						<div class="p-2">
 							<h3 class="font-size-16">
 								<strong>
-									Select Date to filter the data 
+									Select Date to filter all the data 
 								</strong>
 						    </h3>
 						</div>
