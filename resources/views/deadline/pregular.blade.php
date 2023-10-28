@@ -288,4 +288,5 @@
     <script src="{{ asset('admin_dashboard_assets/plugins/chartjs/js/Chart.extension.js') }}"></script>
     <script src="{{ asset('admin_dashboard_assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
     <script src="{{ asset('admin_dashboard_assets/js/index.js') }}"></script>
+    
 @endsection

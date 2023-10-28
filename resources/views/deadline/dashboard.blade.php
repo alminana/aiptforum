@@ -120,6 +120,7 @@
                                                                                 <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
                                                                                 <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
                                                                                 <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                                                                <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Procedure</th>
                                                                                 <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Examination Report</th>
                                                                                 <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registrability (%)</th>
                                                                                 <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Our Opinion</th>
@@ -134,12 +135,13 @@
                                                                             <td style="font-size:11px;" ><a style="color:black;" href="" >{{$item->aiptref}}</a></td>
                                                                             <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->clientref}}</a></td>
                                                                             <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->country}}</a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->status}}</a></td>
                                                                             <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
                                                                             <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
                                                                             <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
                                                                             <td style="font-size:11px;">
                                                                                 <div class="d-flex order-actions">
-                                                                                    <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-edit'></i></a>
+                                                                                    <a href="{{ route('admin.categories.edit', $category) }}"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bxs-edit'></i></a>
                                                                                     <a href="{{ route('post.show', $item) }}"><i class='bx bxs-comment-add'></i></a>
                                                                                     <a href="" class=""><i class='bx bxs-cloud-lightning'></i></a>
                                                                                 </div>
@@ -153,9 +155,25 @@
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
-                                                          <!-- Button trigger modal -->
-
-                                                            </div><!-- end card -->
+                                                      
+                                                                <!--end modal-->
+                                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                </div>
+                                                                                <div class="modal-body">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+				                                                <!--end modal-->
+                                                            </div>
                                                         </div>
                                                         </form>
                                                     </div>
