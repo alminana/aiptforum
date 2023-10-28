@@ -271,10 +271,10 @@ class PostsController extends Controller
         $method = Method::latest()->take(1000)->get();
         $clients = Client::latest()->take(1000)->get();
 
-        $searchFiling = 'Filing';
-        $sfiling = Post::where('status', 'like', "%$searchFiling%")->get();
+        $searchFiling = 'Search';
+        $search = Post::where('status', 'like', "%$searchFiling%")->get();
 
-        return view('deadline.dashboard',compact('clients','method','categories','clients','sfiling'));
+        return view('deadline.dashboard',compact('clients','method','categories','clients','$search'));
     }
 
     // public function tfiling(){
