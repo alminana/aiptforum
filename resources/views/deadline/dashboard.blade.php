@@ -113,7 +113,7 @@
                                                           
                                                                 <div class="card-body">
                                                                     <div class="table-responsive">
-                                                                        <table  id="tbAdresse" class="table table-striped table-bordered">
+                                                                        <table id="tbAdresse" class="table table-striped table-bordered">
                                                                             <thead>
                                                                                 <tr>
                                                                         
@@ -908,4 +908,103 @@
                         {{-- end table --}}
 		</div>
 		<!--end page wrapper -->
+@endsection
+
+@section("script")
+@section("script")
+
+<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+
+<script>
+
+    $("input:checkbox").attr("checked",false).click(function(){
+                var shcolumn="."+$(this).attr("name");
+                $(shcolumn).toggle();
+            });
+    
+    $(document).ready(function() {
+        $('#tbAdresse ').DataTable( {
+    
+            dom: 'Bfrtip',
+            buttons: [
+                'print','excel','pdf','copy'
+            ]
+        } );
+    } );
+    
+    $(document).ready(function() {
+        
+    
+    
+        // Setup - add a text input to each header cell
+        $('#tbAdresse thead th').each(function() 
+        
+        {
+            var title = $(this).text();
+            $(this).html('<input type="text"   placeholder="Search ' + title + '" />');
+            
+        });
+    
+        // DataTable
+        var table = $('#tbAdresse').DataTable();
+        
+        //Entires
+    
+    
+        // Apply the search
+        table.columns().every(function() {
+            var that = this;
+    
+            $('input', this.header()).on('keypress change', function(e) {
+                
+            var keycode = e.which;
+            //launch search action only when enter is pressed
+            if (keycode == '13') {
+                console.log('enter key pressed !')
+                if (that.search() !== this.value) {
+                that
+                    .search(this.value)
+                    .draw();
+                }
+            }
+    
+            });
+        });
+        });
+    
+        $(function() {                   
+                 $("#start-date").datepicker({
+                  dateFormat: "dd/mm/yy",
+                   maxDate: 0,
+                  onSelect: function (date) {
+                      var dt2 = $('#end-date');
+                      var startDate = $(this).datepicker('getDate');
+                      var minDate = $(this).datepicker('getDate');
+                      if (dt2.datepicker('getDate') == null){
+                        dt2.datepicker('setDate', minDate);
+                      }              
+                      //dt2.datepicker('option', 'maxDate', '0');
+                      dt2.datepicker('option', 'minDate', minDate);
+                  }
+                });
+                $('#end-date').datepicker({
+                    dateFormat: "dd/mm/yy",
+                    maxDate: 0
+                });           
+             });
+        
+    
+    
+    </script>
+
+
+
+
+    <script src="{{ asset('admin_dashboard_assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/plugins/chartjs/js/Chart.min.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/plugins/chartjs/js/Chart.extension.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+    <script src="{{ asset('admin_dashboard_assets/js/index.js') }}"></script>
 @endsection
