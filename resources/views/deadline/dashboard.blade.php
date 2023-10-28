@@ -196,7 +196,7 @@
                                                                                                 <div class="row mb-3">
                                                                                                     <label for="inputChoosePassword2" class="col-sm-3 col-form-label">Examination Report</label>
                                                                                                     <div class="col-sm-9">
-                                                                                                        <input type="email" class="form-control" id="inputChoosePassword2" placeholder="Examination Report>
+                                                                                                        <input type="email" class="form-control" id="inputChoosePassword2" placeholder="Examination Report">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <div class="row mb-3">
