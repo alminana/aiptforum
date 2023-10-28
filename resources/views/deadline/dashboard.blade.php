@@ -128,7 +128,7 @@
                                                                             </thead>
                                                                        
                                                                             <tbody>
-                                                                                @forelse($sfiling as $key => $item)
+                                                                                @forelse($search as $key => $item)
                                                                         <tr>
                                                                         
                                                                             <td style="font-size:11px;" ><a style="color:black;" href="" >{{$item->aiptref}}</a></td>
