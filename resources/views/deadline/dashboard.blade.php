@@ -201,11 +201,22 @@
                                                                                                                         <textarea class="form-control" id="inputAddress4" rows="3" placeholder="Opinion"></textarea>
                                                                                                                     </div>
                                                                                                                 </div>
+                                                                                                                <div class="row mb-3">
+                                                                                                                    <label for="inputAddress4" class="col-sm-3 col-form-label">Status</label>
+                                                                                                                    <div class="col-sm-9">
+                                                                                                                    <select id="inputState" class="form-select">
+                                                                                                                        <option selected>Select Status</option>
+                                                                                                                        <option value="Done">Done</option>
+                                                                                                                        <option value="Waiting">Waiting</option>
+                                                                                                                        <option value="Rejected">Rejected</option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                                </div>
                                                                                                             
-                                                                                                                <div class="row">
+                                                                                                                 <div class="row mb-3">
                                                                                                                     <label class="col-sm-3 col-form-label"></label>
                                                                                                                     <div class="col-sm-9">
-                                                                                                                        <button type="submit" class="btn btn-info px-5">Update</button>
+                                                                                                                        <button type="submit" class="btn btn-primary px-5">Update</button>
                                                                                                                     </div>
                                                                                                                 </div>
                                                                                                             </div>
