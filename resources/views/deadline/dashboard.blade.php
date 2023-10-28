@@ -141,8 +141,7 @@
                                                                                 <div class="d-flex order-actions">
                                                                                     <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-edit'></i></a>
                                                                                     <a href="{{ route('post.show', $item) }}"><i class='bx bxs-comment-add'></i></a>
-                                                                                    <a href="" class=""><i class='bx bxs-print'></i></a>
-                                                                                    <a href="" class=""><i class='bx bxs-download'></i></a>
+                                                                                    <a href="" class=""><i class='bx bxs-cloud-lightning'></i></a>
                                                                                 </div>
                                                                             </td>
                                                                           
