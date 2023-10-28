@@ -29,8 +29,8 @@
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
 					<div class="card-body">
-					<form method="GET" action="{{route('deadline.pindenx')}}">
-						{{ csrf_field() }}
+					    <form method="GET" action="{{route('deadline.pindenx')}}">
+						    {{ csrf_field() }}
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">

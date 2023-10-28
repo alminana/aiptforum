@@ -112,24 +112,6 @@
                                                         <div class="col-xl-12">
                                                           
                                                                 <div class="card-body">
-                                                                    <div class="dropdown float-end">
-                                                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                            <i class="mdi mdi-dots-vertical"></i>
-                                                                        </a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <!-- item-->
-                                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                                            <!-- item-->
-                                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                                            <!-- item-->
-                                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                                            <!-- item-->
-                                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                                                        </div>
-                                                                    </div>
-                                
-                                                                    
-                                
                                                                     <div class="table-responsive">
                                                                         <table  id="tbAdresse" class="table table-striped table-bordered">
                                                                             <thead>
@@ -146,29 +128,43 @@
                                                                             </thead>
                                                                        
                                                                             <tbody>
-                                                                          
+                                                                                @forelse($sfiling as $key => $item)
                                                                         <tr>
                                                                         
-                                                                            <td style="font-size:11px;"><a style="color:black;" href="" ></a></td>
+                                                                            <td style="font-size:11px;" ><a style="color:black;" href="" >{{$item->aiptref}}</a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->clientref}}</a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->country}}</a></td>
                                                                             <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
                                                                             <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
                                                                             <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
-                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
-                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
-                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            <td style="font-size:11px;">
+                                                                                <div class="d-flex order-actions">
+                                                                                    <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-edit'></i></a>
+                                                                                    <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-comment-add'></i></a>
+                                                                                    <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-show'></i></a>
+                                                                                    <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-download'></i></a>
+                                                                                </div>
+                                                                            </td>
+                                                                          
                                                                         </td>
                                                                         </tr>
-                                                                    
+                                                                        @empty
+                                                                        <p class='lead'>There are no Application to show.</p>
+                                                                         @endforelse
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
-                                                          
+                                                          <!-- Button trigger modal -->
+
                                                             </div><!-- end card -->
                                                         </div>
                                                         </form>
                                                     </div>
                                                 </div>
+                                                
                                             </div>
+
+
                                             {{-- Trademark filing --}}
                                             <div class="tab-pane fade" id="filing" role="tabpanel">
                                                 <div class="tab-pane fade show active" id="search" role="tabpanel">
@@ -235,7 +231,9 @@
                                                             </form>
                                                         </div>
                                                     </div>
-                                                </div>                                            
+                                                </div>
+                                                <!-- Button trigger modal -->
+                                         
                                             </div>
                                             {{-- Trademark ooposition --}}
                                             <div class="tab-pane fade" id="acceptance" role="tabpanel">
