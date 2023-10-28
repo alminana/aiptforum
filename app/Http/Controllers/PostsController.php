@@ -274,7 +274,7 @@ class PostsController extends Controller
         $searchFiling = 'Search';
         $search = Post::where('status', 'like', "%$searchFiling%")->get();
 
-        return view('deadline.dashboard',compact('clients','method','categories','clients','$search'));
+        return view('deadline.dashboard',compact('clients','method','categories','clients','search'));
     }
 
     // public function tfiling(){
