@@ -69,9 +69,12 @@ Route::get('/request/patent/deadline',[PastController::class, 'patentrequest'])-
 Route::get('/actual/patent/deadline',[PastController::class, 'patentactual'])->name('past.actual');
 Route::get('/annual/patent/deadline',[PastController::class, 'patentannual'])->name('past.annual');
 
-
-
-
+Route::get('/patent/index/filter', [PastController::class, 'patentindexlfilter'])->name('deadline.pindenx');
+Route::get('/patent/actual/filter', [PastController::class, 'patentactualfilter'])->name('deadline.pactual');
+Route::get('/patent/annual/filter', [PastController::class, 'patentannuakfilter'])->name('deadline.paanual');
+Route::get('/patent/requested/filter', [PastController::class, 'patentrequestedfilter'])->name('deadline.prequested');
+Route::get('/patent/regular/filter', [PastController::class, 'patentregularfilter'])->name('deadline.pregular');
+Route::get('/patent/pct/filter', [PastController::class, 'patentpctfilter'])->name('deadline.ppct');
 
 // Front User Routes
 // Route::get('/', function () {
@@ -139,7 +142,9 @@ Route::get('/trademark/Request/filter', [PostsController::class, 'trademarkReque
 
 Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactualfilter'])->name('deadline.tactual');
 
-Route::get('/dashboard', [PostsController::class, 'notification'])->name('deadline.notification');
+// Route::get('/trademark/Filing', [PostsController::class, 'tfiling'])->name('deadline.dashboard');
+
+Route::get('/dashboard', [PostsController::class, 'dashboard'])->name('deadline.dashboard');
 
 });
 require __DIR__.'/auth.php';

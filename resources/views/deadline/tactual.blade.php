@@ -29,7 +29,7 @@
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
 					<div class="card-body">
-					<form method="GET" action="{{route('deadline.tactual')}}">
+					<form method="GET" action="{{route('deadline.pindenx')}}">
 						{{ csrf_field() }}
 							<div class="row">
 								<div class="col-md-4">
@@ -92,7 +92,7 @@
 								<tbody>
 								@forelse($allData as $key => $item)
                                 @php
-                                $expire = strtotime($item->proceduredate);
+                                $expire = strtotime($item->created_at);
                                 $today = strtotime("today midnight");
                                 $day_diff = $today - $expire; 
                                 $default  =  strtotime("01/01/0001");                               

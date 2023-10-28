@@ -199,10 +199,120 @@ class PastController extends Controller
         return view('past.annual', [
             'pasts' => Past::latest()->get(),
             'clients'=> Client::all(),
-            'method'=> Method::all(),pp
+            'method'=> Method::all(),
         ], compact('past','client', 'method'));
     }
 
+    public function patentindexlfilter(Request $request , Past $past ){
+      
+   
+        $past = Past::latest()->take(50)->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
+
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Past::whereBetween('created_at',[$sdate,$edate])->get();
 
 
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.pindenx',compact('allData','start_date','end_date'));
+    }
+
+    public function patentactualfilter(Request $request , Past $past ){
+        $past = Past::latest()->take(50)->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
+
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Past::whereBetween('proceduredate',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.pactual',compact('allData','start_date','end_date'));
+    }
+
+    public function patentrequestedfilter(Request $request , Past $past ){
+
+        $past = Past::latest()->take(50)->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
+
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Past::whereBetween('requesteddate',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.prequested',compact('allData','start_date','end_date'));
+    }
+
+    public function patentannuakfilter(Request $request , Past $past ){
+
+        $past = Past::latest()->take(50)->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
+
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Past::whereBetween('annual_deadline',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.paanual',compact('allData','start_date','end_date'));
+    }
+
+    public function patentregularfilter(Request $request , Past $past ){
+
+        $past = Past::latest()->take(50)->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
+
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Past::whereBetween('regular_date',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.pregular',compact('allData','start_date','end_date'));
+    }
+
+
+    public function patentpctfilter(Request $request , Past $past ){
+
+        $past = Past::latest()->take(50)->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+    
+
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Past::whereBetween('pct_date',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+        return view('deadline.ppct',compact('allData','start_date','end_date'));
+    }
+
+
+    public function dashboard(){
+        // $searchTerm = 'Upcoming';
+
+        // $results = UpcomingData::where('content', 'like', "%$searchTerm%")->get();
+
+        return view('deadline.dashboard');
+    }
    }
+

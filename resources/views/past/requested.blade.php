@@ -9,8 +9,14 @@
         <div class="page-content">
          
 			<form method="GET" action="{{ route('past.request') }}" id="myForm">
-        <p> Requested Deadline: Input in the Requested Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
-
+        <div class="row">
+					<div class="col-10">				
+						<p> Requested Deadline: Input in the Requested Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
+					</div>
+					<div class="col-2">
+						<p><a href="{{ route('deadline.prequested')}}">Filter Deadline</a></p>
+					</div>
+				  </div>
 				<hr/>
         <div class="table-responsive">
           <table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">

@@ -9,8 +9,14 @@
         <div class="page-content">
          
 			<form method="GET" action="{{ route('past.annual') }}" id="myForm">
-        <p>Annual Deadline: Please input in the Annual Deadline Date Search Column Upcoming, DueDate, No Deadline and Expired  </p> 
-
+        <div class="row">
+					<div class="col-10">				
+						<p> Annual Deadline: Input in the Requested Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
+					</div>
+					<div class="col-2">
+						<p><a href="{{ route('deadline.paanual')}}">Filter Deadline</a></p>
+					</div>
+				  </div>
 				<hr/>
         <div class="table-responsive">
           <table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">

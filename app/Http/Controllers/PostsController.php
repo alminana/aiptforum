@@ -263,4 +263,21 @@ class PostsController extends Controller
         return view('deadline.tactual',compact('allData','start_date','end_date','categories'));
     }
    
+    public function dashboard(Request $request , Post $posts ){
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+
+
+        return view('deadline.dashboard',compact('clients','method','categories','clients'));
+    }
+
+    // public function tfiling(){
+    //     $searchTerm = 'Filing';
+    //     $results = Post::where('method', 'like', "%$searchTerm%")->get();
+    //     return view('deadline.dashboard', compact('results '));
+    // }
 }

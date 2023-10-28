@@ -16,7 +16,7 @@
 						<div class="p-2">
 							<h3 class="font-size-16">
 								<strong>
-									Filter Date
+									Pct Date
 								</strong>
 						    </h3>
 						</div>
@@ -29,7 +29,7 @@
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
 					<div class="card-body">
-					<form method="GET" action="{{route('deadline.trequested')}}">
+					<form method="GET" action="{{route('deadline.ppct')}}">
 						{{ csrf_field() }}
 							<div class="row">
 								<div class="col-md-4">
@@ -77,22 +77,23 @@
 								<thead>
 									<tr>
 							
-                                    <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
-                                    <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
-                                    <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
-                                    <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
-                                    <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
-                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
-                                    <th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
-                                    <th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
-                                    <th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
-									</tr>
+                                        <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+                                        <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+                                        <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Title</th>
+                                        <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>
+                                        <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
+                                        <th class="regular_no" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Regular no</th>
+                                        <th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing no.</th>
+                                        <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Procedure</th>
+                                        <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                        <th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actions</th>											
+                                </tr>
 								</thead>
                            
 								<tbody>
-								@forelse($allData as $key => $item)
+								@forelse($allData as $key => $past)
                                 @php
-                                $expire = strtotime($item->requesteddate);
+                                $expire = strtotime($past->proceduredate);
                                 $today = strtotime("today midnight");
                                 $day_diff = $today - $expire; 
                                 $default  =  strtotime("01/01/0001");                               
@@ -101,67 +102,81 @@
                                 $upcomming = "Upcoming";
                                 $safe = "01/01/0001";
                                 $done = "done";
+                              
                                 if(($expire == $default)){
-                        
-                              $color = "color:black;background-color:white;";
-                            }elseif($today == $expire){
-                       
-                              $color = "color:black;background-color:#ffab91;";
-                            } elseif ($day_diff <= 30) {
-                          
-                              $color = "color:black;background-color:#faf3c0;";
-                            }	elseif ($today >= $expire) {
-                    
-                              $color = "color:black;background-color:#ffb3b3;";
-                            }	
+                                                 
+                                    $color = "color:black;background-color:white;";
+                                }elseif($today == $expire){
+                            
+                                    $color = "color:black;background-color:#ffab91;";
+                                } elseif ($day_diff <= 30) {
+                                
+                                    $color = "color:black;background-color:#faf3c0;";
+                                }	elseif ($today >= $expire) {
+                                
+                                    $color = "color:black;background-color:#ffb3b3;";
+                                }	
                                     
                               @endphp
 							<tr>
 							
-							    <td style="font-size:11px;"><a style="color:black;" href="" >{{$item->aiptref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="" >{{$item->clientref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="" ></a>{{$item->title }}</td>
-                                <td style="font-size:11px;"><a style="color:black;"href="" ></a>{{$item->status }}</td>
-							
-                                <td style="{{ $color }}" class="requesteddate">
-                                    <a style="font-size:15; color:black; " >
-                                        @php
-                                                    $expire = strtotime($item->proceduredate);
-                                                    $today = strtotime("today midnight");
-                                                    $day_diff = $today - $expire; 
-                                                    $default  =  strtotime("01/01/0001");                               
-                                                    $color = "";
-                                                    $deadline = "Deadline";
-                                                    $upcomming = "Upcoming";
-                                                    $safe = "01/01/0001";
-                                                    $done = "done";
-                                                    if(($expire == $default)){
-                                                  echo "No Deadline";
-                                                  $color = "color:black;background-color:white;";
-                                                }elseif($today == $expire){
-                                                  echo "DueDate ";
-                                                  $color = "color:black;background-color:#ffab91;";
-                                                } elseif ($day_diff <= 30) {
-                                                  echo "Upcoming";
-                                                  $color = "color:black;background-color:#faf3c0;";
-                                                }	elseif ($today >= $expire) {
-                                                  echo "Expired";
-                                                  $color = "color:black;background-color:#ffb3b3;";
-                                                }	
-                                         @endphp
-                                        <span> - {{date('m/d/Y',strtotime(($item->requesteddate)))}} </span>
-                                        </a>
+                                <td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{ $past->aiptref }}</a></td>
+                                <td style="{{ $color }}" class="clientref"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->clientref}}</a></td>
+                                <td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->title}}</a></td>
+                                <td style="{{ $color }}" class="client"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->client}}</a></td>
+                                
+                                <td style="{{ $color }}"  class="proceduredate">
+                                  <a style="; align-item:center; font-size:12; color: black; " href="/past/{{ $past->id }}">
+                                    @php
+                                    $expire = strtotime($past->proceduredate);
+                                    $today = strtotime("today midnight");
+                                    $day_diff = $today - $expire; 
+                                    $default  =  strtotime("01/01/0001");                               
+                                    $color = "";
+                                    $deadline = "Deadline";
+                                    $upcomming = "Upcoming";
+                                    $safe = "01/01/0001";
+                                    $done = "done";
+                                    if(($expire == $default)){
+                                    echo "No Deadline";
+                                    $color = "color:black;background-color:white;";
+                                  }elseif($today == $expire){
+                                    echo "DueDate ";
+                                    $color = "color:black;background-color:#ffab91;";
+                                  } elseif ($day_diff <= 30) {
+                                    echo "Upcoming";
+                                    $color = "color:black;background-color:#faf3c0;";
+                                  }	elseif ($today >= $expire) {
+                                    echo "Expired";
+                                    $color = "color:black;background-color:#ffb3b3;";
+                                  }	
+                                        
+                                  @endphp
+                                    <span> - {{$past->proceduredate}}</span>  
+                                    </a>
                                 </td>
-								
-                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->slug}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="" >{{$item->class}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->excerpt}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->country}}</a></td>
-                            </td>
+
+                              
+                                <td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->regular_no}}</a></td>
+
+                                <td style="{{ $color }}" class="filingno"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->filingno}}</a></td>
+                                <td style="{{ $color }}" class="procedure"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->procedure}}</a></td>
+
+                              
+                            
+                                <td style="{{ $color }}" class="country"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->country}}</a></td>
+
+                         
+                                
+                                <td style="{{ $color }}">
+                                  <div class="d-flex order-actions">
+                                    <a href="{{ route('past.edit', $past) }}" class=""><i class='bx bxs-edit'></i></a>	
+                                  </div>
+                                </td>
                             </tr>
                             @empty
-								<p class='lead'>There are no Application to show.</p>
-							@endforelse
+                            <p class='lead'>There are no Patent to show.</p>
+                                @endforelse
 								</tbody>
 							</table>
 						

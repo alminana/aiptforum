@@ -8,9 +8,16 @@
     <div class="page-wrapper">
         <div class="page-content">
 
-			<form method="GET" action="{{ route('past.pct') }}" id="myForm">
-        <p> PCT Deadline: Input in the PCT Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
-        <hr/>
+			<form method="GET" action="{{ route('deadline.ppct') }}" id="myForm">
+        <div class="row">
+					<div class="col-10">				
+						<p> PCT Deadline: Input in the PCT Search column the Upcoming, Deadline, No Deadline, and Expired to search</p> 
+					</div>
+					<div class="col-2">
+						<p><a href="{{ route('deadline.ppct')}}">PCT Deadline</a></p>
+					</div>
+				  </div>      
+          <hr/>
     
         <div class="table-responsive">
           
@@ -91,7 +98,7 @@
                                                   <td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->title}}</a></td>
                                                   <td style="{{ $color }}" class="client"><a style="font-size:12; color: black; " href="/past/{{ $past->id }}">{{$past->client}}</a></td>
                                                   
-                                                  <td style="{{ $color }}"  class="proceduredate">
+                                                  <td style="{{ $color }}"  class="pct_date">
                                                     <a style="; align-item:center; font-size:12; color: black; " href="/past/{{ $past->id }}">
                                                       @php
                                                       $expire = strtotime($past->pct_date);
