@@ -31,51 +31,577 @@
                         {{-- start tab --}}
                         <div class="row row-cols-12 row-cols-md-12 row-cols-lg-12 row-cols-xl-12">
                             <div class="col">
-                                <h6 class="mb-0 text-uppercase">Notifications</h6>
+                                <h6 class="mb-0 text-uppercase">Trademark</h6>
                                 <hr/>
                                 <div class="card">
                                     <div class="card-body">
                                         <ul class="nav nav-tabs nav-primary" role="tablist">
                                             <li class="nav-item" role="presentation">
-                                                <a class="nav-link active" data-bs-toggle="tab" href="#primaryhome" role="tab" aria-selected="true">
+                                                <a class="nav-link active" data-bs-toggle="tab" href="#search" role="tab" aria-selected="true">
                                                     <div class="d-flex align-items-center">
-                                                        <div class="tab-icon"><i class='bx bx-home font-18 me-1'></i>
+                                                        <div class="tab-icon"><i class='bx bx-search font-18 me-1'></i>
                                                         </div>
-                                                        <div class="tab-title">Trademark Filing</div>
+                                                        <div class="tab-title"> Search</div>
                                                     </div>
                                                 </a>
                                             </li>
                                             <li class="nav-item" role="presentation">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#primaryprofile" role="tab" aria-selected="false">
+                                                <a class="nav-link" data-bs-toggle="tab" href="#filing" role="tab" aria-selected="false">
                                                     <div class="d-flex align-items-center">
-                                                        <div class="tab-icon"><i class='bx bx-user-pin font-18 me-1'></i>
+                                                        <div class="tab-icon">
                                                         </div>
-                                                        <div class="tab-title">Trademark Publication</div>
+                                                        <div class="tab-title"> Filing</div>
                                                     </div>
                                                 </a>
                                             </li>
                                             <li class="nav-item" role="presentation">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#primarycontact" role="tab" aria-selected="false">
+                                                <a class="nav-link" data-bs-toggle="tab" href="#acceptance" role="tab" aria-selected="false">
                                                     <div class="d-flex align-items-center">
-                                                        <div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+                                                        <div class="tab-icon">
                                                         </div>
-                                                        <div class="tab-title">Trademark Registration</div>
+                                                        <div class="tab-title"> Acceptance</div>
                                                     </div>
                                                 </a>
                                             </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" data-bs-toggle="tab" href="#appeal" role="tab" aria-selected="false">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="tab-icon">
+                                                        </div>
+                                                        <div class="tab-title"> Appeal</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                           
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" data-bs-toggle="tab" href="#registration" role="tab" aria-selected="false">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="tab-icon">
+                                                        </div>
+                                                        <div class="tab-title"> Registration</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" data-bs-toggle="tab" href="#renewal" role="tab" aria-selected="false">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="tab-icon">
+                                                        </div>
+                                                        <div class="tab-title"> Renewal</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#abandon" role="tab" aria-selected="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="tab-icon">
+                                                    </div>
+                                                    <div class="tab-title"> Abandon</div>
+                                                </div>
+                                            </a>
+                                            </li>
+                                
                                         </ul>
                                         <div class="tab-content py-3">
-                                            {{-- Trademark Procedure --}}
-                                            <div class="tab-pane fade show active" id="primaryhome" role="tabpanel">
-                                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
+                                            {{-- Trademark search --}}
+                                            <div class="tab-pane fade show active" id="search" role="tabpanel">
+                                                <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
+                                                    <div class="card-body">
+                                                    <form method="GET" action="{{route('deadline.dashboard')}}">
+                                                        {{ csrf_field() }}
+                                                        <div class="col-xl-12">
+                                                          
+                                                                <div class="card-body">
+                                                                    <div class="dropdown float-end">
+                                                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                            <i class="mdi mdi-dots-vertical"></i>
+                                                                        </a>
+                                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                                            <!-- item-->
+                                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                                                            <!-- item-->
+                                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                                                                            <!-- item-->
+                                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                                                            <!-- item-->
+                                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                                        </div>
+                                                                    </div>
+                                
+                                                                    
+                                
+                                                                    <div class="table-responsive">
+                                                                        <table  id="tbAdresse" class="table table-striped table-bordered">
+                                                                            <thead>
+                                                                                <tr>
+                                                                        
+                                                                                <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+                                                                                <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+                                                                                <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                                                                <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Examination Report</th>
+                                                                                <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registrability (%)</th>
+                                                                                <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Our Opinion</th>
+                                                                                <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                       
+                                                                            <tbody>
+                                                                          
+                                                                        <tr>
+                                                                        
+                                                                            <td style="font-size:11px;"><a style="color:black;" href="" ></a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                        </td>
+                                                                        </tr>
+                                                                    
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                          
+                                                            </div><!-- end card -->
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            {{-- Trademark Actual --}}
-                                            <div class="tab-pane fade" id="primaryprofile" role="tabpanel">
-                                                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                                            {{-- Trademark filing --}}
+                                            <div class="tab-pane fade" id="filing" role="tabpanel">
+                                                <div class="tab-pane fade show active" id="search" role="tabpanel">
+                                                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
+                                                        <div class="card-body">
+                                                        <form method="GET" action="{{route('deadline.dashboard')}}">
+                                                            {{ csrf_field() }}
+                                                            <div class="col-xl-12">
+                                                              
+                                                                    <div class="card-body">
+                                                                        <div class="dropdown float-end">
+                                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                <i class="mdi mdi-dots-vertical"></i>
+                                                                            </a>
+                                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                        
+                                    
+                                                                        <div class="table-responsive">
+                                                                            <table  id="tbAdresse" class="table table-striped table-bordered">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                            
+                                                                                    <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+                                                                                    <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+                                                                                    <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                                                                    <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Class</th>
+                                                                                    <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing No.</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                           
+                                                                                <tbody>
+                                                                              
+                                                                            <tr>
+                                                                            
+                                                                                <td style="font-size:11px;"><a style="color:black;" href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            </td>
+                                                                            </tr>
+                                                                        
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                              
+                                                                </div><!-- end card -->
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
                                             </div>
-                                                {{-- Trademark Priority --}}
-                                            <div class="tab-pane fade" id="primarycontact" role="tabpanel">
-                                                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                                            {{-- Trademark ooposition --}}
+                                            <div class="tab-pane fade" id="acceptance" role="tabpanel">
+                                                <div class="tab-pane fade show active" id="search" role="tabpanel">
+                                                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
+                                                        <div class="card-body">
+                                                        <form method="GET" action="{{route('deadline.dashboard')}}">
+                                                            {{ csrf_field() }}
+                                                            <div class="col-xl-12">
+                                                                
+                                                                    <div class="card-body">
+                                                                        <div class="dropdown float-end">
+                                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                <i class="mdi mdi-dots-vertical"></i>
+                                                                            </a>
+                                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                        
+                                    
+                                                                        <div class="table-responsive">
+                                                                            <table  id="tbAdresse" class="table table-striped table-bordered">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                            
+                                                                                    <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+                                                                                    <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+                                                                                    <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                                                                    <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Class</th>
+                                                                                    <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing No.</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Publication Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                            
+                                                                                <tbody>
+                                                                                
+                                                                            <tr>
+                                                                            
+                                                                                <td style="font-size:11px;"><a style="color:black;" href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            </td>
+                                                                            </tr>
+                                                                        
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                
+                                                                </div><!-- end card -->
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </div>
+                                            {{-- Trademark acceptance --}}
+                                            <div class="tab-pane fade" id="appeal" role="tabpanel">
+                                                <div class="tab-pane fade show active" id="search" role="tabpanel">
+                                                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
+                                                        <div class="card-body">
+                                                        <form method="GET" action="{{route('deadline.dashboard')}}">
+                                                            {{ csrf_field() }}
+                                                            <div class="col-xl-12">
+                                                                
+                                                                    <div class="card-body">
+                                                                        <div class="dropdown float-end">
+                                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                <i class="mdi mdi-dots-vertical"></i>
+                                                                            </a>
+                                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                        
+                                    
+                                                                        <div class="table-responsive">
+                                                                            <table  id="tbAdresse" class="table table-striped table-bordered">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                            
+                                                                                    <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+                                                                                    <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+                                                                                    <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                                                                    <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Class</th>
+                                                                                    <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing No.</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Publication Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Opposition Filing Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                            
+                                                                                <tbody>
+                                                                                
+                                                                            <tr>
+                                                                            
+                                                                                <td style="font-size:11px;"><a style="color:black;" href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            </td>
+                                                                            </tr>
+                                                                        
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                
+                                                                </div><!-- end card -->
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </div>
+                                            {{-- Trademark registration --}}
+                                            <div class="tab-pane fade" id="registration" role="tabpanel">
+                                                <div class="tab-pane fade show active" id="search" role="tabpanel">
+                                                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
+                                                        <div class="card-body">
+                                                        <form method="GET" action="{{route('deadline.dashboard')}}">
+                                                            {{ csrf_field() }}
+                                                            <div class="col-xl-12">
+                                                                
+                                                                    <div class="card-body">
+                                                                        <div class="dropdown float-end">
+                                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                <i class="mdi mdi-dots-vertical"></i>
+                                                                            </a>
+                                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                        
+                                    
+                                                                        <div class="table-responsive">
+                                                                            <table  id="tbAdresse" class="table table-striped table-bordered">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                            
+                                                                                    <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+                                                                                    <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+                                                                                    <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                                                                    <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Class</th>
+                                                                                    <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing No.</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration Number</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Renewal Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                            
+                                                                                <tbody>
+                                                                                
+                                                                            <tr>
+                                                                            
+                                                                                <td style="font-size:11px;"><a style="color:black;" href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            </td>
+                                                                            </tr>
+                                                                        
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                
+                                                                </div><!-- end card -->
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </div>
+                                              {{-- Trademark Renewal --}}
+                                            <div class="tab-pane fade" id="renewal" role="tabpanel">
+                                                <div class="tab-pane fade show active" id="search" role="tabpanel">
+                                                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
+                                                        <div class="card-body">
+                                                        <form method="GET" action="{{route('deadline.dashboard')}}">
+                                                            {{ csrf_field() }}
+                                                            <div class="col-xl-12">
+                                                                
+                                                                    <div class="card-body">
+                                                                        <div class="dropdown float-end">
+                                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                <i class="mdi mdi-dots-vertical"></i>
+                                                                            </a>
+                                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                        
+                                    
+                                                                        <div class="table-responsive">
+                                                                            <table  id="tbAdresse" class="table table-striped table-bordered">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                            
+                                                                                    <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+                                                                                    <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+                                                                                    <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                                                                    <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Class</th>
+                                                                                    <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing No.</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration Number</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Renewal Deadline H</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Renewal Deadline AD</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                            
+                                                                                <tbody>
+                                                                                
+                                                                            <tr>
+                                                                            
+                                                                                <td style="font-size:11px;"><a style="color:black;" href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            </td>
+                                                                            </tr>
+                                                                        
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                
+                                                                </div><!-- end card -->
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
+                                            </div>
+                                               {{-- Trademark Abandon --}}
+                                               <div class="tab-pane fade" id="abandon" role="tabpanel">
+                                                <div class="tab-pane fade show active" id="search" role="tabpanel">
+                                                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-8">
+                                                        <div class="card-body">
+                                                        <form method="GET" action="{{route('deadline.dashboard')}}">
+                                                            {{ csrf_field() }}
+                                                            <div class="col-xl-12">
+                                                                
+                                                                    <div class="card-body">
+                                                                        <div class="dropdown float-end">
+                                                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                <i class="mdi mdi-dots-vertical"></i>
+                                                                            </a>
+                                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                                                                <!-- item-->
+                                                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                        
+                                    
+                                                                        <div class="table-responsive">
+                                                                            <table  id="tbAdresse" class="table table-striped table-bordered">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                            
+                                                                                    <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
+                                                                                    <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
+                                                                                    <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>
+                                                                                    <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Class</th>
+                                                                                    <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing No.</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing Date</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration Number</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Renewal Deadline H</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Renewal Deadline AD</th>
+                                                                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                            
+                                                                                <tbody>
+                                                                                
+                                                                            <tr>
+                                                                            
+                                                                                <td style="font-size:11px;"><a style="color:black;" href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                                <td style="font-size:11px;"><a style="color:black;"href="" ></a></td>
+                                                                            </td>
+                                                                            </tr>
+                                                                        
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                
+                                                                </div><!-- end card -->
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>                                            
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +613,7 @@
 
 						<!--start table-->
 			
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-body">
@@ -232,9 +758,9 @@
                                         </div>
                                     </div><!-- end card -->
                                 </div><!-- end card -->
-                            </div>
+                            </div> --}}
                             <!-- end col -->
-                            <div class="col-xl-6">
+                            {{-- <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="dropdown float-end">
@@ -379,7 +905,7 @@
                                     </div><!-- end card -->
                                 </div><!-- end card -->
                             </div>
-                        </div>
+                        </div> --}}
                         
                         {{-- end table --}}
 		</div>
