@@ -140,9 +140,9 @@
                                                                             <td style="font-size:11px;">
                                                                                 <div class="d-flex order-actions">
                                                                                     <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-edit'></i></a>
-                                                                                    <a href="{{ route('post.show', $post) }}" class=""><i class='bx bxs-comment-add'></i></a>
-                                                                                    <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-show'></i></a>
-                                                                                    <a href="{{ route('admin.categories.edit', $category) }}" class=""><i class='bx bxs-download'></i></a>
+                                                                                    <a href="{{ route('post.show', $post) }}"><i class='bx bxs-comment-add'></i></a>
+                                                                                    <a href="" class=""><i class='bx bxs-show'></i></a>
+                                                                                    <a href="" class=""><i class='bx bxs-download'></i></a>
                                                                                 </div>
                                                                             </td>
                                                                           
