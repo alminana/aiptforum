@@ -271,20 +271,20 @@ class PostsController extends Controller
         $method = Method::latest()->take(1000)->get();
         $clients = Client::latest()->take(1000)->get();
 
-        $searchFiling = 'Search';
-        $search = Post::where('status', 'like', "%$searchFiling%")->get();
-
-        return view('deadline.dashboard',compact('clients','method','categories','clients','search'));
-    }
-
-    public function searchupdate(Request $request , Post $post ){
+   
         
-    
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-        $post = Post::latest()->take(1000)->get();
-        $method = Method::latest()->take(1000)->get();
-        $tags = Tag::latest()->take(50)->get();
-        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
-        return view('deadline.dashboard',compact('clients','method','categories','clients','post'));
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Post::whereBetween('requesteddate',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+          
+        $allData = Post::where('status',$request->status)->get();    
+
+        return view('deadline.dashboard',compact('clients','method','categories','clients','allData','start_date','end_date'));
     }
+
+  
 }
