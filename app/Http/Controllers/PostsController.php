@@ -277,9 +277,14 @@ class PostsController extends Controller
         return view('deadline.dashboard',compact('clients','method','categories','clients','search'));
     }
 
-    // public function tfiling(){
-    //     $searchTerm = 'Filing';
-    //     $results = Post::where('method', 'like', "%$searchTerm%")->get();
-    //     return view('deadline.dashboard', compact('results '));
-    // }
+    public function searchupdate(Request $request , Post $post ){
+        
+    
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $post = Post::latest()->take(1000)->get();
+        $method = Method::latest()->take(1000)->get();
+        $tags = Tag::latest()->take(50)->get();
+        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
+        return view('deadline.dashboard',compact('clients','method','categories','clients','post'));
+    }
 }

@@ -143,11 +143,13 @@ Route::get('/trademark/Request/filter', [PostsController::class, 'trademarkReque
 Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactualfilter'])->name('deadline.tactual');
 
 
-Route::get('/trademark/search/application', [PostsController::class, 'trademarksearch'])->name('deadline.tactual');
+// Route::get('/trademark/search/application', [PostsController::class, 'trademarksearch'])->name('deadline.tactual');
 
 // Route::get('/trademark/Filing', [PostsController::class, 'tfiling'])->name('deadline.dashboard');
 
 Route::get('/dashboard', [PostsController::class, 'dashboard'])->name('deadline.dashboard');
+
+Route::post('/search/update',[PostsController::class, 'searchupdate'])->name('dashboard.search');
 
 });
 require __DIR__.'/auth.php';
