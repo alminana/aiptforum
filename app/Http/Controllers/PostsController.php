@@ -275,15 +275,15 @@ class PostsController extends Controller
         
         $sdate = date('Y-m-d',strtotime($request->start_date));
         $edate = date('Y-m-d',strtotime($request->end_date));
-        $allData = Post::whereBetween('requesteddate',[$sdate,$edate])->get();
+        $allData = Post::whereBetween('created_at',[$sdate,$edate])->get();
 
 
         $start_date = date('Y-m-d',strtotime($request->start_date));
         $end_date = date('Y-m-d',strtotime($request->end_date));
-          
+
         $allData = Post::where('status',$request->status)->get();    
 
-        return view('deadline.dashboard',compact('clients','method','categories','clients','allData','start_date','end_date'));
+        return view('deadline.dashboard',compact('allData','clients','method','categories','clients','start_date','end_date'));
     }
 
   

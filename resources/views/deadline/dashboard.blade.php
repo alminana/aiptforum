@@ -44,6 +44,7 @@
                                         <div class="row">
                                             <div class="col-md-10">
                                                 <div class="form-group">
+                                      
                                                     <label for=""> Trademark Procedure</label>
                                                     <div class="mb-3">
                                                         <select required class="form-control" name='status' class="single-select">
@@ -65,33 +66,25 @@
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for=""></label><br>
-                                                    <button type="submit" value="Submit" class="btn btn-primary">Sesrch</button>
+                                                    <button type="submit" value="Submit" class="btn btn-primary">Search</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                             </div>
                             <div class="col-md-6">
-                                <form method="GET" action="{{route('deadline.dashboard')}}">
+                             
+                               
                                     {{ csrf_field() }}
                                         <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="">From Date</label>
-                                                    <input type="date" name="start_date" id="start_date" class="form-control"> 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="">To Date</label>
-                                                    <input type="date" name="end_date" id="end_date" class="form-control">
-                                                </div>
-                                            </div>
+                                          
                                             
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for=""></label><br>
-                                                    <button type="submit" value="Submit" class="btn btn-primary">Filter</button>
+                                                    <a href="{{ route('deadline.getData') }}">
+                                                        <button type="button" value="Submit" class="btn btn-primary">Filter</button>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -253,7 +246,7 @@
                                 <td style="font-size:11px;">
                                 <div class="d-flex order-actions">
                                     <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bxs-edit'></i></a>
-                                    <a href=""><i class='bx bxs-comment-add'></i></a>
+                                    <a href="{{ route('post.show', $item) }}"><i class='bx bxs-comment-add'></i></a>
                                     <a href="" class=""><i class='bx bxs-cloud-lightning'></i></a>
                                 </div>
                                 </td>
