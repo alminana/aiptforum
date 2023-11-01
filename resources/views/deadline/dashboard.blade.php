@@ -103,28 +103,21 @@
 					<div class="card-body">
 						<div class="table-responsive">
                             <div class="col-6">
-                                <div class="container">
-                                    <table class="table">
-                                            <caption>
-                                             Color Legend
-                                            </caption>
-                                            <tr>
-                                              <td scope="col" style="background-color:rgb(246, 246, 188);">Filed</td>
-                                              <td scope="col" style="background-color:rgb(177, 236, 177);">Published</td>
-                                              <td scope="col" style="background-color:orange;">Opposed</td>
-                                              <td scope="col" style="background-color:violet;">Registered</td>
-                                              <td scope="col" style="background-color:white;">New Application</td>
-                                              <td scope="col" style="background-color:gray;" >Office Action</td>
-                                              <td scope="col" style="background-color:rgb(245, 151, 151);">Abandon</td>
-                                            
-                                            </tr>
-                                          
-                                          
-                                          </table>
-                                    </div>
-        
-                                </div>
-        
+                                <table class="table">
+                                    <caption>
+                                     Color Legend
+                                    </caption>
+                                    <tr>
+                                      <td scope="col" style="background-color:rgb(246, 246, 188);">Filed</td>
+                                      <td scope="col" style="background-color:rgb(177, 236, 177);">Published</td>
+                                      <td scope="col" style="background-color:orange;">Opposed</td>
+                                      <td scope="col" style="background-color:violet;">Registered</td>
+                                      <td scope="col" style="background-color:white;">New Application</td>
+                                      <td scope="col" style="background-color:gray;" >Office Action</td>
+                                      <td scope="col" style="background-color:rgb(245, 151, 151);">Abandon</td>
+                                    
+                                    </tr>
+                                  </table>
                             </div>
 							<table  id="tbAdresse" class="table table-striped table-bordered">
 								<thead>
@@ -137,12 +130,12 @@
                                     <th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
                                     <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
                                     <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
-                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
-                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration#</th>
+                                    {{-- <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
+                                    <th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration#</th> --}}
                                     <th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
                                     <th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
                                     <th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Country</th>	
-                                    <th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Created_At</th>	
+                                    {{-- <th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Created_At</th>	 --}}
                                     <th class="country"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Action</th>	
 									</tr>
 								</thead>
@@ -329,12 +322,12 @@
                                         </a>
                                 </td>
                             
-                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->slug}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->registrationno}}</a></td>
+                                {{-- <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->slug}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->registrationno}}</a></td> --}}
                                 <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->class}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->excerpt}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->country}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->created_at}}</a></td>
+                                {{-- <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->created_at}}</a></td> --}}
                                 <td style="font-size:11px;">
                                 <div class="d-flex order-actions">
                                     <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bxs-edit'></i></a>
