@@ -113,7 +113,7 @@
                                               <td scope="col" style="background-color:rgb(177, 236, 177);">Published</td>
                                               <td scope="col" style="background-color:orange;">Opposed</td>
                                               <td scope="col" style="background-color:violet;">Registered</td>
-                                              <td scope="col" style="background-color:white;">No Deadline</td>
+                                              <td scope="col" style="background-color:white;">New Application</td>
                                               <td scope="col" style="background-color:gray;" >Office Action</td>
                                               <td scope="col" style="background-color:rgb(245, 151, 151);">Abandon</td>
                                             
@@ -184,7 +184,7 @@
 												$Registered = "Registered";
 												$officeaction = "Office Action";
 												$abandon = "Abandon";
-												$Nodeadline = "No Deadline";
+												$NewApplication = "New Application";
 												$status= ($item->status);
 											
 														if(($status == $Filed)){
@@ -199,7 +199,7 @@
 														}elseif ($status == $Registered) {
 														
 															$colors = "color:black;background-color:violet;";
-														}elseif($status == 	$Nodeadline  ){
+														}elseif($status == 	$NewApplication  ){
 
 															$colors = "color:black;background-color:white;";
 														}elseif($status == $officeaction ){
