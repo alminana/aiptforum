@@ -108,12 +108,12 @@
                                      Color Legend
                                     </caption>
                                     <tr>
+                                        <td scope="col" style="background-color:white;">New Application</td>
                                       <td scope="col" style="background-color:rgb(246, 246, 188);">Filed</td>
                                       <td scope="col" style="background-color:rgb(177, 236, 177);">Published</td>
-                                      <td scope="col" style="background-color:orange;">Opposed</td>
                                       <td scope="col" style="background-color:violet;">Registered</td>
-                                      <td scope="col" style="background-color:white;">New Application</td>
                                       <td scope="col" style="background-color:gray;" >Office Action</td>
+                                      <td scope="col" style="background-color:orange;">Opposed</td>
                                       <td scope="col" style="background-color:rgb(245, 151, 151);">Abandon</td>
                                     
                                     </tr>
