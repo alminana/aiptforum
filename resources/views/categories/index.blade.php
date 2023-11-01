@@ -87,20 +87,41 @@
                             <tbody>
 								@forelse($posts as $post)
 								@php
-								$remaining = \Carbon\Carbon::now()->diffInDays($post->proceduredate);
-								$expire = strtotime($post->proceduredate);
-								$today = strtotime("today midnight");
-								$day_diff = $today - $expire;                                    
-								$color = "";
-							
-								if ($today >= $expire) {
-									$color = "color:black;background-color:#D99594;";
-								}elseif ($remaining < 7 ) {
-									$color = "color:black;background-color:#FFFF00;";
-								} elseif ($expire >= 30) {
-									$color = "color:black;background-color:#92D050;";
-								}
-								@endphp
+												$colors = "";
+												$Filed = "Filed";
+												$Published = "Published";
+												$Opposed = "Opposed";
+												$Registered = "Registered";
+												$officeaction = "Office Action";
+												$abandon = "Abandon";
+												$Nodeadline = "No Deadline";
+												$status= ($post->status);
+											
+														if(($status == $Filed)){
+															
+															$colors = "color:black;background-color:yellow;";
+														}elseif($status == $Published){
+													
+															$colors = "color:black;background-color:green;";
+														}elseif ($status == $Opposed) {
+															
+															$colors = "color:black;background-color:orange;";
+														}elseif ($status == $Registered) {
+														
+															$colors = "color:black;background-color:violet;";
+														}elseif($status == 	$Nodeadline  ){
+
+															$colors = "color:black;background-color:white;";
+														}elseif($status == $officeaction ){
+															
+															$colors = "color:black;background-color:gray;";
+														}
+
+														elseif($status == $abandon ){
+															
+															$colors = "color:black;background-color:red;";
+														}
+											 @endphp
 								<tr>
 									{{-- <td class="deadline" style="{{ $color }}" href="" >
 										<a style="f; align-item:center; font-size:12; color:black;" href="{{ route('post.show', $post) }}">
@@ -143,7 +164,46 @@
 								<td class="aiptref"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td class="clientref"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
                                 <td class="title"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
-                                <td class="status"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{ $post->status }}</a></td>
+                                <td class="status" style="{{ $colors }}"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">
+									
+										<a style="f; align-item:center; font-size:12; color:black;" href="{{ route('post.show', $post) }}">
+
+									
+												@php
+												$colors = "";
+												$Filing = "Filing";
+												$Rejected = "Rejected";
+												$Registration = "Final Registration";
+												$Publication = "Publication";
+												$NoDeadline = "No Deadline";
+												$status= ($post->status);
+											
+														if(($status == $Filing)){
+															
+															$color = "color:black;background-color:yellow;";
+														}elseif($status == $Publication){
+													
+															$color = "color:black;background-color:green;";
+														} elseif ($status == $Rejected) {
+															
+															$color = "color:black;background-color:orange;";
+														}	elseif ($status == $Registration) {
+														
+															$color = "color:black;background-color:violet;";
+														}elseif($status == $NoDeadline ){
+															$color = "color:black;background-color:white;";
+														}
+											 @endphp
+											  </button>
+
+										
+										</a>
+										
+											 
+								
+									
+									{{ $post->status }}</a>
+								</td>
                                 {{-- <td class="image">
 								</a>  --}}
 								{{-- <img style='width: 60%' src="{{Storage::disk('s3')->temporaryUrl($post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg', now()->addMinutes(20))}}" /> --}}

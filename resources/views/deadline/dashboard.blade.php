@@ -47,6 +47,7 @@
                                       
                                                     <label for=""> Trademark Procedure</label>
                                                     <div class="mb-3">
+                                                        
                                                         <select required class="form-control" name='status' class="single-select">
                                                             <option value="">Search Trademark Procedure</option>
                                                             @foreach($method as $key => $method)
@@ -101,13 +102,25 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
-                            <div class="col-12">
-                                <div>
-                                    <div class="p-2">
-                                        <h3 class="font-size-16"><strong>Results 
-                                            <span class="btn btn-info"> {{ date('d-m-Y',strtotime($start_date)) }} </span> -
-                                            <span class="btn btn-success"> {{ date('d-m-Y',strtotime($end_date)) }} </span>
-                                        </strong></h3>
+                            <div class="col-6">
+                                <div class="container">
+                                    <table class="table">
+                                            <caption>
+                                             Color Legend
+                                            </caption>
+                                            <tr>
+                                              <td scope="col" style="background-color:rgb(246, 246, 188);">Filed</td>
+                                              <td scope="col" style="background-color:rgb(177, 236, 177);">Published</td>
+                                              <td scope="col" style="background-color:orange;">Opposed</td>
+                                              <td scope="col" style="background-color:violet;">Registered</td>
+                                              <td scope="col" style="background-color:white;">No Deadline</td>
+                                              <td scope="col" style="background-color:gray;" >Office Action</td>
+                                              <td scope="col" style="background-color:rgb(245, 151, 151);">Abandon</td>
+                                            
+                                            </tr>
+                                          
+                                          
+                                          </table>
                                     </div>
         
                                 </div>
@@ -160,7 +173,48 @@
                               $color = "color:black;background-color:#ffb3b3;";
                             }	
                                     
+
+
+
+                         
+                                    $colors = "";
+												$Filed = "Filed";
+												$Published = "Published";
+												$Opposed = "Opposed";
+												$Registered = "Registered";
+												$officeaction = "Office Action";
+												$abandon = "Abandon";
+												$Nodeadline = "No Deadline";
+												$status= ($item->status);
+											
+														if(($status == $Filed)){
+															
+															$colors = "color:black;background-color:rgb(246, 246, 188);";
+														}elseif($status == $Published){
+													
+															$colors = "color:black;background-color:rgb(177, 236, 177);";
+														}elseif ($status == $Opposed) {
+															
+															$colors = "color:black;background-color:orange;";
+														}elseif ($status == $Registered) {
+														
+															$colors = "color:black;background-color:violet;";
+														}elseif($status == 	$Nodeadline  ){
+
+															$colors = "color:black;background-color:white;";
+														}elseif($status == $officeaction ){
+															
+															$colors = "color:black;background-color:gray;";
+														}
+
+														elseif($status == $abandon ){
+															
+															$colors = "color:black;background-color:rgb(245, 151, 151);";
+														}
+										
                               @endphp
+
+                              
 							<tr>
 							
 							    <td style="font-size:11px;"><a style="color:black;" href="" >{{$item->aiptref}}</a></td>
@@ -176,7 +230,45 @@
                                         </a> 
                                     
                                 </td>
-                                <td style="font-size:11px;"><a style="color:black;"href="" ></a>{{$item->status }}</td>
+                                <td style="{{ $colors }}" style="font-size:11px;"><a style="color:black;"href="" ></a>
+                                    @php
+                                    $colors = "";
+												$Filed = "Filed";
+												$Published = "Published";
+												$Opposed = "Opposed";
+												$Registered = "Registered";
+												$officeaction = "Office Action";
+												$abandon = "Abandon";
+												$Nodeadline = "No Deadline";
+												$status= ($item->status);
+											
+                                                if(($status == $Filed)){
+															
+															$colors = "color:black;background-color:rgb(246, 246, 188);";
+														}elseif($status == $Published){
+													
+															$colors = "color:black;background-color:rgb(177, 236, 177);";
+														}elseif ($status == $Opposed) {
+															
+															$colors = "color:black;background-color:orange;";
+														}elseif ($status == $Registered) {
+														
+															$colors = "color:black;background-color:violet;";
+														}elseif($status == 	$Nodeadline  ){
+
+															$colors = "color:black;background-color:white;";
+														}elseif($status == $officeaction ){
+															
+															$colors = "color:black;background-color:gray;";
+														}
+
+														elseif($status == $abandon ){
+															
+															$colors = "color:black;background-color:rgb(245, 151, 151);";
+														}
+											 @endphp
+                                    {{$item->status }}
+                                </td>
                               
                                 <td style="{{ $color }}" class="requesteddate">
                                     <a style="font-size:15; color:black; " >
@@ -272,7 +364,7 @@
 
 @section("script")
 @section("script")
-
+<script src="{{ asset('admin_dashboard_assets/plugins/select2/js/select2.min.js') }}"></script>
 <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin_dashboard_assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 

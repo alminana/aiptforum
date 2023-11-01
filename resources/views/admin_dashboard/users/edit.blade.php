@@ -117,6 +117,15 @@
                                             </div>
                                         </div>
 
+                                        <div class="mb-3">
+                                            <label for="input_password" class="form-label">Email Verification</label>
+                                            <input name='date' type='date'  class="form-control" id="email_verified_at">
+                                        
+                                            @error('email_verified_at')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
                                         <button class='btn btn-primary' type='submit'>Update User</button>
 
                                         <!-- <a 

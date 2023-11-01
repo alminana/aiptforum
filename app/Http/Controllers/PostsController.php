@@ -286,5 +286,26 @@ class PostsController extends Controller
         return view('deadline.dashboard',compact('allData','clients','method','categories','clients','start_date','end_date'));
     }
 
-  
+    public function dashboardsearch(Request $request , Post $posts ){
+        $comments = DB::table('comments')->latest('id')->first();
+        $recentPosts = Post::latest('created_at','desc')->take(1000)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $posts = Post::withCount('comments')->get();
+        $method = Method::latest()->take(1000)->get();
+        $clients = Client::latest()->take(1000)->get();
+
+   
+        
+        $sdate = date('Y-m-d',strtotime($request->start_date));
+        $edate = date('Y-m-d',strtotime($request->end_date));
+        $allData = Post::whereBetween('created_at',[$sdate,$edate])->get();
+
+
+        $start_date = date('Y-m-d',strtotime($request->start_date));
+        $end_date = date('Y-m-d',strtotime($request->end_date));
+
+        $allData = Post::where('status',$request->status)->get();    
+
+        return view('deadline.dashboard',compact('allData','clients','method','categories','clients','start_date','end_date'));
+    }
 }
