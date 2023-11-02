@@ -332,7 +332,7 @@
                                 <div class="d-flex order-actions">
                                     <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bxs-edit'></i></a>
                                     <a href="{{ route('post.show', $item) }}"><i class='bx bxs-comment-add'></i></a>
-                                    <a href="" class=""><i class='bx bxs-cloud-lightning'></i></a>
+                                    <a href="https://a61a.myqnapcloud.com/share.cgi?ssid=cf4f399b41594536a13f920e3ecf5836"><i class='bx bxs-cloud-lightning'></i></a>
                                 </div>
                                 </td>
                             </td>
