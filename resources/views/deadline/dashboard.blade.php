@@ -332,7 +332,7 @@
                                 <div class="d-flex order-actions">
                                     <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bxs-edit'></i></a>
                                     <a href="{{ route('post.show', $item) }}"><i class='bx bxs-comment-add'></i></a>
-                                    <a href="{{$post->inputPfolderlink}}" target="_blank"><i class='bx bxs-cloud-lightning'></i></a>
+                                    <a href="{{$item->inputPfolderlink}}" target="_blank"><i class='bx bxs-cloud-lightning'></i></a>
                                 </div>
                                 </td>
                             </td>
