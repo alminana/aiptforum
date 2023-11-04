@@ -331,9 +331,9 @@
                                 <td style="font-size:11px;">
                                 <div class="d-flex order-actions">
                                   
-                                    <a href="{{ route('post.show', $item) }}"><i class='bx bxs-comment-add'></i></a>
+                                    <a href="{{ route('item.show', $item) }}"><i class='bx bxs-comment-add'></i></a>
                              
-                                    <a href="{{$post->inputPfolderlink}}" target="_blank">Folder Link</a>
+                                    <a href="{{$item->inputPfolderlink}}" target="_blank">Folder Link</a>
                                 </div>
                                 </td>
                             </td>
