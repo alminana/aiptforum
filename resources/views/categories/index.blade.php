@@ -281,7 +281,7 @@
 
 								<div class="d-flex order-actions">
 									<td class="action"><a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
-										<a href="{{$post->inputPfolderlink}}" target="_blank" class=""><i class='bx bxs-cloud-lightning'></i></a>
+										<a href="{{$item->inputPfolderlink}}" target="_blank">Folder Link</a>
 									</td>
 						
 								</div>
