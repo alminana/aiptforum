@@ -328,13 +328,8 @@
                                 <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" >{{$item->excerpt}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" >{{$item->country}}</a></td>
                                 {{-- <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->created_at}}</a></td> --}}
-                                <td style="font-size:11px;">
-                                <div class="d-flex order-actions">
-                                  
-                                 
-                             
+                                <td style="font-size:11px;"> 
                                     <a href="{{$item->inputPfolderlink}}" target="_blank">Folder Link</a>
-                                </div>
                                 </td>
                             </td>
                             </tr>
