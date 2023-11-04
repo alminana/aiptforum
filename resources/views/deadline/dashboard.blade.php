@@ -330,9 +330,10 @@
                                 {{-- <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->created_at}}</a></td> --}}
                                 <td style="font-size:11px;">
                                 <div class="d-flex order-actions">
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bxs-edit'></i></a>
+                                  
                                     <a href="{{ route('post.show', $item) }}"><i class='bx bxs-comment-add'></i></a>
-                                    <a href="{{$item->inputPfolderlink}}" target="_blank">Folder Link</a>
+                             
+                                    <a href="{{$post->inputPfolderlink}}" target="_blank">Folder Link</a>
                                 </div>
                                 </td>
                             </td>
