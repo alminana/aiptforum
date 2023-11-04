@@ -37,6 +37,7 @@ class CreatePostsTable extends Migration
             $table->date('requesteddate')->nullable(0);
             $table->foreignId('user_id');
             $table->foreignId('category_id');
+            $table->text('inputPfolderlink');
 
             $table->integer('views')->default(0);
             $table->boolean('approved')->default(true);

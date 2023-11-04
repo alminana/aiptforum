@@ -38,6 +38,7 @@ class Post extends Model
                             'category_id',
                             
                             'body',
+                            'inputPfolderlink',
                             'user_id',
                             'approved'];
 

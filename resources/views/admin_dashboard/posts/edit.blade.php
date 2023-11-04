@@ -563,16 +563,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Application Status</label>
-                                            <textarea name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="12">{{ old("body",$post->body) }}
+                                        <div class="mb-3">
+                                            <label for="inputProductDescription" class="form-label">Folder Link</label>
+                                            
+                                            <Input name='inputPfolderlink'  id='post_content' class="form-control" id="inputPfolderlink" rows="12">{{ old("inputPfolderlink",$post->inputPfolderlink) }}
                                            
                                             </textarea>
                                         
-                                            @error('body')
+                                            @error('inputPfolderlink')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
-                                        </div> --}}
+                                        </div> 
 
                                         <button class='btn btn-primary' type='submit'>Update</button>      
                                                                           
