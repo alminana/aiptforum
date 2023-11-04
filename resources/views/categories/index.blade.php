@@ -280,8 +280,9 @@
 								<td class="country"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->country }}</a></td>
 
 								<div class="d-flex order-actions">
-									<td class="action"><a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
-										<a href="{{$item->inputPfolderlink}}" target="_blank">Folder Link</a>
+									<td class="action">
+										<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
+										<a href="{{$post->inputPfolderlink}}" target="_blank">Folder Link</a>
 									</td>
 						
 								</div>
