@@ -41,6 +41,7 @@
 										<th style="font-size:11px;">Requested Deadline</th>
 										<th style="font-size:11px;">Actual Deadline</th>
 										<th style="font-size:11px;">Country</th>
+										<th style="font-size:11px;">Folder</th>
 										<th style="font-size:11px;">Action</th>
 									</tr>
 								</thead>
@@ -67,6 +68,7 @@
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->requesteddate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->country}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->inputPfolderlink}}</a></td>
 								<td>
 											<div class="d-flex order-actions">
 												<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>

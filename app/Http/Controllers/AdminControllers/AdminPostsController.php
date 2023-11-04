@@ -36,6 +36,7 @@ class AdminPostsController extends Controller
                             'status'=> 'required',
                             'country'=> 'required',
                             'category_id' => 'required|numeric',
+                            'inputPfolderlink' => 'required',
                             'body' => 'required',
     ];
     public function generatepdf(Post $post) {
