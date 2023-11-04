@@ -210,10 +210,10 @@
                               
 							<tr>
 							
-							    <td style="font-size:11px;"><a style="color:black;" href="{{ route('post.show', $post) }}" >{{$item->aiptref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $post) }}" >{{$item->clientref}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $post) }}" ></a>{{$item->title }}</td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $post) }}" ></a>
+							    <td style="font-size:11px;"><a style="color:black;" href="{{ route('post.show', $item) }}" >{{$item->aiptref}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" >{{$item->clientref}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" ></a>{{$item->title }}</td>
+                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" ></a>
                                  
                                         <img style='width: 20%; height:20%;' src="/storage/{{ $item->image ? $item->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
                                         <a style="color:black;">
@@ -324,9 +324,9 @@
                             
                                 {{-- <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->slug}}</a></td>
                                 <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->registrationno}}</a></td> --}}
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $post) }}" >{{$item->class}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $post) }}" >{{$item->excerpt}}</a></td>
-                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $post) }}" >{{$item->country}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" >{{$item->class}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" >{{$item->excerpt}}</a></td>
+                                <td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" >{{$item->country}}</a></td>
                                 {{-- <td style="font-size:11px;"><a style="color:black;"href="" >{{$item->created_at}}</a></td> --}}
                                 <td style="font-size:11px;">
                                 <div class="d-flex order-actions">
