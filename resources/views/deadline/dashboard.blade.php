@@ -98,23 +98,31 @@
 					</div>
 				</div>
 				<!--end breadcrumb-->
-			  
+			
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
                             <div class="col-6">
-                                <table class="table">
+                                <table class="table" style="width: 50%;">
                                     <caption>
                                      Color Legend
                                     </caption>
                                     <tr>
-                                        <td scope="col" style="background-color:white;">New Application</td>
-                                      <td scope="col" style="background-color:rgb(246, 246, 188);">Filed</td>
-                                      <td scope="col" style="background-color:rgb(177, 236, 177);">Published</td>
-                                      <td scope="col" style="background-color:violet;">Registered</td>
-                                      <td scope="col" style="background-color:gray;" >Office Action</td>
-                                      <td scope="col" style="background-color:orange;">Opposed</td>
-                                      <td scope="col" style="background-color:rgb(245, 151, 151);">Abandon</td>
+                                      <td scope="col" style="background-color:#fff000;"  style="width: 50%;">New Application</td>
+                                      <td scope="col" style="background-color:#00ff00;"  style="width: 50%;">Filed</td>
+                                      <td scope="col" style="background-color:#00ffff;"  style="width: 50%;">Published</td>
+                                      <td scope="col" style="background-color:#cc99ff; color:black; "  style="width: 50%;">Registered</td>
+                                      <td scope="col" style="background-color:#ff9933; "  style="width: 50%;">Office Action</td>
+                                      <td scope="col" style="background-color:#ff6666; color:black; "  style="width: 50%;">Opposed</td>
+                                      <td scope="col" style="background-color:#8B4513;color:white; "  style="width: 50%;">Abandon</td>
+
+                                      {{-- <td scope="col" style="background-color:#fff000;">New Application</td>
+                                      <td scope="col" style="background-color:#00ff00;">Filed</td>
+                                      <td scope="col" style="background-color:#00ffff;">Published</td>
+                                      <td scope="col" style="background-color:#8B4513; color:black">Registered</td>
+                                      <td scope="col" style="background-color:#ff9933;" >Office Action</td>
+                                      <td scope="col" style="background-color:#cc99ff;">Opposed</td>
+                                      <td scope="col" style="background-color:#ff6666;">Abandon</td> --}}
                                     
                                     </tr>
                                   </table>
@@ -182,27 +190,27 @@
 											
 														if(($status == $Filed)){
 															
-															$colors = "color:black;background-color:rgb(246, 246, 188);";
+															$colors = "color:black;background-color:#00ff00;";
 														}elseif($status == $Published){
 													
-															$colors = "color:black;background-color:rgb(177, 236, 177);";
+															$colors = "color:black;background-color:#00fffff;";
 														}elseif ($status == $Opposed) {
 															
-															$colors = "color:black;background-color:orange;";
+															$colors = "color:black;background-color:#cc99ff;";
 														}elseif ($status == $Registered) {
 														
-															$colors = "color:black;background-color:violet;";
+                                                            $colors = "color:black;background-color:#8B4513; color:white";
 														}elseif($status == 	$NewApplication  ){
 
-															$colors = "color:black;background-color:white;";
+															$colors = "color:black;background-color:#fff00;";
 														}elseif($status == $officeaction ){
 															
-															$colors = "color:black;background-color:gray;";
+															$colors = "color:black;background-color:#ff9933";
 														}
 
 														elseif($status == $abandon ){
 															
-															$colors = "color:black;background-color:rgb(245, 151, 151);";
+															$colors = "color:black;background-color:#ff6666;";
 														}
 										
                               @endphp
@@ -237,28 +245,29 @@
 											
                                                 if(($status == $Filed)){
 															
-															$colors = "color:black;background-color:rgb(246, 246, 188);";
+															$colors = "color:black;background-color:#00ff00;";
 														}elseif($status == $Published){
 													
-															$colors = "color:black;background-color:rgb(177, 236, 177);";
+															$colors = "color:black;background-color:#00fffff;";
 														}elseif ($status == $Opposed) {
 															
-															$colors = "color:black;background-color:orange;";
+															$colors = "color:black;background-color:#cc99ff;";
 														}elseif ($status == $Registered) {
 														
-															$colors = "color:black;background-color:violet;";
-														}elseif($status == 	$Nodeadline  ){
+                                                            $colors = "color:black;background-color:#bfafb2;";
+														}elseif($status == 	$NewApplication  ){
 
-															$colors = "color:black;background-color:white;";
+															$colors = "color:black;background-color:#fff00;";
 														}elseif($status == $officeaction ){
 															
-															$colors = "color:black;background-color:gray;";
+															$colors = "color:black;background-color:#ff9933";
 														}
 
 														elseif($status == $abandon ){
 															
-															$colors = "color:black;background-color:rgb(245, 151, 151);";
+															$colors = "color:black;background-color:#ff6666;";
 														}
+										
 											 @endphp
                                     {{$item->status }}
                                 </td>
