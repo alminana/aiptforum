@@ -543,7 +543,7 @@
                                         </div>
                                          <div class="mb-3">
                                             <label for="inputProductDescription" class="form-label">Folder Link</label>
-                                            <input type="text" value='{{ old("inputPfolderlink") }}'placeholder="Please Input n/a if theres is no Client References no." name='inputPfolderlink'  class="form-control" id="inputProductclientref">
+                                            <input type="text" value='{{ old("inputPfolderlink") }}'placeholder="Please Input the folder link from qnap storage" name='inputPfolderlink'  class="form-control" id="inputPfolderlink">
 
                                          
                                            
