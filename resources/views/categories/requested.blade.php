@@ -24,6 +24,7 @@
 							<table id="tbAdresse"  class="table table-striped table-bordered">
 								<thead>
 									<tr>
+										<th class="assignedID" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Unique Id</th>	
 										<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
 										<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
 										<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
@@ -98,7 +99,7 @@
 														}
                                                       @endphp
 									<tr>
-								  
+										<td class="assignedID"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{$post->assignedID}}</a></td>
 									<td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{$post->aiptref}}</a></td>
 									<td style="{{ $color }}" class="clientref"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
 									<td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
