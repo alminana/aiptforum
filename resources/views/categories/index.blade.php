@@ -67,15 +67,16 @@
 						<table  id="tbAdresse" class="table table-striped table-bordered">
                             <thead class="table-light">
                             <tr>
-								{{-- <th class="deadline" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Condition</th>	 --}}
+								<th class="assignedID" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Unique Id</th>	
 								<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
 								<th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
 								<th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
 								<th class="status" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Method</th>
 								{{-- <th class="image" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Image</th> --}}
-								{{-- <th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
-								<th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th> --}}
 								<th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing #</th>
+								<th class="slug" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Filing Date</th>
+								<th class="requesteddate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Requested Date</th>
+								<th class="proceduredate" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Actual Date</th>
 								{{-- <th class="registrationno" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Registration #</th> --}}
 								<th class="class"  class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">class</th>						
 								<th class="excerpt" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client</th>	
@@ -121,7 +122,41 @@
 															
 															$colors = "color:black;background-color:red;";
 														}
-											 @endphp
+														$colors = "";
+												$Filed = "Filed";
+												$Published = "Published";
+												$Opposed = "Opposed";
+												$Registered = "Registered";
+												$officeaction = "Office Action";
+												$abandon = "Abandon";
+												$NewApplication = "New Application";
+												$status= ($post->status);
+											
+														if(($status == $Filed)){
+															
+															$colors = "color:black;background-color:#00ff00;";
+														}elseif($status == $Published){
+													
+															$colors = "color:black;background-color:#00fffff;";
+														}elseif ($status == $Opposed) {
+															
+															$colors = "color:black;background-color:#cc99ff;";
+														}elseif ($status == $Registered) {
+														
+                                                            $colors = "color:black;background-color:#8B4513; color:white";
+														}elseif($status == 	$NewApplication  ){
+
+															$colors = "color:black;background-color:#fff00;";
+														}elseif($status == $officeaction ){
+															
+															$colors = "color:black;background-color:#ff9933";
+														}
+
+														elseif($status == $abandon ){
+															
+															$colors = "color:black;background-color:#ff6666;";
+														}
+                                                      @endphp
 								<tr>
 									{{-- <td class="deadline" style="{{ $color }}" href="" >
 										<a style="f; align-item:center; font-size:12; color:black;" href="{{ route('post.show', $post) }}">
@@ -161,48 +196,49 @@
 										
 											 
 									</td> --}}
+								<td class="assignedID"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{$post->assignedID}}</a></td>
 								<td class="aiptref"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td class="clientref"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
                                 <td class="title"><a style="font-size:12; color: black; f" href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
-                                <td class="status" style="{{ $colors }}"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">
-									
-										<a style="f; align-item:center; font-size:12; color:black;" href="{{ route('post.show', $post) }}">
-
-									
-												@php
-												$colors = "";
-												$Filing = "Filing";
-												$Rejected = "Rejected";
-												$Registration = "Final Registration";
-												$Publication = "Publication";
-												$NoDeadline = "No Deadline";
+								<td style="{{ $colors }}" style="font-size:11px;"><a style="color:black;"href="" ></a>
+									@php
+									$colors = "";
+												$Filed = "Filed";
+												$Published = "Published";
+												$Opposed = "Opposed";
+												$Registered = "Registered";
+												$officeaction = "Office Action";
+												$abandon = "Abandon";
+												$Nodeadline = "No Deadline";
 												$status= ($post->status);
 											
-														if(($status == $Filing)){
+												if(($status == $Filed)){
 															
-															$color = "color:black;background-color:yellow;";
-														}elseif($status == $Publication){
+															$colors = "color:black;background-color:#00ff00;";
+														}elseif($status == $Published){
 													
-															$color = "color:black;background-color:green;";
-														} elseif ($status == $Rejected) {
+															$colors = "color:black;background-color:#00fffff;";
+														}elseif ($status == $Opposed) {
 															
-															$color = "color:black;background-color:orange;";
-														}	elseif ($status == $Registration) {
+															$colors = "color:black;background-color:#cc99ff;";
+														}elseif ($status == $Registered) {
 														
-															$color = "color:black;background-color:violet;";
-														}elseif($status == $NoDeadline ){
-															$color = "color:black;background-color:white;";
-														}
-											 @endphp
-											  </button>
+															$colors = "color:black;background-color:#bfafb2;";
+														}elseif($status == 	$NewApplication  ){
 
+															$colors = "color:black;background-color:#fff00;";
+														}elseif($status == $officeaction ){
+															
+															$colors = "color:black;background-color:#ff9933";
+														}
+
+														elseif($status == $abandon ){
+															
+															$colors = "color:black;background-color:#ff6666;";
+														}
 										
-										</a>
-										
-											 
-								
-									
-									{{ $post->status }}</a>
+											 @endphp
+									{{$post->status }}
 								</td>
                                 {{-- <td class="image">
 								</a>  --}}
@@ -274,7 +310,9 @@
 								</td> --}}
 								
 								<td class="slug"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->slug }}</a></td>
-								{{-- <td class="registrationno"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->registrationno }}</a></td> --}}
+								<td class="filingdate"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->filingdate }}</a></td>
+								<td class="requesteddate"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->requesteddate }}</a></td>
+								<td class="proceduredate"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->proceduredate }}</a></td>
 								<td class="class"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->class }}</a></td>
 								<td class="excerpt"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->excerpt }}</a></td>
 								<td class="country"  href="{{ route('post.show', $post) }}"><a style="font-size:12; color: black; f"  href="{{ route('post.show', $post) }}">{{ $post->country }}</a></td>

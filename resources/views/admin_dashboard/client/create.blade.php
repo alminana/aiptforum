@@ -14,7 +14,7 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.clients.index') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Clients</li>
+                        <li class="breadcrumb-item active" aria-current="page">All Clients / Associate</li>
                     </ol>
                 </nav>
             </div>
@@ -23,7 +23,7 @@
       
         <div class="card">
             <div class="card-body p-4">
-                <h5 class="card-title">Add New Clients</h5>
+                <h5 class="card-title">Add New Clients / Associate</h5>
                 <hr/>
 
                 <form action="{{ route('admin.clients.store') }}" method='post'>
@@ -42,7 +42,7 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Client Name</label>
+                                        <label for="inputProductTitle" class="form-label">Clients / Associate Name</label>
                                         <input type="text" value='{{ old("name") }}' name='name' required class="form-control" id="inputProductTitle">
 
                                         @error('name')
@@ -540,8 +540,7 @@
                                                     <div class="rounded">
                                                         <div class="mb-3">
                                                             <select required name='type' class="form-control" value='{{ old("type") }}' class="single-select">                                                            
-                                                            <option value="Direct">Direct</option>
-                                                            <option value="Agent">Agent</option>
+                                                            <option value="Client">Client</option>
                                                             <option value="Associate">Associate</option>
                                                             </select>
 

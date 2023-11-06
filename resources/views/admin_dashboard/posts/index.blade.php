@@ -28,15 +28,16 @@
 							<table id="tbAdresse" cellspacing="0" style="border:1px color:grey;" class="table table-striped table-bordered" role="grid" aria-describedby="tbAdresse_info">
 								<thead>
 									<tr>
-										<th style="font-size:11px;">No.</th>
+										<th style="font-size:11px;">Unique Id</th>
 										<th style="font-size:11px;">AIPTREF</th>
 										<th style="font-size:11px;">Client Reference</th>
 										<th style="font-size:11px;">Client</th>
 										<th style="font-size:11px;">Class</th>
 										<th style="font-size:11px;">Image</th>
 										<th style="font-size:11px;">Application</th>
+										<th style="font-size:11px;">Applicant</th>
 										<th style="font-size:11px;">Filing no:</th>
-										<th style="font-size:11px;">Registration</th>
+										<th style="font-size:11px;">Filing Date</th>
 										<th style="font-size:11px;">Procedure</th>
 										<th style="font-size:11px;">Requested Deadline</th>
 										<th style="font-size:11px;">Actual Deadline</th>
@@ -48,7 +49,7 @@
 								<tbody>
 								@forelse($posts as $post)
 							<tr>
-								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->id}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->assignedID}}</a></td>
 							   <td style="font-size:11px;"><a style="color:black;" href="{{ route('posts.show', $post) }}">{{$post->aiptref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->clientref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}"></a>{{ $post->agent }}</td>
@@ -63,7 +64,8 @@
 								</td> 
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->title}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->slug}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->registrationno}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->applicant}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->filingdate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->status}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->requesteddate}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('posts.show', $post) }}">{{$post->proceduredate}}</a></td>
@@ -73,9 +75,6 @@
 											<div class="d-flex order-actions">
 												<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
 												<!-- <a href="#"  onclick="event.preventDefault(); document.getElementById('delete_form_{{ $post->id }}').submit();" class="ms-3"><i class='bx bxs-trash'></i></a> -->
-											
-                                            
-											
                                             </div>
 										</td>
 

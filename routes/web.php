@@ -150,7 +150,6 @@ Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactual
 Route::get('/dashboard', [PostsController::class, 'dashboard'])->name('deadline.dashboard');
 
 
-
 });
 require __DIR__.'/auth.php';
 

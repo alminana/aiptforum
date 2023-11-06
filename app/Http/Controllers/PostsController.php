@@ -31,7 +31,7 @@ class PostsController extends Controller
         'excerpt' => 'required|max:1000',
         'status'=> 'required',
         'country'=> 'required',
-        "inputPfolderlink",
+        "inputPfolderlink" => 'required',
         'category_id' => 'required|numeric',
         'body' => 'required',
 ];    

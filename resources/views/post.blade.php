@@ -11,7 +11,7 @@
 		<div class="page-content">
 	<!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div style="font-weight: 200"  class="breadcrumb-title pe-3"><a  href="">Trademark</a></div>
+        <div style="font-weight: 200"  class="breadcrumb-title pe-3"><a  href="">Trademark Client Unique Id: {{ old("aiptref", $post->aiptref) }}</a></div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -63,6 +63,14 @@
 							</div>
 							
 						</div>
+
+						<div class="row" style="margin-top:15px">
+							<div class="col-9">
+								<label style="color: blueviolet; font-weight:bold">Applicant</label>
+								<h6 style="color:black; font-weight:bold">{{ old("excerpt", $post->applicant) }}</h6>
+							</div>
+							
+						</div>
 						<div class="row" style="margin-top:15px">
 							<div class="col-12">
 								<div class="row" style="margin-top:15px">
@@ -98,6 +106,15 @@
 								<div class="col-9">
 									<label style="color: blueviolet; font-weight:bold">Filing Number</label>
 									<h6 style="color:black; font-weight:bold">{{ old("slug", $post->slug) }}</h6>
+								</div>
+								
+							</div>
+						 </div>
+						 <div class="row">
+							<div class="row" style="margin-top:15px">
+								<div class="col-9">
+									<label style="color: blueviolet; font-weight:bold">Filing Date</label>
+									<h6 style="color:black; font-weight:bold">{{ old("slug", $post->filingdate) }}</h6>
 								</div>
 								
 							</div>

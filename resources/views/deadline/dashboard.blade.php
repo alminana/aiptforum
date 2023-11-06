@@ -130,7 +130,7 @@
 							<table  id="tbAdresse" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-							
+                                    <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Unique Id</th>
                                     <th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
                                     <th class="clientref"class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Client Ref.</th>
                                     <th class="title" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Application</th>
@@ -217,7 +217,7 @@
 
                               
 							<tr>
-							
+                                <td style="font-size:11px;"><a style="color:black;" href="{{ route('post.show', $item) }}" >{{$item->assignedID}}</a></td>
 							    <td style="font-size:11px;"><a style="color:black;" href="{{ route('post.show', $item) }}" >{{$item->aiptref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" >{{$item->clientref}}</a></td>
 								<td style="font-size:11px;"><a style="color:black;"href="{{ route('post.show', $item) }}" ></a>{{$item->title }}</td>

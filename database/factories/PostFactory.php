@@ -25,6 +25,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
+            'assignedID' => $this->faker->numerify('####'),
             'aiptref' => $this->faker->numerify('aipt-####'),
             'title' => $this->faker->sentence(),
             'agent'=> $this->faker->company(),
@@ -33,7 +34,8 @@ class PostFactory extends Factory
             'slug' => $this->faker->numerify('#####'),
             'excerpt' => $this->faker->company(),
             'class' => $this->faker->numerify('class-####'),
-            // 'pubdate' => $this->faker->date(),
+            'filingdate' => $this->faker->date(),
+            'applicant'=> $this->faker->company(),
             'registrationno' => $this->faker->numerify('####'),
             // 'registrationdate' => $this->faker->date(),
             'renewal' => $this->faker->date(),

@@ -8,7 +8,7 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Clients</div>
+            <div class="breadcrumb-title pe-3">Edit Clients / Associate</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
@@ -23,7 +23,7 @@
       
         <div class="card">
             <div class="card-body p-4">
-                <h5 class="card-title">Update Client</h5>
+                <h5 class="card-title">Update Clients / Associate</h5>
                 <hr/>
 
                 <form action="{{route('admin.clients.update', $client)}}" method='post'>
@@ -43,7 +43,7 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Client Name</label>
+                                        <label for="inputProductTitle" class="form-label">Clients / Associate  Name</label>
                                         <input type="text" value='{{ old("name", $client->name) }}' name='name' class="form-control" id="inputProductTitle">
 
                                         @error('name')

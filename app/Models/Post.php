@@ -18,13 +18,14 @@ class Post extends Model
     use HasFactory;
     
 
-    protected $fillable = [ 'aiptref',
+    protected $fillable = [ 'assignedID',
+                            'aiptref',
                             'clientref',
                             'title',
                             'agent',
                             'slug',
                             'filingdate',
-                           
+                            'applicant',
                           
                             'registrationno',
                             'registrationdate',

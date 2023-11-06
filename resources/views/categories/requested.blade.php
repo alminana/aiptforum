@@ -62,14 +62,86 @@
                                                       $color = "color:black;background-color:#ffb3b3;";
                                                     }	
                                                             
+                                                    $colors = "";
+												$Filed = "Filed";
+												$Published = "Published";
+												$Opposed = "Opposed";
+												$Registered = "Registered";
+												$officeaction = "Office Action";
+												$abandon = "Abandon";
+												$NewApplication = "New Application";
+												$status= ($post->status);
+											
+														if(($status == $Filed)){
+															
+															$colors = "color:black;background-color:#00ff00;";
+														}elseif($status == $Published){
+													
+															$colors = "color:black;background-color:#00fffff;";
+														}elseif ($status == $Opposed) {
+															
+															$colors = "color:black;background-color:#cc99ff;";
+														}elseif ($status == $Registered) {
+														
+                                                            $colors = "color:black;background-color:#8B4513; color:white";
+														}elseif($status == 	$NewApplication  ){
+
+															$colors = "color:black;background-color:#fff00;";
+														}elseif($status == $officeaction ){
+															
+															$colors = "color:black;background-color:#ff9933";
+														}
+
+														elseif($status == $abandon ){
+															
+															$colors = "color:black;background-color:#ff6666;";
+														}
                                                       @endphp
 									<tr>
 								  
 									<td style="{{ $color }}" class="aiptref"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{$post->aiptref}}</a></td>
 									<td style="{{ $color }}" class="clientref"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{ $post->clientref }}</a></td>
 									<td style="{{ $color }}" class="title"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{ $post->title }}</a></td>
-									<td style="{{ $color }}" class="status"><a style="font-size:12; color: black; " href="{{ route('post.show', $post) }}">{{ $post->status }}</a></td>
-								   
+									<td style="{{ $colors }}" style="font-size:11px;"><a style="color:black;"href="" ></a>
+										@php
+										$colors = "";
+													$Filed = "Filed";
+													$Published = "Published";
+													$Opposed = "Opposed";
+													$Registered = "Registered";
+													$officeaction = "Office Action";
+													$abandon = "Abandon";
+													$Nodeadline = "No Deadline";
+													$status= ($post->status);
+												
+													if(($status == $Filed)){
+																
+																$colors = "color:black;background-color:#00ff00;";
+															}elseif($status == $Published){
+														
+																$colors = "color:black;background-color:#00fffff;";
+															}elseif ($status == $Opposed) {
+																
+																$colors = "color:black;background-color:#cc99ff;";
+															}elseif ($status == $Registered) {
+															
+																$colors = "color:black;background-color:#bfafb2;";
+															}elseif($status == 	$NewApplication  ){
+	
+																$colors = "color:black;background-color:#fff00;";
+															}elseif($status == $officeaction ){
+																
+																$colors = "color:black;background-color:#ff9933";
+															}
+	
+															elseif($status == $abandon ){
+																
+																$colors = "color:black;background-color:#ff6666;";
+															}
+											
+												 @endphp
+										{{$post->status }}
+									</td>									   
 									<td style="{{ $color }}" class="requesteddate">
 										<a style="font-size:15; color:black; "  href="{{ route('post.show', $post) }}">
 											@php

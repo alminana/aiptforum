@@ -15,12 +15,13 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->integer('assignedID');
             $table->string('title');
             $table->string('slug')->default('00000');
             $table->string('agent');
 
             $table->string('clientref')->default('n/a');
-            // $table->string('filingdate')->default('00-00-0000');
+            $table->date('filingdate')->nullable(0);
           
 
             $table->string('registrationno')->default('n/a');
@@ -31,7 +32,7 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->text('country');
             $table->text('aiptref');
-
+            $table->text('applicant');
             $table->text('status');
             $table->date('proceduredate')->nullable(0);
             $table->date('requesteddate')->nullable(0);

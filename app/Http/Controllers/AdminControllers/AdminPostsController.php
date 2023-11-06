@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Storage;
 class AdminPostsController extends Controller
 {
     private $rules = [
+                            'assignedID' => 'required',
                             'aiptref'=>'required',
                             'clientref'=> 'required',
                             'title'=> 'required',
@@ -31,7 +32,8 @@ class AdminPostsController extends Controller
                             'requesteddate'=>'required',
                             'registrationno'=>'required',
                             'class'=>'required',
-                            // 'renewal'=>'required',
+                            'filingdate'=>'required',
+                            'applicant'=>'required',
                             'excerpt' => 'required|max:1000',
                             'status'=> 'required',
                             'country'=> 'required',
@@ -128,7 +130,9 @@ class AdminPostsController extends Controller
                 'extension' => $file_extension,
                 'path' => $path
             ]);
-            return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');
+    
+
+            return redirect()->route('admin.posts.index')->with('success', 'Post has been created.');    
             
             // dd($post);
             // $thumbnail = $request->file('thumbnail');
