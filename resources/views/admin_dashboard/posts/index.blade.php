@@ -75,9 +75,10 @@
 								<td>
 											<div class="d-flex order-actions">
 												<a href="{{ route('admin.posts.edit', $post) }}" class=""><i class='bx bxs-edit'></i></a>
-												<!-- <a href="#"  onclick="event.preventDefault(); document.getElementById('delete_form_{{ $post->id }}').submit();" class="ms-3"><i class='bx bxs-trash'></i></a> -->
+												
                                             </div>
 										</td>
+										
 
                             </tr>
                             @empty
@@ -92,6 +93,8 @@
 
 			</div>
 		</div>
+
+		
 		<!--end page wrapper -->
 		@endsection
 	
