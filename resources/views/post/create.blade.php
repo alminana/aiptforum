@@ -521,28 +521,20 @@
                                                         @enderror
                                                     </div>  
                                                        <!-- type -->
-                                                    <div class="mb-3">
-                                                        <label for="inputProductTitle" class="form-label">Type</label>
-                                                        <div class="card">
-                                                            <div class="card-body">
-                                                                <div class="rounded">
-                                                                    <div class="mb-3">
-                                                                        <select required name='category_id' class="single-select">
-                                                                            @foreach($categories as $key => $category)
-                                                                            <option value="{{ $key }}">{{ $category }}</option>
-                                                                            @endforeach
-                                                                        </select>
-            
-                                                                        @error('category_id')
-                                                                            <p class='text-danger'>{{ $message }}</p>
-                                                                        @enderror
-            
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                       <div class="mb-3">
+                                                        <label for="inputProductDescription" class="form-label">Category</label><br>
+                                                        <select required name='category_id' class="single-select">
+                                                            @foreach($categories as $key => $category)
+                                                            <option value="{{ $key }}">{{ $category->name }}</option>
+                                                   
+                                                            @endforeach
+                                                        </select>
+
+                                                        @error('category_id')
+                                                            <p class='text-danger'>{{ $message }}</p>
+                                                        @enderror
+
                                                     </div>
-            
                                                     <div class="mb-3">
                                                         <div class="card">
                                                             <div class="card-body">
