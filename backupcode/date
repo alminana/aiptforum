@@ -1,3 +1,0 @@
- $currentDate = Carbon::now();
-        $deadlineThreshold = $currentDate->addDays(15);
-        $posts= POST::whereDate('requesteddate', '<=', $deadlineThreshold)->get();

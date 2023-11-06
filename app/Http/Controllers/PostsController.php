@@ -18,6 +18,7 @@ class PostsController extends Controller
  
 
     private $rules = [
+        'assignedID' => 'required',
         'aiptref'=>'required',
         'clientref'=> 'required',
         'title'=> 'required',
@@ -27,12 +28,13 @@ class PostsController extends Controller
         'requesteddate'=>'required',
         'registrationno'=>'required',
         'class'=>'required',
-        // 'renewal'=>'required',
+        'filingdate'=>'required',
+        'applicant'=>'required',
         'excerpt' => 'required|max:1000',
         'status'=> 'required',
         'country'=> 'required',
-        "inputPfolderlink" => 'required',
         'category_id' => 'required|numeric',
+        'inputPfolderlink' => 'required',
         'body' => 'required',
 ];    
 
