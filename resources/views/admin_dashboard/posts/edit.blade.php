@@ -507,6 +507,10 @@
                                                     "ARIPO",
                                                     "OAPI",
                                                     "European Union",
+                                                    "Palestine(Gaza)""
+                                                    "Palestine(west bank)"
+                                                    "Tanzania (zanzibar)"
+                                                    "Tanzania (Tanganyika)"
                                                     ];
                                                 @endphp
                                              
