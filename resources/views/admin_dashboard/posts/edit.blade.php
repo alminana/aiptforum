@@ -506,6 +506,7 @@
                                                     "GCC",
                                                     "ARIPO",
                                                     "OAPI",
+                                                    "European Union",
                                                     ];
                                                 @endphp
                                              

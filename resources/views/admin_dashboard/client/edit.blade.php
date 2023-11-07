@@ -304,7 +304,7 @@
                                                             <option value="Zimbabwe">Zimbabwe</option>
                                                             <option value="Zanzibar">Zanzibar</option>
                                                             <option value="Aripo">ARIPO</option>
-                                                            <option value="Oapi">OAPI</option>
+                                                            <option value="EU">Europian Union</option>
                                                             </select>
 
                                                             @error('country')
@@ -323,7 +323,7 @@
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='abbr' class="form-control" value='{{ old("abbr") }}' class="single-select">                                                            
+                                                            <select required name='abbr' value='{{ old("abbr") }}' class="single-select">                                                            
                                                             <option value="AF">AF</option>
                                                             <option value="AL">AL</option>
                                                             <option value="DZ">DZ</option>
@@ -517,6 +517,7 @@
                                                              <option value="ZM">ZM</option>
                                                              <option value="Aripo">ARIPO</option>
                                                              <option value="Oapi">OAPI</option>
+                                                             <option value="EU">Europian Union</option>
                                                             </select>
 
                                                             @error('abbr')

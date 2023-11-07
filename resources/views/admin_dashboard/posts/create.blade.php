@@ -249,7 +249,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <label for="inputProductTitle" class="form-label">Actual Date:</label>
+                                                <label for="inputProductTitle" class="form-label">Country Date:</label>
                                                 <div class="mb-3">
                                                     <select required name='country' value='{{ old("country") }}' class="single-select">                                                            
                                                     <option value="Afghanistan">Afghanistan</option>
@@ -499,6 +499,7 @@
                                                     <option value="Zimbabwe">Zimbabwe</option>
                                                     <option value="Aripo">Aripo</option>
                                                     <option value="OAPI">OAPI</option>
+                                                    <option value="EU">European Union</option>
                                                     </select>
 
                                                     @error('country')

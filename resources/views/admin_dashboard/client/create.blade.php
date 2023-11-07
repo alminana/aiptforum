@@ -56,7 +56,7 @@
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='country' class="form-control" value='{{ old("country") }}' class="single-select">                                                            
+                                                            <select required name='country' class="form-control" value='{{ old("country") }}' class="single-select">                                                          
                                                             <option value="Afghanistan">Afghanistan</option>
                                                             <option value="Åland Islands">Åland Islands</option>
                                                             <option value="Albania">Albania</option>
@@ -304,6 +304,7 @@
                                                             <option value="Zanzibar">Zanzibar</option>
                                                             <option value="Aripo">ARIPO</option>
                                                             <option value="Oapi">OAPI</option>
+                                                            <option value="EU">Europian Union</option>
                                                             </select>
 
                                                             @error('country')
