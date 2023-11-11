@@ -26,7 +26,7 @@ class AdminAssociatesController extends Controller
             ->paginate(10);
         }
         
-        return view('admin_dashboard.Associates.index',compact('associates'));
+        return view('admin_dashboard.associates.index',compact('associates'));
     }
 
     public function create()
