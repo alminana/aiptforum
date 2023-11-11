@@ -71,7 +71,7 @@ class AdminPostsController extends Controller
         $tags= Tag::all();
         $posts = Post::latest()->take(1000)->paginate(1000);
         $client = Client::latest()->take(20)->get();
-        $associates = Associates::all();
+        // $associates = Associates::all();
         $method = Method::latest()->take(0)->get();
         
         if ($request->has('search')) {
@@ -96,9 +96,9 @@ class AdminPostsController extends Controller
             'tags'=> Tag::all(),
             'client'=> Client::all(),
             'posts'=> Post::all(),
-            'associates' => Associates::all(),
+            // 'associates' => Associates::all(),
             'method' => Method::all(),
-        ],compact('posts','tags','client','associates','method'));
+        ],compact('posts','tags','client','method'));
     }
 
     public function create()
