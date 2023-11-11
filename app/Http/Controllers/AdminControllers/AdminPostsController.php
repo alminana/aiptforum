@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
+use App\Models\Associates;
 use App\Models\Client;
 use App\Models\Method;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -70,6 +71,7 @@ class AdminPostsController extends Controller
         $tags= Tag::all();
         $posts = Post::latest()->take(1000)->paginate(1000);
         $client = Client::latest()->take(20)->get();
+        $associates = Associates::all();
         $method = Method::latest()->take(0)->get();
         
         if ($request->has('search')) {
@@ -88,13 +90,13 @@ class AdminPostsController extends Controller
             ->orWhere('created_at', 'like', "%{$request->search}%")
             ->paginate(10);
         }
-        return view('admin_dashboard.posts.index',compact('posts','tags','client','method'));
+        // return view('admin_dashboard.posts.index',compact('posts','tags','client','method','associates'));
 
-        // return view('admin_dashboard.posts.index', [
-        //     'tags'=> Tag::all(),
-        //     'client'=> Client::all(),
-        //     'posts'=> Post::all(),
-        // ],compact('posts','tags','client'));
+        return view('admin_dashboard.posts.index', [
+            'tags'=> Tag::all(),
+            'client'=> Client::all(),
+            'posts'=> Post::all(),
+        ],compact('posts','tags','client'));
     }
 
     public function create()
@@ -102,12 +104,13 @@ class AdminPostsController extends Controller
         $tags = Tag::latest()->take(50)->get();
         $clients = Client::all();
         $method = Method::all();
+        $associates = Associates::all();
         return view('admin_dashboard.posts.create', [
             'tags'=> Tag::all(),
             'clients'=> Client::all(),
             'method'=> Method::all(),
             'categories' => Category::pluck('name', 'id')
-        ],compact('clients','method'));
+        ],compact('clients','method','associates'));
     }
     
     public function store(Request $request)
@@ -116,7 +119,7 @@ class AdminPostsController extends Controller
         $validated['user_id'] = auth()->id();
         $post = Post::create($validated);
         $method = Method::all();
-
+        $associates = Associates::all();
           if($request->has('thumbnail'))
         {
 
@@ -228,12 +231,13 @@ class AdminPostsController extends Controller
     {   
         $clients = Client::all();
         $method = Method::latest()->take(1000)->get();
+        $associates = Associates::all();
         return view('admin_dashboard.posts.edit', [
             'post' => $post,
             'categories' => Category::pluck('name', 'id'),
             'clients'=>$clients,
             'method' > $method
-        ],compact('clients','method','post'));
+        ],compact('clients','method','post','associates'));
     }
     
     public function update(Request $request, Post $post)
@@ -311,7 +315,8 @@ class AdminPostsController extends Controller
 
     public function destroy(Post $post)
     {
-        $method = Method::all();    
+        $method = Method::all();  
+        $associates = Associates::all();  
         $post->tags()->delete();
         $post->delete();
         Alert::success('Successfully Delete','Delete');

@@ -54,13 +54,28 @@
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-user' style="color: black"></i>
                         </div>
-                        <div class="" style="color: black">Clients / Associate</div>
+                        <div class="" style="color: black">Clients</div>
                     </a>
 
                     <ul>
                         <li> <a href="{{ route('admin.clients.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All </a>
                         </li>
                         <li> <a href="{{route('admin.clients.create')}}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-user' style="color: black"></i>
+                        </div>
+                        <div class="" style="color: black">Associates</div>
+                    </a>
+
+                    <ul>
+                        <li> <a href="{{ route('admin.associates.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All </a>
+                        </li>
+                        <li> <a href=""><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New</a>
                         </li>
                         
                     </ul>

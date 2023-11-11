@@ -8,13 +8,13 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Edit Clients</div>
+            <div class="breadcrumb-title pe-3">Edit Associates</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.clients.index') }}"><i class="bx bx-home-alt"></i></a>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.associates.index') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Clients</li>
+                        <li class="breadcrumb-item active" aria-current="page">All Associates</li>
                     </ol>
                 </nav>
             </div>
@@ -23,10 +23,10 @@
       
         <div class="card">
             <div class="card-body p-4">
-                <h5 class="card-title">Update Clients</h5>
+                <h5 class="card-title">Update Associates</h5>
                 <hr/>
 
-                <form action="{{route('admin.clients.update', $client)}}" method='post'>
+                <form action="{{route('admin.associates.update', $associates)}}" method='post'>
                   @csrf
                     @method('PATCH')
 
@@ -36,15 +36,15 @@
                                 <div class="border border-3 p-4 rounded">
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">AssignedID</label>
-                                        <input type="text" value='{{ old("assignedID",$client->assignedID) }}' name='assignedID' class="form-control" id="inputProductTitle">
+                                        <input type="text" value='{{ old("assignedID",$associates->assignedID) }}' name='assignedID' class="form-control" id="inputProductTitle">
                                         
                                         @error('assignedID')
                                             <p class='text-danger'>{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Clients  Name</label>
-                                        <input type="text" value='{{ old("name", $client->name) }}' name='name' class="form-control" id="inputProductTitle">
+                                        <label for="inputProductTitle" class="form-label">associatess  Name</label>
+                                        <input type="text" value='{{ old("name", $associates->name) }}' name='name' class="form-control" id="inputProductTitle">
 
                                         @error('name')
                                             <p class='text-danger'>{{ $message }}</p>
@@ -52,7 +52,7 @@
                                     </div>
                                      <!-- Country -->
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" value='{{ old("country", $client->country) }}'class="form-label">Country</label>
+                                            <label for="inputProductTitle" value='{{ old("country", $associates->country) }}'class="form-label">Country</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
@@ -323,7 +323,7 @@
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='abbr' value='{{ old("abbr") }}' class="single-select">                                                            
+                                                            <select required name='abbr' value='{{ old("abbr", $associates->abbr) }}' class="single-select">                                                            
                                                             <option value="AF">AF</option>
                                                             <option value="AL">AL</option>
                                                             <option value="DZ">DZ</option>
@@ -536,8 +536,8 @@
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='type' class="form-control" value='{{ old("type", $client->type) }}' class="single-select">                                                            
-                                                            <option value="Direct">Client</option>
+                                                            <select required name='type' class="form-control" value='{{ old("type", $associates->type) }}' class="single-select">                                                            
+                                                            <option value="Direct">Associates</option>
                                                          
                                                             </select>
 
@@ -550,7 +550,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    <button class='btn btn-primary' type='submit'>Update Client</button>
+                                    <button class='btn btn-primary' type='submit'>Update Associates</button>
                                     
                                 </div>
                             </div>
@@ -574,7 +574,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                <h4>Are you sure you want to delete this Client</h4>
+                                <h4>Are you sure you want to delete this Associates</h4>
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

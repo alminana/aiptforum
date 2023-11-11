@@ -8,13 +8,13 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Edit Clients</div>
+            <div class="breadcrumb-title pe-3">Associates </div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.clients.index') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Clients</li>
+                        <li class="breadcrumb-item active" aria-current="page">Associate</li>
                     </ol>
                 </nav>
             </div>
@@ -23,12 +23,11 @@
       
         <div class="card">
             <div class="card-body p-4">
-                <h5 class="card-title">Update Clients</h5>
+                <h5 class="card-title">Associate</h5>
                 <hr/>
 
-                <form action="{{route('admin.clients.update', $client)}}" method='post'>
-                  @csrf
-                    @method('PATCH')
+                <form action="{{ route('admin.associates.store') }}" method='post'>
+                    @csrf
 
                     <div class="form-body mt-4">
                         <div class="row">
@@ -36,15 +35,15 @@
                                 <div class="border border-3 p-4 rounded">
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">AssignedID</label>
-                                        <input type="text" value='{{ old("assignedID",$client->assignedID) }}' name='assignedID' class="form-control" id="inputProductTitle">
+                                        <input type="text" value='{{ old("assignedID") }}' name='assignedID' required class="form-control" id="inputProductTitle">
                                         
                                         @error('assignedID')
                                             <p class='text-danger'>{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Clients  Name</label>
-                                        <input type="text" value='{{ old("name", $client->name) }}' name='name' class="form-control" id="inputProductTitle">
+                                        <label for="inputProductTitle" class="form-label">Associate Name</label>
+                                        <input type="text" value='{{ old("name") }}' name='name' required class="form-control" id="inputProductTitle">
 
                                         @error('name')
                                             <p class='text-danger'>{{ $message }}</p>
@@ -52,12 +51,12 @@
                                     </div>
                                      <!-- Country -->
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" value='{{ old("country", $client->country) }}'class="form-label">Country</label>
+                                            <label for="inputProductTitle" class="form-label">Country</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='country' class="form-control" value='{{ old("country") }}' class="single-select">                                                            
+                                                            <select required name='country' class="form-control" value='{{ old("country") }}' class="single-select">                                                          
                                                             <option value="Afghanistan">Afghanistan</option>
                                                             <option value="Åland Islands">Åland Islands</option>
                                                             <option value="Albania">Albania</option>
@@ -173,7 +172,7 @@
                                                             <option value="Kazakhstan">Kazakhstan</option>
                                                             <option value="Kenya">Kenya</option>
                                                             <option value="Kiribati">Kiribati</option>
-                                                            <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                                                            <option value="South Korea">South Korea</option>
                                                             <option value="Korea, Republic of">Korea, Republic of</option>
                                                             <option value="Kuwait">Kuwait</option>
                                                             <option value="Kyrgyzstan">Kyrgyzstan</option>
@@ -304,6 +303,7 @@
                                                             <option value="Zimbabwe">Zimbabwe</option>
                                                             <option value="Zanzibar">Zanzibar</option>
                                                             <option value="Aripo">ARIPO</option>
+                                                            <option value="Oapi">OAPI</option>
                                                             <option value="EU">Europian Union</option>
                                                             </select>
 
@@ -316,229 +316,232 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Abbrivations -->
-                                        <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">ABBR</label>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="rounded">
-                                                        <div class="mb-3">
-                                                            <select required name='abbr' value='{{ old("abbr") }}' class="single-select">                                                            
-                                                            <option value="AF">AF</option>
-                                                            <option value="AL">AL</option>
-                                                            <option value="DZ">DZ</option>
-                                                            <option value="AD">AD</option>
-                                                            <option value="AO">AO</option>
-                                                            <option value="AG">AG</option>
-                                                            <option value="AR">AR</option>
-                                                            <option value="AM">AM</option>
-                                                            <option value="AU">AU</option>
-                                                            <option value="AT">AT</option>
-                                                            <option value="AZ">AZ</option>
-                                                            <option value="BS">BS</option>
-                                                            <option value="BH">BH</option>
-                                                            <option value="BD">BD</option>
-                                                            <option value="BB">BB</option>
-                                                            <option value="BY">BY</option>
-                                                            <option value="BE">BE</option>
-                                                            <option value="BZ">BZ</option>
-                                                            <option value="BJ">BJ</option>
-                                                            <option value="BT">BT</option>
-                                                            <option value="BO">BO</option>
-                                                            <option value="BA">BA</option>
-                                                            <option value="BW">BW</option>
-                                                            <option value="BR">BR</option>
-                                                            <option value="BN">BN</option>
-                                                            <option value="BG">BG</option>
-                                                            <option value="BF">BF</option>
-                                                            <option value="BI">BI</option>
-                                                            <option value="KH">KH</option>
-                                                            <option value="CM">CM</option>
-                                                            <option value="CA">CA</option>
-                                                            <option value="CV">CV</option>
-                                                            <option value="CF">CF</option>
-                                                            <option value="TD">TD</option>
-                                                            <option value="CL">CL</option>
-                                                            <option value="CN">CN</option>
-                                                            <option value="CO">CO</option>
-                                                            <option value="KM">KM</option>
-                                                            <option value="CD">CD</option>
-                                                            <option value="CG">CG</option>
-                                                            <option value="CR">CR</option>
-                                                            <option value="AF"></option>
-                                                            <option value="AF">AF</option>
-                                                            <option value="AF">AF</option>
-                                                            <option value="CI">CI</option>
-                                                            <option value="HR">HR</option>
-                                                            <option value="CU">CU</option>
-                                                            <option value="CY">CY</option>
-                                                            <option value="CZ">CZ</option>
-                                                            <option value="DK">DK</option>
-                                                            <option value="DJ">DJ</option>
-                                                            <option value="DM">DM</option>
-                                                            <option value="DO">DO</option>
-                                                            <option value="TL">TL</option>
-                                                            <option value="EC">EC</option>
-                                                            <option value="SV">SV</option>
-                                                            <option value="GQ">GQ</option>
-                                                            <option value="ER">ER</option>
-                                                            <option value="EE">EE</option>
-                                                            <option value="ET">ET</option>
-                                                            <option value="FJ">FJ</option>
-                                                            <option value="FI">FI</option>
-                                                            <option value="FR">FR</option>
-                                                            <option value="GA">GA</option>
-                                                            <option value="GM">GM</option>
-                                                            <option value="GE">GE</option>
-                                                            <option value="DE">DE</option>
-                                                            <option value="GH">GH</option>
-                                                            <option value="GR">GR</option>
-                                                            <option value="GD">GD</option>
-                                                            <option value="GL">GL</option>
-                                                            <option value="GT">GT</option>
-                                                            <option value="GN">GN</option>
-                                                            <option value="GW">GW</option>
-                                                            <option value="HT">HT</option>
-                                                            <option value="HN">HN</option>
-                                                            <option value="HK">HK</option>
-                                                            <option value="HU">HU</option>
-                                                            <option value="IS">IS</option>
-                                                            <option value="IN">IN</option>
-                                                            <option value="ID">ID</option>
-                                                            <option value="IR">IR</option>
-                                                            <option value="IQ">IQ</option>
-                                                            <option value="IE">IE</option>
-                                                            <option value="IL">IL</option>
-                                                            <option value="IT">IT</option>
-                                                            <option value="JM">JM</option>
-                                                            <option value="JP">JP</option>
-                                                            <option value="JO">JO</option>
-                                                            <option value="KZ">KZ</option>
-                                                            <option value="KE">KE</option>
-                                                            <option value="KI">KI</option>
-                                                            <option value="KP">KP</option>
-                                                            <option value="KR">KR</option>
-                                                            <option value="KW">KW</option>
-                                                            <option value="KG">KG</option>
-                                                            <option value="LA">LA</option>
-                                                            <option value="LV">LV</option>
-                                                            <option value="LB">LB</option>
-                                                            <option value="LS">LS</option>
-                                                            <option value="LR">LR</option>
-                                                            <option value="LY">LY</option>
-                                                            <option value="LI">LI</option>
-                                                            <option value="LT">LT</option>
-                                                            <option value="LU">LU</option>
-                                                            <option value="MK">MK</option>
-                                                            <option value="MG">MG</option>
-                                                            <option value="MW">MW</option>
-                                                            <option value="MY">MY</option>
-                                                            <option value="MV">MV</option>
-                                                            <option value="ML">ML</option>
-                                                            <option value="MT">MT</option>
-                                                            <option value="MH">MH</option>
-                                                            <option value="MR">MR</option>
-                                                            <option value="MU">MU</option>
-                                                            <option value="MX">MX</option>
-                                                            <option value="FM">FM</option>
-                                                            <option value="MD">MD</option>
-                                                            <option value="MC">MC</option>
-                                                            <option value="MN">MN</option>
-                                                            <option value="MA">MA</option>
-                                                            <option value="MZ">MZ</option>
-                                                            <option value="MM">MM</option>
-                                                            <option value="NA">NA</option>
-                                                            <option value="NR">NR</option>
-                                                            <option value="NP">NP</option>
-                                                            <option value="NL">NL</option>
-                                                            <option value="NZ">NZ</option>
-                                                            <option value="NI">NI</option>
-                                                            <option value="NE">NE</option>
-                                                            <option value="NG">NG</option>
-                                                            <option value="NO">NO</option>
-                                                            <option value="OM">OM</option>
-                                                            <option value="PK">PK</option>
-                                                            <option value="PW">PW</option>
-                                                            <option value="PA">PA</option>
-                                                            <option value="PG">PG</option>
-                                                            <option value="PY">PY</option>
-                                                            <option value="PE">PE</option>
-                                                            <option value="PH">PH</option>
-                                                            <option value="PL">PL</option>
-                                                            <option value="PT">PT</option>
-                                                            <option value="QA">QA</option>
-                                                            <option value="RO">RO</option>
-                                                            <option value="RU">RU</option>
-                                                            <option value="RW">RW</option>
-                                                            <option value="KN">KN</option>
-                                                            <option value="LC">LC</option>
-                                                            <option value="VC">VC</option>
-                                                            <option value="WS">WS</option>
-                                                            <option value="SM">SM</option>
-                                                            <option value="ST">ST</option>
-                                                            <option value="SA">SA</option>
-                                                            <option value="SN">SN</option>
-                                                            <option value="CS">CS</option>
-                                                            <option value="SC">SC</option>
-                                                            <option value="SL">SL</option>
-                                                            <option value="SG">SG</option>
-                                                            <option value="SK">SK</option>
-                                                            <option value="SI">SI</option>
-                                                            <option value="SB">SB</option>
-                                                            <option value="SO">SO</option>
-                                                            <option value="ZA">ZA</option>
-                                                            <option value="ES">ES</option>
-                                                            <option value="LK">LK</option>
-                                                            <option value="SD">SD</option>
-                                                            <option value="SR">SR</option>
-                                                            <option value="SZ">SZ</option>
-                                                            <option value="SE">SE</option>
-                                                            <option value="CH">CH</option>
-                                                            <option value="SY">SY</option>
-                                                            <option value="TJ">TJ</option>
-                                                            <option value="TZ">TZ</option>
-                                                            <option value="TW">TW</option>
-                                                            <option value="TZ">TZ</option>
-                                                            <option value="TH">TH</option>
-                                                            <option value="TG">TG</option>
-                                                            <option value="TO">TO</option>
-                                                            <option value="TT">TT</option>
-                                                            <option value="TN">TN</option>
-                                                            <option value="TR">TR</option>
-                                                            <option value="TM">TM</option>
-                                                            <option value="TV">TV</option>
-                                                            <option value="UG">UG</option>
-                                                            <option value="UA">UA</option>
-                                                            <option value="AE">AE</option>
-                                                            <option value="GB">GB</option>
-                                                            <option value="US">US</option>
-                                                            <option value="UY">UY</option>
-                                                            <option value="ZAN">ZAN</option>
-                                                             <option value="ZM">ZM</option>
-                                                             <option value="Aripo">ARIPO</option>
-                                                             <option value="Oapi">OAPI</option>
-                                                             <option value="EU">Europian Union</option>
-                                                            </select>
+                                     <!-- Abbrivations -->
+                                     <div class="mb-3">
+                                        <label for="inputProductTitle" class="form-label">ABBR</label>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="rounded">
+                                                    <div class="mb-3">
+                                                        <select required name='abbr' class="form-control" value='{{ old("abbr") }}' class="single-select">                                                            
+                                                        <option value="AF">AF</option>
+                                                        <option value="AL">AL</option>
+                                                        <option value="DZ">DZ</option>
+                                                        <option value="AD">AD</option>
+                                                        <option value="AO">AO</option>
+                                                        <option value="AG">AG</option>
+                                                        <option value="AR">AR</option>
+                                                        <option value="AM">AM</option>
+                                                        <option value="AU">AU</option>
+                                                        <option value="AT">AT</option>
+                                                        <option value="AZ">AZ</option>
+                                                        <option value="BS">BS</option>
+                                                        <option value="BH">BH</option>
+                                                        <option value="BD">BD</option>
+                                                        <option value="BB">BB</option>
+                                                        <option value="BY">BY</option>
+                                                        <option value="BE">BE</option>
+                                                        <option value="BZ">BZ</option>
+                                                        <option value="BJ">BJ</option>
+                                                        <option value="BT">BT</option>
+                                                        <option value="BO">BO</option>
+                                                        <option value="BA">BA</option>
+                                                        <option value="BW">BW</option>
+                                                        <option value="BR">BR</option>
+                                                        <option value="BN">BN</option>
+                                                        <option value="BG">BG</option>
+                                                        <option value="BF">BF</option>
+                                                        <option value="BI">BI</option>
+                                                        <option value="KH">KH</option>
+                                                        <option value="CM">CM</option>
+                                                        <option value="CA">CA</option>
+                                                        <option value="CV">CV</option>
+                                                        <option value="CF">CF</option>
+                                                        <option value="TD">TD</option>
+                                                        <option value="CL">CL</option>
+                                                        <option value="CN">CN</option>
+                                                        <option value="CO">CO</option>
+                                                        <option value="KM">KM</option>
+                                                        <option value="CD">CD</option>
+                                                        <option value="CG">CG</option>
+                                                        <option value="CR">CR</option>
+                                                        <option value="EG">EG</option>
+                                                        <option value="AF">AF</option>
+                                                        <option value="AF">AF</option>
+                                                        <option value="CI">CI</option>
+                                                        <option value="HR">HR</option>
+                                                        <option value="CU">CU</option>
+                                                        <option value="VN">VN</option>
+                                                        <option value="CY">CY</option>
+                                                        <option value="CZ">CZ</option>
+                                                        <option value="DK">DK</option>
+                                                        <option value="DJ">DJ</option>
+                                                        <option value="DM">DM</option>
+                                                        <option value="DO">DO</option>
+                                                        <option value="TL">TL</option>
+                                                        <option value="EC">EC</option>
+                                                        <option value="SV">SV</option>
+                                                        <option value="GQ">GQ</option>
+                                                        <option value="ER">ER</option>
+                                                        <option value="EE">EE</option>
+                                                        <option value="ET">ET</option>
+                                                        <option value="FJ">FJ</option>
+                                                        <option value="FI">FI</option>
+                                                        <option value="FR">FR</option>
+                                                        <option value="GA">GA</option>
+                                                        <option value="GM">GM</option>
+                                                        <option value="GE">GE</option>
+                                                        <option value="DE">DE</option>
+                                                        <option value="GH">GH</option>
+                                                        <option value="GR">GR</option>
+                                                        <option value="GD">GD</option>
+                                                        <option value="GL">GL</option>
+                                                        <option value="GT">GT</option>
+                                                        <option value="GN">GN</option>
+                                                        <option value="GW">GW</option>
+                                                        <option value="HT">HT</option>
+                                                        <option value="HN">HN</option>
+                                                        <option value="HK">HK</option>
+                                                        <option value="HU">HU</option>
+                                                        <option value="IS">IS</option>
+                                                        <option value="IN">IN</option>
+                                                        <option value="ID">ID</option>
+                                                        <option value="IR">IR</option>
+                                                        <option value="IQ">IQ</option>
+                                                        <option value="IE">IE</option>
+                                                        <option value="IL">IL</option>
+                                                        <option value="IT">IT</option>
+                                                        <option value="JM">JM</option>
+                                                        <option value="JP">JP</option>
+                                                        <option value="JO">JO</option>
+                                                        <option value="KZ">KZ</option>
+                                                        <option value="KE">KE</option>
+                                                        <option value="KI">KI</option>
+                                                        <option value="KP">KP</option>
+                                                        <option value="KR">KR</option>
+                                                        <option value="KW">KW</option>
+                                                        <option value="KG">KG</option>
+                                                        <option value="LA">LA</option>
+                                                        <option value="LV">LV</option>
+                                                        <option value="LB">LB</option>
+                                                        <option value="VGB">VGB</option>
+                                                        <option value="PS">PS</option>
+                                                        <option value="VIR">VIR</option>
+                                                        <option value="LS">LS</option>
+                                                        <option value="YE">YE</option>
+                                                        <option value="LR">LR</option>
+                                                        <option value="LY">LY</option>
+                                                        <option value="LI">LI</option>
+                                                        <option value="LT">LT</option>
+                                                        <option value="LU">LU</option>
+                                                        <option value="MK">MK</option>
+                                                        <option value="MG">MG</option>
+                                                        <option value="MW">MW</option>
+                                                        <option value="MY">MY</option>
+                                                        <option value="MV">MV</option>
+                                                        <option value="ML">ML</option>
+                                                        <option value="MT">MT</option>
+                                                        <option value="MH">MH</option>
+                                                        <option value="MR">MR</option>
+                                                        <option value="MU">MU</option>
+                                                        <option value="MX">MX</option>
+                                                        <option value="FM">FM</option>
+                                                        <option value="MD">MD</option>
+                                                        <option value="MC">MC</option>
+                                                        <option value="MN">MN</option>
+                                                        <option value="MA">MA</option>
+                                                        <option value="MZ">MZ</option>
+                                                        <option value="MM">MM</option>
+                                                        <option value="NA">NA</option>
+                                                        <option value="NR">NR</option>
+                                                        <option value="NP">NP</option>
+                                                        <option value="NL">NL</option>
+                                                        <option value="NZ">NZ</option>
+                                                        <option value="NI">NI</option>
+                                                        <option value="NE">NE</option>
+                                                        <option value="NG">NG</option>
+                                                        <option value="NO">NO</option>
+                                                        <option value="OM">OM</option>
+                                                        <option value="PK">PK</option>
+                                                        <option value="PW">PW</option>
+                                                        <option value="PA">PA</option>
+                                                        <option value="PG">PG</option>
+                                                        <option value="PY">PY</option>
+                                                        <option value="PE">PE</option>
+                                                        <option value="PH">PH</option>
+                                                        <option value="PL">PL</option>
+                                                        <option value="PT">PT</option>
+                                                        <option value="QA">QA</option>
+                                                        <option value="RO">RO</option>
+                                                        <option value="RU">RU</option>
+                                                        <option value="RW">RW</option>
+                                                        <option value="KN">KN</option>
+                                                        <option value="LC">LC</option>
+                                                        <option value="VC">VC</option>
+                                                        <option value="WS">WS</option>
+                                                        <option value="SM">SM</option>
+                                                        <option value="ST">ST</option>
+                                                        <option value="SA">SA</option>
+                                                        <option value="SN">SN</option>
+                                                        <option value="CS">CS</option>
+                                                        <option value="SC">SC</option>
+                                                        <option value="SL">SL</option>
+                                                        <option value="SG">SG</option>
+                                                        <option value="SK">SK</option>
+                                                        <option value="SI">SI</option>
+                                                        <option value="SB">SB</option>
+                                                        <option value="SO">SO</option>
+                                                        <option value="ZA">ZA</option>
+                                                        <option value="ES">ES</option>
+                                                        <option value="LK">LK</option>
+                                                        <option value="SD">SD</option>
+                                                        <option value="SR">SR</option>
+                                                        <option value="SZ">SZ</option>
+                                                        <option value="SE">SE</option>
+                                                        <option value="CH">CH</option>
+                                                        <option value="SY">SY</option>
+                                                        <option value="TJ">TJ</option>
+                                                        <option value="TZ">TZ</option>
+                                                        <option value="TW">TW</option>
+                                                        <option value="TZ">TZ</option>
+                                                        <option value="TH">TH</option>
+                                                        <option value="TG">TG</option>
+                                                        <option value="TO">TO</option>
+                                                        <option value="TT">TT</option>
+                                                        <option value="TN">TN</option>
+                                                        <option value="TR">TR</option>
+                                                        <option value="TM">TM</option>
+                                                        <option value="TV">TV</option>
+                                                        <option value="UG">UG</option>
+                                                        <option value="UA">UA</option>
+                                                        <option value="AE">AE</option>
+                                                        <option value="GB">GB</option>
+                                                        <option value="US">US</option>
+                                                        <option value="UY">UY</option>
+                                                        <option value="Zan">Zan</option>
+                                                         <option value="ZM">ZM</option>
+                                                         <option value="Aripo">ARIPO</option>
+                                                         <option value="Oapi">OAPI</option>
+                                                        </select>
 
-                                                            @error('abbr')
-                                                                <p class='text-danger'>{{ $message }}</p>
-                                                            @enderror
+                                                        @error('abbr')
+                                                            <p class='text-danger'>{{ $message }}</p>
+                                                        @enderror
 
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                     <!-- type -->
-                                     <div class="mb-3">
+                                    </div>
+                                    <!-- type -->
+                                        <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Type</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='type' class="form-control" value='{{ old("type", $client->type) }}' class="single-select">                                                            
-                                                            <option value="Direct">Client</option>
-                                                         
+                                                            <select required name='type' class="form-control" value='{{ old("type") }}' class="single-select">                                                            
+                                                            <option value="Associate">Associate</option>
                                                             </select>
 
                                                             @error('type')
@@ -550,7 +553,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    <button class='btn btn-primary' type='submit'>Update Client</button>
+                                    <button class='btn btn-primary' type='submit'>Add Client</button>
                                     
                                 </div>
                             </div>
@@ -558,35 +561,6 @@
                         </div>
                     </div>
                 </form>
-                
-
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        Delete
-                        </button>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Delete : {{ old("name", $client->name) }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                <h4>Are you sure you want to delete this Client</h4>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <form method='post' action="{{ route('admin.clients.destroy', $client->id ) }}" id='delete_form_{{ $client->id }}'>
-                                    @csrf 
-                                    @method('DELETE')
-                                    <button class='btn btn-danger' type='submit'>Delete</button>   
-                                </form>
-                                </div>
-                            </div>
-                            </div>
-                        </div> 
 
             </div>
         </div>

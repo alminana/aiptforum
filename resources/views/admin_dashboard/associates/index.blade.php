@@ -8,13 +8,13 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Clients</div>
+					<div class="breadcrumb-title pe-3">Associate</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href="{{ route('admin.clients.index') }}"><i class="bx bx-home-alt"></i></a>
+								<li class="breadcrumb-item"><a href="{{ route('admin.associates.index') }}"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.clients.create') }}">Add New</a></li>
+								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.associates.create') }}">Add New</a></li>
 
 							</ol>
 						</nav>
@@ -37,19 +37,19 @@
 									</tr>
 								</thead>
 								<tbody>
-								@forelse($clients as $client)
+								@forelse($associates as $associate)
 							<tr>
 							
-							  <td style="font-size:11px;"><a style="color:black;" >{{$client->assignedID}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;">{{$client->name}}</a></td>
-								<td style="font-size:11px;"><a style="color:black;"></a>{{$client->country}}</td>
-								<td style="font-size:11px;"><a style="color:black;"></a>{{$client->abbr}}</td>
-								<td style="font-size:11px;"><a style="color:black;"></a>{{$client->type}}</td>
+							  <td style="font-size:11px;"><a style="color:black;" >{{$associate->assignedID}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;">{{$associate->name}}</a></td>
+								<td style="font-size:11px;"><a style="color:black;"></a>{{$associate->country}}</td>
+								<td style="font-size:11px;"><a style="color:black;"></a>{{$associate->abbr}}</td>
+								<td style="font-size:11px;"><a style="color:black;"></a>{{$associate->type}}</td>
 								<td>
 											<div class="d-flex order-actions">
-												<a href="{{route('admin.clients.edit',$client)}}" class=""><i class='bx bxs-edit'></i></a>
-											
-                                                <form method='post' action="{{ route('admin.clients.destroy', $client) }}" id='delete_form_{{ $client->id }}'>
+												<a href="{{route('admin.associates.edit',$associate)}}" class=""><i class='bx bxs-edit'></i></a>
+								
+                                                <form method='post' action="{{ route('admin.associates.destroy', $associate) }}" id='delete_form_{{ $associate->id }}'>
 												@csrf 
 												@method('DELETE')
 												<!-- Button trigger modal -->
@@ -65,7 +65,7 @@
 													
 													<div class="modal-footer">
 														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-														<button type="button" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $client->id }}').submit();" class="btn btn-primary">Delete</button>
+														<button type="button" onclick="event.preventDefault(); document.getElementById('delete_form_{{ $associate->id  }}').submit();" class="btn btn-primary">Delete</button>
 													</div>
 													</div>
 												</div>
@@ -77,7 +77,7 @@
 
                             </tr>
                             @empty
-								<p class='lead'>There are no Client to show.</p>
+								<p class='lead'>There are no Associates to show.</p>
 							@endforelse
 								</tbody>
 							</table>

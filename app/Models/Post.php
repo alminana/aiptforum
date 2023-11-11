@@ -12,6 +12,7 @@ use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Client;
 use App\Models\Method;
+use App\Models\Associates;
 
 class Post extends Model
 {
@@ -82,6 +83,11 @@ class Post extends Model
     public function client()
     {
         return $this->belongsToMany(Client::class);
+    }
+
+    public function associates()
+    {
+        return $this->belongsToMany(Associates::class);
     }
 }
 

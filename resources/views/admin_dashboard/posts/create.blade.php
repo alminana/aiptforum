@@ -84,7 +84,7 @@
                                         <div class="col">
                                              <!-- client -->
                                             <div class="mb-3">
-                                                <label for="inputProductTitle" class="form-label">Client</label>
+                                                <label for="inputProductTitle" class="form-label">Client Name</label>
                                                 <select required name='excerpt' class="single-select">
                                                     @foreach($clients as $key => $client)
                                                     <option value="{{ $client->name }}">{{ $client->name }}</option>
@@ -133,11 +133,12 @@
                                             <div class="col">
                                                <!-- Agent -->
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Associate</label>
+                                            <label for="inputProductTitle" class="form-label">Associate Name</label>
                                             <div class="mb-3">
+                                               
                                                 <select required name='agent' class="single-select">
-                                                    @foreach($clients as $key => $client)
-                                                    <option value="{{ $client->name }}">{{ $client->name }}</option>
+                                                    @foreach($associates as $key => $associates)
+                                                    <option value="{{ $associates->name }}">{{ $associates->name }}</option>
                                                     @endforeach
                                                 </select>
 
@@ -180,7 +181,7 @@
                                                 <!-- Registration. -->
                                         <div class="mb-3">
                                             <label for="inputProductTitle" class="form-label">Registration no.</label>
-                                            <label for="inputProductTitle" class="form-label">If there is no Registration no. Please Input 0</label>
+                 
                                             <input type="text" value='n/a' placeholder="Please Input n/a if there is no Registration no. yet  " class="form-control"  name='registrationno' id="inputProductTitle">
 
                                             @error('registrationno')
@@ -533,6 +534,8 @@
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
+                                                       
+                                                        
                                                             <select required name='category_id' class="single-select">
                                                                 @foreach($categories as $key => $category)
                                                                 <option value="{{ $key }}">{{ $category }}</option>

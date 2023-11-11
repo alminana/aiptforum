@@ -137,8 +137,9 @@
                                             <label for="inputProductTitle" class="form-label">Associate</label>
                                             <div class="mb-3">
                                                 <select required name='agent' class="single-select">
-                                                    @foreach($clients as $key => $client)
-                                                    <option {{ $post->agent === $client->name ? 'selected' : '' }} value="{{ $client->name }}">{{  $client->name,$post->name  }}</option>
+                                                    @foreach($associates as $key => $associates)
+                                   
+                                                    <option {{ $post->agent === $associates->name ? 'selected' : '' }} value="{{ $associates->name }}">{{  $associates->name,$post->name  }}</option>
 
                                                     {{-- <option value="{{ $client->name }}">{{ $client->name,$post->name }}</option>  --}}
                                                     @endforeach

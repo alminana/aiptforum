@@ -24,6 +24,7 @@ use App\Http\Controllers\AdminControllers\AdminUsersController;
 use App\Http\Controllers\AdminControllers\AdminContactsController;
 use App\Http\Controllers\AdminControllers\AdminSettingController;
 use App\Http\Controllers\AdminControllers\AdminpastController;
+use App\Http\Controllers\AdminControllers\AdminAssociatesController;
 
 use App\Http\Controllers\AdminControllers\AdminPatentController;
 
@@ -150,6 +151,7 @@ Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactual
 Route::get('/dashboard', [PostsController::class, 'dashboard'])->name('deadline.dashboard');
 
 
+
 });
 require __DIR__.'/auth.php';
 
@@ -165,6 +167,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
 
     Route::resource('posts', AdminPostsController::class);
     
+    Route::resource('associates', AdminAssociatesController::class);
 
     Route::resource('past', AdminpastController::class)->only(['index', 'show', 'destroy','create','edit','update','store']);
     //patent
