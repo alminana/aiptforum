@@ -468,6 +468,12 @@
                                                             <option value="Zimbabwe">Zimbabwe</option>
                                                             <option value="Aripo">Aripo</option>
                                                             <option value="OAPI">OAPI</option>
+                                                            <option value="EU">European Union</option>
+                                                            <option value="GY">Guyana</option>
+                                                            <option value="Palestine(Gaza)">Palestine(Gaza)</option>
+                                                            <option value="Palestine(west bank">Palestine(west bank)</option>
+                                                            <option value="Tanzania (zanzibar)">Tanzania (zanzibar)</option>
+                                                            <option value="Tanzania (Tanganyika)">Tanzania (Tanganyika)</option>
                                                             </select>
 
                                                             @error('country')
