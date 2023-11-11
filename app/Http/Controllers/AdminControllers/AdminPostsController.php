@@ -96,7 +96,9 @@ class AdminPostsController extends Controller
             'tags'=> Tag::all(),
             'client'=> Client::all(),
             'posts'=> Post::all(),
-        ],compact('posts','tags','client'));
+            'associates' => Associates::all(),
+            'method' => Method::all(),
+        ],compact('posts','tags','client','associates','method'));
     }
 
     public function create()
