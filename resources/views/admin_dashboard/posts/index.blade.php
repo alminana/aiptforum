@@ -15,7 +15,7 @@
 								<li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
 								</li>
 								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.posts.create') }}">Add New</a></li>
-
+								<li class="breadcrumb-item active" aria-current="page"><a href="{{ route('posts.download-excel') }}">Export</a></li>
 							</ol>
 						</nav>
 					</div>

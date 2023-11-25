@@ -13,7 +13,7 @@ use App\Models\Image;
 use App\Models\Client;
 use App\Models\Method;
 use App\Models\Associates;
-
+use DB;
 class Post extends Model
 {
     use HasFactory;
@@ -29,7 +29,7 @@ class Post extends Model
                             'applicant',
                           
                             'registrationno',
-                            'registrationdate',
+                          
                             'renewal',
                             'excerpt' ,
                             'status',
@@ -43,6 +43,28 @@ class Post extends Model
                             'inputPfolderlink',
                             'user_id',
                             'approved'];
+
+    public static function gettrademark()
+    {
+        $result = DB::table('posts')
+        ->select(
+                 'assignedID',
+                 'aiptref',
+                 'clientref',
+                 'title',
+                 'status',
+                 'slug',
+                 'filingdate',
+                 'requesteddate',
+                 'proceduredate',
+                 'class',
+                 'excerpt',
+                 'country',
+          
+                )
+        ->get()->toArray();
+        return $result;
+    }
 
     public function method()
     {

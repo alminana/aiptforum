@@ -47,10 +47,14 @@
 													<li class="breadcrumb-item">
 														<a href="{{route('post.create')}}">
 														<button type="button" class="btn btn-primary">Add New</button>
+													</a>
 														<a href="{{ route('deadline.getData') }}">
 															<button type="button" class="btn btn-primary">Filter</button>
 														</a>
+														<a href="{{ route('posts.download-excel') }}">
+															<button type="button" class="btn btn-primary">Export</button>
 														</a>
+														
 													</li>
 												
 												</ol>

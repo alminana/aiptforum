@@ -13,6 +13,8 @@ use PhpOffice\PhpWord\TemplateProcessor;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use DB;
+use Excel;
+use App\Exports\PostExport;
 class PostsController extends Controller
 {
  
@@ -38,9 +40,9 @@ class PostsController extends Controller
         'body' => 'required',
 ];    
 
-    public function index()
+    public function exportToCSV()
     {
-      
+      return Excel::download(new PostExport(), 'Trademark.xlsx');
     }
 
     public function show(Post $post) {

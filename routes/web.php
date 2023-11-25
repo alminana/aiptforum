@@ -55,6 +55,8 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\PcommentController;
 use App\Http\Controllers\PastController;
 
+use Maatwebsite\Excel\Facades\Excel;
+
 // Route::get('past', [PastController::class, 'index'])->name('past.index');
 // Route::get('past/new', [PastController::class, 'create'])->name('create');
 // Route::post('/past', [PastController::class, 'store'])->name('store');
@@ -108,9 +110,11 @@ Route::get('/print/{post:id}', [PostsController::class, 'printthis'])->name('pri
 
 Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
 // export excel for Application
-Route::post('/posts/view-pdf',[PostsController::class, 'viewPDF'])->name('view-pdf');
-Route::post('/posts/download-pdf',[PostsController::class, 'downloadPdf'])->name('download-pdf');
-Route::post('/posts/export-excel',[PostsController::class, 'exportExcel'])->name('posts.download-excel');
+// Route::post('/posts/view-pdf',[PostsController::class, 'viewPDF'])->name('view-pdf');
+// Route::post('/posts/download-pdf',[PostsController::class, 'downloadPdf'])->name('download-pdf');
+// Route::post('/posts/export-excel',[PostsController::class, 'exportExcel'])->name('posts.download-excel');
+
+Route::get('/trademark-excel',[PostsController::class, 'exportToCSV'])->name('posts.download-excel');
 
 
 // Route::resource('categories', CategoryController::class);
@@ -149,6 +153,7 @@ Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactual
 // Route::get('/trademark/Filing', [PostsController::class, 'tfiling'])->name('deadline.dashboard');
 
 Route::get('/dashboard', [PostsController::class, 'dashboard'])->name('deadline.dashboard');
+
 
 
 
