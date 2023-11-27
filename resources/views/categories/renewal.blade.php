@@ -13,7 +13,7 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
-							<table id="tbAdresse"  class="table table-striped table-bordered">
+							<table id="example"  class="table table-striped table-bordered">
 								<thead>
 									<tr>
 										<th class="aiptref" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">AIPTREF</th>
@@ -121,7 +121,7 @@ $("input:checkbox").attr("checked",false).click(function(){
 		});
 
 $(document).ready(function() {
-	$('#tbAdresse ').DataTable( {
+	$('#example ').DataTable( {
 
 		dom: 'Bfrtip',
 		buttons: [
@@ -129,7 +129,6 @@ $(document).ready(function() {
 		]
 	} );
 } );
-
 $(document).ready(function() {
 	
 

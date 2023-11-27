@@ -143,6 +143,10 @@ Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.de
 
 Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
 
+// Search
+
+Route::get('/search', [PostsController::class, 'search'])->name('categories.search');
+
 Route::get('/trademark/Request/filter', [PostsController::class, 'trademarkRequestfilter'])->name('deadline.trequested');
 
 Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactualfilter'])->name('deadline.tactual');
@@ -153,6 +157,7 @@ Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactual
 // Route::get('/trademark/Filing', [PostsController::class, 'tfiling'])->name('deadline.dashboard');
 
 Route::get('/dashboard', [PostsController::class, 'dashboard'])->name('deadline.dashboard');
+
 
 
 

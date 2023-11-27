@@ -129,6 +129,30 @@ class PostsController extends Controller
     //     return redirect()->route('post.create',compact('clients','method','categories'))->with('success', 'Patent has been Created.');
     // }
 
+
+    public function search(Post $post, Request $request)
+    {
+        $query = $request->input('search');
+        $posts = Post::where('assignedID', 'like', "%$query%")
+                     ->orWhere('aiptref', 'like', "%$query%")
+                     ->orWhere('clientref', 'like', "%$query%")
+                     ->orWhere('title', 'like', "%$query%")
+                     ->orWhere('agent', 'like', "%$query%")
+                     ->orWhere('slug', 'like', "%$query%")
+                     ->orWhere('applicant', 'like', "%$query%")
+                     ->orWhere('filingdate', 'like', "%$query%")
+                     ->orWhere('registrationno', 'like', "%$query%")
+                     ->orWhere('status', 'like', "%$query%")
+                     ->orWhere('proceduredate', 'like', "%$query%")
+                     ->orWhere('requesteddate', 'like', "%$query%")
+                     ->orWhere('country', 'like', "%$query%")
+                     ->orWhere('class', 'like', "%$query%")
+                     ->get();
+    
+        return view('categories.search', compact('posts', 'query'));
+
+    }
+
     public function addComment(Post $post)
     {
         $attributes = request()->validate([

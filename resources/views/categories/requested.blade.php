@@ -21,7 +21,7 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
-							<table id="tbAdresse"  class="table table-striped table-bordered">
+							<table id="example"  class="table table-striped table-bordered">
 								<thead>
 									<tr>
 										<th class="assignedID" class="sorting" tabindex="0" aria-controls="tbAdresse" rowspan="1" colspan="1" style="width: 54px;">Unique Id</th>	
@@ -210,8 +210,8 @@ $("input:checkbox").attr("checked",false).click(function(){
 			$(shcolumn).toggle();
 		});
 
-$(document).ready(function() {
-	$('#tbAdresse ').DataTable( {
+		$(document).ready(function() {
+	$('#example ').DataTable( {
 
 		dom: 'Bfrtip',
 		buttons: [
