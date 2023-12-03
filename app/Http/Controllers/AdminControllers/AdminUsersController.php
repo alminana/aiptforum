@@ -20,9 +20,15 @@ class AdminUsersController extends Controller
         'username' => 'required|min:3',
         'email' => 'required|email|unique:users,email',
         'password' => 'required|min:8|max:20',
+        'email_verified_at' => 'required',
         'image' => 'nullable|file|mimes:jpg,png,webp,svg,jpeg',
         'role_id' => 'required|numeric'
     ];
+
+    public function verifieduseraccount(Request $request)
+    {  
+        return view('admin_dashboard.users.index');
+    }
 
     public function index( Request $request)
     {
@@ -182,7 +188,8 @@ class AdminUsersController extends Controller
     *  @param Integer
     *  @return Success
     * */
-   public function updateStatus ($user_id, $status_code){
+   public function updateStatus ($user_id, $status_code)
+   {
         try {
             $update_user  = User::whereId()->update([
                 'status' => $status_code
@@ -197,5 +204,7 @@ class AdminUsersController extends Controller
             //throw $th;
         }
    }
+
+   
 
 }

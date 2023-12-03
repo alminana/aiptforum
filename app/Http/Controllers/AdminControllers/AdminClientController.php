@@ -47,9 +47,6 @@ class AdminClientController extends Controller
         return view('admin_dashboard.client.edit', [
             'client' => $client
         ]);
-   
-
-       
     }
 
     public function update(Request $request, Client $client)

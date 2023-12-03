@@ -117,6 +117,8 @@
                                             </div>
                                         </div>
 
+                                     
+
                                         <div class="mb-3">
                                             <label for="input_password" class="form-label">Email Verification</label>
                                             <input name='date' type='date'  class="form-control" id="email_verified_at">
@@ -128,12 +130,12 @@
 
                                         <button class='btn btn-primary' type='submit'>Update User</button>
 
-                                        <!-- <a 
+                                        <a 
                                         onclick='event.preventDefault(); document.getElementById("delete_user_{{ $user->id }}").submit()'
                                         href="#"
                                         class='btn btn-danger'>
                                             Delete User
-                                        </a> -->
+                                        </a> 
                                         
                                     </div>
                                 </div>

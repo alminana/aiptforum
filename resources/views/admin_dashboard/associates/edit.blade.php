@@ -26,7 +26,7 @@
                 <h5 class="card-title">Update Associates</h5>
                 <hr/>
 
-                <form action="{{route('admin.associates.update', $associates)}}" method='post'>
+                <form action="{{route('admin.associates.update', $associate)}}" method='post'>
                   @csrf
                     @method('PATCH')
 
@@ -36,7 +36,7 @@
                                 <div class="border border-3 p-4 rounded">
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">AssignedID</label>
-                                        <input type="text" value='{{ old("assignedID",$associates->assignedID) }}' name='assignedID' class="form-control" id="inputProductTitle">
+                                        <input type="text" value='{{ old("assignedID",$associate->assignedID) }}' name='assignedID' class="form-control" id="inputProductTitle">
                                         
                                         @error('assignedID')
                                             <p class='text-danger'>{{ $message }}</p>
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">associatess  Name</label>
-                                        <input type="text" value='{{ old("name", $associates->name) }}' name='name' class="form-control" id="inputProductTitle">
+                                        <input type="text" value='{{ old("name", $associate->name) }}' name='name' class="form-control" id="inputProductTitle">
 
                                         @error('name')
                                             <p class='text-danger'>{{ $message }}</p>
@@ -52,7 +52,7 @@
                                     </div>
                                      <!-- Country -->
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" value='{{ old("country", $associates->country) }}'class="form-label">Country</label>
+                                            <label for="inputProductTitle" value='{{ old("country", $associate->country) }}'class="form-label">Country</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
@@ -323,7 +323,7 @@
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='abbr' value='{{ old("abbr", $associates->abbr) }}' class="single-select">                                                            
+                                                            <select required name='abbr' value='{{ old("abbr", $associate->abbr) }}' class="single-select">                                                            
                                                             <option value="AF">AF</option>
                                                             <option value="AL">AL</option>
                                                             <option value="DZ">DZ</option>
@@ -536,7 +536,7 @@
                                                 <div class="card-body">
                                                     <div class="rounded">
                                                         <div class="mb-3">
-                                                            <select required name='type' class="form-control" value='{{ old("type", $associates->type) }}' class="single-select">                                                            
+                                                            <select required name='type' class="form-control" value='{{ old("type", $associate->type) }}' class="single-select">                                                            
                                                             <option value="Direct">Associates</option>
                                                          
                                                             </select>
@@ -570,7 +570,7 @@
                             <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Delete : {{ old("name", $client->name) }}</h5>
+                                <h5 class="modal-title" id="staticBackdropLabel">Delete : {{ old("name", $associate->name) }}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -578,7 +578,7 @@
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <form method='post' action="{{ route('admin.clients.destroy', $client->id ) }}" id='delete_form_{{ $client->id }}'>
+                                <form method='post' action="{{ route('admin.associates.destroy', $associate->id ) }}" id='delete_form_{{ $associate->id }}'>
                                     @csrf 
                                     @method('DELETE')
                                     <button class='btn btn-danger' type='submit'>Delete</button>   

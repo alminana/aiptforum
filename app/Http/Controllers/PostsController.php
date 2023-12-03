@@ -132,6 +132,11 @@ class PostsController extends Controller
 
     public function search(Post $post, Request $request)
     {
+        $recent_posts = Post::latest()->take(5)->get();
+        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+        $method = Method::latest()->take(1000)->get();
+        $tags = Tag::latest()->take(50)->get();
+        $comments = Comment::orderBy('id', 'DESC')->take(5)->get();
         $query = $request->input('search');
         $posts = Post::where('assignedID', 'like', "%$query%")
                      ->orWhere('aiptref', 'like', "%$query%")

@@ -43,30 +43,30 @@ class AdminAssociatesController extends Controller
         return redirect()->route('admin.associates.create')->with('success', 'Associates has been Created.');
     }
 
-    public function edit(Associates $associates)
+   
+    public function edit(Associates $associate)
     {
-       
         return view('admin_dashboard.associates.edit', [
-            'associates' => $associates
+            'associate' => $associate
         ]);
-  
+ 
     }
 
-    public function update(Request $request, Associates $associates)
+    public function update(Request $request, Associates $associate)
     {
         $validated = $request->validate($this->rules);
-        
-        $associates->update($validated);
-        
 
-
-        return redirect()->route('admin.associates.index', $associates)->with('success', 'Associates has been updated');
+        
+        $associate->update($validated);
+        
+        return redirect()->route('admin.associates.index')->with('success', 'Associates has been Updated.');
     }
 
-    public function destroy(Associate $associates)
+    
+    public function destroy(Associates $associate)
     {
       
-        $associates->delete();
+        $associate->delete();
 
         return redirect()->route('admin.associates.index')->with('success', 'Associates has been Deleted.');
     }

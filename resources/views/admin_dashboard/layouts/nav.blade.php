@@ -160,6 +160,8 @@
                     </a>
 
                     <ul>
+                        <li> <a href="{{ route('admin.users.verified') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Verified New Account</a>
+                        </li>
                         <li> <a href="{{ route('admin.users.index') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>All Users</a>
                         </li>
                         <li> <a href="{{ route('admin.users.create') }}"><i class="bx bx-right-arrow-alt" style="color: blueviolet"></i>Add New User</a>

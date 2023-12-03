@@ -77,6 +77,16 @@
                                         </div>
 
                                         <div class="mb-3">
+                                            <label for="Date" class="form-label">Date</label>
+                                            <input name='email_verified_at' type='date' class="form-control" id="input_password">
+                                        
+                                            @error('email_verified_at')
+                                                <p class='text-danger'>{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+
+                                        <div class="mb-3">
                                             <label for="input_image" class="form-label">Image</label>
                                             <input name='image' type='file' class="form-control" id="input_image">
                                         

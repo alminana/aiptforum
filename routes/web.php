@@ -178,6 +178,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
     Route::resource('posts', AdminPostsController::class);
     
     Route::resource('associates', AdminAssociatesController::class);
+    
 
     Route::resource('past', AdminpastController::class)->only(['index', 'show', 'destroy','create','edit','update','store']);
     //patent
@@ -190,6 +191,8 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions']
     Route::resource('roles', AdminRolesController::class)->except('show');
     Route::resource('users', AdminUsersController::class);
     
+ 
+    Route::get('/users/verification', [AdminUsersController::class, 'verifieduseraccount'])->name('users.verified');
 
     Route::get('contacts', [AdminContactsController::class, 'index'])->name('contacts');
     Route::delete('contacts/{contact}', [AdminContactsController::class, 'destroy'])->name('contacts.destroy');

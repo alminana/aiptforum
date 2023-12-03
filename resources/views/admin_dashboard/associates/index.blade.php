@@ -47,9 +47,10 @@
 								<td style="font-size:11px;"><a style="color:black;"></a>{{$associate->type}}</td>
 								<td>
 											<div class="d-flex order-actions">
-												<a href="{{route('admin.associates.edit',$associate)}}" class=""><i class='bx bxs-edit'></i></a>
-								
-                                                <form method='post' action="{{ route('admin.associates.destroy', $associate) }}" id='delete_form_{{ $associate->id }}'>
+
+												<a href="{{route('admin.associates.edit', $associate)}}" class=""><i class='bx bxs-edit'></i></a>
+												
+												<form method='post' action="{{ route('admin.associates.destroy', $associate) }}" id='delete_form_{{ $associate->id }}'>
 												@csrf 
 												@method('DELETE')
 												<!-- Button trigger modal -->
