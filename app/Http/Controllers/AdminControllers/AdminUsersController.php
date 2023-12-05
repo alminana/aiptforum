@@ -20,7 +20,6 @@ class AdminUsersController extends Controller
         'username' => 'required|min:3',
         'email' => 'required|email|unique:users,email',
         'password' => 'required|min:8|max:20',
-        'email_verified_at' => 'required',
         'image' => 'nullable|file|mimes:jpg,png,webp,svg,jpeg',
         'role_id' => 'required|numeric'
     ];
