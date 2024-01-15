@@ -495,6 +495,7 @@
                                                                     "Solomon Islands",
                                                                     "Somalia",
                                                                     "South Africa",
+                                                                    "South Sudan",
                                                                     "South Georgia and The South Sandwich Islands",
                                                                     "Spain",
                                                                     "Sri Lanka",
