@@ -1,0 +1,29 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+
+
+
+git status
+git add 
+git commit -m "first commit
+git remote add origin https://github.com/s
+git push -u origin master 
+git status
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/s
+git push -
+git 
