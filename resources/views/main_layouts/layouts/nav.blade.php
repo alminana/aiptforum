@@ -18,13 +18,41 @@
 					</a>
 				</li>
 				<li>
+					<a href="{{ route('categories.index') }}">
+						<div class="parent-icon"><i class="fadeIn animated bx bx-hive"></i>
+						</div>
+						<div class="menu-title">Trademark</div>
+					</a>
+				</li>
+				<li>
+					<a href="{{ route('past.index') }}">
+						<div class="parent-icon"><i class='bx bx-cog'></i>
+						</div>
+						<div class="menu-title">Patent</div>
+					</a>
+				</li>
+				<li>
+					<a href="{{ route('home') }}">
+						<div class="parent-icon"><i class="fadeIn animated bx bx-lock-alt"></i>
+						</div>
+						<div class="menu-title">Lock</div>
+					</a>
+				</li>
+				<li>
+					<a href="{{ route('admin.index') }}">
+						<div class="parent-icon"><i class="fadeIn animated bx bx-user-circle"></i>
+						</div>
+						<div class="menu-title">Administrator</div>
+					</a>
+				</li>
+				{{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
 						<div class="menu-title">Trademark</div>
 					</a>
 					<ul>
-						<li> <a href="{{ route('categories.index') }}"><i class="bx bx-right-arrow-alt"></i>All Trademark</a>
+						<li> <a href=""><i class="bx bx-right-arrow-alt"></i>All Trademark</a>
 						</li>
 						<li> <a href="{{route('categories.requested')}}"><i class="bx bx-right-arrow-alt"></i>Requested Deadline</a>
 						</li>
@@ -66,8 +94,8 @@
 						</li>
 						
 					</ul>
-				</li>
-                <li>
+				</li> --}}
+                {{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-grid-alt"></i>
 						</div>
@@ -79,7 +107,7 @@
                         <li> <a href="{{ route('admin.index') }}"><i class="bx bx-right-arrow-alt"></i>Administrator</a>
 						</li>
 					</ul>
-				</li>
+				</li> --}}
 			</ul>
 			<!--end navigation-->
 		</div>
