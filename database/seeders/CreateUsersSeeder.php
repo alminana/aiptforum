@@ -16,13 +16,13 @@ class CreateUsersSeeder extends Seeder
     public function run()
     {
         $inc = 0;
-        for ($i=0; $i < 100; $i++) { 
+        for ($i=0; $i < 2; $i++) { 
             $inc = $inc+1;
             User::create([
-                'name' => 'Abdallah Ibrahim',
-                'username' => 'AIPT_Abdallah_Ibrahim'.$inc,
+                'name' => 'AIPT Test',
+                'username' => 'AIPT_Test'.$inc,
                 'gender' => 'male',
-                'email' => 'abdallanasr505@gmail.com'.$inc,
+                'email' => 'Test@aiptlaw.com'.$inc,
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
                 'department_id' =>2,
