@@ -5,22 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Client;
-use App\Models\Post;
-use App\Models\Past;
 class Client extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'client_name','country_id','type_clients_id','added_by','associate_id','img_path','following',
+    ];
 
-    protected $fillable = ['name','country','type','assignedID','abbr'];
-     
-    public function posts()
-    {
-        return $this->belongsToMany(Post::class);
-    }
-
-    public function past()
-    {
-        return $this->belongsToMany(Past::class);
-    }
-}
+} 

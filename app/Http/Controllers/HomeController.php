@@ -3,65 +3,57 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\Post;
-use App\Models\Category;
-use App\Models\Tag;
-use App\Models\Comment;
 use DB;
-
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-
-        $comments = DB::table('comments')->latest('id')->first();
-        $recent_posts = Post::latest()->take(5)->get();
-
-        $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-
-        $tags = Tag::latest()->take(50)->get();
-        $posts = Post::all();
-        
-        if ($request->has('search')) {
-            $posts = Post::where('body', 'like', "%{$request->search}%")
-            ->orWhere('id', 'like', "%{$request->search}%")
-            ->orWhere('title', 'like', "%{$request->search}%")
-            ->orWhere('slug', 'like', "%{$request->search}%")
-            ->orWhere('excerpt', 'like', "%{$request->search}%")
-            ->orWhere('class', 'like', "%{$request->search}%")
-            ->orWhere('status', 'like', "%{$request->search}%")
-            ->orWhere('country', 'like', "%{$request->search}%")
-            ->orWhere('aiptref', 'like', "%{$request->search}%")
-            ->orWhere('created_at', 'like', "%{$request->search}%")
-            ->paginate(10);
-        }
-        return view('home',[
-            'posts' => $posts,
-            'recent_posts' => $recent_posts,
-            'categories' => $categories,
-            'tags' => $tags,
-            'comments' => $comments,
-        ], compact('posts','comments'));
+        $this->middleware('auth');
     }
-    // public function index()
-    // {s
-    //     $posts = Post::latest()
-    //     ->approved()
-    //     ->where('approved', 1)
-    //     ->withCount('comments')->paginate(10);
 
-    //     $recent_posts = Post::latest()->take(5)->get();
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        if (auth()->user()->seniority!='manger') {
+            $trademarkstkts = DB::table('trade_mark_tickets')
+            ->where('trade_mark_tickets.assigned_to','=',auth()->user()->id)
+            ->leftJoin('countries', 'countries.id', '=', 'trade_mark_tickets.country_id')
+            ->leftJoin('associates', 'associates.id', '=', 'trade_mark_tickets.associate_id')
+            ->leftJoin('clients', 'clients.id', '=', 'trade_mark_tickets.client_id')  
+            ->leftJoin('users', 'users.id', '=', 'trade_mark_tickets.assigned_to')  
+            ->leftJoin('methodes', 'methodes.id', '=', 'trade_mark_tickets.methode_id')  
+            ->leftJoin('procedures', 'procedures.id', '=', 'trade_mark_tickets.procedure_id')
+            ->select('trade_mark_tickets.id' , 'trade_mark_tickets.TKT_Type' , 
+            'trade_mark_tickets.clientref' , 'trade_mark_tickets.aiptref' ,
+            'trade_mark_tickets.class' , 'trade_mark_tickets.register_no' , 
+            'trade_mark_tickets.trademark_name' , 'trade_mark_tickets.trademark_brief' , 
+            'trade_mark_tickets.img_paths','trade_mark_tickets.filing_date' ,
+            'associates.associate_name'   , 'countries.country_name' ,
+            'procedures.procedure_name'   , 'trade_mark_tickets.filing_no',
+            'methodes._methode_name'   , 'methodes.color' ,  'clients.client_name',
+            /*addedby*/'users.name','trade_mark_tickets.assigned_to')->orderBy ('trade_mark_tickets.id', 'asc')
+    
+            ->paginate(10); 
+            //   dd($trademarkstkts);
+            return view('homepages.employee', compact('trademarkstkts'));
+        }
+        return view('home');
+    }
 
-    //     $categories = Category::withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
+    public function draft()
+    {
+//        return HTTP::
+        return view('draft');
+    }
 
-    //     $tags = Tag::latest()->take(50)->get();
-
-    //     return view('home', [
-    //         'posts' => $posts,
-    //         'recent_posts' => $recent_posts,
-    //         'categories' => $categories,
-    //         'tags' => $tags
-    //     ]);
-    // }
+    
 }

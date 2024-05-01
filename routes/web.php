@@ -7,200 +7,176 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can regsister web routes for your application. These
+| Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
 
-use App\Http\Controllers\AdminControllers\DashboardController;
-use App\Http\Controllers\AdminControllers\AdminPostsController;
-use App\Http\Controllers\AdminControllers\TinyMCEController;
-use App\Http\Controllers\AdminControllers\AdminCategoriesController;
-use App\Http\Controllers\AdminControllers\AdminTagsController;
-use App\Http\Controllers\AdminControllers\AdminCommentsController;
-use App\Http\Controllers\AdminControllers\AdminRolesController;
-use App\Http\Controllers\AdminControllers\AdminUsersController;
-use App\Http\Controllers\AdminControllers\AdminContactsController;
-use App\Http\Controllers\AdminControllers\AdminSettingController;
-use App\Http\Controllers\AdminControllers\AdminpastController;
-use App\Http\Controllers\AdminControllers\AdminAssociatesController;
+Route::get('/', function () {return view('welcome'); });
 
-use App\Http\Controllers\AdminControllers\AdminPatentController;
+Auth::routes();
 
-use App\Http\Controllers\AdminControllers\AdminClientController;
-use App\Http\Controllers\AdminControllers\AdminMethodController;
-use App\Http\Controllers\AdminControllers\AdminProfileController;
-use App\Http\Controllers\AdminControllers\AdminImportController;
-// arabic
-use App\Http\Controllers\homearController;
-use App\Http\Controllers\aboutarController;
-use App\Http\Controllers\ServicearController;
-use App\Http\Controllers\NewsarController;
-use App\Http\Controllers\ContactarController;
-
-use App\Http\Controllers\PatentController;
-
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PostsController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\TagController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\userController;
-use App\Http\Controllers\PcommentController;
-use App\Http\Controllers\PastController;
-
-use Maatwebsite\Excel\Facades\Excel;
-
-// Route::get('past', [PastController::class, 'index'])->name('past.index');
-// Route::get('past/new', [PastController::class, 'create'])->name('create');
-// Route::post('/past', [PastController::class, 'store'])->name('store');
-Route::middleware('auth')->group(function(){
-
-
-Route::resource('past', PastController::class);
-
-Route::post('/pasts/{past}/comments', [PcommentController::class, 'store']);
-Route::get('/pct/patent/deadline',[PastController::class, 'patentpct'])->name('past.pct');
-Route::get('/regular/patent/deadline',[PastController::class, 'patentregular'])->name('past.regular');
-Route::get('/request/patent/deadline',[PastController::class, 'patentrequest'])->name('past.request');
-Route::get('/actual/patent/deadline',[PastController::class, 'patentactual'])->name('past.actual');
-Route::get('/annual/patent/deadline',[PastController::class, 'patentannual'])->name('past.annual');
-
-Route::get('/patent/index/filter', [PastController::class, 'patentindexlfilter'])->name('deadline.pindenx');
-Route::get('/patent/actual/filter', [PastController::class, 'patentactualfilter'])->name('deadline.pactual');
-Route::get('/patent/annual/filter', [PastController::class, 'patentannuakfilter'])->name('deadline.paanual');
-Route::get('/patent/requested/filter', [PastController::class, 'patentrequestedfilter'])->name('deadline.prequested');
-Route::get('/patent/regular/filter', [PastController::class, 'patentregularfilter'])->name('deadline.pregular');
-Route::get('/patent/pct/filter', [PastController::class, 'patentpctfilter'])->name('deadline.ppct');
-
-// Front User Routes
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
-
-Route::get('profile', [AdminUsersController::class, 'profileindex'])->name('profiles.profileindex');
-Route::post('profile/{id}', [AdminUsersController::class, 'update'])->name('profiles.update');
-
-Route::get('/user/logout', [UserController::class, 'destroy'])->name('user.logout');
-Route::get('/profile_view/{id}', [UserController::class, 'edit'])->name('profiles.edit');
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
-Route::resource('patent', PatentController::class);
-// Route::get('/filter',[PatentController::class, 'filter'])->name('patent.filter');
-Route::post('/patent/{patent:id}', [PatentController::class, 'addComment'])->name('patent.add_comment');
-// Route::get('/patent/{id}', [PatentController::class, 'update'])->name('patent.update');
-// Route::get('/patent/{id}', [PatentController::class, 'edit'])->name('patent.edit');
-// Route::get('/patent', [PatentController::class, 'index'])->name('patent.index');
-// Route::post('/patent/{id}', [PatentController::class, 'show'])->name('patent.show');
-Route::resource('post', PostsController::class);
-// 
-Route::get('/posts/{post:id}', [PostsController::class, 'show'])->name('posts.show');
-Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
-// Route::get('/posts', [PostsController::class, 'create'])->name('posts.create');
-
-Route::get('/pdf/{id}', [PostsController::class, 'generatepdf'])->name('pdf.generatepdf');
-
-Route::get('/print/{post:id}', [PostsController::class, 'printthis'])->name('print.printthis');
-
-Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
-// export excel for Application
-// Route::post('/posts/view-pdf',[PostsController::class, 'viewPDF'])->name('view-pdf');
-// Route::post('/posts/download-pdf',[PostsController::class, 'downloadPdf'])->name('download-pdf');
-// Route::post('/posts/export-excel',[PostsController::class, 'exportExcel'])->name('posts.download-excel');
-
-Route::get('/trademark-excel',[PostsController::class, 'exportToCSV'])->name('posts.download-excel');
-
-
-// Route::resource('categories', CategoryController::class);
-
-Route::get('/categories/{category:id}', [CategoryController::class, 'show'])->name('categories.show');
-
-Route::get('/Trademark', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');
-
-Route::get('/tm/requested/deadline', [CategoryController::class, 'Tprocedure'])->middleware(['auth','verified'])->name('categories.requested');
-
-Route::get('/tm/actual/deadline', [CategoryController::class, 'Tactual'])->middleware(['auth','verified'])->name('categories.actual');
-
-
-// Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth','verified'])->name('categories.index');
-
-
-Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show');
-
-Route::post('newsletter', [NewsletterController::class, 'store'])->name('newsletter_store');
-
-Route::get('/client', [CategoryController::class, 'index'])->name('client.index');
-
-Route::post('/filter',[CategoryController::class, 'getData'])->name('category.getData');
-
-Route::get('/deadline', [PostsController::class, 'deadline'])->name('deadline.deadline');
-
-Route::get('/select', [PostsController::class, 'getData'])->name('deadline.getData');
-
-// Search
-
-Route::get('/search', [PostsController::class, 'search'])->name('categories.search');
-
-Route::get('/trademark/Request/filter', [PostsController::class, 'trademarkRequestfilter'])->name('deadline.trequested');
-
-Route::get('/trademark/Actual/filter', [PostsController::class, 'trademarkactualfilter'])->name('deadline.tactual');
-
-
-// Route::get('/trademark/search/application', [PostsController::class, 'trademarksearch'])->name('deadline.tactual');
-
-// Route::get('/trademark/Filing', [PostsController::class, 'tfiling'])->name('deadline.dashboard');
-
-Route::get('/dashboard', [PostsController::class, 'dashboard'])->name('deadline.dashboard');
-
-
-
-
-
+//Auth routes
+Route::group(['middleware' => 'web'], function () {
+Route::view('/login', 'welcome')->name('login');
+Route::post('/login-action', [App\Http\Controllers\CustomAuthController::class, 'customLogin'])->name('custom.login');
+Route::post('/custom-logout', [App\Http\Controllers\CustomAuthController::class, 'customLogout'])->name('custom.logout');
 });
-require __DIR__.'/auth.php';
+Route::post('/confirm-password', function () {
+    return view('auth.passwords.confirm');
+})->middleware('auth')->name('password.confirm');
 
-// Admin Dashboard Routes
-
-Route::name('admin.')->prefix('admin')->middleware(['auth', 'check_permissions'])->group(function(){
-
-    Route::get('/', [DashboardController::class, 'index'])->name('index');
-    Route::post('upload_tinymce_image', [TinyMCEController::class, 'upload_tinymce_image'])->name('upload_tinymce_image');
-
-    Route::resource('clients', AdminClientController::class);
-    Route::resource('method', AdminMethodController::class);
-
-    Route::resource('posts', AdminPostsController::class);
-    
-    Route::resource('associates', AdminAssociatesController::class);
-    
-
-    Route::resource('past', AdminpastController::class)->only(['index', 'show', 'destroy','create','edit','update','store']);
-    //patent
-    Route::resource('patents', AdminPatentController::class);
-
-    Route::resource('categories', AdminCategoriesController::class);
-    Route::resource('tags', AdminTagsController::class)->only(['index', 'show', 'destroy']);
-    Route::resource('comments', AdminCommentsController::class)->except('show');
-
-    Route::resource('roles', AdminRolesController::class)->except('show');
-    Route::resource('users', AdminUsersController::class);
-    
  
-    Route::get('/users/verification', [AdminUsersController::class, 'verifieduseraccount'])->name('users.verified');
+Route::group(['middleware' => ['web','auth']], function () {
 
-    Route::get('contacts', [AdminContactsController::class, 'index'])->name('contacts');
-    Route::delete('contacts/{contact}', [AdminContactsController::class, 'destroy'])->name('contacts.destroy');
+    Route::group(['prefix' => 'users'], function() {
+    Route::get('/index', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
+    Route::get('/add', [App\Http\Controllers\UsersController::class, 'create'])->name('users.create');
+    Route::post('/store', [App\Http\Controllers\UsersController::class, 'store'])->name('users.store');
+    Route::get('/show/{id}', [App\Http\Controllers\UsersController::class, 'show'])->name('users.show');
+    Route::delete('/delete/{id}', [App\Http\Controllers\UsersController::class, 'destroy'])->name('users.delete');
+    Route::get('/active/{id}', [App\Http\Controllers\UsersController::class, 'active'])->name('users.active');
+    Route::get('/unactive/{id}', [App\Http\Controllers\UsersController::class, 'unactive'])->name('users.unactive');
+    Route::get('/edit/{id}', [App\Http\Controllers\UsersController::class, 'edit'])->name('users.edit');
+    Route::put('/update/{id}', [App\Http\Controllers\UsersController::class, 'update'])->name('users.update'); 
+    //mark as read notification
+    Route::get('/mark_read/{id}', [App\Http\Controllers\UsersController::class, 'mark_read'])->name('notifications.mark_read'); 
+    });
 
-    Route::get('about', [AdminSettingController::class, 'edit'])->name('setting.edit');
-    Route::post('about', [AdminSettingController::class, 'update'])->name('setting.update');
+    Route::group(['prefix' => 'departments'], function() {
+        Route::get('/index', [App\Http\Controllers\DepartmentsController::class, 'index'])->name('departments.index');
+        Route::get('/add', [App\Http\Controllers\DepartmentsController::class, 'create'])->name('departments.create');
+        Route::post('/store', [App\Http\Controllers\DepartmentsController::class, 'store'])->name('departments.store');
+        Route::get('/show/{id}', [App\Http\Controllers\DepartmentsController::class, 'show'])->name('departments.show');
+        Route::delete('/delete/{id}', [App\Http\Controllers\DepartmentsController::class, 'destroy'])->name('departments.delete');
+         Route::get('/edit/{id}', [App\Http\Controllers\DepartmentsController::class, 'edit'])->name('departments.edit');
+        Route::put('/update/{id}', [App\Http\Controllers\DepartmentsController::class, 'update'])->name('departments.update'); 
+    });
 
-    Route::post('import', [AdminImportController::class, 'importdata'])->name('import.index');
+    Route::group(['prefix' => 'clients'], function() {
+        Route::get('/index', [App\Http\Controllers\ClientsController::class, 'index'])->name('clients.index');
+        Route::get('/add', [App\Http\Controllers\ClientsController::class, 'create'])->name('clients.create');
+        Route::post('/store', [App\Http\Controllers\ClientsController::class, 'store'])->name('clients.store');
+        Route::get('/show/{id}', [App\Http\Controllers\ClientsController::class, 'show'])->name('clients.show');
+        Route::delete('/delete/{id}', [App\Http\Controllers\ClientsController::class, 'destroy'])->name('clients.delete');
+         Route::get('/edit/{id}', [App\Http\Controllers\ClientsController::class, 'edit'])->name('clients.edit');
+        Route::put('/update/{id}', [App\Http\Controllers\ClientsController::class, 'update'])->name('clients.update'); 
+    });
 
-    Route::get('/users/status/{status_code}', [AdminUsersController::class, 'updateStatus'])->name('index.updateStatus');
+    Route::group(['prefix' => 'methodes'], function() {
+        Route::get('/index', [App\Http\Controllers\MethodesController::class, 'index'])->name('methodes.index');
+        Route::get('/add', [App\Http\Controllers\MethodesController::class, 'create'])->name('methodes.create');
+        Route::post('/store', [App\Http\Controllers\MethodesController::class, 'store'])->name('methodes.store');
+        Route::get('/show/{id}', [App\Http\Controllers\MethodesController::class, 'show'])->name('methodes.show');
+        Route::delete('/delete/{id}', [App\Http\Controllers\MethodesController::class, 'destroy'])->name('methodes.delete');
+         Route::get('/edit/{id}', [App\Http\Controllers\MethodesController::class, 'edit'])->name('methodes.edit');
+        Route::put('/update/{id}', [App\Http\Controllers\MethodesController::class, 'update'])->name('methodes.update'); 
+    });
+
+    Route::group(['prefix' => 'procedures'], function() {
+        Route::get('/index', [App\Http\Controllers\ProceduresController::class, 'index'])->name('procedures.index');
+        Route::get('/add', [App\Http\Controllers\ProceduresController::class, 'create'])->name('procedures.create');
+        Route::post('/store', [App\Http\Controllers\ProceduresController::class, 'store'])->name('procedures.store');
+        Route::get('/show/{id}', [App\Http\Controllers\ProceduresController::class, 'show'])->name('procedures.show');
+        Route::delete('/delete/{id}', [App\Http\Controllers\ProceduresController::class, 'destroy'])->name('procedures.delete');
+         Route::get('/edit/{id}', [App\Http\Controllers\ProceduresController::class, 'edit'])->name('procedures.edit');
+        Route::put('/update/{id}', [App\Http\Controllers\ProceduresController::class, 'update'])->name('procedures.update'); 
+    });
+
+    Route::group(['prefix' => 'associates'], function() {
+        Route::get('/index', [App\Http\Controllers\AssociatesController::class, 'index'])->name('associates.index');
+        Route::get('/add', [App\Http\Controllers\AssociatesController::class, 'create'])->name('associates.create');
+        Route::post('/store', [App\Http\Controllers\AssociatesController::class, 'store'])->name('associates.store');
+        Route::get('/show/{id}', [App\Http\Controllers\AssociatesController::class, 'show'])->name('associates.show');
+        Route::delete('/delete/{id}', [App\Http\Controllers\AssociatesController::class, 'destroy'])->name('associates.delete');
+         Route::get('/edit/{id}', [App\Http\Controllers\AssociatesController::class, 'edit'])->name('associates.edit');
+        Route::put('/update/{id}', [App\Http\Controllers\AssociatesController::class, 'update'])->name('associates.update'); 
+    });
+ 
+    //chatgpt routes
+    Route::group(['prefix' => 'chatgpt'], function() {
+    Route::get('/', [App\Http\Controllers\ChatGPTController::class, 'index'])->name('chatgpt.index');
+    Route::post('/ask', [App\Http\Controllers\ChatGPTController::class, 'ask'])->name('chatgpt.ask');
+    });
+
+     //notification routes
+    Route::get('/notification', [App\Http\Controllers\HomeUsersControllerController::class, 'notification']);
+   
+     //import EXCEL routes
+    Route::get('/file-import',[App\Http\Controllers\ExcelImportController::class,'importView'])->name('import-view');
+    Route::post('/import',[App\Http\Controllers\ExcelImportController::class,'tests'])->name('import');
+
+    //trademarks crud
+    Route::group(['prefix' => 'trademarkstkts'], function() {
+        Route::get('/',[App\Http\Controllers\TradeMarksController::class,'index'])->name('trademarkstkts.index');
+        Route::get('/tkt_questions',[App\Http\Controllers\TradeMarksController::class,'tkt_questions'])->name('tkt_questions');
+        Route::get('/add', [App\Http\Controllers\TradeMarksController::class, 'create'])->name('trademarkstkts.create');
+        Route::post('/store', [App\Http\Controllers\TradeMarksController::class, 'store'])->name('trademarkstkts.store');
+        Route::get('/show/{id}', [App\Http\Controllers\TradeMarksController::class, 'show'])->name('trademarkstkts.show');
+        Route::patch('/update/{id}', [App\Http\Controllers\TradeMarksController::class, 'update'])->name('trademarkstkts.update');
+        Route::post('/fileUploadPost', [App\Http\Controllers\TradeMarksController::class, 'fileUploadPost'])->name('fileUploadPost');
+        Route::get('/report', [App\Http\Controllers\TradeMarksController::class, 'report'])->name('trademarkstkts.report');
+        Route::get('/excel', [App\Http\Controllers\TradeMarksController::class, 'test'])->name('trademarkstkts.excel');
+        Route::get('/request_report', [App\Http\Controllers\TradeMarksController::class, 'request_report'])->name('trademarkstkts.request_report');
+        //        request_report
+        //    Route::view('/create', 'tickets.add')->name('trademarkstkts.create');
+     //   Route::get('/create',[App\Http\Controllers\TKTsController::class,'tkt_questions'])->name('trademarkstkts.create');
+    });
+
+    Route::group(['prefix' => 'notifications'], function() {
+        Route::get('/index', [App\Http\Controllers\NotificationController::class, 'viewnotification'])->name('notifications.index');
+        Route::get('/add', [App\Http\Controllers\NotificationController::class, 'create'])->name('notifications.create');
+        Route::post('/store', [App\Http\Controllers\NotificationController::class, 'store'])->name('notifications.store');
+        Route::get('/show/{id}', [App\Http\Controllers\NotificationController::class, 'show'])->name('notifications.show');
+        Route::delete('/delete/{id}', [App\Http\Controllers\NotificationController::class, 'destroy'])->name('notifications.delete');
+        Route::get('/edit/{id}', [App\Http\Controllers\NotificationController::class, 'edit'])->name('notifications.edit');
+        Route::put('/update/{id}', [App\Http\Controllers\NotificationController::class, 'update'])->name('notifications.update'); 
+
+        Route::get('/notificationall', [App\Http\Controllers\NotificationController::class, 'notificationall'])->name('notifications.notificationall');
+        });
+
+
+
+        Route::resource('applicants', App\Http\Controllers\ApplicantController::class);
+
+        /*Route::group(['prefix' => 'applicants'], function() {
+            Route::get('/index', [App\Http\Controllers\ApplicantController::class, 'index'])->name('applicants.index');
+            Route::get('/add', [App\Http\Controllers\ApplicantController::class, 'create'])->name('applicants.create');
+            Route::post('/store', [App\Http\Controllers\ApplicantController::class, 'store'])->name('applicants.store');
+            Route::get('/show/{id}', [App\Http\Controllers\ApplicantController::class, 'show'])->name('applicants.show');
+            Route::delete('/delete/{id}', [App\Http\Controllers\ApplicantController::class, 'destroy'])->name('applicants.delete');
+            Route::get('/edit/{id}', [App\Http\Controllers\ApplicantController::class, 'edit'])->name('applicants.edit');
+            Route::put('/update/{id}', [App\Http\Controllers\ApplicantController::class, 'update'])->name('applicants.update'); 
+    
+            });*/
+
+            
+
+       
+
+    Route::post('notifications', [App\Http\Controllers\NotificationController::class, 'index'])->name('notifications');
+        //Route::post('store-company', [DataTableAjaxCRUDController::class, 'store']);
+        //Route::post('edit-company', [App\Http\Controllers\NotificationController::class, 'edit']);
+        // Route::post('delete-company', [DataTableAjaxCRUDController::class, 'destroy']);
+        //Route::get('/notifications', [App\Http\Controllers\NotificationController::class, 'index'])->name('notification');
+        //Route::post('/mark-as-read', [App\Http\Controllers\NotificationController::class, 'markNotification'])->name('markNotification');
+        //Route::post('/notifications/mark-as-read', [NotificationController::class, 'markAsRead']);
+    Route::resource('roles', App\Http\Controllers\RollController::class);
+
+
+    Route::get('/clear', function() {
+        Artisan::call('optimize:clear'); return redirect()->back();
+    })->name('clear');
+
 });
+
+    //telescope 
+    Route::middleware(['telescope'])->group(function () {
+    // Telescope::routes();
+    });
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+
+    Route::get('/draft', [App\Http\Controllers\HomeController::class, 'draft']);
+

@@ -3,11 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\View;
-use App\Models\Category;
-use App\Models\Setting;
+use Illuminate\Support\Facades\Gate;
+
+//use Illuminate\Foundation\Application;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+       // parent::register(); // Make sure to call the parent's register method
     }
 
     /**
@@ -28,14 +26,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::useBootstrap();
-        if( Schema::hasTable('categories') ) {
-            
-            $categories = Category::withCount('posts')->orderBy('posts_count', 'DESC')->take(10)->get();
-            View::share('navbar_categories', $categories);
+        $this->registerTelescope();
 
-            $setting = Setting::find(1);
-            View::share('setting', $setting);
+        if ($this->app->isLocal()) {
+            $this->registerTelescope();
         }
     }
+
+    protected function registerTelescope()
+{
+    if (class_exists('Telescope')) {
+        Telescope::ignoreMigrations();
+        Telescope::filter(function () {
+            return $this->app->environment('local');
+        });
+    }
+}
 }
